@@ -1,0 +1,188 @@
+body{
+	background-image: url("images/wood.png");
+	background-color: #343434;
+	font-family: Arial, san-serif;
+}
+
+#main{
+	width: 1170px;
+	margin: 100px auto;
+	background-color: #fff;
+	border-radius: 4px 4px 4px 4px;
+}
+
+#navigation{
+	height: 100px;
+}
+
+#banner{
+	height: 400px;
+	position: relative;
+	background: -moz-linear-gradient(#e7e7e7, #fff);
+	background: -ms-linear-gradient(#e7e7e7, #fff);
+	background: -o-linear-gradient(#e7e7e7, #fff);
+	background: -webkit-linear-gradient(#e7e7e7, #fff);
+}
+
+#bannertext{
+	width: 600px;
+	right: 0;
+	top: 100px;
+	position: absolute;
+}
+
+#bannersubtitle{
+	font-size: 19pt;
+	color: #003d48;
+}
+
+#bannertitle{
+	font-size: 26pt;
+	font-weight: bold;
+	color: #003d48;
+}
+
+#bannerdescription{
+	width: 400px;
+	color: #a1a1a1;
+}
+
+a.button {
+	position: absolute;
+	color: #fff;
+	border-radius: 4px 4px 4px 4px;
+	text-decoration: none;
+	background: #f77462;
+	padding: .7em 1.5em;
+	outline: none;
+} 
+
+a.button:hover { 
+	background: rgb(232,95,76); 
+}
+
+a.button:active { 
+	background: rgb(152,15,0); 
+}
+
+#smartphone{
+	position: absolute;
+	bottom: 0;
+	left: 100px;
+}
+
+#content{
+	overflow: hidden;
+}
+
+#row1{
+	background-color: #6dc5dd;
+	height: 270px;
+	overflow: hidden;
+}
+
+.shortTopic{
+	float: left;
+	width: 32%;
+	height: 210px;
+	position:relative;
+	padding-top: 60px;
+}
+
+.shortTopic .shortcut{
+	position: absolute;
+	padding: 0 30px;
+}
+
+.topictext{
+	color: #fff;
+	width: 70%;
+	right: 0;	
+	position: absolute;
+	font-size: 11pt;	
+}
+
+.topictitle{
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+.readmore{
+	text-decoration: none;
+	color: #fff;
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.readmore:hover { 
+	text-decoration: underline; 
+}
+
+#row2{
+	padding-top: 50px;
+	overflow: hidden;
+}
+
+#picTopics{
+	float: left;
+	width: 64%;
+}
+
+#rightBar{
+	float: left;
+	width: 35%;
+}
+
+.picTopic{
+	height: 255px;
+	padding-left: 30px;
+	position: relative;
+}
+
+.picTopic img{
+	float: left;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.pictopictext{
+	width: 460px;
+	right: 30px;	
+	position: absolute;
+	font-size: 11pt;
+	padding-top: 5px;	
+}
+
+.pictopictitle{
+	color: #225760;
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+.pictopicdescription{
+	color: #8c9193;
+	line-height: 18pt;
+}
+
+.tab{
+	width: 105px;
+	height: 40px;
+	text-align: center;
+    line-height: 40px;
+	float: left;
+	margin-left: 10px;
+	border-radius: 6px 6px 0px 0px;
+	border: 2px solid #ececec;
+	border-bottom-width: 0px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #787878;
+}
+
+#activeTab{
+	background-color: #003d48;
+	color: #f77462;
+}
+
+/* div{ */
+	/* border: 1px solid grey; */
+/* }  */
