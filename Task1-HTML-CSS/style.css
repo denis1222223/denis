@@ -131,6 +131,7 @@ a.button:active {
 #rightBar{
 	float: left;
 	width: 35%;
+	position: relative;
 }
 
 .picTopic{
@@ -169,7 +170,7 @@ a.button:active {
 	text-align: center;
     line-height: 40px;
 	float: left;
-	margin-left: 10px;
+	margin-right: 10px;
 	border-radius: 6px 6px 0px 0px;
 	border: 2px solid #ececec;
 	border-bottom-width: 0px;
@@ -178,9 +179,98 @@ a.button:active {
 	color: #787878;
 }
 
+.tab:hover { 
+	background: #ececec; 
+}
+
+#tabs{
+	overflow: hidden;
+	position: absolute;
+    z-index: 1;
+}
+
 #activeTab{
 	background-color: #003d48;
 	color: #f77462;
+}
+
+#activeTab:hover{
+	
+}
+
+#tabContent{
+	width: 340px;
+	height: 390px;
+	border: 2px solid #ececec;
+	border-radius: 0px 6px 6px 6px;
+	position: absolute;
+    top: 40px;
+}
+
+#tabTop{
+	background-color: #003d48;
+	height: 150px;
+	border: 0px solid #ececec;
+	border-bottom-width: 2px;
+	padding: 1px 30px;
+}
+
+#tabTitle{
+	color: #66bcd3;
+	font-weight: bold;
+	line-height: 20pt;
+	margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#tabDescription{
+	color: #fff;
+	font-size: 10pt;
+    line-height: 17pt;
+}
+
+#tabBottom ul{
+	list-style-type: none;
+	color: #d8d8d8;
+	padding: 0px 30px;
+    margin-top: 20px;
+}
+
+#tabBottom li{
+	border-bottom: 1px solid #ececec;
+}
+
+#tabBottom li a{	
+	font-size: 10pt;
+    line-height: 27pt;
+	color: #787878;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#tabBottom .marker{
+    color: #f77462;
+	float: left;
+	margin-right: 12px;
+}
+
+#row3{
+	height: 205px;
+	background-color: #f77462;
+	color: #fff;
+	text-align: center;
+}
+
+#row3 .title{
+	font-size: 23pt;
+	font-weight: bold;
+	padding-top: 45px;
+	line-height: 35pt;
+}
+
+#row3 .description{
+	font-size: 13pt;
+	line-height: 20pt;
 }
 
 /* div{ */
