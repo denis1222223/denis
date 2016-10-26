@@ -1,65 +1,64 @@
-body{
+body {
 	background-image: url("images/wood.png");
 	background-color: #343434;
 	font-family: Arial, san-serif;
 }
 
-#main{
+#main {
 	width: 1170px;
 	margin: 100px auto;
 	background-color: #fff;
 	border-radius: 6px 6px 6px 6px;
 }
 
-#navigation{
+#navigation {
 	height: 40px;
 	padding: 30px 25px;
 	position: relative;
 }
 
-#menu{
+#menu {
 	position: absolute;
 	right: 12px;
 }
 
-#menu ul{
+#menu ul {
 	font-size: 12px;
 }
 
-#menu li{
+#menu li {
 	display: inline-block;
 	font-size: 17px;
-	padding: 0 20px;
-	
+	padding: 0 20px;	
 	font-weight: bold;
 }
 
-#menu li:hover{
-	text-decoration: underline;
+#menu a:hover {
+	color: #6dc5dd;
 }
 
-#menu a{
+#menu a {
 	text-decoration: none;
 	color: #8a8a8a;
 }
 
-#navigation img{
+#navigation img {
 	float: left;
 }
 
-#tagline{
+#tagline {
 	float: left;
 	margin-left: 15px;
 }
 
-#tagline .sitetag{
+#tagline .sitetag {
 	color: #114a54;
 	font-size: 19pt;
 	font-weight: bold;
 	float: left;
 }
 
-#tagline .nametag{
+#tagline .nametag {
 	color: #f77462;
 	float: left;
 	font-size: 19pt;
@@ -67,16 +66,18 @@ body{
 	top-width: 2px;
 }
 
-#siteCaption{
+#site-caption {
 	color: #929292;
 	font-size: 10pt;
 }
 
-#siteName{
+#site-name {
 	overflow: hidden;
 }
 
-#banner{
+/* Banner */
+
+#banner {
 	height: 400px;
 	position: relative;
 	background: -moz-linear-gradient(#e7e7e7, #fff);
@@ -85,25 +86,25 @@ body{
 	background: -webkit-linear-gradient(#e7e7e7, #fff);
 }
 
-#bannertext{
+#banner-text {
 	width: 600px;
 	right: 0;
 	top: 100px;
 	position: absolute;
 }
 
-#bannersubtitle{
+#banner-subtitle {
 	font-size: 19pt;
 	color: #003d48;
 }
 
-#bannertitle{
+#banner-title {
 	font-size: 26pt;
 	font-weight: bold;
 	color: #003d48;
 }
 
-#bannerdescription{
+#banner-description {
 	width: 400px;
 	color: #a1a1a1;
 }
@@ -126,36 +127,38 @@ a.button:active {
 	background: rgb(152,15,0); 
 }
 
-#smartphone{
+#smartphone {
 	position: absolute;
 	bottom: 0;
 	left: 100px;
 }
 
-#content{
+#content {
 	overflow: hidden;
 }
 
-#row1{
+/* Row 1 */
+
+#row1 {
 	background-color: #6dc5dd;
 	height: 270px;
 	overflow: hidden;
 }
 
-.shortTopic{
+.short-topic {
 	float: left;
 	width: 32%;
 	height: 210px;
-	position:relative;
+	position: relative;
 	padding-top: 60px;
 }
 
-.shortTopic .shortcut{
+.short-topic .shortcut {
 	position: absolute;
 	padding: 0 30px;
 }
 
-.topictext{
+.topic-text {
 	color: #fff;
 	width: 70%;
 	right: 0;	
@@ -163,50 +166,52 @@ a.button:active {
 	font-size: 11pt;	
 }
 
-.topictitle{
+.topic-title {
 	font-size: 16pt;
 	font-weight: bold;
 }
 
-.readmore{
+.read-more {
 	text-decoration: none;
 	color: #fff;
 	font-size: 12pt;
 	font-weight: bold;
 }
 
-.readmore:hover { 
+.read-more:hover { 
 	text-decoration: underline; 
 }
 
-#row2{
+/* Row 2 */
+
+#row2 {
 	padding-top: 50px;
 	overflow: hidden;
 }
 
-#picTopics{
+#pic-topics {
 	float: left;
 	width: 64%;
 }
 
-#rightBar{
+#right-bar {
 	float: left;
 	width: 35%;
 	position: relative;
 }
 
-.picTopic{
+.pic-topic {
 	height: 255px;
 	padding-left: 30px;
 	position: relative;
 }
 
-.picTopic img{
+.pic-topic img {
 	float: left;
 	border-radius: 4px 4px 4px 4px;
 }
 
-.pictopictext{
+.pic-topic-text {
 	width: 460px;
 	right: 30px;	
 	position: absolute;
@@ -214,18 +219,18 @@ a.button:active {
 	padding-top: 5px;	
 }
 
-.pictopictitle{
+.pic-topic-title {
 	color: #225760;
 	font-size: 14pt;
 	font-weight: bold;
 }
 
-.pictopicdescription{
+.pic-topic-description {
 	color: #8c9193;
 	line-height: 18pt;
 }
 
-.tab{
+.tab {
 	width: 105px;
 	height: 40px;
 	text-align: center;
@@ -244,22 +249,22 @@ a.button:active {
 	background: #ececec; 
 }
 
-#tabs{
+#tabs {
 	overflow: hidden;
 	position: absolute;
     z-index: 1;
 }
 
-#activeTab{
+#active-tab {
 	background-color: #003d48;
 	color: #f77462;
 }
 
-#activeTab:hover{
+#active-tab:hover {
 	
 }
 
-#tabContent{
+#tab-content {
 	width: 340px;
 	height: 390px;
 	border: 2px solid #ececec;
@@ -268,7 +273,7 @@ a.button:active {
     top: 40px;
 }
 
-#tabTop{
+#tab-top {
 	background-color: #003d48;
 	height: 150px;
 	border: 0px solid #ececec;
@@ -276,7 +281,7 @@ a.button:active {
 	padding: 1px 30px;
 }
 
-#tabTitle{
+#tab-title {
 	color: #66bcd3;
 	font-weight: bold;
 	line-height: 20pt;
@@ -284,24 +289,24 @@ a.button:active {
     margin-bottom: 10px;
 }
 
-#tabDescription{
+#tab-description {
 	color: #fff;
 	font-size: 10pt;
     line-height: 17pt;
 }
 
-#tabBottom ul{
+#tab-bottom ul {
 	list-style-type: none;
 	color: #d8d8d8;
 	padding: 0px 30px;
     margin-top: 20px;
 }
 
-#tabBottom li{
+#tab-bottom li {
 	border-bottom: 1px solid #ececec;
 }
 
-#tabBottom li a{	
+#tab-bottom li a {	
 	font-size: 10pt;
     line-height: 27pt;
 	color: #787878;
@@ -309,36 +314,40 @@ a.button:active {
 	font-weight: bold;
 }
 
-#tabBottom .marker{
+#tab-bottom .marker {
     color: #f77462;
 	float: left;
 	margin-right: 12px;
 }
 
-#row3{
+/* Row 3 */
+
+#row3 {
 	height: 205px;
 	background-color: #f77462;
 	color: #fff;
 	text-align: center;
 }
 
-#row3 .title{
+#row3 .title {
 	font-size: 23pt;
 	font-weight: bold;
 	padding-top: 45px;
 	line-height: 35pt;
 }
 
-#row3 .description{
+#row3 .description {
 	font-size: 13pt;
 	line-height: 20pt;
 }
 
-#row4{
+/* Row 4 */
+
+#row4 {
 	padding: 20px 30px;
 }
 
-#row4 .title{
+#row4 .title {
 	text-align: center;
 	color: #225760;	
 	font-weight: bold;
@@ -346,7 +355,7 @@ a.button:active {
 	line-height: 67pt;
 }
 
-#row4 .description{
+#row4 .description {
 	text-align: center;
 	color: #6dc5dd;	
 	border: 1px solid #dbdbdb;
@@ -356,23 +365,23 @@ a.button:active {
     line-height: 35pt;
 }
 
-#row4 .content{
+#row4 .content {
 	overflow: hidden;
 	margin-top: 40px;
 	position: relative;
 }
 
-#row4 .content .column{
+#row4 .content .column {
 	float: left;
 	width: 49%;
 }
 
-#news .item{
+#news .item {
 	position: relative;
 	height: 150px;
 }
 
-#news .date{
+#news .date {
 	height: 70px;
 	width: 70px;
 	background-color: #6dc5dd;
@@ -383,7 +392,7 @@ a.button:active {
 	float: left;
 }
 
-#news .day{
+#news .day {
 	height: 43px;
 	border: 0px solid #fff;
 	border-bottom-width: 1px;
@@ -391,11 +400,11 @@ a.button:active {
     line-height: 35pt;
 }
 
-#news .month{
+#news .month {
 	line-height: 20pt;
 }
 
-#news .article{
+#news .article {
 	position: absolute;
 	float: left;
 	color: #000;
@@ -403,34 +412,34 @@ a.button:active {
 	right: 20px;
 }
 
-#news .articleTitle{
+#news .article-title {
 	color: #003d48;
 	font-size: 12pt;
 	font-weight: bold;
 }
 
-#news .article a{
+#news .article a {
 	text-decoration: none;
 }
 
-#news .articleTitle:hover{
+#news .article-title:hover {
 	text-decoration: underline;
 }
 
-#news .comments{
+#news .comments {
 	color: #f77462;
 	font-size: 10pt;
 	line-height: 20pt;
 }
 
-#news .articleDescription{
+#news .article-description {
 	margin-top: 10px;
 	color: #818181;
 	font-size: 10pt;
 	line-height: 15pt;
 }
 
-#news .arrow{
+#news .arrow {
 	width: 30px;
 	color: #f77462;
 	position: absolute;
@@ -438,12 +447,12 @@ a.button:active {
     bottom: 0;
 }
 
-#remarks{
+#remarks {
 	position: absolute;
     right: 0;
 }
 
-#remarks .remark{
+#remarks .remark {
 	width: 350px;
     padding-top: 35px;
 	font-size: 11pt;
@@ -451,14 +460,14 @@ a.button:active {
 	color: #8c9193;
 }
 
-#remarks .author{
+#remarks .author {
 	color: #f77462;
 	font-weight: bold;
 	font-size: 11pt;
 	line-height: 30pt;
 }
 
-#remarks .item{
+#remarks .item {
 	width: 514;
 	height: 173;
 	background-color: ececec;
@@ -467,13 +476,15 @@ a.button:active {
 	position: relative;
 }
 
-#remarks img{
+#remarks img {
 	position: absolute;
     right: 30px;
     top: 35px;
 }
 
-#footer{
+/* Footer */
+
+#footer {
 	position: relative;
 	height: 285px;
 	background-color: #6dc5dd;
@@ -488,7 +499,7 @@ a.button:active {
   padding-left: 0;
 }
 
-#footer ul .colList li{
+#footer ul .col-list li {
   display: block;
   line-height: 20pt;
   font-size: 10pt;
@@ -503,29 +514,29 @@ a.button:active {
   display: inline-block;
 }
 
-#footer ul li  {
+#footer ul li {
   display: inline-block;
   text-align: left;
   line-height: normal;
   font-size: 14px;
 }
 
-#footer .colTitle{
+#footer .col-title {
 	font-weight: bold;
 	font-size: 14pt;
 	margin-bottom: 10px;
 }
 
-#footer a{
+#footer a {
 	color: #fff;
 	text-decoration: none;
 }
 
-#footer a:hover{
+#footer a:hover {
 	text-decoration: underline;
 }
 
-#copyrights{
+#copyrights {
 	font-size: 10pt;
 	padding-top: 45px;
 	border: 0px solid #9fd9e9;
@@ -533,16 +544,12 @@ a.button:active {
 	margin-top: 52px;
 }
 
-#social{
+#social {
 	right: 30px;
     bottom: 40px;
     position: absolute;
 }
 
-#social img{
+#social img {
 	margin-left: 5px;
 }
-
-/* div{ */
-	/* border: 1px solid grey; */
-/* }  */
