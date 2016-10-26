@@ -109,7 +109,7 @@ body {
 	color: #a1a1a1;
 }
 
-a.button {
+.button {
 	position: absolute;
 	color: #fff;
 	border-radius: 4px 4px 4px 4px;
@@ -119,11 +119,11 @@ a.button {
 	outline: none;
 } 
 
-a.button:hover { 
+.button:hover { 
 	background: rgb(232,95,76); 
 }
 
-a.button:active { 
+.button:active { 
 	background: rgb(152,15,0); 
 }
 
@@ -381,7 +381,7 @@ a.button:active {
 	height: 150px;
 }
 
-#news .date {
+.date {
 	height: 70px;
 	width: 70px;
 	background-color: #6dc5dd;
@@ -392,7 +392,7 @@ a.button:active {
 	float: left;
 }
 
-#news .day {
+.day {
 	height: 43px;
 	border: 0px solid #fff;
 	border-bottom-width: 1px;
@@ -400,11 +400,11 @@ a.button:active {
     line-height: 35pt;
 }
 
-#news .month {
+.month {
 	line-height: 20pt;
 }
 
-#news .article {
+.article {
 	position: absolute;
 	float: left;
 	color: #000;
@@ -412,34 +412,34 @@ a.button:active {
 	right: 20px;
 }
 
-#news .article-title {
+.article-title {
 	color: #003d48;
 	font-size: 12pt;
 	font-weight: bold;
 }
 
-#news .article a {
+.article a {
 	text-decoration: none;
 }
 
-#news .article-title:hover {
+.article-title:hover {
 	text-decoration: underline;
 }
 
-#news .comments {
+.comments {
 	color: #f77462;
 	font-size: 10pt;
 	line-height: 20pt;
 }
 
-#news .article-description {
+.article-description {
 	margin-top: 10px;
 	color: #818181;
 	font-size: 10pt;
 	line-height: 15pt;
 }
 
-#news .arrow {
+.arrow {
 	width: 30px;
 	color: #f77462;
 	position: absolute;
@@ -452,7 +452,7 @@ a.button:active {
     right: 0;
 }
 
-#remarks .remark {
+.remark {
 	width: 350px;
     padding-top: 35px;
 	font-size: 11pt;
@@ -460,7 +460,7 @@ a.button:active {
 	color: #8c9193;
 }
 
-#remarks .author {
+.author {
 	color: #f77462;
 	font-weight: bold;
 	font-size: 11pt;
