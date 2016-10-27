@@ -318,14 +318,14 @@ nav {
 	text-align: center;
 }
 
-.row3 .title {
+.row3__title {
 	font-size: 23pt;
 	font-weight: bold;
 	padding-top: 45px;
 	line-height: 35pt;
 }
 
-.row3 .description {
+.row3__description {
 	font-size: 13pt;
 	line-height: 20pt;
 }
@@ -336,7 +336,7 @@ nav {
 	padding: 20px 30px;
 }
 
-.row4 .title {
+.row4__title {
 	text-align: center;
 	color: #225760;	
 	font-weight: bold;
@@ -344,7 +344,7 @@ nav {
 	line-height: 67pt;
 }
 
-.row4 .description {
+.row4__description {
 	text-align: center;
 	color: #6dc5dd;	
 	border: 1px solid #dbdbdb;
@@ -354,18 +354,18 @@ nav {
     line-height: 35pt;
 }
 
-.row4 .content {
+.row4__content {
 	overflow: hidden;
 	margin-top: 40px;
 	position: relative;
 }
 
-.row4 .content .column {
+.row4__column {
 	float: left;
-	width: 49%;
+	width: 50%;
 }
 
-#news .item {
+.news__item {
 	position: relative;
 	height: 150px;
 }
@@ -381,7 +381,7 @@ nav {
 	float: left;
 }
 
-.day {
+.date__day {
 	height: 43px;
 	border: 0px solid #fff;
 	border-bottom-width: 1px;
@@ -389,7 +389,7 @@ nav {
     line-height: 35pt;
 }
 
-.month {
+.date__month {
 	line-height: 20pt;
 }
 
@@ -401,27 +401,23 @@ nav {
 	right: 20px;
 }
 
-.article-title {
+.article__title {
 	color: #003d48;
 	font-size: 12pt;
 	font-weight: bold;
 }
 
-.article a {
-	text-decoration: none;
-}
-
-.article-title:hover {
+.article__title:hover {
 	text-decoration: underline;
 }
 
-.comments {
+.article__comments {
 	color: #f77462;
 	font-size: 10pt;
 	line-height: 20pt;
 }
 
-.article-description {
+.article__description {
 	margin-top: 10px;
 	color: #818181;
 	font-size: 10pt;
@@ -436,28 +432,7 @@ nav {
     bottom: 0;
 }
 
-#remarks {
-	position: absolute;
-    right: 0;
-}
-
 .remark {
-	width: 350px;
-    padding-top: 35px;
-	font-size: 11pt;
-	line-height: 18pt;
-	color: #8c9193;
-}
-
-.author {
-	color: #f77462;
-	font-weight: bold;
-	font-size: 11pt;
-	line-height: 30pt;
-}
-
-#remarks .item {
-	width: 514;
 	height: 173;
 	background-color: ececec;
 	margin-bottom: 40px;
@@ -465,7 +440,22 @@ nav {
 	position: relative;
 }
 
-#remarks img {
+.remark__text {
+	width: 350px;
+    padding-top: 35px;
+	font-size: 11pt;
+	line-height: 18pt;
+	color: #8c9193;
+}
+
+.remark__author {
+	color: #f77462;
+	font-weight: bold;
+	font-size: 11pt;
+	line-height: 30pt;
+}
+
+.remark__img {
 	position: absolute;
     right: 30px;
     top: 35px;
