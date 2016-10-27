@@ -1,83 +1,81 @@
-body {
+html {
 	background-image: url("images/wood.png");
 	background-color: #343434;
 	font-family: Arial, san-serif;
 }
 
-#main {
+body {
 	width: 1170px;
 	margin: 100px auto;
 	background-color: #fff;
 	border-radius: 6px 6px 6px 6px;
 }
 
-#navigation {
+nav {
 	height: 40px;
 	padding: 30px 25px;
 	position: relative;
 }
 
-#menu {
-	position: absolute;
-	right: 12px;
-}
-
-#menu ul {
-	font-size: 12px;
-}
-
-#menu li {
-	display: inline-block;
-	font-size: 17px;
-	padding: 0 20px;	
-	font-weight: bold;
-}
-
-#menu a:hover {
-	color: #6dc5dd;
-}
-
-#menu a {
+.link {
 	text-decoration: none;
-	color: #8a8a8a;
 }
 
-#navigation img {
+.trademarks__logo {
 	float: left;
 }
 
-#tagline {
+.tagline {
 	float: left;
 	margin-left: 15px;
 }
 
-#tagline .sitetag {
+.tagline__site-name {
+	overflow: hidden;
+}
+
+.tagline__site-tag {
 	color: #114a54;
 	font-size: 19pt;
 	font-weight: bold;
 	float: left;
 }
 
-#tagline .nametag {
+.tagline__name-tag {
 	color: #f77462;
 	float: left;
 	font-size: 19pt;
 	margin-left: 5px;
-	top-width: 2px;
 }
 
-#site-caption {
+.tagline__site-caption {
 	color: #929292;
 	font-size: 10pt;
 }
 
-#site-name {
-	overflow: hidden;
+.menu {
+	position: absolute;
+	right: 12px;
+}
+
+.menu__item {
+	display: inline-block;
+	padding: 0 20px;		
+}
+
+.menu_link {
+	color: #8a8a8a;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.menu_link_selected {
+	color: #6dc5dd;
 }
 
 /* Banner */
 
-#banner {
+.banner {
 	height: 400px;
 	position: relative;
 	background: -moz-linear-gradient(#e7e7e7, #fff);
@@ -86,25 +84,31 @@ body {
 	background: -webkit-linear-gradient(#e7e7e7, #fff);
 }
 
-#banner-text {
+.banner__pic {
+	position: absolute;
+	bottom: 0;
+	left: 100px;
+}
+
+.banner__text {
 	width: 600px;
 	right: 0;
 	top: 100px;
 	position: absolute;
 }
 
-#banner-subtitle {
+.banner__subtitle {
 	font-size: 19pt;
 	color: #003d48;
 }
 
-#banner-title {
+.banner__title {
 	font-size: 26pt;
 	font-weight: bold;
 	color: #003d48;
 }
 
-#banner-description {
+.banner__description {
 	width: 400px;
 	color: #a1a1a1;
 }
@@ -127,22 +131,14 @@ body {
 	background: rgb(152,15,0); 
 }
 
-#smartphone {
-	position: absolute;
-	bottom: 0;
-	left: 100px;
-}
-
-#content {
+.row {
 	overflow: hidden;
 }
 
 /* Row 1 */
 
-#row1 {
+.row1 {
 	background-color: #6dc5dd;
-	height: 270px;
-	overflow: hidden;
 }
 
 .short-topic {
@@ -153,84 +149,83 @@ body {
 	padding-top: 60px;
 }
 
-.short-topic .shortcut {
+.short-topic__img {
 	position: absolute;
 	padding: 0 30px;
 }
 
-.topic-text {
+.short-topic__text {
 	color: #fff;
 	width: 70%;
 	right: 0;	
-	position: absolute;
-	font-size: 11pt;	
+	position: absolute;		
 }
 
-.topic-title {
+.short-topic__description {
+	font-size: 11pt;
+}
+
+.short-topic__title {
 	font-size: 16pt;
 	font-weight: bold;
 }
 
-.read-more {
-	text-decoration: none;
+.short-topic__read-more {
 	color: #fff;
 	font-size: 12pt;
 	font-weight: bold;
 }
 
-.read-more:hover { 
+.short-topic__read-more:hover { 
 	text-decoration: underline; 
 }
 
 /* Row 2 */
 
-#row2 {
+.row2 {
 	padding-top: 50px;
-	overflow: hidden;
 }
 
-#pic-topics {
+.pic-topics {
 	float: left;
-	width: 64%;
+	width: 68%;
 }
 
-#right-bar {
+.tab-control {
 	float: left;
-	width: 35%;
-	position: relative;
+    width: 340px;
 }
 
 .pic-topic {
-	height: 255px;
+	overflow: hidden;
 	padding-left: 30px;
 	position: relative;
 }
 
-.pic-topic img {
+.pic-topic__img {
 	float: left;
 	border-radius: 4px 4px 4px 4px;
 }
 
-.pic-topic-text {
-	width: 460px;
-	right: 30px;	
-	position: absolute;
-	font-size: 11pt;
-	padding-top: 5px;	
+.pic-topic__text {
+	width: 68%;
+    font-size: 11pt;
+	padding: 5px 30px 105px 20px;
+    float: left;
 }
 
-.pic-topic-title {
+.pic-topic__title {
 	color: #225760;
 	font-size: 14pt;
 	font-weight: bold;
 }
 
-.pic-topic-description {
+.pic-topic__description {
 	color: #8c9193;
 	line-height: 18pt;
 }
 
-.tab {
+.tab-control__tab {
 	width: 105px;
 	height: 40px;
 	text-align: center;
@@ -245,76 +240,70 @@ body {
 	color: #787878;
 }
 
-.tab:hover { 
+.tab-control__tab:hover { 
 	background: #ececec; 
 }
 
-#tabs {
+.tab-control__tabs {
 	overflow: hidden;
-	position: absolute;
-    z-index: 1;
+	position: relative;
+	z-index: 2;
 }
 
-#active-tab {
+.tab-control__tab_selected {
 	background-color: #003d48;
 	color: #f77462;
 }
 
-#active-tab:hover {
-	
-}
-
-#tab-content {
-	width: 340px;
-	height: 390px;
+.tab-control__content {
 	border: 2px solid #ececec;
-	border-radius: 0px 6px 6px 6px;
-	position: absolute;
-    top: 40px;
+    border-radius: 0px 6px 6px 6px;
+	position: relative;
+	top: -2px;
+	z-index: 1;
 }
 
-#tab-top {
+.tab-control__tab-top {
 	background-color: #003d48;
-	height: 150px;
-	border: 0px solid #ececec;
-	border-bottom-width: 2px;
-	padding: 1px 30px;
+	padding: 30px 30px;
 }
 
-#tab-title {
+.tab-control__tab-title {
 	color: #66bcd3;
 	font-weight: bold;
 	line-height: 20pt;
-	margin-top: 20px;
     margin-bottom: 10px;
 }
 
-#tab-description {
+.tab-control__tab-description {
 	color: #fff;
 	font-size: 10pt;
     line-height: 17pt;
 }
 
-#tab-bottom ul {
+.tab-list {
 	list-style-type: none;
 	color: #d8d8d8;
 	padding: 0px 30px;
     margin-top: 20px;
 }
 
-#tab-bottom li {
+.tab-list__item {
 	border-bottom: 1px solid #ececec;
 }
 
-#tab-bottom li a {	
+.tab-list__item-bottom-none {
+	border-bottom-width: 0px;
+}
+
+.tab-list__link {	
 	font-size: 10pt;
     line-height: 27pt;
 	color: #787878;
-	text-decoration: none;
 	font-weight: bold;
 }
 
-#tab-bottom .marker {
+.marker {
     color: #f77462;
 	float: left;
 	margin-right: 12px;
@@ -322,32 +311,32 @@ body {
 
 /* Row 3 */
 
-#row3 {
+.row3 {
 	height: 205px;
 	background-color: #f77462;
 	color: #fff;
 	text-align: center;
 }
 
-#row3 .title {
+.row3 .title {
 	font-size: 23pt;
 	font-weight: bold;
 	padding-top: 45px;
 	line-height: 35pt;
 }
 
-#row3 .description {
+.row3 .description {
 	font-size: 13pt;
 	line-height: 20pt;
 }
 
 /* Row 4 */
 
-#row4 {
+.row4 {
 	padding: 20px 30px;
 }
 
-#row4 .title {
+.row4 .title {
 	text-align: center;
 	color: #225760;	
 	font-weight: bold;
@@ -355,7 +344,7 @@ body {
 	line-height: 67pt;
 }
 
-#row4 .description {
+.row4 .description {
 	text-align: center;
 	color: #6dc5dd;	
 	border: 1px solid #dbdbdb;
@@ -365,13 +354,13 @@ body {
     line-height: 35pt;
 }
 
-#row4 .content {
+.row4 .content {
 	overflow: hidden;
 	margin-top: 40px;
 	position: relative;
 }
 
-#row4 .content .column {
+.row4 .content .column {
 	float: left;
 	width: 49%;
 }

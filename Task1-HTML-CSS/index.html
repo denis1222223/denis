@@ -4,197 +4,203 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div id="main">
-	<div id="header">
-		<div id="navigation">
-			<img src="images/paperplane.png">
-			<div id="tagline">
-				<div id="site-name"><div class="sitetag">Site</div><div class="nametag">Name</div></div>
-				<div id="site-caption">your caption here</div>
+	<header class="header">
+		<nav>
+			<div class="trademarks">
+				<img class="trademarks__logo" src="images/paperplane.png">
+				<div class="tagline">
+					<div class="tagline__site-name">
+						<div class="tagline__site-tag">Site</div>
+						<div class="tagline__name-tag">Name</div>
+					</div>
+					<div class="tagline__site-caption">your caption here</div>
+				</div>
 			</div>
-			<div id="menu">
-				<ul>
-					<li><a href="#">Home</a></li>|
-					<li><a href="#">About</a></li>|
-					<li><a href="#">Services</a></li>|
-					<li><a href="#">Portfolio</a></li>|
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</div>
-		</div>
-		<div id="banner">
-			<div id="smartphone">
+			<ul class="menu">
+				<li class="menu__item"><a href="#" class="link menu_link menu_link_selected">Home</a></li>|
+				<li class="menu__item"><a href="#" class="link menu_link">About</a></li>|
+				<li class="menu__item"><a href="#" class="link menu_link">Services</a></li>|
+				<li class="menu__item"><a href="#" class="link menu_link">Portfolio</a></li>|
+				<li class="menu__item"><a href="#" class="link menu_link">Contact</a></li>
+			</ul>
+		</nav>
+		<div class="banner">
+			<div class="banner__pic">
 				<img src="images/smartphone.png">
 			</div>
-			<div id="banner-text">
-				<div id="banner-subtitle">Lorem ipsum dolor sit amet</div>
+			<div class="banner__text">
+				<div class="banner__subtitle">Lorem ipsum dolor sit amet</div>
 				<br>
-				<div id="banner-title">DONEC NEC JUSTO EGET</div>
+				<div class="banner__title">DONEC NEC JUSTO EGET</div>
 				<br><br>
-				<div id="banner-description">Morbi in sem quis dui placerat ornare. Pellentesque odio euismod in, pharetra a, ultricies in, diam.</div>
+				<div class="banner__description">Morbi in sem quis dui placerat ornare. Pellentesque odio euismod in, pharetra a, ultricies in, diam.</div>
 				<br><br>
 				<a href="#" class="button">MORE INFO</a>
 			</div>
 		</div>
-	</div>
+	</header>
 	
-	<div id="content">
-		<div id="row1">
-			<div class="short-topic">
-				<div class="shortcut">
-					<img src="images/flag.png">
-				</div>	
-				<div class="topic-text">
-					<div class="topic-title">Ausce Cellentes</div>
-					<br>
-					<div class="topic-description">Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique</div>
-					<br>
-					<a href="#" class="read-more">Read More &#8658;</a>
-				</div>
+	<div class="row row1">
+		<div class="short-topic">
+			<div class="short-topic__img">
+				<img src="images/flag.png">
 			</div>
-			<div class="short-topic">
-				<div class="shortcut">
-					<img src="images/camera.png">
-				</div>
-				<div class="topic-text">
-					<div class="topic-title">Vestibul auctor</div>
-					<br>
-					<div class="topic-description">Loasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique</div>
-					<br>
-					<a href="#" class="read-more">Read More &#8658;</a>
-				</div>
-			</div>
-			<div class="short-topic">
-				<div class="shortcut">
-					<img src="images/hause.png">
-				</div>
-				<div class="topic-text">
-					<div class="topic-title">Cras ornare</div>
-					<br>
-					<div class="topic-description">Simasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique</div>
-					<br>
-					<a href="#" class="read-more">Read More &#8658;</a>
-				</div>
+			<div class="short-topic__text">
+				<div class="short-topic__title">Ausce Cellentes</div>
+				<br>
+				<div class="short-topic__description">Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique</div>
+				<br>
+				<a href="#" class="link short-topic__read-more">Read More &#8658;</a>
 			</div>
 		</div>
-		<div id="row2">
-			<div id="pic-topics">
-				<div class="pic-topic">
+		<div class="short-topic">
+			<div class="short-topic__img">
+				<img src="images/camera.png">
+			</div>
+			<div class="short-topic__text">
+				<div class="short-topic__title">Vestibul auctor</div>
+				<br>
+				<div class="short-topic__description">Loasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique</div>
+				<br>
+				<a href="#" class="link short-topic__read-more">Read More &#8658;</a>
+			</div>
+		</div>
+		<div class="short-topic">
+			<div class="short-topic__img">
+				<img src="images/hause.png">
+			</div>
+			<div class="short-topic__text">
+				<div class="short-topic__title">Cras ornare</div>
+				<br>
+				<div class="short-topic__description">Simasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique</div>
+				<br>
+				<a href="#" class="link short-topic__read-more">Read More &#8658;</a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row row2">
+		<div class="pic-topics">	
+			<div class="pic-topic">
+				<div class="pic-topic__img">
 					<img src="images/women.png">
-					<div class="pic-topic-text">
-						<div class="pic-topic-title">Lorem ipsum dolor sit amet</div>
-						<br>
-						<div class="pic-topic-description">
-							Sed egestas, ante et vulputate volutpat, eros pede semper est, Sed egestas, ante et vulputate volutpat, 
-							eros pede semper est, ipsum dolor sit amet. Sed egestas, ante et vulputate volutpat, eros pede semper est, 
-							ante et vulputate volutpat, eros pede semper est.
-						</div>
-						<br>
-						<a href="#" class="button">MORE</a>
-					</div>
 				</div>
-				<div class="pic-topic">
+				<div class="pic-topic__text">
+					<div class="pic-topic__title">Lorem ipsum dolor sit amet</div>
+					<br>
+					<div class="pic-topic__description">
+						Sed egestas, ante et vulputate volutpat, eros pede semper est, Sed egestas, ante et vulputate volutpat, 
+						eros pede semper est, ipsum dolor sit amet. Sed egestas, ante et vulputate volutpat, eros pede semper est, 
+						ante et vulputate volutpat, eros pede semper est.
+					</div>
+					<br>
+					<a href="#" class="button">MORE</a>
+				</div>
+			</div>		
+			<div class="pic-topic">
+				<div class="pic-topic__img">
 					<img src="images/men.png">
-					<div class="pic-topic-text">
-						<div class="pic-topic-title">Sed egestas ante et vulpu</div>
-						<br>
-						<div class="pic-topic-description">
-							Sed egestas, ante et vulputate volutpat, eros pede semper est, Sed egestas, ante et vulputate volutpat, 
-							eros pede semper est, ipsum dolor sit amet. Sed egestas, ante et vulputate volutpat, eros pede semper est, 
-							ante et vulputate volutpat, eros pede semper est.
-						</div>
-						<br>
-						<a href="#" class="button">MORE</a>
-					</div>
 				</div>
-			</div>
-			<div id="right-bar">
-				<div id="tabs">
-					<a href="#"><div class="tab" id="active-tab">
-						Eronped
-					</div></a>
-					<a href="#"><div class="tab">
-						Centro
-					</div></a>
-				</div>
-				<div id="tab-content">
-					<div id="tab-top">
-						<div id="tab-title">Sedegin libero commo</div>
-						<div id="tab-description">Simasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique sem tris</div>
+				<div class="pic-topic__text">
+					<div class="pic-topic__title">Sed egestas ante et vulpu</div>
+					<br>
+					<div class="pic-topic__description">
+						Sed egestas, ante et vulputate volutpat, eros pede semper est, Sed egestas, ante et vulputate volutpat, 
+						eros pede semper est, ipsum dolor sit amet. Sed egestas, ante et vulputate volutpat, eros pede semper est, 
+						ante et vulputate volutpat, eros pede semper est.
 					</div>
-					<div id="tab-bottom">
-						<ul>
-							<li><a href="#"><div class="marker">&rarr;</div>Cras ornare tristique elit  sinto sum</a></li>
-							<li><a href="#"><div class="marker">&rarr;</div>Integer vitae libero ac risus egestas</a></li>
-							<li><a href="#"><div class="marker">&rarr;</div>Vestibulum commodo felis quis tortor</a></li>
-							<li><a href="#"><div class="marker">&rarr;</div>Donec quis dui at dolor tempor interd</a></li>
-							<li><a href="#"><div class="marker">&rarr;</div>Fusce lobortis lorem at ipsum semper</a></li>
-						</ul>
-					</div>
+					<br>
+					<a href="#" class="button">MORE</a>
 				</div>
 			</div>
 		</div>
-		<div id="row3">
-			<div class="title">Praesent Clacerat</div>
-			<div class="description">Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet <br> lectus arcu pulvinar risus</div>
+		<div class="tab-control">
+			<div class="tab-control__tabs">
+				<a href="#"><div class="tab-control__tab tab-control__tab_selected">
+					Eronped
+				</div></a>
+				<a href="#"><div class="tab-control__tab">
+					Centro
+				</div></a>
+			</div>
+			<div class="tab-control__content">
+				<div class="tab-control__tab-top">
+					<div class="tab-control__tab-title">Sedegin libero commo</div>
+					<div class="tab-control__tab-description">Simasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique sem tris</div>
+				</div>
+				<div class="tab-control__tab-bottom">
+					<ul class="tab-list">
+						<li class="tab-list__item"><a href="#" class="link tab-list__link"><div class="marker">&rarr;</div>Cras ornare tristique elit  sinto sum</a></li>
+						<li class="tab-list__item"><a href="#" class="link tab-list__link"><div class="marker">&rarr;</div>Integer vitae libero ac risus egestas</a></li>
+						<li class="tab-list__item"><a href="#" class="link tab-list__link"><div class="marker">&rarr;</div>Vestibulum commodo felis quis tortor</a></li>
+						<li class="tab-list__item"><a href="#" class="link tab-list__link"><div class="marker">&rarr;</div>Donec quis dui at dolor tempor interd</a></li>
+						<li class="tab-list__item tab-list__item-bottom-none"><a href="#" class="link tab-list__link"><div class="marker">&rarr;</div>Fusce lobortis lorem at ipsum semper</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
-		<div id="row4">
-			<div class="title">Vestibulum Commodo Felis</div>
-			<div class="description">
-				Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna
-			</div>
-			<div class="content">
-				<div class="column" id="news">
-					<div class="item">
-						<div class="date">
-							<div class="day">07</div>
-							<div class="month">Jan</div>
-						</div>
-						<div class="article">
-							<a href="#"><div class="article-title">Gravida Ultrice</div></a>
-							<div class="comments">14 Comments</div>
-							<div class="article-description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio <div class="arrow">&#8658;</div></div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="date">
-							<div class="day">06</div>
-							<div class="month">Jan</div>
-						</div>
-						<div class="article">
-							<a href="#"><div class="article-title">Gravida Ultrice</div></a>
-							<div class="comments">07 Comments</div>
-							<div class="article-description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio <div class="arrow">&#8658;</div></div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="date">
-							<div class="day">05</div>
-							<div class="month">Jan</div>
-						</div>
-						<div class="article">
-							<a href="#"><div class="article-title">Gravida Ultrice</div></a>
-							<div class="comments">22 Comments</div>
-							<div class="article-description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio <div class="arrow">&#8658;</div></div>
-						</div>
-					</div>					
-				</div>
-				<div class="column" id="remarks">
-					<div class="item">
-						<div class="remark">" Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing "</div>
-						<div class="author">- John Doe</div>
-						<img src="images/comments.png">
-					</div>
-					<div class="item">
-						<div class="remark">" Ced egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing "</div>
-						<div class="author">- Kate Doe</div>
-						<img src="images/comments.png">
-					</div>
-				</div>
-			</div>
-		</div>		
 	</div>
 	
+	<div class="row row3">
+		<div class="title">Praesent Clacerat</div>
+		<div class="description">Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet <br> lectus arcu pulvinar risus</div>
+	</div>
+	<div class="row row4">
+		<div class="title">Vestibulum Commodo Felis</div>
+		<div class="description">
+			Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna
+		</div>
+		<div class="content">
+			<div class="column" id="news">
+				<div class="item">
+					<div class="date">
+						<div class="day">07</div>
+						<div class="month">Jan</div>
+					</div>
+					<div class="article">
+						<a href="#"><div class="article-title">Gravida Ultrice</div></a>
+						<div class="comments">14 Comments</div>
+						<div class="article-description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio <div class="arrow">&#8658;</div></div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="date">
+						<div class="day">06</div>
+						<div class="month">Jan</div>
+					</div>
+					<div class="article">
+						<a href="#"><div class="article-title">Gravida Ultrice</div></a>
+						<div class="comments">07 Comments</div>
+						<div class="article-description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio <div class="arrow">&#8658;</div></div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="date">
+						<div class="day">05</div>
+						<div class="month">Jan</div>
+					</div>
+					<div class="article">
+						<a href="#"><div class="article-title">Gravida Ultrice</div></a>
+						<div class="comments">22 Comments</div>
+						<div class="article-description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio <div class="arrow">&#8658;</div></div>
+					</div>
+				</div>					
+			</div>
+			<div class="column" id="remarks">
+				<div class="item">
+					<div class="remark">" Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing "</div>
+					<div class="author">- John Doe</div>
+					<img src="images/comments.png">
+				</div>
+				<div class="item">
+					<div class="remark">" Ced egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing "</div>
+					<div class="author">- Kate Doe</div>
+					<img src="images/comments.png">
+				</div>
+			</div>
+		</div>
+	</div>		
+
 	<div id="footer">
 		<ul>
 			<li>
@@ -266,6 +272,5 @@
 			<a href="#"><img src="images/twitter.png"></a>
 		</div>
 	</div>
-</div>
 </body>
 </html>
