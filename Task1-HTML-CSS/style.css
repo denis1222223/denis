@@ -17,8 +17,12 @@ nav {
 	position: relative;
 }
 
-.link {
+a {
 	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .trademarks__logo {
@@ -237,7 +241,6 @@ nav {
 	border-bottom-width: 0px;
 	font-size: 14px;
 	font-weight: bold;
-	color: #787878;
 }
 
 .tab-control__tab:hover { 
@@ -428,8 +431,8 @@ nav {
 	width: 30px;
 	color: #f77462;
 	position: absolute;
-    right: 0;
-    bottom: 0;
+	right: 0;
+	bottom: 0;
 }
 
 .remark {
@@ -442,7 +445,7 @@ nav {
 
 .remark__text {
 	width: 350px;
-    padding-top: 35px;
+	padding-top: 35px;
 	font-size: 11pt;
 	line-height: 18pt;
 	color: #8c9193;
@@ -457,13 +460,13 @@ nav {
 
 .remark__img {
 	position: absolute;
-    right: 30px;
-    top: 35px;
+	right: 30px;
+	top: 35px;
 }
 
 /* Footer */
 
-#footer {
+.footer {
 	position: relative;
 	height: 285px;
 	background-color: #6dc5dd;
@@ -472,50 +475,49 @@ nav {
 	border-radius: 0px 0px 6px 6px;
 }
 
-#footer ul {
-  text-align: justify;
-  line-height: 0;
-  padding-left: 0;
+.columns {
+	text-align: justify;
+	line-height: 0;
+	padding-left: 0;
 }
 
-#footer ul .col-list li {
-  display: block;
-  line-height: 20pt;
-  font-size: 10pt;
+.column {
+	display: inline-block;
+	text-align: left;
+	line-height: normal;
+	font-size: 14px;
 }
 
-#footer ul:after {
-  width: 100%;
-  height: 0px;
-  visibility: hidden;
-  overflow: hidden;
-  content: "";
-  display: inline-block;
+.column__item {
+	display: block;
+	line-height: 20pt;
+	font-size: 10pt;
 }
 
-#footer ul li {
-  display: inline-block;
-  text-align: left;
-  line-height: normal;
-  font-size: 14px;
+.columns:after {
+	width: 100%;
+	height: 0px;
+	visibility: hidden;
+	overflow: hidden;
+	content: "";
+	display: inline-block;
 }
 
-#footer .col-title {
+.column__title {
 	font-weight: bold;
 	font-size: 14pt;
 	margin-bottom: 10px;
 }
 
-#footer a {
+.column__list {
+	padding-left: 0px;
+}
+
+.footer-link {
 	color: #fff;
-	text-decoration: none;
 }
 
-#footer a:hover {
-	text-decoration: underline;
-}
-
-#copyrights {
+.copyrights {
 	font-size: 10pt;
 	padding-top: 45px;
 	border: 0px solid #9fd9e9;
@@ -523,12 +525,12 @@ nav {
 	margin-top: 52px;
 }
 
-#social {
+.social {
 	right: 30px;
-    bottom: 40px;
-    position: absolute;
+	bottom: 40px;
+	position: absolute;
 }
 
-#social img {
+.social__img {
 	margin-left: 5px;
 }
