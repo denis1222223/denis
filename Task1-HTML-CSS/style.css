@@ -2,6 +2,7 @@ html {
 	background-image: url("images/wood.png");
 	background-color: #343434;
 	font-family: Arial, san-serif;
+	font-size: 2pt;
 }
 
 body {
@@ -11,18 +12,23 @@ body {
 	border-radius: 6px 6px 6px 6px;
 }
 
-nav {
-	height: 40px;
-	padding: 30px 25px;
-	position: relative;
-}
-
 a {
 	text-decoration: none;
 }
 
 a:hover {
 	text-decoration: underline;
+}
+
+.header{
+	overflow: hidden;
+    position: relative;
+}
+
+.trademarks {
+	overflow: hidden;
+    float: left;
+    padding: 25px 25px;
 }
 
 .trademarks__logo {
@@ -36,11 +42,11 @@ a:hover {
 
 .tagline__site-name {
 	overflow: hidden;
+	font-size: 10em;
 }
 
 .tagline__site-tag {
-	color: #114a54;
-	font-size: 19pt;
+	color: #114a54;	
 	font-weight: bold;
 	float: left;
 }
@@ -48,18 +54,20 @@ a:hover {
 .tagline__name-tag {
 	color: #f77462;
 	float: left;
-	font-size: 19pt;
 	margin-left: 5px;
 }
 
 .tagline__site-caption {
 	color: #929292;
-	font-size: 10pt;
+	font-size: 5em;
 }
 
 .menu {
 	position: absolute;
-	right: 12px;
+    right: 15px;
+    float: left;
+    padding-top: 25px;
+	font-size: 6em;
 }
 
 .menu__item {
@@ -69,7 +77,6 @@ a:hover {
 
 .menu_link {
 	color: #8a8a8a;
-	font-size: 17px;
 	font-weight: bold;
 }
 
@@ -102,19 +109,22 @@ a:hover {
 }
 
 .banner__subtitle {
-	font-size: 19pt;
+	font-size: 11em;
 	color: #003d48;
 }
 
 .banner__title {
-	font-size: 26pt;
+	font-size: 14em;
 	font-weight: bold;
+	padding: 10px 0;
 	color: #003d48;
 }
 
 .banner__description {
 	width: 400px;
 	color: #a1a1a1;
+	font-size: 6em;
+	padding: 20px 0;
 }
 
 .button {
@@ -123,7 +133,8 @@ a:hover {
 	border-radius: 4px 4px 4px 4px;
 	text-decoration: none;
 	background: #f77462;
-	padding: .7em 1.5em;
+	font-size: 13pt;
+	padding: 8px 10px;
 	outline: none;
 } 
 
@@ -166,17 +177,19 @@ a:hover {
 }
 
 .short-topic__description {
-	font-size: 11pt;
+	font-size: 5.5em;
+	padding: 20px 0;
+	line-height: 1.5em;
 }
 
 .short-topic__title {
-	font-size: 16pt;
+	font-size: 7em;
 	font-weight: bold;
 }
 
 .short-topic__read-more {
 	color: #fff;
-	font-size: 12pt;
+	font-size: 6em;
 	font-weight: bold;
 }
 
@@ -213,20 +226,22 @@ a:hover {
 
 .pic-topic__text {
 	width: 68%;
-    font-size: 11pt;
+    font-size: 5em;
 	padding: 5px 30px 105px 20px;
     float: left;
 }
 
 .pic-topic__title {
 	color: #225760;
-	font-size: 14pt;
+	font-size: 1.6em;
 	font-weight: bold;
 }
 
 .pic-topic__description {
 	color: #8c9193;
-	line-height: 18pt;
+	line-height: 1.5em;
+	font-size: 1.15em;
+	padding: 15px 0;
 }
 
 .tab-control__tab {
@@ -239,7 +254,7 @@ a:hover {
 	border-radius: 6px 6px 0px 0px;
 	border: 2px solid #ececec;
 	border-bottom-width: 0px;
-	font-size: 14px;
+	font-size: 5em;
 	font-weight: bold;
 }
 
@@ -274,14 +289,15 @@ a:hover {
 .tab-control__tab-title {
 	color: #66bcd3;
 	font-weight: bold;
-	line-height: 20pt;
+	line-height: 1.3em;
     margin-bottom: 10px;
+    font-size: 6em;
 }
 
 .tab-control__tab-description {
 	color: #fff;
-	font-size: 10pt;
-    line-height: 17pt;
+	font-size: 5em;
+    line-height: 2em;
 }
 
 .tab-list {
@@ -300,8 +316,8 @@ a:hover {
 }
 
 .tab-list__link {	
-	font-size: 10pt;
-    line-height: 27pt;
+	font-size: 5em;
+    line-height: 3em;
 	color: #787878;
 	font-weight: bold;
 }
@@ -322,14 +338,14 @@ a:hover {
 }
 
 .row3__title {
-	font-size: 23pt;
+	font-size: 12em;
 	font-weight: bold;
 	padding-top: 45px;
 	line-height: 35pt;
 }
 
 .row3__description {
-	font-size: 13pt;
+	font-size: 6em;
 	line-height: 20pt;
 }
 
@@ -343,8 +359,8 @@ a:hover {
 	text-align: center;
 	color: #225760;	
 	font-weight: bold;
-	font-size: 23pt;
-	line-height: 67pt;
+	font-size: 13em;
+    line-height: 2.5em;
 }
 
 .row4__description {
@@ -353,8 +369,8 @@ a:hover {
 	border: 1px solid #dbdbdb;
 	border-left-width: 0px;
 	border-right-width: 0px;
-	font-size: 15pt;
-    line-height: 35pt;
+	font-size: 8em;
+    line-height: 2.5em;
 }
 
 .row4__content {
@@ -388,12 +404,13 @@ a:hover {
 	height: 43px;
 	border: 0px solid #fff;
 	border-bottom-width: 1px;
-	font-size: 25pt;
-    line-height: 35pt;
+	font-size: 13em;
+    line-height: 1.3em;
 }
 
 .date__month {
-	line-height: 20pt;
+	font-size: 6em;
+    line-height: 1.5em;
 }
 
 .article {
@@ -406,7 +423,7 @@ a:hover {
 
 .article__title {
 	color: #003d48;
-	font-size: 12pt;
+	font-size: 6em;
 	font-weight: bold;
 }
 
@@ -416,15 +433,15 @@ a:hover {
 
 .article__comments {
 	color: #f77462;
-	font-size: 10pt;
-	line-height: 20pt;
+	font-size: 5em;
+    line-height: 2em;
 }
 
 .article__description {
 	margin-top: 10px;
 	color: #818181;
-	font-size: 10pt;
-	line-height: 15pt;
+	font-size: 5em;
+    line-height: 1.5em;
 }
 
 .arrow {
@@ -441,21 +458,19 @@ a:hover {
 	margin-bottom: 40px;
 	padding-left: 30px;
 	position: relative;
+	font-size: 5.5em;
+    line-height: 2em;
 }
 
 .remark__text {
 	width: 350px;
 	padding-top: 35px;
-	font-size: 11pt;
-	line-height: 18pt;
 	color: #8c9193;
 }
 
 .remark__author {
 	color: #f77462;
 	font-weight: bold;
-	font-size: 11pt;
-	line-height: 30pt;
 }
 
 .remark__img {
@@ -477,21 +492,18 @@ a:hover {
 
 .columns {
 	text-align: justify;
-	line-height: 0;
 	padding-left: 0;
 }
 
 .column {
 	display: inline-block;
 	text-align: left;
-	line-height: normal;
-	font-size: 14px;
 }
 
 .column__item {
 	display: block;
-	line-height: 20pt;
-	font-size: 10pt;
+	line-height: 2em;
+    font-size: 5em;
 }
 
 .columns:after {
@@ -505,7 +517,7 @@ a:hover {
 
 .column__title {
 	font-weight: bold;
-	font-size: 14pt;
+	font-size: 7em;
 	margin-bottom: 10px;
 }
 
@@ -518,7 +530,7 @@ a:hover {
 }
 
 .copyrights {
-	font-size: 10pt;
+	font-size: 5em;
 	padding-top: 45px;
 	border: 0px solid #9fd9e9;
 	border-top-width: 1px;
