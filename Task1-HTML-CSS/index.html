@@ -1,5 +1,6 @@
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Site title</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="normalize.css">
@@ -18,11 +19,11 @@
 		</div>
 		<nav>
 			<ul class="menu">
-				<li class="menu__item"><a href="#" class="link menu_link menu_link_selected">Home</a></li>|
-				<li class="menu__item"><a href="#" class="link menu_link">About</a></li>|
-				<li class="menu__item"><a href="#" class="link menu_link">Services</a></li>|
-				<li class="menu__item"><a href="#" class="link menu_link">Portfolio</a></li>|
-				<li class="menu__item"><a href="#" class="link menu_link">Contact</a></li>
+				<li class="menu__item"><a href="#" class="link menu-link menu-link_selected">Home</a></li>|
+				<li class="menu__item"><a href="#" class="link menu-link">About</a></li>|
+				<li class="menu__item"><a href="#" class="link menu-link">Services</a></li>|
+				<li class="menu__item"><a href="#" class="link menu-link">Portfolio</a></li>|
+				<li class="menu__item"><a href="#" class="link menu-link">Contact</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -39,7 +40,7 @@
 		</div>
 	</div>
 	
-	<section class="row row1">
+	<section class="row row-short-topics">
 		<div class="short-topic">
 			<div class="short-topic__img">
 				<img src="images/flag.png">
@@ -72,7 +73,7 @@
 		</div>
 	</section>
 	
-	<section class="row row2">
+	<section class="row row-pic-topics">
 		<div class="pic-topics">	
 			<article class="pic-topic">
 				<div class="pic-topic__img">
@@ -103,21 +104,25 @@
 				</div>
 			</article>
 		</div>
-		<div class="tab-control">
-			<div class="tab-control__tabs">
-				<a href="#"><div class="tab-control__tab tab-control__tab_selected">
-					Eronped
-				</div></a>
-				<a href="#"><div class="tab-control__tab">
-					Centro
-				</div></a>
-			</div>
-			<div class="tab-control__content">
-				<div class="tab-control__tab-top">
-					<div class="tab-control__tab-title">Sedegin libero commo</div>
-					<div class="tab-control__tab-description">Simasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique sem tris</div>
+		<aside class="right-bar">
+			<div class="tabs">
+				<a href="#">
+					<div class="tab tab_selected">
+						Eronped
+					</div>
+				</a>
+				<a href="#">
+					<div class="tab">
+						Centro
+					</div>
+				</a>
+			</div>		
+			<div class="tab__content">
+				<div class="tab__header">
+					<div class="tab__title">Sedegin libero commo</div>
+					<div class="tab__description">Simasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique sem tris</div>
 				</div>
-				<div class="tab-control__tab-bottom">
+				<div class="tab__footer">
 					<ul class="tab-list">
 						<li class="tab-list__item"><a href="#" class="link tab-list__link"><div class="marker">&rarr;</div>Cras ornare tristique elit  sinto sum</a></li>
 						<li class="tab-list__item"><a href="#" class="link tab-list__link"><div class="marker">&rarr;</div>Integer vitae libero ac risus egestas</a></li>
@@ -127,21 +132,21 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		</aside>
 	</section>
 	
-	<section class="row row3">
-		<div class="row3__title">Praesent Clacerat</div>
-		<div class="row3__description">Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet <br> lectus arcu pulvinar risus</div>
+	<section class="row row-empty">
+		<div class="row-empty__title">Praesent Clacerat</div>
+		<div class="row-empty__description">Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet <br> lectus arcu pulvinar risus</div>
 	</section>
 	
-	<section class="row row4">
-		<div class="row4__title">Vestibulum Commodo Felis</div>
-		<div class="row4__description">
+	<section class="row row-reviews">
+		<div class="row-reviews__title">Vestibulum Commodo Felis</div>
+		<div class="row-reviews__description">
 			Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna
 		</div>
-		<div class="row4__content">
-			<div class="row4__column news">
+		<div class="row-reviews__content">
+			<div class="row-reviews__column news">
 				<article class="news__item">
 					<div class="date">
 						<div class="date__day">07</div>
@@ -150,7 +155,7 @@
 					<div class="article">
 						<a href="#"><div class="article__title">Gravida Ultrice</div></a>
 						<div class="article__comments">14 Comments</div>
-						<div class="article__description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio <div class="arrow">&#8658;</div></div>
+						<div class="article__description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio </div>
 					</div>
 				</article>
 				<article class="news__item">
@@ -161,7 +166,7 @@
 					<div class="article">
 						<a href="#"><div class="article__title">Gravida Ultrice</div></a>
 						<div class="article__comments">07 Comments</div>
-						<div class="article__description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio <div class="arrow">&#8658;</div></div>
+						<div class="article__description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio </div>
 					</div>
 				</article>
 				<article class="news__item">
@@ -172,11 +177,11 @@
 					<div class="article">
 						<a href="#"><div class="article__title">Gravida Ultrice</div></a>
 						<div class="article__comments">22 Comments</div>
-						<div class="article__description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio <div class="arrow">&#8658;</div></div>
+						<div class="article__description">Suspendisse ac urna. Etiam pellentesque mauris ut lectus  nunc tellus ante, mattis eget, gravida vitae, ultricies atinvio </div>
 					</div>
 				</article>				
 			</div>
-			<div class="row4__column remarks">
+			<div class="row-reviews__column remarks">
 				<div class="remark">
 					<div class="remark__text">" Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing "</div>
 					<div class="remark__author">- John Doe</div>
