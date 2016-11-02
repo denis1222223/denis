@@ -1,27 +1,28 @@
 
-var specialAdd = bind(sum, 1000);
-var specialMultiply = bind(mult, 2);
+var customSum = bind(sum, 5);
+var customSumExtended = bind(sum, 1, 2, 3);
+var customMult = bind(mult, 5);
 
 describe('partial application', function () {
 
-    it('sum 1000 with  1 gives 1001', function () {
-        expect(specialAdd(1)).toBe(1001);
+    it('sum of 5 and 2 should be equal 7', function () {
+        expect(customSum(2)).toBe(7);
     });
 
-    it('sum 1000 with  1 + 10 + 100 gives 1111', function () {
-        expect(specialAdd(1, 10, 100)).toBe(1111);
-    });
+	it('sum of 5 and 1, 2, 3 should be equal 11', function () {
+		expect(customSum(1, 2, 3)).toBe(11);
+	});
 
-    it('sum 1000 + 100 with  10 + 1 gives 1111', function () {
-        expect(bind(bind(sum, 1000), 100)(11)).toBe(1111);
+	it('sum of 1, 2, 3 and 4, 10 should be equal 20', function () {
+        expect(customSumExtended(4, 10)).toBe(20);
     });
-
-    it('multiply 2 with 2 gives 4', function () {
-        expect(specialMultiply(2)).toBe(4);
+	
+	it('multiplying of 5 and 5 should be equal 25', function () {
+        expect(customMult(5)).toBe(25);
     });
-
-    it('multiply 2 with 2*3*4 gives 48', function () {
-        expect(specialMultiply(2, 3, 4)).toBe(48);
+	
+	it('multiplying of 5 and 2,10 should be equal 100', function () {
+        expect(customMult(2, 10)).toBe(100);
     });
-
+	
 });
