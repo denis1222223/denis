@@ -25,4 +25,8 @@ describe('partial application', function () {
         expect(customMult(2, 10)).toBe(100);
     });
 	
+	it('build-in binding. 2 + 3 = 5.', function () {
+		var customSum = sum.bind(null, 2);
+        expect(customSum(3)).toBe(5);
+    });
 });
