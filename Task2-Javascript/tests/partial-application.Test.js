@@ -1,3 +1,16 @@
+function sum() {
+    var args = [].slice.call(arguments, 0);
+    return args.reduce(function(a, b) { 
+		return a + b; 
+	}, 0);
+}
+
+function mult() {
+    var args = [].slice.call(arguments, 0);
+    return args.reduce(function(a, b) { 
+		return a * b;
+	}, 1);
+}
 
 var customSum = bind(sum, 5);
 var customSumExtended = bind(sum, 1, 2, 3);
