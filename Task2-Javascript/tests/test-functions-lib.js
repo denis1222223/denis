@@ -38,3 +38,11 @@ function isLessThanTen(number) {
 function isEven(number) {
 	return number % 2 == 0 ? true : false;
 }
+
+function average(arr) {
+	return sum.apply(null, arr) / arr.length;
+}	
+
+function getRandomNumber(low, high) {
+	 return Math.random() * (high - low) + low;
+}
