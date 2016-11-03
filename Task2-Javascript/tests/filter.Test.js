@@ -1,16 +1,4 @@
 
-function isDivisibleByFive(number) {
-	return number % 5 == 0 ? true : false;
-}
-
-function isLessThanTen(number) {
-	return number < 10 ? true : false;
-}
-
-function isEven(number) {
-	return number % 2 == 0 ? true : false;
-}
-
 describe('filter', function () {
 
     it('filter all divisible by 5 numbers', function () {

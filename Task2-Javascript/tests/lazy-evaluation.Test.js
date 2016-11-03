@@ -15,4 +15,5 @@ describe('lazy evaluation', function () {
 	it('lazy evaluation of sum 2 and 3', function () {
         expect(lazyMultTwoAndThree()).toBe(6);
     });
+	
 });

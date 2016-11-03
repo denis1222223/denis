@@ -15,4 +15,5 @@ describe('memoization', function () {
 	it('lazy memo evaluation of sum 2 and 3', function () {
         expect(lazyMemoMultTwoAndThree()).toBe(6);
     });
+	
 });

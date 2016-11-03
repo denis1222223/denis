@@ -1,9 +1,3 @@
-function sum4(n1,n2,n3,n4) {
-  var args = [].slice.call(arguments, 0);
-    return args.reduce(function(a, b) { 
-		return a + b; 
-	}, 0);
-}
 
 describe('curring', function () {
 	
