@@ -1,4 +1,3 @@
-
 function bind(func) {
     var slice = Array.prototype.slice;
     var args = slice.call(arguments, 1);

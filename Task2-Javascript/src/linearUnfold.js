@@ -1,9 +1,9 @@
 function linearUnfold(callback, initialState) {
     var currentState = initialState;
-	var currentArray = [];
+    var currentArray = [];
     while (currentState != null) {
-		currentArray.push(currentState);
-        currentState = callback(currentState);	
-    }	
+        currentArray.push(currentState);
+        currentState = callback(currentState);  
+    }   
     return currentArray.slice(1);
 }
