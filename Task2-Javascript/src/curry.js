@@ -1,5 +1,5 @@
-function curry(f) {
-    var arity = f.length,
+function curry(func) {
+    var arity = func.length,
         args  = [].slice.call(arguments, 1);
     
     function accumulator() {
@@ -10,9 +10,9 @@ function curry(f) {
         }
         
         if (largs.length >= arity) {
-            return f.apply(this, largs);
+            return func.apply(this, largs);
         } else {
-            return curry.apply(this, [f].concat(largs));
+            return curry.apply(this, [func].concat(largs));
         }
     };
     
