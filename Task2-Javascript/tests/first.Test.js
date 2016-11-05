@@ -1,4 +1,4 @@
-define(['test-functions-lib', '../src/first'], function(testLib) {
+define(['test-functions-lib', '../src/first'], function(testLib, first) {
 
     describe('first', function () {
 
