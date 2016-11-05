@@ -1,7 +1,14 @@
-function map(arr, callback) {
-    var newArr = [];
-    for (var i = 0; i < arr.length; i++ ) {
-        newArr.push(callback(arr[i]));
+define(['../src/linearFold'], function() {
+
+	function map(arr, callback) {  
+	
+		function mapCallback(prev, currentValue, i, array) {
+			prev.push(callback(currentValue));
+			return prev;
+		}
+
+        return linearFold(arr, mapCallback, []);
     }
-    return newArr;
-}
+
+	return map;
+})

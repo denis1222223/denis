@@ -1,4 +1,4 @@
-define(['test-functions-lib', '../src/map'], function(testLib) {
+define(['test-functions-lib', '../src/map'], function(testLib, map) {
 
     describe('map', function() {
         
@@ -6,7 +6,7 @@ define(['test-functions-lib', '../src/map'], function(testLib) {
             expect(map([1, 2, 3], testLib.inc)).toEqual([2, 3, 4]);
         });
 
-        it('decrease by 3:  [7, 4, 11] -> [4, 1, 8]', function () {
+        it('decrease by 1:  [7, 4, 11] -> [4, 1, 8]', function () {
             expect(map([7, 4, 11], testLib.dec)).toEqual([6, 3, 10]);
         });
         
