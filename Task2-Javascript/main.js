@@ -22,12 +22,12 @@ require(['jasmine-boot'], function() {
         // 'curry.Test', 
         // 'linearFold.Test',
         // 'linearUnfold.Test', 
-        'map.Test', 
+        // 'map.Test', 
         // 'filter.Test', 
         // 'averageEven.Test', 
         // 'sumRandom.Test', 
         // 'first.Test', 
-        // 'lazyEvaluation.Test', 
+        'lazyEvaluation.Test', 
         // 'lazyMemoEvaluation.Test'
     ], function() {
         window.onload();
