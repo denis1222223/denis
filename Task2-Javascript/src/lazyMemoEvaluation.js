@@ -1,10 +1,9 @@
 function lazyMemoEvaluation(func) {
-    var result;
-    var lazyEvaluation = func.bind.apply(func, arguments);
-    return function() {
-        if (result) {
-            return result;
+    var storage = [];
+    return function(arg) {
+        if (!(arg in storage)) {        
+            storage[arg] = func(arg);
         }
-        return lazyEvaluation();
+        return storage[arg];
     }
 }

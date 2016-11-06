@@ -1,21 +1,41 @@
-define(['test-functions-lib', '../src/lazyMemoEvaluation'], function(testLib) {
+define(['../src/lazyMemoEvaluation'], function() {
 
-    describe('memoization', function () {
+    var counter = 0;
+    
+    function incFive(arg) {
+        counter++;
+        switch (arg) { 
+            case "undefined": return undefined;
+            case "NaN": return NaN;
+            default: return arg + 5;
+        }
+    }
 
-        var lazyMemoSumTwoAndThree = lazyMemoEvaluation(testLib.sum, 2, 3);
-        var lazyMemoSumSevenAndEight = lazyMemoEvaluation(testLib.sum, 7, 8);
-        var lazyMemoMultTwoAndThree = lazyMemoEvaluation(testLib.mult, 2, 3);
-        
-        it('lazy memo evaluation of sum 2 and 3', function () {
-            expect(lazyMemoSumTwoAndThree()).toBe(5);
+    var lazyMemoInc = lazyMemoEvaluation(incFive);
+
+    describe('memoization', function() {
+
+        it('lazy memo evaluation of inc 4+5', function () {
+            expect(lazyMemoInc(4)).toBe(9);
         });
         
-        it('lazy memo evaluation of sum 7 and 8', function () {
-            expect(lazyMemoSumSevenAndEight()).toBe(15);
+        it('3 times more of inc 4+5', function () {
+            lazyMemoInc(4);
+            lazyMemoInc(4);
+            lazyMemoInc(4);
+            
+            expect(counter).toBe(1);
         });
         
-        it('lazy memo evaluation of sum 2 and 3', function () {
-            expect(lazyMemoMultTwoAndThree()).toBe(6);
+        it('NaN result', function() {
+            expect(lazyMemoInc("NaN")).toEqual(NaN);
+        });
+        
+        it('NaN result 2 times more', function() {
+            lazyMemoInc("NaN");
+            lazyMemoInc("NaN");
+            
+            expect(counter).toBe(2);        
         });
         
     });

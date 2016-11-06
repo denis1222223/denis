@@ -18,17 +18,17 @@ require.config({
 
 require(['jasmine-boot'], function() {
     require([
-        // 'bind.Test', 
-        // 'curry.Test', 
-        // 'linearFold.Test',
-        // 'linearUnfold.Test', 
-        // 'map.Test', 
-        // 'filter.Test', 
-        // 'averageEven.Test', 
-        // 'sumRandom.Test', 
-        // 'first.Test', 
+        'bind.Test', 
+        'curry.Test', 
+        'linearFold.Test',
+        'linearUnfold.Test', 
+        'map.Test', 
+        'filter.Test', 
+        'averageEven.Test', 
+        'sumRandom.Test', 
+        'first.Test', 
         'lazyEvaluation.Test', 
-        // 'lazyMemoEvaluation.Test'
+        'lazyMemoEvaluation.Test'
     ], function() {
         window.onload();
     })

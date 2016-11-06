@@ -5,8 +5,8 @@ define(['test-functions-lib', '../src/first'], function(testLib, first) {
         it('find first even number', function () {
             expect(first([1, 5, 77, 4, 8], testLib.isEven)).toBe(4);
         });
-		
-		it('find first even number. [1, 5, 77] -> undefined', function () {
+        
+        it('find first even number. [1, 5, 77] -> undefined', function () {
             expect(first([1, 5, 77], testLib.isEven)).toBe(undefined);
         });
         
