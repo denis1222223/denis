@@ -21,25 +21,7 @@
                 'src'          : 'music/a_ha_thought_that_it_was_you.mp3'
             };
 
-            $( ".track" ).slider({
-                orientation: "horizontal",
-                range: "min",
-                value: 50,
-                slide: function( event, ui ) {
-                    $( "#amount" ).val( ui.value );
-                }
-            });
-
-            $( ".volume" ).slider({
-                orientation: "vertical",
-                range: "min",
-                value: 50,
-                slide: function( event, ui ) {
-                    $( "#amount" ).val( ui.value );
-                }
-            });
-
-            $('.audioPlayer').audioPlayer(settings);
+            $('.audioPlayer').audioPlayer();
         });
     </script>
 </head>
@@ -49,22 +31,15 @@
 
     <div class="audioPlayer">
 
-        <div class="player-button play">
-            <i class="fa fa-play"></i>
-        </div>
+        <!--<div class="player-button play"><i class="fa fa-play"></i></div>-->
 
-        <div class="player-button stop">
-            <i class="fa fa-stop"></i>
-        </div>
+        <!--<div class="player-button stop"><i class="fa fa-stop"></i></div>-->
 
-        <div class="volume"></div>
+        <!--<div class="volume"></div>-->
 
-        <div class="player-logs">
-            <div class="song-time">1:15 - 4:20</div>
-            <div class="song-name">A-Ha - Thought That It Was You</div>
-        </div>
+        <!--<div class="player-logs"><div class="song-time">0:0 - 0:0</div><div class="song-name">A-Ha - Thought That It Was You</div></div>-->
 
-        <div class="track"></div>
+        <!--<div class="track"></div>-->
 
     </div>
 
