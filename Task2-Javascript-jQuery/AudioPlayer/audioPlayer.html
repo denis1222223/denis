@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+    <title>Audio player</title>
+
+    <link rel="stylesheet" href="css/audioPlayer.css">
+    <script type="text/javascript" src="../lib/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="src/audioPlayer.js"></script>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            var settings = {
+                'name'         : 'Thought That It Was You',
+                'author'       : 'A-Ha',
+                'src'          : 'music/a_ha_thought_that_it_was_you.mp3'
+            };
+
+            $('.audioPlayer').audioPlayer(settings);
+        });
+    </script>
+</head>
+<body>
+
+<div class="content">
+
+    <div class="audioPlayer">
+        <div class="play">&#448; &#448;</div>
+        <!--&#448; &#448;-->
+        <!--&#9658;-->
+    </div>
+</div>
+
+</body>
+</html>
