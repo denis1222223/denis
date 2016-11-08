@@ -9,6 +9,8 @@
         }, options);
 
         var audio = new Audio();
+        var buttonPlay = this.find('.play');
+        var buttonStop = this.find('.play');
 
         function initializeAudio() {
             audio.src = settings.src;
@@ -16,14 +18,22 @@
         }
 
         function play() {
-            audio.play();
-            console.log("playing");
+            if (audio.paused) {
+                audio.play();
+                buttonPlay.find('i').removeClass('play').addClass('fa-pause');
+            } else {
+                audio.pause();
+                buttonPlay.find('i').removeClass('fa-pause').addClass('fa-play');
+            }
+        }
+
+        function stop() {
+            audio.stop;
         }
 
         initializeAudio();
-        var playButton = this.find('.play');
-        console.log(playButton);
-        playButton.click(play);
+        buttonPlay.click(play);
+        buttonStop.click(stop);
 
         return this;
     };

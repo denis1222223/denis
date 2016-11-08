@@ -1,11 +1,19 @@
 .content {
     width: 800px;
-    height: 150px;
-    background-color: #e6e6fa;
+    height: 250px;
     margin: 0 auto;
 }
 
-.play {
+.audioPlayer {
+    background-color: #e6e6fa;
+    height: 50px;
+    width: 550px;
+    min-width: 350px;
+    position: relative;
+    padding: 10px;
+}
+
+.player-button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -14,4 +22,50 @@
     text-align: center;
     line-height: 50px;
     font-size: 15pt;
+    float: left;
+    margin-right: 10px;
+}
+
+.player-button:hover {
+    cursor: pointer;
+    background-color: #7656e1;
+}
+
+/* volume */
+
+.volume {
+    float: left;
+    height: 50px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.ui-slider-vertical {
+    width: 0.5em;
+}
+
+.ui-slider .ui-slider-handle {
+    width: 1.0em;
+    height: 1.0em;
+    cursor: pointer;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    border: 1px solid #7326e1;
+    background: #7656e1;
+}
+
+.ui-widget-header {
+    background: #7d82e1;
+}
+
+.track {
+    overflow: hidden;
+}
+
+.player-logs {
+    margin-bottom: 3px;
+    font-size: 10pt;
 }
