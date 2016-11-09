@@ -57,24 +57,33 @@
         }
 
         function play() {
+            audio.play();
+            buttonPlay.find('i').removeClass('play').addClass('fa-pause');
+        }
+
+        function pause() {
+            audio.pause();
+            buttonPlay.find('i').removeClass('fa-pause').addClass('fa-play');
+        }
+
+        function playPause() {
             if (audio.paused) {
-                audio.play();
-                buttonPlay.find('i').removeClass('play').addClass('fa-pause');
+                play();
             } else {
-                audio.pause();
-                buttonPlay.find('i').removeClass('fa-pause').addClass('fa-play');
+                pause();
             }
         }
 
         function stop() {
-            audio.stop;
+            audio.currentTime = 0;
+            pause();
         }
 
         initialize();
 
         var buttonPlay = this.find('.play');
-        var buttonStop = this.find('.play');
-        buttonPlay.click(play);
+        var buttonStop = this.find('.stop');
+        buttonPlay.click(playPause);
         buttonStop.click(stop);
 
         return this;
