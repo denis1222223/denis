@@ -1,4 +1,4 @@
-define(['../src/linearFold'], function() {
+define(['../src/linearFold'], function(linearFold) {
 
     function map(arr, callback) {  
     

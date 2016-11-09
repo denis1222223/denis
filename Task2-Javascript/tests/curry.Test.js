@@ -1,4 +1,4 @@
-define(['test-functions-lib', '../src/curry'], function(testLib) {
+define(['test-functions-lib', '../src/curry'], function(testLib, curry) {
     
     describe('curring', function () {
         

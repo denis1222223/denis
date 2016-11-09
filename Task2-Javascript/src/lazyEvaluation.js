@@ -1,5 +1,5 @@
-define(['../src/bind'], function() {
-    
+define(['../src/bind'], function(bind) {
+
     function lazyEvaluation (func) {
         var bindedFunc = bind.apply(null, arguments);
         var result;

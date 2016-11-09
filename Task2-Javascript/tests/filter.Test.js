@@ -1,4 +1,4 @@
-define(['test-functions-lib', '../src/filter'], function(testLib) {
+define(['test-functions-lib', '../src/filter'], function(testLib, filter) {
         
     describe('filter', function () {
 

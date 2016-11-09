@@ -1,4 +1,4 @@
-define(['../src/lazyMemoEvaluation'], function() {
+define(['../src/lazyMemoEvaluation'], function(lazyMemoEvaluation) {
 
     var counterInc = 0;
     var counterSum = 0;

@@ -1,4 +1,4 @@
-define(['test-functions-lib', '../src/bind'], function(testLib) {
+define(['test-functions-lib', '../src/bind'], function(testLib, bind) {
     
     var customSum = bind(testLib.sum, 5);
     var customSumExtended = bind(testLib.sum, 1, 2, 3);

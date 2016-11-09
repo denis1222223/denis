@@ -1,4 +1,4 @@
-define(['../src/linearFold'], function() {
+define(['../src/linearFold'], function(linearFold) {
 
     function callbackFold1(prev, currentValue, i, array) {
         return prev + currentValue + i;

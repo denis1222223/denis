@@ -1,4 +1,4 @@
-define(['../src/linearUnfold'], function() {
+define(['../src/linearUnfold'], function(linearUnfold) {
 
     function callbackUnfold1(value) {
         value++;
