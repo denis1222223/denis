@@ -1,9 +1,15 @@
 function lazyMemoEvaluation(func) {
-    var storage = [];
+    var storage = {};
     return function(arg) {
-        if (!(arg in storage)) {        
-            storage[arg] = func(arg);
+        var key = arg;
+        if (arg === Object(arg)) {
+            key = JSON.stringify(arg);
         }
-        return storage[arg];
+
+        if (!(key in storage)) {
+            storage[key] = func(arg);
+        }
+
+        return storage[key];
     }
 }
