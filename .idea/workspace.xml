@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4c11688-62af-44fc-80f9-afff472c4137" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js" afterPath="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js" />
     </list>
     <ignored path="denis.iws" />
@@ -34,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="audioPlayer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="audioPlayer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+            <state relative-caret-position="459">
+              <caret line="87" column="26" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -54,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AudioPlayer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AudioPlayer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../trashbox/3/js/plugins/AudioPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1342">
-              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <state relative-caret-position="-98">
+              <caret line="142" column="6" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -205,12 +204,12 @@
       <option name="presentableId" value="Default" />
       <updated>1478605161985</updated>
       <workItem from="1478605165513" duration="22000" />
-      <workItem from="1478605224158" duration="17177000" />
+      <workItem from="1478605224158" duration="18002000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17199000" />
+    <option name="totallyTimeSpent" value="18024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -274,18 +273,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../trashbox/3/js/plugins/AudioPlayer.js">
+    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        <state relative-caret-position="459">
+          <caret line="87" column="26" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js">
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/js/plugins/AudioPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+        <state relative-caret-position="-98">
+          <caret line="142" column="6" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="6" />
           <folding />
         </state>
       </provider>

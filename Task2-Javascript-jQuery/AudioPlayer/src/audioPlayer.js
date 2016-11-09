@@ -43,8 +43,8 @@
                 orientation: "horizontal",
                 range: "min",
                 value: 0,
-                slide: function(event, ui) {
-                    $("#amount").val(ui.value);
+                change: function(event, ui) {
+                    audio.currentTime = audio.duration * playerDOM.find(".track").slider('value') / 100;
                 }
             });
         }
@@ -85,7 +85,7 @@
         var buttonStop = this.find('.stop');
         buttonPlay.click(playPause);
         buttonStop.click(stop);
-
+        audio.ended(stop);
         return this;
     };
 
