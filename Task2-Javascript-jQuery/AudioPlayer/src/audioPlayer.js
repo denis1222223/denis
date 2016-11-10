@@ -10,12 +10,28 @@
 
         var playerDOM = this;
         var audio = new Audio();
+        var timer;
+        var allowSliderUpdate = true;
+
+        function getTime(seconds) {
+            function addZero(number) {
+                if (number < 10) {
+                    return "0" + number;
+                }
+                return number;
+            }
+            var sec = seconds % 60;
+            var min = (seconds - sec) / 60;
+            return addZero(min) + ":" + addZero(sec);
+        }
 
         function addPlayerMakeup() {
             var markup = "<div class='player-button play'><i class='fa fa-play'></i></div>" +
                 "<div class='player-button stop'><i class='fa fa-stop'></i></div>" +
                 "<div class='volume'></div>" +
-                "<div class='player-logs'><div class='song-time'>0:0 - 0:0</div><div class='song-name'>" +
+                "<div class='player-logs'><div class='song-time'>" +
+                "<div class='song-time__current'>00:00</div><div class='song-time__separator'>&nbsp;-&nbsp;</div>" +
+                "<div class='song-time__duration'>00:00</div></div><div class='song-name'>" +
                 settings.author + " - " + settings.name + "</div></div>" +
                 "<div class='track'></div>";
 
@@ -25,6 +41,9 @@
         function initializeAudio() {
             audio.src = settings.src;
             audio.autoplay = false;
+            audio.addEventListener('loadedmetadata', function() {
+                playerDOM.find(".song-time__duration").text(getTime(Math.round(audio.duration)));
+            });
         }
 
         function initializeVolumeSlider() {
@@ -43,27 +62,41 @@
                 orientation: "horizontal",
                 range: "min",
                 value: 0,
-                change: function(event, ui) {
+                start: function(event, ui) {
+                    allowSliderUpdate = false;
+                },
+                stop: function(event, ui) {
                     audio.currentTime = audio.duration * playerDOM.find(".track").slider('value') / 100;
+                    update();
+                    allowSliderUpdate = true;
                 }
             });
         }
 
         function initialize() {
             addPlayerMakeup();
+            initializeAudio();
             initializeVolumeSlider();
             initializeTrackSlider();
-            initializeAudio();
+        }
+
+        function update() {
+            playerDOM.find(".song-time__current").text(getTime(Math.round(audio.currentTime)));
+            if (allowSliderUpdate) {
+                playerDOM.find(".track").slider('value', audio.currentTime / audio.duration * 100);
+            }
         }
 
         function play() {
             audio.play();
             buttonPlay.find('i').removeClass('play').addClass('fa-pause');
+            timer = setInterval(update, 1000);
         }
 
         function pause() {
             audio.pause();
             buttonPlay.find('i').removeClass('fa-pause').addClass('fa-play');
+            clearInterval(timer);
         }
 
         function playPause() {
@@ -76,6 +109,7 @@
 
         function stop() {
             audio.currentTime = 0;
+            playerDOM.find(".track").slider('value', 0);
             pause();
         }
 
@@ -85,7 +119,7 @@
         var buttonStop = this.find('.stop');
         buttonPlay.click(playPause);
         buttonStop.click(stop);
-        audio.ended(stop);
+        // if (audio.ended) {stop;}
         return this;
     };
 

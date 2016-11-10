@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4c11688-62af-44fc-80f9-afff472c4137" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/css/audioPlayer.css" afterPath="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/css/audioPlayer.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js" afterPath="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js" />
     </list>
     <ignored path="denis.iws" />
@@ -22,22 +24,22 @@
     <favorites_list name="denis" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="audioPlayer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/audioPlayer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
+            <state relative-caret-position="374">
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="audioPlayer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="audioPlayer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="87" column="26" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="26" />
+            <state relative-caret-position="423">
+              <caret line="121" column="35" selection-start-line="121" selection-start-column="11" selection-end-line="121" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -46,18 +48,18 @@
       <file leaf-file-name="audioPlayer.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/css/audioPlayer.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-153">
-              <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+            <state relative-caret-position="1224">
+              <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AudioPlayer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AudioPlayer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../trashbox/3/js/plugins/AudioPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-98">
-              <caret line="142" column="6" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="6" />
+            <state relative-caret-position="188">
+              <caret line="78" column="43" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -66,7 +68,7 @@
       <file leaf-file-name="audioPlayer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../trashbox/3/html/audioPlayer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
+            <state relative-caret-position="544">
               <caret line="32" column="43" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="43" />
               <folding />
             </state>
@@ -82,8 +84,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../trashbox/3/html/audioPlayer.html" />
-        <option value="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/css/audioPlayer.css" />
         <option value="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/audioPlayer.html" />
+        <option value="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/css/audioPlayer.css" />
         <option value="$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js" />
       </list>
     </option>
@@ -125,11 +127,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -196,6 +198,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a4c11688-62af-44fc-80f9-afff472c4137" name="Default" comment="" />
@@ -204,12 +209,14 @@
       <option name="presentableId" value="Default" />
       <updated>1478605161985</updated>
       <workItem from="1478605165513" duration="22000" />
-      <workItem from="1478605224158" duration="18002000" />
+      <workItem from="1478605224158" duration="18043000" />
+      <workItem from="1478688326275" duration="3732000" />
+      <workItem from="1478768474112" duration="2888000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18024000" />
+    <option name="totallyTimeSpent" value="24685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -249,25 +256,9 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../trashbox/3/html/audioPlayer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="32" column="43" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/css/audioPlayer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/audioPlayer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
+        <state relative-caret-position="374">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
@@ -275,16 +266,112 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="87" column="26" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="26" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/css/audioPlayer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../trashbox/3/js/plugins/AudioPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-98">
-          <caret line="142" column="6" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="6" />
+        <state relative-caret-position="1258">
+          <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/html/audioPlayer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="43" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/audioPlayer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="87" column="26" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/css/audioPlayer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/js/plugins/AudioPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/html/audioPlayer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="43" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/html/audioPlayer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="43" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/css/audioPlayer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/audioPlayer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/js/plugins/AudioPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="78" column="43" selection-start-line="78" selection-start-column="37" selection-end-line="78" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task2-Javascript-jQuery/AudioPlayer/src/audioPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="121" column="35" selection-start-line="121" selection-start-column="11" selection-end-line="121" selection-end-column="35" />
           <folding />
         </state>
       </provider>

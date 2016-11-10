@@ -69,3 +69,8 @@
     margin-bottom: 3px;
     font-size: 10pt;
 }
+
+.song-time__current,
+.song-time__separator {
+    float: left;
+}
