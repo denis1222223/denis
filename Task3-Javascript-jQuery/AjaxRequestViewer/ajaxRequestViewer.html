@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+    <title>Ajax request viewer</title>
+
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../lib/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/ajaxRequestViewer.css">
+
+    <script type="text/javascript" src="../lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="src/ajaxRequestViewer.js"></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function() {
+
+            var settings = {
+                requestSettings: {
+                    beforeSend: function () {
+                        alert('start');
+                    },
+                    success: function (data) {
+                        console.log(data);
+                    },
+                    dataType: "html",
+                    cache: false,
+                    url: '1.html'
+                },
+                guiSettings: {
+                    color: "#62b4e8",
+                    width: "100px",
+                    height: "20px"
+                }
+            }
+            $.ajax(settings.requestSettings);
+//
+//            $( "#button1" ).ajaxRequestViewer(options);
+//
+//            $( "#button1" ).on( "click", function() {
+//            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="content">
+    <div class="buttons">
+        <a href="#" id="button1" class="buttonSend">Send Request</a>
+        <a href="#" id="button2" class="buttonSend">Send Request</a>
+    </div>
+    <div id="viewBox1" class="viewBox">viewBox 1</div>
+    <div id="viewBox2" class="viewBox">viewBox 2</div>
+    <div id="viewBox3" class="viewBox">viewBox 3</div>
+</div>
+
+</body>
+</html>
