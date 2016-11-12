@@ -15,30 +15,37 @@
     <script type='text/javascript'>
         $(document).ready(function() {
 
-            var settings = {
+            var settings1 = {
                 requestSettings: {
-                    beforeSend: function () {
-                        alert('start');
-                    },
                     success: function (data) {
-                        console.log(data);
+                        console.log("finish");
                     },
-                    dataType: "html",
-                    cache: false,
+                    url: '1.exe'
+                },
+                guiSettings: {
+                    output: $("#viewBox1").add("#viewBox2"),
+                    color: "#62b4e8",
+                    backgroundColor: "#654548",
+                    width: "120px",
+                    height: "10px"
+                }
+            };
+
+            var settings2 = {
+                requestSettings: {
+                    success: function (data) {
+                        console.log("finish");
+                    },
                     url: '1.html'
                 },
                 guiSettings: {
-                    color: "#62b4e8",
-                    width: "100px",
-                    height: "20px"
+                    output: $("#viewBox3")
                 }
-            }
-            $.ajax(settings.requestSettings);
-//
-//            $( "#button1" ).ajaxRequestViewer(options);
-//
-//            $( "#button1" ).on( "click", function() {
-//            });
+            };
+
+
+            $("#button1").ajaxRequestViewer(settings1);
+            $("#button2").ajaxRequestViewer(settings2);
         });
     </script>
 </head>
@@ -46,8 +53,8 @@
 
 <div class="content">
     <div class="buttons">
-        <a href="#" id="button1" class="buttonSend">Send Request</a>
-        <a href="#" id="button2" class="buttonSend">Send Request</a>
+        <a href="#" id="button1" class="buttonSend">Send Request 1</a>
+        <a href="#" id="button2" class="buttonSend">Send Request 2</a>
     </div>
     <div id="viewBox1" class="viewBox">viewBox 1</div>
     <div id="viewBox2" class="viewBox">viewBox 2</div>
