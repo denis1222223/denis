@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4c11688-62af-44fc-80f9-afff472c4137" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/1.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/css/1.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/music/a_ha_thought_that_it_was_you.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/music/bob_dylan_the_times_they_are_a_changin.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/src/1.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/ajaxRequestViewer.html" afterPath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/ajaxRequestViewer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/css/ajaxRequestViewer.css" afterPath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/css/ajaxRequestViewer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/src/ajaxRequestViewer.js" afterPath="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/src/ajaxRequestViewer.js" />
     </list>
     <ignored path="denis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,21 +29,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ajaxRequestViewer.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/ajaxRequestViewer.html">
+      <file leaf-file-name="spinner.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/spinner.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-215">
-              <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+            <state relative-caret-position="510">
+              <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajaxRequestViewer.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/src/ajaxRequestViewer.js">
+      <file leaf-file-name="spinner.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/src/spinner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+            <state relative-caret-position="85">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spinner.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/css/spinner.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="40" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -65,8 +78,13 @@
         <option value="$PROJECT_DIR$/Task2-Javascript-jQuery/AjaxRequestViewer/css/ajaxRequestViewer.css" />
         <option value="$PROJECT_DIR$/Task2-Javascript-jQuery/AjaxRequestViewer/ajaxRequestViewer.html" />
         <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/css/ajaxRequestViewer.css" />
-        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/src/ajaxRequestViewer.js" />
         <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/ajaxRequestViewer.html" />
+        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/css/Spinner.css" />
+        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/Spinner.html" />
+        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/src/ajaxRequestViewer.js" />
+        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/src/spinner.js" />
+        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/css/spinner.css" />
+        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/spinner.html" />
       </list>
     </option>
   </component>
@@ -109,12 +127,15 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../trashbox/3/js/plugins/AudioPlayer.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../trashbox/3/css/spinner.css" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.ajaxRequestViewer.html">
+    <configuration default="false" name="ajaxRequestViewer.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/denis/Task3-Javascript-jQuery/AjaxRequestViewer/ajaxRequestViewer.html">
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -168,6 +189,14 @@
       <recursive>false</recursive>
       <method />
     </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.ajaxRequestViewer.html" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.ajaxRequestViewer.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -191,12 +220,14 @@
       <workItem from="1478901444844" duration="286000" />
       <workItem from="1478901734059" duration="3000" />
       <workItem from="1478901738265" duration="3315000" />
-      <workItem from="1478937321950" duration="16168000" />
+      <workItem from="1478937321950" duration="16276000" />
+      <workItem from="1479064509862" duration="4556000" />
+      <workItem from="1479070606703" duration="4620000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61753000" />
+    <option name="totallyTimeSpent" value="71037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -233,11 +264,67 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/spinner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/src/spinner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/css/spinner.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/html/spinner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/js/plugins/Spinner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/ajaxRequestViewer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/src/ajaxRequestViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/ajaxRequestViewer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -258,7 +345,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -282,15 +368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/css/ajaxRequestViewer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -298,7 +375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1867">
           <caret line="38" column="36" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -306,22 +382,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="962">
           <caret line="67" column="6" selection-start-line="67" selection-start-column="6" selection-end-line="67" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/src/ajaxRequestViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="51" column="50" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/ajaxRequestViewer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-215">
-          <caret line="25" column="57" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+        <state relative-caret-position="493">
+          <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/src/ajaxRequestViewer.js">
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/html/spinner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+        <state relative-caret-position="397">
+          <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/js/plugins/Spinner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/AjaxRequestViewer/css/ajaxRequestViewer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/css/spinner.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/css/spinner.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="40" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/src/spinner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/spinner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="48" column="7" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
           <folding />
         </state>
       </provider>

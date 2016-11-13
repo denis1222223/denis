@@ -24,8 +24,8 @@
                 },
                 guiSettings: {
                     output: $("#viewBox1").add("#viewBox2"),
-                    color: "#62b4e8",
-                    backgroundColor: "#654548",
+                    color: "#fff",
+                    backgroundColor: "#648",
                     width: "120px",
                     height: "10px"
                 }
@@ -36,13 +36,12 @@
                     success: function (data) {
                         console.log("finish");
                     },
-                    url: '1.html'
+                    url: 'ajaxRequestViewer.html'
                 },
                 guiSettings: {
                     output: $("#viewBox3")
                 }
             };
-
 
             $("#button1").ajaxRequestViewer(settings1);
             $("#button2").ajaxRequestViewer(settings2);
@@ -56,9 +55,9 @@
         <a href="#" id="button1" class="buttonSend">Send Request 1</a>
         <a href="#" id="button2" class="buttonSend">Send Request 2</a>
     </div>
-    <div id="viewBox1" class="viewBox">viewBox 1</div>
-    <div id="viewBox2" class="viewBox">viewBox 2</div>
-    <div id="viewBox3" class="viewBox">viewBox 3</div>
+    <div id="viewBox1" class="viewBox">block 1</div>
+    <div id="viewBox2" class="viewBox">block 2</div>
+    <div id="viewBox3" class="viewBox">block 3</div>
 </div>
 
 </body>
