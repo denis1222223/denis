@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a4c11688-62af-44fc-80f9-afff472c4137" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js" afterPath="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html" afterPath="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html" />
-    </list>
+    <list default="true" id="a4c11688-62af-44fc-80f9-afff472c4137" name="Default" comment="" />
     <ignored path="denis.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tree.Test.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tree.Test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tests/tree.Test.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="459">
@@ -55,21 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BinaryTree.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../trashbox/3/js/modules/BinaryTree.js">
+      <file leaf-file-name="Graph.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../trashbox/3/js/modules/Graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="32" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BinaryTree.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../trashbox/3/js/spec/BinaryTree.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="35" column="31" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -146,7 +132,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../trashbox/3/js/modules/Graph.js" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -243,12 +229,12 @@
       <workItem from="1479064509862" duration="4556000" />
       <workItem from="1479070606703" duration="4620000" />
       <workItem from="1479107707523" duration="7063000" />
-      <workItem from="1479117881123" duration="1432000" />
+      <workItem from="1479117881123" duration="2787000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79532000" />
+    <option name="totallyTimeSpent" value="80887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -547,6 +533,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/js/modules/Graph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="31" />
           <folding />
         </state>
       </provider>
