@@ -89,13 +89,3 @@ function findIndex(arr, data) {
     }
     return index;
 }
-
-var tree = new Tree(6);
-tree.add(3, 6);
-tree.add(7, 6);
-tree.add(4, 7);
-// tree.remove(3, 6);
-
-console.log(tree.findNode(3));
-
-tree.print();

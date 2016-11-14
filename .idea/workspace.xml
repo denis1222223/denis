@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a4c11688-62af-44fc-80f9-afff472c4137" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js" afterPath="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html" afterPath="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html" />
     </list>
     <ignored path="denis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tree.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tree.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            <state relative-caret-position="187">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -36,8 +38,18 @@
       <file leaf-file-name="tree.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1700">
-              <caret line="100" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+            <state relative-caret-position="-833">
+              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tree.Test.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tests/tree.Test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -46,7 +58,7 @@
       <file leaf-file-name="BinaryTree.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../trashbox/3/js/modules/BinaryTree.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-223">
+            <state relative-caret-position="408">
               <caret line="24" column="32" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="32" />
               <folding />
             </state>
@@ -89,8 +101,9 @@
         <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/src/spinner.js" />
         <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/css/spinner.css" />
         <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/spinner.html" />
-        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html" />
         <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js" />
+        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html" />
+        <option value="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tests/tree.Test.js" />
       </list>
     </option>
   </component>
@@ -133,7 +146,7 @@
     <panes />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../trashbox/3/js/spec/BinaryTree.spec.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -230,11 +243,12 @@
       <workItem from="1479064509862" duration="4556000" />
       <workItem from="1479070606703" duration="4620000" />
       <workItem from="1479107707523" duration="7063000" />
+      <workItem from="1479117881123" duration="1432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78100000" />
+    <option name="totallyTimeSpent" value="79532000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -276,11 +290,42 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/spinner.html">
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="100" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/js/modules/BinaryTree.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="32" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../trashbox/3/js/spec/BinaryTree.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Spinner/spinner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -288,7 +333,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -296,7 +340,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="40" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -304,7 +347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -312,7 +354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -320,7 +361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -454,7 +494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="47" column="7" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -462,7 +501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -470,13 +508,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="40" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../trashbox/3/js/modules/BinaryTree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-223">
+        <state relative-caret-position="408">
           <caret line="24" column="32" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="32" />
           <folding />
         </state>
@@ -490,18 +527,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js">
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="100" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tree.html">
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/src/tree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        <state relative-caret-position="-833">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Task3-Javascript-jQuery/Tree/tests/tree.Test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding />
         </state>
       </provider>
