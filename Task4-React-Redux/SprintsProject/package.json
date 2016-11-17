@@ -1,0 +1,14 @@
+{
+  "name": "sprint-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "Denis Al-Khelali",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.14.6"
+  }
+}
