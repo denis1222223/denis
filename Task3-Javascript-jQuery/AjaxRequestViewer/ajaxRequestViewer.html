@@ -11,54 +11,104 @@
     <script type="text/javascript" src="../lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
     <script type="text/javascript" src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="src/ajaxRequestViewer.js"></script>
+    <script type="text/javascript" src="src/ajaxLogger.js"></script>
+    <script type="text/javascript" src="src/ajaxRequestLogger.js"></script>
 
     <script type='text/javascript'>
         $(document).ready(function() {
 
-            var settings1 = {
-                requestSettings: {
-                    success: function (data) {
-                        console.log("finish");
-                    },
-                    url: '1.exe'
-                },
-                guiSettings: {
-                    output: $("#viewBox1").add("#viewBox2"),
-                    color: "#fff",
-                    backgroundColor: "#648",
-                    width: "120px",
-                    height: "10px"
-                }
-            };
+//            var settings1 = {
+//                requestSettings: {
+//                    success: function (data) {
+//                        console.log("finish");
+//                    },
+//                    url: '1.exe'
+//                },
+//                guiSettings: {
+//                    output: $("#viewBox1").add("#viewBox2"),
+//                    color: "#fff",
+//                    backgroundColor: "#648",
+//                    width: "120px",
+//                    height: "10px"
+//                }
+//            };
+//
+//            var settings2 = {
+//                requestSettings: {
+//                    success: function (data) {
+//                        console.log("finish");
+//                    },
+//                    url: 'ajaxRequestViewer.html'
+//                },
+//                guiSettings: {
+//                    output: $("#viewBox3")
+//                }
+//            };
+//
+//            $("#button1").ajaxRequestViewer(settings1);
+//            $("#button2").ajaxRequestViewer(settings2);
 
-            var settings2 = {
-                requestSettings: {
-                    success: function (data) {
-                        console.log("finish");
-                    },
-                    url: 'ajaxRequestViewer.html'
-                },
-                guiSettings: {
-                    output: $("#viewBox3")
-                }
-            };
+//            console.log(this);
+//            $(this).ajaxLogger();
 
-            $("#button1").ajaxRequestViewer(settings1);
-            $("#button2").ajaxRequestViewer(settings2);
+
+//            $.fn.ajaxRequestLogger();
+
+
+          //  requestInterceptor.initialize);
+//            var d = new requestInterceptor();
+//            console.log(d);
+            requestInterceptor.initialize({
+                output: $("#output")
+            });
+
+            requestInterceptor.start();
+
+//            var d = $.ajaxSettings.xhr().addEventListener('progress', function(evt) {
+//                if (evt.lengthComputable) {
+//                    var percentComplete = Math.ceil(evt.loaded / evt.total * 100);
+////                    output.text(percentComplete + "%");
+//                    console.log(percentComplete + "%");
+//                    console.log("kek");
+//                }
+//            }, false);
+
+
+            var xxxhr = function() {
+                var xhr = $.ajaxSettings.xhr();
+                xhr.addEventListener('progress', function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = Math.ceil(evt.loaded / evt.total * 100);
+                        console.log(percentComplete + "%");
+                    }
+                }, false);
+                return xhr;
+            };
+            $.ajax.xhr = xxxhr;
+
+            $.ajax({
+                success: function (data) {
+                    console.log("finish");
+                },
+                url: 'ajaxRequestViewer.html',
+//                xhr: xxxhr
+            });
+//            requestInterceptor.pause();
+//            requestInterceptor.stop();
         });
     </script>
 </head>
 <body>
-
-<div class="content">
-    <div class="buttons">
-        <a href="#" id="button1" class="buttonSend">Send Request 1</a>
-        <a href="#" id="button2" class="buttonSend">Send Request 2</a>
-    </div>
-    <div id="viewBox1" class="viewBox">block 1</div>
-    <div id="viewBox2" class="viewBox">block 2</div>
-    <div id="viewBox3" class="viewBox">block 3</div>
-</div>
+<textarea id="output"></textarea>
+<!--<div class="content">-->
+    <!--<div class="buttons">-->
+        <!--<a href="#" id="button1" class="buttonSend">Send Request 1</a>-->
+        <!--<a href="#" id="button2" class="buttonSend">Send Request 2</a>-->
+    <!--</div>-->
+    <!--<div id="viewBox1" class="viewBox">block 1</div>-->
+    <!--<div id="viewBox2" class="viewBox">block 2</div>-->
+    <!--<div id="viewBox3" class="viewBox">block 3</div>-->
+<!--</div>-->
 
 </body>
 </html>

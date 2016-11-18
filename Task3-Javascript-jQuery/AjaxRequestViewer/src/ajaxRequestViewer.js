@@ -14,11 +14,12 @@ $( function() {
             }
         },
 
-        send: function() {
+        _send: function() {
             $.ajax(this.options.requestSettings);
         },
 
-        setMarkup: function() {
+        _setMarkup: function() {
+            console.log("_setMarkup");
             var progressBar = $("<div class='progressBar'>" +
                 "<div class='progress'></div>" +
                 "</div>");
@@ -31,7 +32,7 @@ $( function() {
             this.options.guiSettings.output.append(progressBar);
         },
 
-        setRequestHandler: function() {
+        _setRequestHandler: function() {
             var output = this.options.guiSettings.output;
 
             this.options.requestSettings.xhr = function() {
@@ -47,13 +48,14 @@ $( function() {
         },
 
         _create: function() {
-            this.setMarkup();
+            this._setMarkup();
 
+            var send = this._send.bind(this);
             this.element.on( "click", function() {
-                $(this).ajaxRequestViewer("send");
+                send();
             });
 
-            this.setRequestHandler();
+            this._setRequestHandler();
         }
     });
 });
