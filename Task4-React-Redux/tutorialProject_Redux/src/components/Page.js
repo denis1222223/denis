@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react'
 
 export default class Page extends Component {
     onYearBtnClick(e) {
+        console.log(e);
         this.props.pageActions.setYear(+e.target.innerText)
     }
     render() {

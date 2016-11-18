@@ -1,5 +1,5 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -22,11 +22,11 @@ module.exports = {
             {
                 loaders: ['react-hot', 'babel-loader'],
                 include: [
-                    path.resolve(__dirname, "src"),
+                    path.resolve(__dirname, "src")
                 ],
                 test: /\.js$/,
-                plugins: ['transform-runtime'],
+                plugins: ['transform-runtime']
             }
         ]
     }
-}
+};
