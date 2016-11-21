@@ -1,54 +1,68 @@
 var requestInterceptor = (function() {
 
-    var output;
-    var xhr;
+    var settings = {
+        outputCallback: function(requestID, eventText) {
+            console.log("[" + requestID + "] " + eventText);
+        },
+        onStart: function(requestID) {
+            this.outputCallback(requestID, "start");
+        },
+        onProgress: function(requestID) {
+            this.outputCallback(requestID, "progress...");
+        },
+        onError: function(requestID) {
+            this.outputCallback(requestID, "error");
+        },
+        onLoad: function(requestID) {
+            this.outputCallback(requestID, "done");
+        }
+    };
 
-    function initialize(options) {
-        output = options.output;
-        xhr = $.ajaxSettings.xhr();
-    }
+    var XMLHttpRequest = window.XMLHttpRequest;
 
-    function start() {
-        xhr.addEventListener('progress', function(evt) {
-            if (evt.lengthComputable) {
-                var percentComplete = Math.ceil(evt.loaded / evt.total * 100);
-                output.text(percentComplete + "%");
-                console.log(percentComplete + "%");
+    var startTracing = function () {
+        XMLHttpRequest.prototype.uniqueID = function() {
+            if (!this.uniqueIDMemo) {
+                this.uniqueIDMemo = Math.floor(Math.random() * 1000);
             }
-        }, false);
-    }
+            return this.uniqueIDMemo;
+        };
 
-    function pause() {
-        console.log(d);
-    }
+        XMLHttpRequest.prototype.oldOpen = XMLHttpRequest.prototype.open;
+        var newOpen = function(method, url, async, user, password) {
+            settings.onStart(this.uniqueID());
+            this.oldOpen(method, url, async, user, password);
+        };
+        XMLHttpRequest.prototype.open = newOpen;
 
-    function stop() {
-        xhr.addEventListener('progress', function(evt) {
-        }, false);
-    }
+        XMLHttpRequest.prototype.oldSend = XMLHttpRequest.prototype.send;
+        var newSend = function(a) {
+            settings.onProgress(this.uniqueID());
+            var xhr = this;
+            xhr.addEventListener("error", settings.onError.bind(settings, xhr.uniqueID()), false);
+            xhr.addEventListener("load", settings.onLoad.bind(settings, xhr.uniqueID()), false);
+            this.oldSend(a);
+        };
+        XMLHttpRequest.prototype.send = newSend;
+    };
+
+    var initialize = function(options) {
+        settings = $.extend(settings, options);
+    };
+
+    var run = function() {
+        startTracing();
+    };
+
+    var stop = function() {
+        XMLHttpRequest.prototype.send = XMLHttpRequest.prototype.oldSend;
+        XMLHttpRequest.prototype.open = XMLHttpRequest.prototype.oldOpen;
+    };
 
     return {
         initialize: initialize,
-        start: start,
-        pause: pause,
+        run: run,
         stop: stop
     }
+
 })();
-
-// requestInterceptor.prototype.initialize =
-
-// (function() {
-//
-//     var requestInterceptor = function () {
-//
-//         var randNumber = Math.random();
-//
-//         this.someMethod = function () {
-//             console.log(randNumber);
-//         };
-//
-//         this.randomized = randNumber;
-//
-//     };
-//     console.log("dfg");
-// })();
