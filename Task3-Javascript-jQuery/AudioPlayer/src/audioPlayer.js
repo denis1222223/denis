@@ -26,6 +26,7 @@
         var playerDOM = this;
         var timer;
         var allowSliderUpdate = true;
+        // var markupRendered = false;
 
         function getTime(seconds) {
             function addZero(number) {
@@ -92,6 +93,7 @@
                     setDuration();
                 }
             });
+            setSongTags(settings.url);
         }
 
         function setDuration() {
@@ -115,7 +117,6 @@
                 "<div class='track'></div>";
 
             playerDOM.prepend(markup);
-            setSongTags(settings.url);
         }
 
         function initializeVolumeSlider() {
@@ -157,9 +158,15 @@
         }
 
         function initialize() {
-            initializeAudio();
-            addPlayerMarkup();
-            initializeContols();
+            if (!playerDOM.data("markupRendered")) {
+                addPlayerMarkup();
+                initializeContols();
+                playerDOM.data("markupRendered", true);
+            }
+
+            initializeAudio();//////////////////////////////////////////to do
+            pause();
+            stop();
         }
 
         if (settings.url) {
