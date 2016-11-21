@@ -15,21 +15,30 @@
     <script type='text/javascript'>
         $(document).ready(function() {
 
-            var settings1 = {
-                output: $("#viewBox1").add("#viewBox2"),
+            var settings = {
                 src: "img/1.gif",
-                duration: 2000,
+                blockUi: true
             };
 
-            var settings2 = {
-                output: $("#viewBox3"),
-                backgroundColor: "#424242",
-                src: "img/2.gif",
-                duration: 4000,
-            };
+            $("#viewBox1").spinner(settings);
 
-            $("#button1").spinner(settings1);
-            $("#button2").spinner(settings2);
+            $("#buttonShow").click(function() {
+                $("#viewBox1").spinner("show");
+            });
+            $("#buttonHide").click(function() {
+                $("#viewBox1").spinner("hide");
+            });
+            $("#buttonWrap").click(function() {
+                $("#viewBox1").spinner("wrap", new Promise(function(resolve, reject) {
+                    $.ajax({
+                        url: "spinner.html",
+                        success: function(data) {
+                            resolve(data);
+                        }
+                    });
+                }));
+            });
+
         });
     </script>
 </head>
@@ -37,10 +46,14 @@
 
 <div class="content">
     <div class="buttons">
-        <a href="#" id="button1" class="buttonSpin">Spin 1</a>
-        <a href="#" id="button2" class="buttonSpin">Spin 2</a>
+        <a href="#" id="buttonShow" class="buttonSpin">Show</a>
+        <a href="#" id="buttonHide" class="buttonSpin">Hide</a>
+        <a href="#" id="buttonWrap" class="buttonSpin">Wrap</a>
     </div>
-    <div id="viewBox1" class="viewBox">block 1</div>
+    <div id="viewBox1" class="viewBox">block 1
+        <button>Button 1</button>
+        <button>Button 2</button>
+    </div>
     <div id="viewBox2" class="viewBox">block 2</div>
     <div id="viewBox3" class="viewBox">block 3</div>
 </div>

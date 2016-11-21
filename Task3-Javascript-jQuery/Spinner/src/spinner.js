@@ -4,33 +4,34 @@ $( function() {
         running: false,
 
         options: {
-            output: $("body"),
-            backgroundColor: "",
-            src: "img/1.gif",
-            duration: 2000,
+            src: "img/1.gif"
         },
 
-        spin: function() {
+        show: function() {
             if (!this.running) {
                 this.running = true;
-                this.setMarkup();
-                setTimeout(function () {
-                    this.options.output.find('.spinner').remove();
-                    this.running = false;
-                }.bind(this), this.options.duration);
+                var mask = $("<div class='mask'></div>");
+                var spinnerAnim = $("<img src='" + this.options.src + "'>");
+                mask.html(spinnerAnim);
+                this.element.prepend(mask);
             }
         },
 
-        setMarkup: function() {
-            var spinner = $("<div class='spinner'><img src='" + this.options.src + "'></div>");
-            this.options.output.append(spinner);
-            this.options.output.find(".spinner").css("background-color", this.options.backgroundColor);
+        hide: function() {
+            this.running = false;
+            this.element.find(".mask").remove();
         },
 
-        _create: function() {
-            this.element.on( "click", function() {
-                $(this).spinner("spin");
+        wrap: function(promise) {
+            this.show();
+            var self = this;
+            promise.then(function() {
+                self.hide();
+            }, function(error) {
+                console.log(error);
             });
+            return promise;
         }
+
     });
 });
