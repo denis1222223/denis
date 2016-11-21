@@ -2,14 +2,28 @@
 
     $.fn.audioPlayer = function(options) {
 
-        var settings = $.extend( {
-            'name'         : 'The Times They Are Changin',
-            'author'       : 'Bob Dylan',
-            'src'          : 'music/bob_dylan_the_times_they_are_a_changin.mp3'
+        var settings = $.extend({
+            onplay: function() {
+                console.log("play");
+            },
+            onpause: function() {
+                console.log("pause");
+            },
+            onstop: function() {
+                console.log("stop");
+            },
+            onvolume: function() {
+                console.log("volume");
+            },
+            onseek: function() {
+                console.log("seek");
+            }
         }, options);
 
+        var sound;
+        var duration = 0;
+
         var playerDOM = this;
-        var audio = new Audio();
         var timer;
         var allowSliderUpdate = true;
 
@@ -26,26 +40,26 @@
         }
 
         function update() {
-            playerDOM.find(".song-time__current").text(getTime(Math.round(audio.currentTime)));
+            playerDOM.find(".song-time__current").text(getTime(Math.round(sound.seek())));
             if (allowSliderUpdate) {
-                playerDOM.find(".track").slider('value', audio.currentTime / audio.duration * 100);
+                playerDOM.find(".track").slider('value', sound.seek() / duration * 100);
             }
         }
 
         function play() {
-            audio.play();
+            sound.play();
             playerDOM.find('.play').find('i').removeClass('play').addClass('fa-pause');
             timer = setInterval(update, 1000);
         }
 
         function pause() {
-            audio.pause();
+            sound.pause();
             playerDOM.find('.play').find('i').removeClass('fa-pause').addClass('fa-play');
             clearInterval(timer);
         }
 
         function playPause() {
-            if (audio.paused) {
+            if (!sound.playing()) {
                 play();
             } else {
                 pause();
@@ -53,16 +67,42 @@
         }
 
         function stop() {
-            audio.currentTime = 0;
+            sound.stop();
             playerDOM.find(".song-time__current").text("00:00");
             playerDOM.find(".track").slider('value', 0);
             pause();
         }
 
         function initializeAudio() {
-            audio.src = settings.src;
-            audio.autoplay = false;
-            audio.onended = stop;
+            sound = new Howl({
+                src: [settings.url],
+                autoplay: false,
+                loop: false,
+                onplay: settings.onplay,
+                onpause: settings.onpause,
+                onstop: settings.onstop,
+                onvolume: settings.onvolume,
+                onseek: settings.onseek,
+                onend: function() {
+                    stop();
+                    console.log("end");
+                },
+                onload: function() {
+                    duration = sound.duration();
+                    setDuration();
+                }
+            });
+        }
+
+        function setDuration() {
+            playerDOM.find(".song-time__duration").text(getTime(Math.round(duration)));
+        }
+
+        function setSongTags(url) {
+            ID3.loadTags(url, tags = function() {
+                var tags = ID3.getAllTags(url);
+                playerDOM.find(".song-name").text(tags.artist + " - " + tags.title);
+            });
         }
 
         function addPlayerMarkup() {
@@ -71,15 +111,11 @@
                 "<div class='volume'></div>" +
                 "<div class='player-logs'><div class='song-time'>" +
                 "<div class='song-time__current'>00:00</div><div class='song-time__separator'>&nbsp;-&nbsp;</div>" +
-                "<div class='song-time__duration'>00:00</div></div><div class='song-name'>" +
-                settings.author + " - " + settings.name + "</div></div>" +
+                "<div class='song-time__duration'>00:00</div></div><div class='song-name'></div></div>" +
                 "<div class='track'></div>";
 
             playerDOM.prepend(markup);
-
-            audio.addEventListener('loadedmetadata', function() {
-                playerDOM.find(".song-time__duration").text(getTime(Math.round(audio.duration)));
-            });
+            setSongTags(settings.url);
         }
 
         function initializeVolumeSlider() {
@@ -88,7 +124,7 @@
                 range: "min",
                 value: 50,
                 slide: function (event, ui) {
-                    audio.volume = playerDOM.find(".volume").slider('value') / 100;
+                    sound.volume(playerDOM.find(".volume").slider('value') / 100);
                 }
             });
         }
@@ -102,7 +138,7 @@
                     allowSliderUpdate = false;
                 },
                 stop: function(event, ui) {
-                    audio.currentTime = audio.duration * playerDOM.find(".track").slider('value') / 100;
+                    sound.seek(duration * playerDOM.find(".track").slider('value') / 100);
                     update();
                     allowSliderUpdate = true;
                 }
@@ -126,7 +162,11 @@
             initializeContols();
         }
 
-        initialize();
+        if (settings.url) {
+            initialize();
+        } else {
+            console.log("url required");
+        }
 
         return this;
     };
