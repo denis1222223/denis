@@ -4,22 +4,32 @@ $( function() {
         running: false,
 
         options: {
-            src: "img/1.gif"
+            src: "img/1.gif",
+            blockUi: true
         },
 
         show: function() {
             if (!this.running) {
                 this.running = true;
                 var mask = $("<div class='mask'></div>");
-                var spinnerAnim = $("<img src='" + this.options.src + "'>");
+                var spinnerAnim = $("<img class='spinnerImg' src='" + this.options.src + "'>");
                 mask.html(spinnerAnim);
-                this.element.prepend(mask);
+                if (this.options.blockUi) {
+                    this.element.prepend(mask);
+                } else {
+                    this.element.prepend(spinnerAnim);
+                }
+
             }
         },
 
         hide: function() {
             this.running = false;
-            this.element.find(".mask").remove();
+            if (this.options.blockUi) {
+                this.element.find(".mask").remove();
+            } else {
+                this.element.find(".spinnerImg").remove();
+            }
         },
 
         wrap: function(promise) {
@@ -28,7 +38,7 @@ $( function() {
             promise.then(function() {
                 self.hide();
             }, function(error) {
-                console.log(error);
+                self.hide();
             });
             return promise;
         }

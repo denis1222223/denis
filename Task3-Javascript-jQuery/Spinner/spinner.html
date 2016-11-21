@@ -17,7 +17,7 @@
 
             var settings = {
                 src: "img/1.gif",
-                blockUi: true
+                blockUi: false
             };
 
             $("#viewBox1").spinner(settings);
@@ -34,6 +34,9 @@
                         url: "spinner.html",
                         success: function(data) {
                             resolve(data);
+                        },
+                        error: function(){
+                            reject();
                         }
                     });
                 }));

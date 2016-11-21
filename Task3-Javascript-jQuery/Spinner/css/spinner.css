@@ -49,3 +49,9 @@ a.buttonSpin:active {
     top:0;
     z-index:1;
 }
+
+.spinnerImg{
+    position: absolute;
+    left: 40%;
+    top: 0;
+}
