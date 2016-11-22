@@ -16,30 +16,25 @@
         $(document).ready(function() {
 
             var settings = {
+                output: $("#viewBox1"),
                 src: "img/1.gif",
-                blockUi: false
+                blockUi: true
             };
 
-            var s = $("#viewBox1").spinner(settings);
+            spinner.initialize(settings);
 
             $("#buttonShow").click(function() {
-                $("#viewBox1").spinner("show");
+                spinner.show();
             });
             $("#buttonHide").click(function() {
-                $("#viewBox1").spinner("hide");
+                spinner.hide();
             });
             $("#buttonWrap").click(function() {
-                $("#viewBox1").spinner("wrap", new Promise(function(resolve, reject) {
+                spinner.wrap(
                     $.ajax({
-                        url: "spinner.html",
-                        success: function(data) {
-                            resolve(data);
-                        },
-                        error: function(){
-                            reject();
-                        }
-                    });
-                }));
+                        url: "test"
+                    })
+                ).then(function(){ console.log("done"); });
             });
 
         });
@@ -54,8 +49,8 @@
         <a href="#" id="buttonWrap" class="buttonSpin">Wrap</a>
     </div>
     <div id="viewBox1" class="viewBox">block 1
-        <button>Button 1</button>
-        <button>Button 2</button>
+        <!--<button>Button 1</button>-->
+        <!--<button>Button 2</button>-->
     </div>
     <div id="viewBox2" class="viewBox">block 2</div>
     <div id="viewBox3" class="viewBox">block 3</div>
