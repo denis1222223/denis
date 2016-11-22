@@ -12,12 +12,10 @@
     <script type="text/javascript" src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.1/howler.js"></script>
     <script type="text/javascript" src="../lib/id3-minimized.js"></script>
-    <script type="text/javascript" src="src/audioPlayer.js"></script>
+    <script type="text/javascript" src="src/audioPlayerWidget.js"></script>
 
     <script type='text/javascript'>
         $(document).ready(function() {
-
-
 
             var settings = {
                 url: 'music/a_ha_thought_that_it_was_you.mp3',
@@ -25,6 +23,8 @@
                     console.log("volume changed");
                 }
             };
+
+            $(".audioPlayer").audioPlayer(settings);
 
             $("#changeSong").click(function() {
                 if (settings.url != "music/bob_dylan_the_times_they_are_a_changin.mp3") {
@@ -34,9 +34,7 @@
                 }
                 $('.audioPlayer').audioPlayer(settings);
             });
-
-            $('.audioPlayer').audioPlayer(settings);
-        });
+       });
     </script>
 </head>
 <body>
