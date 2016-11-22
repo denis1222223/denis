@@ -7,8 +7,8 @@ var requestInterceptor = (function() {
         onStart: function(requestID) {
             this.outputCallback(requestID, "start");
         },
-        onProgress: function(requestID) {
-            this.outputCallback(requestID, "progress...");
+        onProgress: function(requestID, percent) {
+            this.outputCallback(requestID, "progress " + percent + "%");
         },
         onError: function(requestID) {
             this.outputCallback(requestID, "error");
@@ -18,12 +18,14 @@ var requestInterceptor = (function() {
         }
     };
 
+    var requestID = 0;
+
     var XMLHttpRequest = window.XMLHttpRequest;
 
     var startTracing = function () {
         XMLHttpRequest.prototype.uniqueID = function() {
             if (!this.uniqueIDMemo) {
-                this.uniqueIDMemo = Math.floor(Math.random() * 1000);
+                this.uniqueIDMemo = ++requestID;
             }
             return this.uniqueIDMemo;
         };
@@ -37,10 +39,16 @@ var requestInterceptor = (function() {
 
         XMLHttpRequest.prototype.oldSend = XMLHttpRequest.prototype.send;
         var newSend = function(a) {
-            settings.onProgress(this.uniqueID());
             var xhr = this;
             xhr.addEventListener("error", settings.onError.bind(settings, xhr.uniqueID()), false);
             xhr.addEventListener("load", settings.onLoad.bind(settings, xhr.uniqueID()), false);
+            xhr.addEventListener('progress', function(evt) {
+                if (evt.lengthComputable) {
+                    var percent = Math.ceil(evt.loaded / evt.total * 100);
+                    settings.onProgress.call(settings, xhr.uniqueID(), percent);
+                }
+            }, false);
+
             this.oldSend(a);
         };
         XMLHttpRequest.prototype.send = newSend;
