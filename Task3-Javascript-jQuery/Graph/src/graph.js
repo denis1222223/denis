@@ -1,44 +1,50 @@
-function Graph(matrix) {
-    this.nodesCount = matrix.length;
-    this.relationsMatrix = matrix;
-    this.initialize();
-    this.shortestWays();
-}
+function Graph(_adj, _weight) {
+    var adj = _adj,
+        weigth = _weight,
+        used = [],
+        pred = [],
+        distances = [],
+        length = adj.length;
 
-Graph.prototype.initialize = function() {
-    this.distances = [];
-    this.visitedNodes = [];
-    for (var i = 0; i < this.nodesCount; i++) {
-        this.distances[i] = 10000;
-        this.visitedNodes[i] = 1;
-    }
-    this.distances[0] = 0;
-}
+    var dejkstra = function(start) {
+        distances[start] = 0;
+        for (var iter = 0; iter < length; ++iter) {
+            var v = -1;
+            var distancesV = Infinity;
 
-Graph.prototype.shortestWayTo = function(index) {
-    return this.distances[index-1];
-}
-
-Graph.prototype.shortestWays = function() {
-    do {
-        var minindex = 10000;
-        var min = 10000;
-        for (var i = 0; i < this.nodesCount; i++) {
-            if ((this.visitedNodes[i] == 1) && (this.distances[i] < min)) {
-                min = this.distances[i];
-                minindex = i;
+            for (var i = 0; i < length; ++i) {
+                if (used[i]) {
+                    continue;
+                }
+                if (distancesV < distances[i]) {
+                    continue;
+                }
+                v = i;
+                distancesV = distances[i];
             }
-        }
-        if (minindex != 10000) {
-            for (var i = 0; i < this.nodesCount; i++) {
-                if (this.relationsMatrix[minindex][i] > 0) {
-                    var temp = min + this.relationsMatrix[minindex][i];
-                    if (temp < this.distances[i])
-                        this.distances[i] = temp;
+
+            for (var i = 0; i < adj[v].length; ++i) {
+                var u = adj[v][i];
+                var weightU = weigth[v][i];
+                if (distances[v] + weightU < distances[u]) {
+                    distances[u] = distances[v] + weightU;
+                    pred[u] = v;
                 }
             }
-            this.visitedNodes[minindex] = 0;
+
+            used[v] = true;
         }
-    } while (minindex < 10000);
-    return this.distances;
+    };
+
+    this.distancesanceTo = function(to) {
+        console.log(distances);
+        return distances[to];
+    };
+
+    for (var i = 0; i < length; i++) {
+        pred[i] = -1;
+        distances[i] = Infinity;
+    }
+
+    dejkstra(0);
 }

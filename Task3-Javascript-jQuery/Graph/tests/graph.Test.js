@@ -1,26 +1,33 @@
 describe('graph tests', function () {
-
-    var matrix = [
-        [0, 7, 9, 0, 0, 14],
-        [7, 0, 10, 15, 0, 0],
-        [9, 10, 0, 11, 0, 2],
-        [0, 15, 11, 0, 6, 0],
-        [0, 0, 0, 6, 0, 9],
-        [14, 0, 2, 0, 9, 0]
-    ]
-
-    var graph = new Graph(matrix);
-
-    it('find shortest way from 1th to 1th node', function () {
-        expect(graph.shortestWayTo(1)).toBe(0);
-    });
-
-    it('find shortest way from 1th to 3th node', function () {
-        expect(graph.shortestWayTo(3)).toBe(9);
-    });
-
-    it('find shortest way from 1th to 6th node', function () {
-        expect(graph.shortestWayTo(6)).toBe(11);
-    });
     
+    var adj = [
+        [1, 4],
+        [0, 2, 3],
+        [1, 3, 4],
+        [1, 2],
+        [0, 2]
+    ];
+
+    var weight = [
+        [4, 12],
+        [4, 12, 3],
+        [12, 18, 7],
+        [3, 18],
+        [12, 7]
+    ];
+
+    var graph = new Graph(adj, weight);
+
+    it('find shortest way from 0th to 0th node', function () {
+        expect(graph.distanceTo(0)).toBe(0);
+    });
+
+    it('find shortest way from 0th to 2th node', function () {
+        expect(graph.distanceTo(2)).toBe(16);
+    });
+
+    it('find shortest way from 0th to 4th node', function () {
+        expect(graph.distanceTo(4)).toBe(12);
+    });
+
 });
