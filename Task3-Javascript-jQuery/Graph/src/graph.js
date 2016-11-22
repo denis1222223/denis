@@ -36,7 +36,7 @@ function Graph(_adj, _weight) {
         }
     };
 
-    this.distancesanceTo = function(to) {
+    this.distanceTo = function(to) {
         console.log(distances);
         return distances[to];
     };
