@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+    <title>Audio player</title>
+
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../lib/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/audioPlayer.css">
+
+    <script type="text/javascript" src="../lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.1/howler.js"></script>
+    <script type="text/javascript" src="../lib/id3-minimized.js"></script>
+    <script type="text/javascript" src="src/audioPlayerWidget.js"></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function() {
+
+            var settings = {
+                url: 'music/a_ha_thought_that_it_was_you.mp3',
+                onvolume: function() {
+                    console.log("volume changed");
+                }
+            };
+
+            $(".audioPlayer").audioPlayer(settings);
+
+            $("#changeSong").click(function() {
+                if (settings.url != "music/bob_dylan_the_times_they_are_a_changin.mp3") {
+                    settings.url = "music/bob_dylan_the_times_they_are_a_changin.mp3";
+                } else {
+                    settings.url = 'music/a_ha_thought_that_it_was_you.mp3';
+                }
+                $('.audioPlayer').audioPlayer(settings);
+            });
+       });
+    </script>
+</head>
+<body>
+
+<div class="content">
+
+    <div class="audioPlayer"></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button id="changeSong">Change song JIT</button>
+</div>
+
+</body>
+</html>
