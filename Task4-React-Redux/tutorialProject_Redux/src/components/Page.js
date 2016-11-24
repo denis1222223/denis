@@ -11,6 +11,7 @@ export default class Page extends Component {
             <p>
                 <button onClick={this.onYearBtnClick.bind(this)}>2016</button>
                 <button onClick={this.onYearBtnClick.bind(this)}>2015</button>
+                hello
                 <button onClick={this.onYearBtnClick.bind(this)}>2014</button>
             </p>
             <h3>{year} год</h3>
