@@ -1,3 +1,10 @@
 {
-  "presets": ["es2015", "stage-0", "react"] //support ES2015, ES7 and JSX
+  "presets": [
+    "es2015",
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-decorators-legacy"
+  ]
 }
