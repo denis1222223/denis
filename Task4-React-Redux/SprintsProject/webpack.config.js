@@ -16,7 +16,12 @@ var plugins = [
             NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
         }
     }),
-    new ExtractTextPlugin(cssName)
+    new ExtractTextPlugin(cssName),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
+    })
 ];
 
 if (process.env.NODE_ENV === 'production') {
@@ -37,7 +42,10 @@ module.exports = {
     resolve: {
         root:               path.join(__dirname, 'src'),
         modulesDirectories: ['node_modules'],
-        extensions:         ['', '.js', '.jsx']
+        extensions:         ['', '.js', '.jsx'],
+        alias: {
+            'jquery-ui': 'jquery-ui/ui/widgets'
+        }
     },
     plugins,
     output: {
