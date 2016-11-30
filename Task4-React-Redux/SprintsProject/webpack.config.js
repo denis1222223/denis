@@ -42,10 +42,7 @@ module.exports = {
     resolve: {
         root:               path.join(__dirname, 'src'),
         modulesDirectories: ['node_modules'],
-        extensions:         ['', '.js', '.jsx'],
-        alias: {
-            'jquery-ui': 'jquery-ui/ui/widgets'
-        }
+        extensions:         ['', '.js', '.jsx']
     },
     plugins,
     output: {

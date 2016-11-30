@@ -1,2 +1,4 @@
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const SELECT_SPRINT = 'SELECT_SPRINT';
+export const SHOW_ADD_SPRINT = 'SHOW_ADD_SPRINT';
+export const HIDE_ADD_SPRINT = 'HIDE_ADD_SPRINT';
+export const ADD_SPRINT = 'ADD_SPRINT';
