@@ -12,8 +12,6 @@ class Sprint extends Component {
     }
 
     componentDidMount() {
-        var a  = $('td')[0];
-        console.log(a);
     }
 
     render() {
@@ -61,7 +59,7 @@ class Sprint extends Component {
                     <Table striped bordered condensed hover className="statusTable">
                         <thead>
                         <tr>
-                            <th className="open" id>Open</th>
+                            <th className="open">Open</th>
                             <th className="progress">In progress</th>
                             <th className="closed">Closed</th>
                         </tr>
