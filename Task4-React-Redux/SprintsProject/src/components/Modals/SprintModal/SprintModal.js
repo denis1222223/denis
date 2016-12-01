@@ -54,9 +54,6 @@ class SprintModal extends Component {
 
     render() {
         var hideModal = this.props.hideSprintModal;
-
-       // console.log(this.props.modal.beginningDate + " - " + this.props.modal.expirationDate);
-
         var beginningDate = this.getDate(this.props.modal.beginningDate);
         var expirationDate = this.getDate(this.props.modal.expirationDate);
         return(

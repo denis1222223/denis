@@ -1,4 +1,4 @@
-import { DELETE_TASK, ADD_TASK, EDIT_TASK } from 'redux/constants';
+import { DELETE_TASK, ADD_TASK, EDIT_TASK, DELETE_SUBTASK, ADD_SUBTASK } from 'redux/constants';
 import initialState from './initialState';
 
 export default function(state = initialState, action) {
@@ -29,6 +29,22 @@ export default function(state = initialState, action) {
                     return item;
                 }
             });
+
+        case DELETE_SUBTASK:
+            var newTask = state.find((task)=>{
+               return task.id == action.payload.taskId;
+            });
+            delete newTask.subtasks[action.payload.id];
+            return [...state.filter((item) => {
+                return item.id != action.payload.taskId;
+            }), newTask];
+
+        case ADD_SUBTASK:
+            var newTask = state.find((task)=>{
+                return task.id == action.payload.taskId;
+            });
+            newTask.subtasks = {}    ///////todo
+
         default:
             return state;
     }

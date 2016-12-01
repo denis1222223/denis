@@ -12,3 +12,6 @@ export const ADD_TASK = 'ADD_TASK';
 export const HIDE_TASK_MODAL = 'HIDE_TASK_MODAL';
 export const SHOW_EDIT_TASK_MODAL = 'SHOW_EDIT_TASK_MODAL';
 export const EDIT_TASK = 'EDIT_TASK';
+
+export const DELETE_SUBTASK = 'DELETE_SUBTASK';
+export const ADD_SUBTASK = 'ADD_SUBTASK';
