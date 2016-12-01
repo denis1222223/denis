@@ -8,7 +8,8 @@ export default function(state = initialState, action) {
             var id = state[state.length-1].id;
             var newSprint = {
                 id: ++id,
-                dates: action.payload.beginning + " - " + action.payload.expiration,
+                beginningDate: action.payload.beginning,
+                expirationDate: action.payload.expiration,
                 name: action.payload.name
             };
             return [...state, newSprint];
@@ -20,9 +21,19 @@ export default function(state = initialState, action) {
             });
 
         case EDIT_SPRINT:
-            var id = action.payload;
-            return state.filter((item) => {
-                return item.id != id;
+            console.log(state.map((item) => {
+                if (item.id == action.payload.id) {
+                    return action.payload;
+                } else {
+                    return item;
+                }
+            }));
+            return state.map((item) => {
+                if (item.id == action.payload.id) {
+                    return action.payload;
+                } else {
+                    return item;
+                }
             });
         
         default:

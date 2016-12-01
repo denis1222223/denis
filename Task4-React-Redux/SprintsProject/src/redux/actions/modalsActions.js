@@ -1,13 +1,20 @@
-import { SHOW_ADD_SPRINT, HIDE_ADD_SPRINT } from 'redux/constants';
+import { SHOW_ADD_SPRINT_MODAL, SHOW_EDIT_SPRINT_MODAL, HIDE_SPRINT_MODAL } from 'redux/constants';
 
-export function showAddSprint() {
+export function showAddSprintModal() {
     return {
-        type: SHOW_ADD_SPRINT
+        type: SHOW_ADD_SPRINT_MODAL
     };
 }
 
-export function hideAddSprint() {
+export function showEditSprintModal(sprintAttributes) {
     return {
-        type: HIDE_ADD_SPRINT
+        type: SHOW_EDIT_SPRINT_MODAL,
+        payload: sprintAttributes
+    };
+}
+
+export function hideSprintModal() {
+    return {
+        type: HIDE_SPRINT_MODAL
     };
 }

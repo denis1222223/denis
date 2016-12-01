@@ -5,7 +5,7 @@ import SideBar from 'components/SideBar';
 import Grid  from 'react-bootstrap/lib/Grid';
 import Row  from 'react-bootstrap/lib/Row';
 import Col  from 'react-bootstrap/lib/Col';
-import AddSprint from 'components/Modals/AddSprint';
+import AddSprint from 'components/Modals/SprintModal';
 
 import './app.less';
 import 'bootstrap-less/bootstrap/index.less';

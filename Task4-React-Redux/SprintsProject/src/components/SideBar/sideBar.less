@@ -19,19 +19,27 @@
     }
     li {
       position: relative;
+      button {
+        position: absolute;
+        z-index: 1;
+        display: none;
+        top: 8px;
+      }
     }
     li:hover {
-      .deleteSprintButton {
+      button {
         display: block;
       }
     }
   }
 
+
+
   .deleteSprintButton {
-    position: absolute;
     right: 10px;
-    top: 8px;
-    z-index: 1;
-    display: none;
+  }
+
+  .editSprintButton {
+    right: 40px;
   }
 }

@@ -48,7 +48,7 @@ class Sprint extends Component {
             <div>
                 {sprintInfo.name}
                 <br/>
-                {sprintInfo.dates}
+                {sprintInfo.beginningDate} - {sprintInfo.expirationDate}
             </div>
         );
 

@@ -1,6 +1,13 @@
+import { addSprint } from '../../actions/sprintsActions';
+
 const initialState = {
-    addSprint: {
-        show: false
+    sprintModal: {
+        show: false,
+        title: 'Add Sprint',
+        name: '',
+        beginningDate: '',
+        expirationDate: '',
+        action: addSprint
     }
 };
 

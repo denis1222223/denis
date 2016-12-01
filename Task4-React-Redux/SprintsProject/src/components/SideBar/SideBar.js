@@ -3,14 +3,26 @@ import { Link } from 'react-router';
 import Button  from 'react-bootstrap/lib/Button';
 import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
 import { connect } from 'react-redux';
-import { showAddSprint } from '../../redux/actions/modalsActions';
-import { deleteSprint, editSprint } from '../../redux/actions/sprintsActions';
+import { showAddSprintModal, showEditSprintModal } from '../../redux/actions/modalsActions';
+import { deleteSprint } from '../../redux/actions/sprintsActions';
 
 import './sideBar.less';
 
 class SideBar extends Component {
     constructor(props) {
         super(props);
+    }
+
+    onEditSprintClick(id) {
+        var sprint = this.props.sprints.find((item)=>{
+            return item.id == id;
+        });
+        this.props.showEditSprintModal({
+            id: id,
+            name: sprint.name,
+            beginningDate: sprint.beginningDate,
+            expirationDate: sprint.expirationDate
+        });
     }
 
     render() {
@@ -22,7 +34,7 @@ class SideBar extends Component {
                         {item.name}
                     </Link>
                     <Button className="editSprintButton" bsSize="xsmall" bsStyle="warning"
-                        onClick={this.props.editSprint.bind(null, item.id)}>
+                        onClick={this.onEditSprintClick.bind(this, item.id)}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
                     <Button className="deleteSprintButton" bsSize="xsmall" bsStyle="danger" 
@@ -38,7 +50,7 @@ class SideBar extends Component {
                 <ul>
                     {sprintsList}
                 </ul>
-                <Button bsStyle="success" onClick={this.props.showAddSprint}> + </Button>
+                <Button bsStyle="success" onClick={this.props.showAddSprintModal}> + </Button>
             </div>
         );
     }
@@ -46,15 +58,14 @@ class SideBar extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        showAddSprint: function() {
-            dispatch(showAddSprint());
+        showAddSprintModal: function() {
+            dispatch(showAddSprintModal());
         },
         deleteSprint: function(sprintId) {
             dispatch(deleteSprint(sprintId))
         },
-        editSprint: function(sprintId) {
-            console.log("edit");
-            dispatch(editSprint(sprintId))
+        showEditSprintModal: function(sprintAttributes) {
+            dispatch(showEditSprintModal(sprintAttributes))
         }
     }
 };
