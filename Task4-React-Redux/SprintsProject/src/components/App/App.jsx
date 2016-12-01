@@ -8,7 +8,7 @@ import Col  from 'react-bootstrap/lib/Col';
 import AddSprint from 'components/Modals/AddSprint';
 
 import './app.less';
-import './bootstrap.css';
+import 'bootstrap-less/bootstrap/index.less';
 
 class App extends Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class App extends Component {
                 <Grid>
                     <Row className="show-grid">
                         <Col xs={3} md={3}>
-                            <SideBar sprintId={sprintId} sprints={this.props.sprints} />
+                            <SideBar sprintId={sprintId} />
                         </Col>
                         <Col xs={9} md={9}>
                             {this.props.children}

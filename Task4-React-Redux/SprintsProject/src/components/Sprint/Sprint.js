@@ -39,8 +39,7 @@ class Sprint extends Component {
         var openTasksList = generateTaskList(openTasks);
         var progressTasksList = generateTaskList(progressTasks);
         var closedTasksList = generateTaskList(closedTasks);
-
-
+        
         var sprints = this.props.sprints;
         var sprintInfo = sprints.find((item)=>{
             return item.id == sprintId;

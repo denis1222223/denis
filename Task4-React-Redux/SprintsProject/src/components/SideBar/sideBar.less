@@ -17,5 +17,21 @@
     a.active {
       background-color: #2196f3;
     }
+    li {
+      position: relative;
+    }
+    li:hover {
+      .deleteSprintButton {
+        display: block;
+      }
+    }
+  }
+
+  .deleteSprintButton {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    z-index: 1;
+    display: none;
   }
 }
