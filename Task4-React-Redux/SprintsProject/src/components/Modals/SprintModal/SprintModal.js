@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import DatePicker from 'react-bootstrap-date-picker';
 import Modal  from 'react-bootstrap/lib/Modal';
-import HelpBlock  from 'react-bootstrap/lib/HelpBlock';
 import Button  from 'react-bootstrap/lib/Button';
 import FormControl  from 'react-bootstrap/lib/FormControl';
 import ControlLabel  from 'react-bootstrap/lib/ControlLabel';
 import FormGroup  from 'react-bootstrap/lib/FormGroup';
 import { hideSprintModal } from '../../../redux/actions/modalsActions';
-import { addSprint, editSprint } from '../../../redux/actions/sprintsActions';
 
-class AddSprint extends Component {
+class SprintModal extends Component {
     constructor(props) {
         super(props);
     }
@@ -55,14 +53,14 @@ class AddSprint extends Component {
     }
 
     render() {
-        var hideAddSprint = this.props.hideSprintModal;
+        var hideModal = this.props.hideSprintModal;
 
        // console.log(this.props.modal.beginningDate + " - " + this.props.modal.expirationDate);
 
         var beginningDate = this.getDate(this.props.modal.beginningDate);
         var expirationDate = this.getDate(this.props.modal.expirationDate);
         return(
-            <Modal show={this.props.modal.show} onHide={hideAddSprint} bsSize="small">
+            <Modal show={this.props.modal.show} onHide={hideModal} bsSize="small">
                 <Modal.Header closeButton>
                     <Modal.Title>{this.props.modal.title}</Modal.Title>
                 </Modal.Header>
@@ -77,7 +75,7 @@ class AddSprint extends Component {
                     </FormGroup>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={hideAddSprint}>Cancel</Button>
+                    <Button onClick={hideModal}>Cancel</Button>
                     <Button bsStyle="success" onClick={this.acceptModal.bind(this, this.props.modal.action)}> OK </Button>
                 </Modal.Footer>
             </Modal>
@@ -85,8 +83,8 @@ class AddSprint extends Component {
     }
 }
 
-AddSprint.propTypes = {};
-AddSprint.defaultProps = {};
+SprintModal.propTypes = {};
+SprintModal.defaultProps = {};
 
 function mapStateToProps (state) {
     return {
@@ -106,4 +104,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddSprint)
+export default connect(mapStateToProps, mapDispatchToProps)(SprintModal)

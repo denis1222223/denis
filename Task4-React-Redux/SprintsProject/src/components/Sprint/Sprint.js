@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import TaskShortcut from 'components/TaskShortcut';
 import Panel  from 'react-bootstrap/lib/Panel';
 import Table  from 'react-bootstrap/lib/Table';
+import Button  from 'react-bootstrap/lib/Button';
+import { showAddTaskModal } from '../../redux/actions/modalsActions';
 
 import './sprint.less';
 
@@ -71,6 +73,7 @@ class Sprint extends Component {
                         </tr>
                         </tbody>
                     </Table>
+                    <Button bsStyle="success" onClick={this.props.showAddTaskModal.bind(this, sprintId)}> + </Button>
                 </Panel>
             </div>
         );
@@ -80,6 +83,14 @@ class Sprint extends Component {
 Sprint.propTypes = {};
 Sprint.defaultProps = {};
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        showAddTaskModal: function(sprintId) {
+            dispatch(showAddTaskModal(sprintId));
+        }
+    }
+};
+
 function mapStateToProps (state) {
     return {
         tasks: state.tasks,
@@ -87,4 +98,4 @@ function mapStateToProps (state) {
     }
 }
 
-export default connect(mapStateToProps)(Sprint)
+export default connect(mapStateToProps, mapDispatchToProps)(Sprint)

@@ -4,6 +4,7 @@ const initialState = [
         name: "Task №0",
         sprintId: 1,
         status: "open",
+        category: "category №1",
         subtasks: [
             {
                 id: 0,
@@ -24,6 +25,7 @@ const initialState = [
         name: "Task №1",
         sprintId: 1,
         status: "in-progress",
+        category: "category №1",
         subtasks: [
             {
                 id: 0,
@@ -36,6 +38,7 @@ const initialState = [
         name: "Task №2",
         sprintId: 2,
         status: "in-progress",
+        category: "category №1",
         subtasks: [
             {
                 id: 0,
@@ -56,6 +59,7 @@ const initialState = [
         name: "Task №3",
         sprintId: 2,
         status: "closed",
+        category: "category №1",
         subtasks: []
     },
     {
@@ -63,6 +67,7 @@ const initialState = [
         name: "Task №4",
         sprintId: 4,
         status: "in-progress",
+        category: "category №1",
         subtasks: [
             {
                 id: 0,
@@ -79,6 +84,7 @@ const initialState = [
         name: "Task №5",
         sprintId: 1,
         status: "open",
+        category: "category №1",
         subtasks: [
             {
                 id: 0,
@@ -95,6 +101,7 @@ const initialState = [
         name: "Task №6",
         sprintId: 3,
         status: "closed",
+        category: "category №1",
         subtasks: [
             {
                 id: 0,
@@ -111,6 +118,7 @@ const initialState = [
         name: "Task №7",
         sprintId: 0,
         status: "open",
+        category: "category №1",
         subtasks: [
             {
                 id: 0,

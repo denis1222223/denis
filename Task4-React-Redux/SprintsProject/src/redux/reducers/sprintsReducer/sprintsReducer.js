@@ -21,13 +21,6 @@ export default function(state = initialState, action) {
             });
 
         case EDIT_SPRINT:
-            console.log(state.map((item) => {
-                if (item.id == action.payload.id) {
-                    return action.payload;
-                } else {
-                    return item;
-                }
-            }));
             return state.map((item) => {
                 if (item.id == action.payload.id) {
                     return action.payload;

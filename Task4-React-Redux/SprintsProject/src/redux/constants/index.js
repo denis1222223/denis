@@ -5,3 +5,10 @@ export const HIDE_SPRINT_MODAL = 'HIDE_SPRINT_MODAL';
 export const ADD_SPRINT = 'ADD_SPRINT';
 export const DELETE_SPRINT = 'DELETE_SPRINT';
 export const EDIT_SPRINT = 'EDIT_SPRINT';
+
+export const DELETE_TASK = 'DELETE_TASK';
+export const SHOW_ADD_TASK_MODAL = 'SHOW_ADD_TASK_MODAL';
+export const ADD_TASK = 'ADD_TASK';
+export const HIDE_TASK_MODAL = 'HIDE_TASK_MODAL';
+export const SHOW_EDIT_TASK_MODAL = 'SHOW_EDIT_TASK_MODAL';
+export const EDIT_TASK = 'EDIT_TASK';

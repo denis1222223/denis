@@ -1,16 +1,10 @@
 .TaskShortcut {
   a {
+    display: block;
     text-decoration: none;
   }
   .panel-body {
     position: relative;
-  }
-  button {
-    position: absolute;
-    z-index: 1;
-    display: none;
-    top: 8px;
-    right: 20px;
   }
 
   .deleteTaskButton {
@@ -22,8 +16,8 @@
   }
 
   .panel-body:hover {
-    button {
-      display: block;
+    .smallButton {
+      display: block!important;
     }
   }
 }

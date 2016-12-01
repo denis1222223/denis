@@ -5,7 +5,8 @@ import SideBar from 'components/SideBar';
 import Grid  from 'react-bootstrap/lib/Grid';
 import Row  from 'react-bootstrap/lib/Row';
 import Col  from 'react-bootstrap/lib/Col';
-import AddSprint from 'components/Modals/SprintModal';
+import SprintModal from 'components/Modals/SprintModal';
+import TaskModal from 'components/Modals/TaskModal';
 
 import './app.less';
 import 'bootstrap-less/bootstrap/index.less';
@@ -29,7 +30,8 @@ class App extends Component {
                         </Col>
                     </Row>
                 </Grid>
-                <AddSprint />
+                <SprintModal />
+                <TaskModal />
             </div>
         );
     }

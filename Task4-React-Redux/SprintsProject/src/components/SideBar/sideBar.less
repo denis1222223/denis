@@ -19,16 +19,10 @@
     }
     li {
       position: relative;
-      button {
-        position: absolute;
-        z-index: 1;
-        display: none;
-        top: 8px;
-      }
     }
     li:hover {
-      button {
-        display: block;
+      .smallButton {
+        display: block!important;
       }
     }
   }
@@ -40,4 +34,11 @@
   .editSprintButton {
     right: 40px;
   }
+}
+
+.smallButton {
+  position: absolute;
+  z-index: 1;
+  display: none!important;
+  top: 8px;
 }
