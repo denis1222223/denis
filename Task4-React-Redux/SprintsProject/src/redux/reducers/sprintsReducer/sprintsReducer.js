@@ -5,11 +5,14 @@ export default function(state = initialState, action) {
     switch (action.type) {
 
         case ADD_SPRINT:
-            var id = state[state.length-1].id;
+            var id = -1;
+            if (state.length) {
+                id = state[state.length-1].id;
+            }
             var newSprint = {
                 id: ++id,
-                beginningDate: action.payload.beginning,
-                expirationDate: action.payload.expiration,
+                beginningDate: action.payload.beginningDate,
+                expirationDate: action.payload.expirationDate,
                 name: action.payload.name
             };
             return [...state, newSprint];

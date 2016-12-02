@@ -18,6 +18,9 @@ class Sprint extends Component {
 
     render() {
         var sprintId = this.props.location.query.id;
+        if (sprintId == "none") {
+            return (<div></div>);
+        }
         var tasks = this.props.tasks;
 
         var filterByStatus = function(status) {

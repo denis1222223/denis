@@ -25,8 +25,21 @@ class SideBar extends Component {
         });
     }
 
+    getDeleteRedirectId(sprints) {
+        var deleteRedirect = "none";
+        if (sprints.length > 1) {
+            if (sprints[0].id == this.props.sprintId) {
+                deleteRedirect = sprints[sprints.length - 1].id;
+            } else {
+                deleteRedirect = sprints[0].id;
+            }
+        }
+        return deleteRedirect;
+    }
+
     render() {
         var sprints = this.props.sprints;
+        var deleteRedirect = this.getDeleteRedirectId(sprints);
         var sprintsList = sprints.map((item) => {
             return (
                 <li key={item.id}>
@@ -37,10 +50,13 @@ class SideBar extends Component {
                         onClick={this.onEditSprintClick.bind(this, item.id)}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
-                    <Button className="smallButton deleteSprintButton" bsSize="xsmall" bsStyle="danger" 
-                        onClick={this.props.deleteSprint.bind(null, item.id)}>
-                        <Glyphicon glyph="glyphicon glyphicon-trash" />
-                    </Button>
+
+                    <Link to={"/sprint?id=" + deleteRedirect} className="deleteSprintLink">
+                        <Button className="smallButton deleteSprintButton" bsSize="xsmall" bsStyle="danger"
+                            onClick={this.props.deleteSprint.bind(null, item.id)}>
+                            <Glyphicon glyph="glyphicon glyphicon-trash" />
+                        </Button>
+                    </Link>
                 </li>
             );
         });

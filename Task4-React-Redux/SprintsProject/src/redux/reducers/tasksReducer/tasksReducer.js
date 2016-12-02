@@ -40,10 +40,11 @@ export default function(state = initialState, action) {
             }), newTask];
 
         case ADD_SUBTASK:
-            var newTask = state.find((task, index, array) => {
+            var newTask = state.find((task) => {
                 return task.id == action.payload.taskId;
             });
             var id = -1;
+
             if (newTask.subtasks.length) {
                 id = newTask.subtasks[newTask.subtasks.length - 1].id;
             }
@@ -51,6 +52,7 @@ export default function(state = initialState, action) {
                 id: ++id,
                 name: action.payload.subtask
             }];
+
             return [...state, newTask];
 
         default:

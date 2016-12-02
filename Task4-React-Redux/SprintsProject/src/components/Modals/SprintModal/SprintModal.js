@@ -24,7 +24,6 @@ class SprintModal extends Component {
 
     validation() {
         var form = this.collectForm();
-        console.log(form);
         if ((form.name == "") || (form.beginningDate == "") || (form.expirationDate == "")) {
             return false;
         }
