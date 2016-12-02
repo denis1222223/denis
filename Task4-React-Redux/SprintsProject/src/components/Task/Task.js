@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 import Subtask from 'components/Subtask';
 import { addSubtask } from '../../redux/actions/tasksActions';
 
-
 import './task.less';
 
 class Task extends Component {
@@ -70,7 +69,7 @@ Task.defaultProps = {};
 const mapDispatchToProps = (dispatch) => {
     return {
         addSubtask: function(newSubtask, taskId) {
-            dispatch(addSubtask(taskId));
+            dispatch(addSubtask(newSubtask, taskId));
         }
     }
 };
@@ -82,4 +81,4 @@ function mapStateToProps (state) {
     }
 }
 
-export default connect(mapStateToProps)(Task)
+export default connect(mapStateToProps, mapDispatchToProps)(Task)

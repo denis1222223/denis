@@ -31,7 +31,7 @@ export default function(state = initialState, action) {
             });
 
         case DELETE_SUBTASK:
-            var newTask = state.find((task)=>{
+            var newTask = state.find((task) => {
                return task.id == action.payload.taskId;
             });
             delete newTask.subtasks[action.payload.id];
@@ -40,10 +40,18 @@ export default function(state = initialState, action) {
             }), newTask];
 
         case ADD_SUBTASK:
-            var newTask = state.find((task)=>{
+            var newTask = state.find((task, index, array) => {
                 return task.id == action.payload.taskId;
             });
-            newTask.subtasks = {}    ///////todo
+            var id = -1;
+            if (newTask.subtasks.length) {
+                id = newTask.subtasks[newTask.subtasks.length - 1].id;
+            }
+            newTask.subtasks = [...newTask.subtasks, {
+                id: ++id,
+                name: action.payload.subtask
+            }];
+            return [...state, newTask];
 
         default:
             return state;
