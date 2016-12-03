@@ -1,7 +1,10 @@
+@import "../App/app";
+
 .sideBar {
   ul {
     list-style-type: none;
     margin: 0;
+    margin-bottom: 15px;
     padding: 0;
     background-color: #f1f1f1;
     a {
@@ -11,11 +14,10 @@
       text-decoration: none;
     }
     a:hover:not(.active) {
-      background-color: #555;
-      color: white;
+      background-color: #dae1ff;
     }
     a.active {
-      background-color: #2196f3;
+      background-color: @color-active;
     }
     li {
       position: relative;

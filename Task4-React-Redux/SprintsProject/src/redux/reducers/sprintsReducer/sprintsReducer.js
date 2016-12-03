@@ -7,7 +7,7 @@ export default function(state = initialState, action) {
         case ADD_SPRINT:
             var id = -1;
             if (state.length) {
-                id = state[state.length-1].id;
+                id = state[state.length - 1].id;
             }
             var newSprint = {
                 id: ++id,

@@ -18,6 +18,7 @@ class Task extends Component {
     onSubtaskAddClick(taskId) {
         var newSubtask = ReactDOM.findDOMNode(this.refs.newSubtask).value;
         this.props.addSubtask(newSubtask, taskId);
+        ReactDOM.findDOMNode(this.refs.newSubtask).value = "";
     }
     
     render() {

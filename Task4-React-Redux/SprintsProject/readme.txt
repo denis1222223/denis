@@ -1,4 +1,4 @@
-npm run nodemon
-npm run webpack-devserver
+npm run build
+npm run server
 
 in different consoles 

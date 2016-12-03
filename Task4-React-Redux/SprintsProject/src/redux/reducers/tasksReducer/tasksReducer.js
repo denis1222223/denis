@@ -4,7 +4,10 @@ import initialState from './initialState';
 export default function(state = initialState, action) {
     switch (action.type) {
         case ADD_TASK:
-            var id = state[state.length-1].id;
+            var id = -1;
+            if (state.length) {
+                id = state[state.length - 1].id;
+            }
             var newTask = {
                 id: ++id,
                 name: action.payload.name,
@@ -31,29 +34,27 @@ export default function(state = initialState, action) {
             });
 
         case DELETE_SUBTASK:
-            var newTask = state.find((task) => {
-               return task.id == action.payload.taskId;
+            return state.map((item) => {
+                if (item.id != action.payload.taskId) {
+                    return item;
+                }
+                return {...item, subtasks: item.subtasks.filter((subtask) => {
+                    if (subtask.id != action.payload.id) {
+                        return subtask;
+                    }
+                })}
             });
-            delete newTask.subtasks[action.payload.id];
-            return [...state.filter((item) => {
-                return item.id != action.payload.taskId;
-            }), newTask];
 
         case ADD_SUBTASK:
-            var newTask = state.find((task) => {
-                return task.id == action.payload.taskId;
+            return state.map((item) => {
+                if (item.id != action.payload.taskId) {
+                    return item;
+                }
+                return {...item, subtasks: [...item.subtasks, {
+                    name: action.payload.subtask,
+                    id: item.subtasks.length ? item.subtasks[item.subtasks.length - 1].id + 1 : 0
+                }]}
             });
-            var id = -1;
-
-            if (newTask.subtasks.length) {
-                id = newTask.subtasks[newTask.subtasks.length - 1].id;
-            }
-            newTask.subtasks = [...newTask.subtasks, {
-                id: ++id,
-                name: action.payload.subtask
-            }];
-
-            return [...state, newTask];
 
         default:
             return state;
