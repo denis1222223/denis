@@ -17,7 +17,7 @@ class Subtask extends Component {
             <div className='Subtask'>
                 <Panel>
                     {this.props.subtask.name}
-                    <Button className="smallButton deleteSubtaskButton" bsSize="xsmall" bsStyle="danger"
+                    <Button className="smallButton deleteButton" bsSize="xsmall" bsStyle="danger"
                             onClick={this.props.deleteSubtask.bind(this, this.props.taskId, this.props.subtask.id)}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>

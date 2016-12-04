@@ -44,12 +44,12 @@ class SideBar extends Component {
                     <Link to={"/sprint?id=" + item.id} className={this.props.sprintId == item.id ? "active":""}>
                         {item.name}
                     </Link>
-                    <Button className="smallButton editSprintButton" bsSize="xsmall" bsStyle="warning"
+                    <Button className="smallButton editButton" bsSize="xsmall" bsStyle="warning"
                         onClick={this.onEditSprintClick.bind(this, item.id)}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
-                    <Link to={"/sprint?id=" + deleteRedirect(item.id)} className="deleteSprintLink">
-                        <Button className="smallButton deleteSprintButton" bsSize="xsmall" bsStyle="danger"
+                    <Link to={"/sprint?id=" + deleteRedirect(item.id)} className="deleteLink">
+                        <Button className="smallButton deleteButton" bsSize="xsmall" bsStyle="danger"
                             onClick={this.props.deleteSprint.bind(null, item.id)}>
                             <Glyphicon glyph="glyphicon glyphicon-trash" />
                         </Button>

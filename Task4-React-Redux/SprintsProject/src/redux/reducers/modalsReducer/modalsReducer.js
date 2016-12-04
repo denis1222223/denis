@@ -50,6 +50,7 @@ export default function(state = initialState, action) {
                 status: action.payload.status,
                 category: action.payload.category,
                 sprintId: action.payload.sprintId,
+                subtasks: action.payload.subtasks,
                 action: editTask,
                 sprintDefault: action.payload.sprintId,
                 statusDefault: action.payload.status

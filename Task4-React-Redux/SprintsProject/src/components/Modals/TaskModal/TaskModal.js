@@ -32,7 +32,11 @@ class TaskModal extends Component {
 
     acceptModal(action) {
         if (this.validation()) {
-            this.props.acceptModal({...this.collectForm(), id: this.props.modal.id, subtasks: []}, action);
+            this.props.acceptModal({
+                ...this.collectForm(),
+                id: this.props.modal.id,
+                subtasks: this.props.modal.subtasks
+            }, action);
             this.props.hideTaskModal();
         } else {
             alert("Fill all fields, please.");

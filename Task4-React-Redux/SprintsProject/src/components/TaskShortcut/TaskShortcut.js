@@ -8,7 +8,6 @@ import { deleteTask } from '../../redux/actions/tasksActions';
 import { showEditTaskModal } from '../../redux/actions/modalsActions';
 
 import './taskShortcut.less';
-import '../SideBar/sideBar.less';
 
 class TaskShortcut extends Component {
     constructor(props) {
@@ -24,14 +23,11 @@ class TaskShortcut extends Component {
             name: task.name,
             category: task.category,
             status: task.status,
-            sprintId: task.sprintId
+            sprintId: task.sprintId,
+            subtasks: task.subtasks
         });
     }
-
-    deleteTask(id) {
-        this.props.deleteTask(id);
-    }
-
+    
     render() {
         var task = this.props.task;
         return (
@@ -41,12 +37,13 @@ class TaskShortcut extends Component {
                     <Link to={"/tasks?id=" + task.id}>
                         {task.name}
                     </Link>
-                    <Button className="smallButton editTaskButton" bsSize="xsmall" bsStyle="warning"
+
+                    <Button className="smallButton editButton" bsSize="xsmall" bsStyle="warning"
                             onClick={this.onEditTaskClick.bind(this, task.id)}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
-                    <Button className="smallButton deleteTaskButton" bsSize="xsmall" bsStyle="danger"
-                            onClick={this.deleteTask.bind(this, task.id)}>
+                    <Button className="smallButton deleteButton" bsSize="xsmall" bsStyle="danger"
+                            onClick={this.props.deleteTask.bind(this, task.id)}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>
                 </Panel>

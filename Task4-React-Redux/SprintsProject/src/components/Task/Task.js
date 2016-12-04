@@ -6,8 +6,10 @@ import FormControl  from 'react-bootstrap/lib/FormControl';
 import InputGroup  from 'react-bootstrap/lib/InputGroup';
 import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import Subtask from 'components/Subtask';
-import { addSubtask } from '../../redux/actions/tasksActions';
+import { deleteTask, addSubtask } from '../../redux/actions/tasksActions';
+import { showEditTaskModal } from '../../redux/actions/modalsActions';
 
 import './task.less';
 
@@ -21,7 +23,21 @@ class Task extends Component {
         this.props.addSubtask(newSubtask, taskId);
         ReactDOM.findDOMNode(this.refs.newSubtask).value = "";
     }
-    
+
+    onEditTaskClick(id) {
+        var task = this.props.tasks.find((item)=>{
+            return item.id == id;
+        });
+        this.props.showEditTaskModal({
+            id: id,
+            name: task.name,
+            category: task.category,
+            status: task.status,
+            sprintId: task.sprintId,
+            subtasks: task.subtasks
+        });
+    }
+
     render() {
         var taskId = this.props.location.query.id;
         var tasks = this.props.tasks;
@@ -39,17 +55,27 @@ class Task extends Component {
             return item.id == task.sprintId;
         });
         
-        var header = function(){
-            return (
-                <div>
-                    {task.name} | Category: {task.category} | Sprint: {sprint.name}
-                </div>
-            );
-        };
+        var header = (
+            <div className="taskHeader">
+                {task.name} | Category: {task.category} | Sprint: {sprint.name}
+
+                <Button className="smallButton editButton" bsSize="xsmall" bsStyle="warning"
+                        onClick={this.onEditTaskClick.bind(this, task.id)}>
+                    <Glyphicon glyph="glyphicon glyphicon-edit" />
+                </Button>
+                <Link to={"/sprint?id=" + task.sprintId}>
+                    <Button className="smallButton deleteButton" bsSize="xsmall" bsStyle="danger"
+                            onClick={this.props.deleteTask.bind(null, task.id)}>
+                        <Glyphicon glyph="glyphicon glyphicon-trash" />
+                    </Button>
+                </Link>
+            </div>
+        );
+
         
         return (
             <div className='Task'>
-                <Panel header={header()} className={task.status}>
+                <Panel header={header} className={task.status}>
                     {subtasksList}
 
                     <InputGroup>
@@ -70,8 +96,14 @@ Task.defaultProps = {};
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        deleteTask: function(id) {
+            dispatch(deleteTask(id));
+        },
         addSubtask: function(newSubtask, taskId) {
             dispatch(addSubtask(newSubtask, taskId));
+        },
+        showEditTaskModal: function(taskAttributes) {
+            dispatch(showEditTaskModal(taskAttributes))
         }
     }
 };
