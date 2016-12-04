@@ -17,12 +17,9 @@ export default function(state = initialState, action) {
             }};
         case SHOW_EDIT_SPRINT_MODAL:
             return {...state, sprintModal: {
-                id: action.payload.id,
+                ...action.payload,
                 show: true,
                 title: 'Edit sprint',
-                name: action.payload.name,
-                beginningDate: action.payload.beginningDate,
-                expirationDate: action.payload.expirationDate,
                 action: editSprint
             }};
         case HIDE_SPRINT_MODAL:
@@ -43,14 +40,9 @@ export default function(state = initialState, action) {
             return {...state, taskModal: {...state.taskModal, show: false}};
         case SHOW_EDIT_TASK_MODAL:
             return {...state, taskModal: {
-                id: action.payload.id,
+                ...action.payload,
                 show: true,
                 title: 'Edit task',
-                name: action.payload.name,
-                status: action.payload.status,
-                category: action.payload.category,
-                sprintId: action.payload.sprintId,
-                subtasks: action.payload.subtasks,
                 action: editTask,
                 sprintDefault: action.payload.sprintId,
                 statusDefault: action.payload.status

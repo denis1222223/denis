@@ -18,14 +18,7 @@ class TaskShortcut extends Component {
         var task = this.props.tasks.find((item)=>{
             return item.id == id;
         });
-        this.props.showEditTaskModal({
-            id: id,
-            name: task.name,
-            category: task.category,
-            status: task.status,
-            sprintId: task.sprintId,
-            subtasks: task.subtasks
-        });
+        this.props.showEditTaskModal(task);
     }
     
     render() {
@@ -67,8 +60,8 @@ const mapDispatchToProps = (dispatch) => {
         deleteTask: function(id) {
             dispatch(deleteTask(id));
         },
-        showEditTaskModal: function(taskAttributes) {
-            dispatch(showEditTaskModal(taskAttributes))
+        showEditTaskModal: function(task) {
+            dispatch(showEditTaskModal(task))
         }
     }
 };

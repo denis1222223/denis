@@ -25,17 +25,10 @@ class Task extends Component {
     }
 
     onEditTaskClick(id) {
-        var task = this.props.tasks.find((item)=>{
+        var task = this.props.tasks.find((item) => {
             return item.id == id;
         });
-        this.props.showEditTaskModal({
-            id: id,
-            name: task.name,
-            category: task.category,
-            status: task.status,
-            sprintId: task.sprintId,
-            subtasks: task.subtasks
-        });
+        this.props.showEditTaskModal(task);
     }
 
     render() {
@@ -102,8 +95,8 @@ const mapDispatchToProps = (dispatch) => {
         addSubtask: function(newSubtask, taskId) {
             dispatch(addSubtask(newSubtask, taskId));
         },
-        showEditTaskModal: function(taskAttributes) {
-            dispatch(showEditTaskModal(taskAttributes))
+        showEditTaskModal: function(task) {
+            dispatch(showEditTaskModal(task))
         }
     }
 };

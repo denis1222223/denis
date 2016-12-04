@@ -17,12 +17,7 @@ class SideBar extends Component {
         var sprint = this.props.sprints.find((item)=>{
             return item.id == id;
         });
-        this.props.showEditSprintModal({
-            id: id,
-            name: sprint.name,
-            beginningDate: sprint.beginningDate,
-            expirationDate: sprint.expirationDate
-        });
+        this.props.showEditSprintModal(sprint);
     }
 
     getDeleteRedirectId(sprints, sprintId) {
@@ -77,8 +72,8 @@ const mapDispatchToProps = (dispatch) => {
         deleteSprint: function(sprintId) {
             dispatch(deleteSprint(sprintId))
         },
-        showEditSprintModal: function(sprintAttributes) {
-            dispatch(showEditSprintModal(sprintAttributes))
+        showEditSprintModal: function(sprint) {
+            dispatch(showEditSprintModal(sprint))
         }
     }
 };
