@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Button  from 'react-bootstrap/lib/Button';
 import FormControl  from 'react-bootstrap/lib/FormControl';
 import InputGroup  from 'react-bootstrap/lib/InputGroup';
+import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
 import { connect } from 'react-redux';
 import Subtask from 'components/Subtask';
 import { addSubtask } from '../../redux/actions/tasksActions';

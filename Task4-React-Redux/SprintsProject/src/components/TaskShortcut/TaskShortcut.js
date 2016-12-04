@@ -36,19 +36,21 @@ class TaskShortcut extends Component {
         var task = this.props.task;
         return (
             <div className='TaskShortcut'>
-                <Link to={"/tasks?id=" + task.id}>
-                    <Panel>
+
+                <Panel>
+                    <Link to={"/tasks?id=" + task.id}>
                         {task.name}
-                        <Button className="smallButton editTaskButton" bsSize="xsmall" bsStyle="warning"
-                                onClick={this.onEditTaskClick.bind(this, task.id)}>
-                            <Glyphicon glyph="glyphicon glyphicon-edit" />
-                        </Button>
-                        <Button className="smallButton deleteTaskButton" bsSize="xsmall" bsStyle="danger"
-                                onClick={this.deleteTask.bind(this, task.id)}>
-                            <Glyphicon glyph="glyphicon glyphicon-trash" />
-                        </Button>
-                    </Panel>
-                </Link>
+                    </Link>
+                    <Button className="smallButton editTaskButton" bsSize="xsmall" bsStyle="warning"
+                            onClick={this.onEditTaskClick.bind(this, task.id)}>
+                        <Glyphicon glyph="glyphicon glyphicon-edit" />
+                    </Button>
+                    <Button className="smallButton deleteTaskButton" bsSize="xsmall" bsStyle="danger"
+                            onClick={this.deleteTask.bind(this, task.id)}>
+                        <Glyphicon glyph="glyphicon glyphicon-trash" />
+                    </Button>
+                </Panel>
+
             </div>
         )
     }
