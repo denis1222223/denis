@@ -1,9 +1,11 @@
 import React, { PropTypes, Component } from 'react';
+import {connect} from 'react-redux';
+
+import { deleteSubtask } from '../../redux/actions/tasksActions';
+
 import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';
 import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
-import {connect} from 'react-redux';
-import { deleteSubtask } from '../../redux/actions/tasksActions';
 
 import './subtask.less';
 
@@ -14,10 +16,10 @@ class Subtask extends Component {
 
     render() {
         return (
-            <div className='Subtask'>
+            <div className='subtask'>
                 <Panel>
                     {this.props.subtask.name}
-                    <Button className="smallButton deleteButton" bsSize="xsmall" bsStyle="danger"
+                    <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                             onClick={this.props.deleteSubtask.bind(this, this.props.taskId, this.props.subtask.id)}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>

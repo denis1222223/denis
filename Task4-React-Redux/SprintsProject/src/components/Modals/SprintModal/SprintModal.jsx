@@ -1,13 +1,15 @@
 import React, { PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+
+import { hideSprintModal } from '../../../redux/actions/modalsActions';
+
 import DatePicker from 'react-bootstrap-date-picker';
 import Modal  from 'react-bootstrap/lib/Modal';
 import Button  from 'react-bootstrap/lib/Button';
 import FormControl  from 'react-bootstrap/lib/FormControl';
 import ControlLabel  from 'react-bootstrap/lib/ControlLabel';
 import FormGroup  from 'react-bootstrap/lib/FormGroup';
-import { hideSprintModal } from '../../../redux/actions/modalsActions';
 
 class SprintModal extends Component {
     constructor(props) {

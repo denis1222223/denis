@@ -1,12 +1,14 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-import Button  from 'react-bootstrap/lib/Button';
-import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
 import { connect } from 'react-redux';
+
 import { showAddSprintModal, showEditSprintModal } from '../../redux/actions/modalsActions';
 import { deleteSprint } from '../../redux/actions/sprintsActions';
 
-import './sideBar.less';
+import Button  from 'react-bootstrap/lib/Button';
+import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
+
+import './sidebar.less';
 
 class SideBar extends Component {
     constructor(props) {
@@ -39,12 +41,12 @@ class SideBar extends Component {
                     <Link to={"/sprint?id=" + item.id} className={this.props.sprintId == item.id ? "active":""}>
                         {item.name}
                     </Link>
-                    <Button className="smallButton editButton" bsSize="xsmall" bsStyle="warning"
+                    <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={this.onEditSprintClick.bind(this, item.id)}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
-                    <Link to={"/sprint?id=" + deleteRedirect(item.id)} className="deleteLink">
-                        <Button className="smallButton deleteButton" bsSize="xsmall" bsStyle="danger"
+                    <Link to={"/sprint?id=" + deleteRedirect(item.id)} className="delete-link">
+                        <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                             onClick={this.props.deleteSprint.bind(null, item.id)}>
                             <Glyphicon glyph="glyphicon glyphicon-trash" />
                         </Button>
@@ -54,7 +56,7 @@ class SideBar extends Component {
         });
 
         return (
-            <div className='sideBar'>
+            <div className='sidebar'>
                 <ul>
                     {sprintsList}
                 </ul>

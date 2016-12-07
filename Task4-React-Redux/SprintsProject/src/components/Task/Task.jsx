@@ -1,15 +1,17 @@
 import React, { PropTypes, Component } from 'react';
-import Panel  from 'react-bootstrap/lib/Panel';
+import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router';
+
+import Subtask from 'components/Subtask';
+import { deleteTask, addSubtask } from '../../redux/actions/tasksActions';
+import { showEditTaskModal } from '../../redux/actions/modalsActions';
+
+import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';
 import FormControl  from 'react-bootstrap/lib/FormControl';
 import InputGroup  from 'react-bootstrap/lib/InputGroup';
 import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
-import { connect } from 'react-redux';
-import { Link } from 'react-router';
-import Subtask from 'components/Subtask';
-import { deleteTask, addSubtask } from '../../redux/actions/tasksActions';
-import { showEditTaskModal } from '../../redux/actions/modalsActions';
 
 import './task.less';
 
@@ -49,15 +51,15 @@ class Task extends Component {
         });
         
         var header = (
-            <div className="taskHeader">
+            <div className="task__header">
                 {task.name} | Category: {task.category} | Sprint: {sprint.name}
 
-                <Button className="smallButton editButton" bsSize="xsmall" bsStyle="warning"
+                <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={this.onEditTaskClick.bind(this, task.id)}>
                     <Glyphicon glyph="glyphicon glyphicon-edit" />
                 </Button>
                 <Link to={"/sprint?id=" + task.sprintId}>
-                    <Button className="smallButton deleteButton" bsSize="xsmall" bsStyle="danger"
+                    <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                             onClick={this.props.deleteTask.bind(null, task.id)}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>
@@ -67,7 +69,7 @@ class Task extends Component {
 
         
         return (
-            <div className='Task'>
+            <div className='task'>
                 <Panel header={header} className={task.status}>
                     {subtasksList}
 

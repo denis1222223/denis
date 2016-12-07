@@ -1,12 +1,14 @@
 import React, { PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+
+import { hideTaskModal } from '../../../redux/actions/modalsActions';
+
 import Modal  from 'react-bootstrap/lib/Modal';
 import Button  from 'react-bootstrap/lib/Button';
 import FormControl  from 'react-bootstrap/lib/FormControl';
 import ControlLabel  from 'react-bootstrap/lib/ControlLabel';
 import FormGroup  from 'react-bootstrap/lib/FormGroup';
-import { hideTaskModal } from '../../../redux/actions/modalsActions';
 
 class TaskModal extends Component {
     constructor(props) {

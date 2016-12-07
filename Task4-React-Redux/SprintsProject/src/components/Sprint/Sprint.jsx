@@ -1,10 +1,12 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+
+import { showAddTaskModal } from '../../redux/actions/modalsActions';
 import TaskShortcut from 'components/TaskShortcut';
+
 import Panel  from 'react-bootstrap/lib/Panel';
 import Table  from 'react-bootstrap/lib/Table';
 import Button  from 'react-bootstrap/lib/Button';
-import { showAddTaskModal } from '../../redux/actions/modalsActions';
 
 import './sprint.less';
 
@@ -58,9 +60,9 @@ class Sprint extends Component {
         );
 
         return (
-            <div className='Sprint'>
+            <div className='sprint'>
                 <Panel header={sprintTitle} bsStyle="primary">
-                    <Table striped bordered condensed hover className="statusTable">
+                    <Table striped bordered condensed hover>
                         <thead>
                         <tr>
                             <th className="open">Open</th>
