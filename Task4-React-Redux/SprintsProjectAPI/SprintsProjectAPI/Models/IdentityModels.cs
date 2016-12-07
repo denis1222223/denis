@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using SprintsProjectAPI.Models.Entities;
+using System.Data.Entity;
 
 namespace SprintsProjectAPI.Models
 {
@@ -20,6 +22,9 @@ namespace SprintsProjectAPI.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Sprint> Sprints { get; set; }
+        public DbSet<Entities.Task> Tasks { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
