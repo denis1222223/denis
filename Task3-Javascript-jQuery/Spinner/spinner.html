@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+    <title>Spinner</title>
+
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../lib/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/spinner.css">
+
+    <script type="text/javascript" src="../lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="src/spinner.js"></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function() {
+
+            var settings = {
+                output: $("#viewBox1"),
+                src: "img/1.gif",
+                blockUi: true
+            };
+
+            spinner.initialize(settings);
+
+            $("#buttonShow").click(function() {
+                spinner.show();
+            });
+            $("#buttonHide").click(function() {
+                spinner.hide();
+            });
+            $("#buttonWrap").click(function() {
+                spinner.wrap(
+                    $.ajax({
+                        url: "test"
+                    })
+                ).then(function(){ console.log("done"); });
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+<div class="content">
+    <div class="buttons">
+        <a href="#" id="buttonShow" class="buttonSpin">Show</a>
+        <a href="#" id="buttonHide" class="buttonSpin">Hide</a>
+        <a href="#" id="buttonWrap" class="buttonSpin">Wrap</a>
+    </div>
+    <div id="viewBox1" class="viewBox">block 1
+        <!--<button>Button 1</button>-->
+        <!--<button>Button 2</button>-->
+    </div>
+    <div id="viewBox2" class="viewBox">block 2</div>
+    <div id="viewBox3" class="viewBox">block 3</div>
+</div>
+
+</body>
+</html>

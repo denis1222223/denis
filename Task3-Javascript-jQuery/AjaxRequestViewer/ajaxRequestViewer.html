@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+    <title>Ajax request viewer</title>
+
+    <link rel="stylesheet" href="../lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../lib/jquery-ui-1.12.1/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/ajaxRequestViewer.css">
+
+    <script type="text/javascript" src="../lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="../lib/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="src/ajaxRequestLogger.js"></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function() {
+
+            function sendAjaxRequest(url) {
+                $.ajax({
+                    url: url
+                });
+            }
+
+            requestInterceptor.initialize({
+                outputCallback: function(requestID, eventText) {
+                    $("#output").append("[" + requestID + "] " + eventText + "\n");
+                }
+            });
+            requestInterceptor.run();
+
+            $("#send").click(sendAjaxRequest.bind(null, 'test'));
+            $("#stop").click(requestInterceptor.stop);
+            $("#run").click(requestInterceptor.run);
+        });
+    </script>
+</head>
+<body>
+
+<a href="#" id="send">Send Request</a>
+<br>
+<a href="#" id="stop">Stop</a>|
+<a href="#" id="run">Run</a>
+
+<div>
+    <textarea id="output"></textarea>
+</div>
+
+</body>
+</html>
