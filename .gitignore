@@ -1,3 +1,5 @@
-node_modules/
 .idea/
-npm-debug.log
+/Task3-Javascript-jQuery/.idea/
+/Task4-React-Redux/SprintsProject/node_modules/
+/Task4-React-Redux/SprintsProject/.idea/
+/Task4-React-Redux/tutorialProject_Redux/node_modules/
