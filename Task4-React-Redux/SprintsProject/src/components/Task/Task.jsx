@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
 import Subtask from 'components/Subtask';
 import { deleteTask, addSubtask } from '../../redux/actions/tasksActions';
@@ -26,13 +26,6 @@ class Task extends Component {
         ReactDOM.findDOMNode(this.refs.newSubtask).value = "";
     }
 
-    onEditTaskClick(id) {
-        var task = this.props.tasks.find((item) => {
-            return item.id == id;
-        });
-        this.props.showEditTaskModal(task);
-    }
-
     render() {
         var taskId = this.props.location.query.id;
         var tasks = this.props.tasks;
@@ -55,19 +48,19 @@ class Task extends Component {
                 {task.name} | Category: {task.category} | Sprint: {sprint.name}
 
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
-                        onClick={this.onEditTaskClick.bind(this, task.id)}>
+                        onClick={() => {this.props.showEditTaskModal(task)}}>
                     <Glyphicon glyph="glyphicon glyphicon-edit" />
                 </Button>
-                <Link to={"/sprint?id=" + task.sprintId}>
-                    <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                            onClick={this.props.deleteTask.bind(null, task.id)}>
-                        <Glyphicon glyph="glyphicon glyphicon-trash" />
-                    </Button>
-                </Link>
+                <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
+                        onClick={() => {
+                            this.props.deleteTask(task.id);
+                            browserHistory.push("/sprint?id=" + task.sprintId);
+                        }}>
+                    <Glyphicon glyph="glyphicon glyphicon-trash" />
+                </Button>
             </div>
         );
 
-        
         return (
             <div className='task'>
                 <Panel header={header} className={task.status}>

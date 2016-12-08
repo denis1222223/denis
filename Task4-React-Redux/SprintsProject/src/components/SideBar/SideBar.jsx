@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory  } from 'react-router';
 import { connect } from 'react-redux';
 
 import { showAddSprintModal, showEditSprintModal } from '../../redux/actions/modalsActions';
@@ -13,13 +13,6 @@ import './sidebar.less';
 class SideBar extends Component {
     constructor(props) {
         super(props);
-    }
-
-    onEditSprintClick(id) {
-        var sprint = this.props.sprints.find((item)=>{
-            return item.id == id;
-        });
-        this.props.showEditSprintModal(sprint);
     }
 
     getDeleteRedirectId(sprints, sprintId) {
@@ -42,15 +35,16 @@ class SideBar extends Component {
                         {item.name}
                     </Link>
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
-                        onClick={this.onEditSprintClick.bind(this, item.id)}>
+                        onClick={() => {this.props.showEditSprintModal(item);}}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
-                    <Link to={"/sprint?id=" + deleteRedirect(item.id)} className="delete-link">
-                        <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                            onClick={this.props.deleteSprint.bind(null, item.id)}>
-                            <Glyphicon glyph="glyphicon glyphicon-trash" />
-                        </Button>
-                    </Link>
+                    <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
+                        onClick={() => {
+                            this.props.deleteSprint(item.id);
+                            browserHistory.push("/sprint?id=" + deleteRedirect(item.id));
+                        }}>
+                        <Glyphicon glyph="glyphicon glyphicon-trash" />
+                    </Button>
                 </li>
             );
         });
