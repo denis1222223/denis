@@ -2,7 +2,7 @@ import express  from 'express';
 import React    from 'react';
 import ReactDom from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
-import routes from './routes';
+import getRoutes from './routes';
 import { Provider } from 'react-redux';
 import configureStore from './redux/configureStore';
 
@@ -10,7 +10,7 @@ const app = express();
 
 app.use((req, res) => {
     const store = configureStore();
-    match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+    match({ routes: getRoutes(store), location: req.url }, (error, redirectLocation, renderProps) => {
         if (redirectLocation) {
             return res.redirect(301, redirectLocation.pathname + redirectLocation.search);
         }

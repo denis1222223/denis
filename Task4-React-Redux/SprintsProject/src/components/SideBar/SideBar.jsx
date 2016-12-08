@@ -38,7 +38,7 @@ class SideBar extends Component {
         var sprintsList = sprints.map((item) => {
             return (
                 <li key={item.id}>
-                    <Link to={"/sprint?id=" + item.id} className={this.props.sprintId == item.id ? "active":""}>
+                    <Link to={"/sprint?id=" + item.id} activeClassName='active'>
                         {item.name}
                     </Link>
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"

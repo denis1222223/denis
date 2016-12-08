@@ -29,7 +29,7 @@ class TaskShortcut extends Component {
             <div className='task-shortcut'>
 
                 <Panel>
-                    <Link to={"/tasks?id=" + task.id}>
+                    <Link to={"/task?id=" + task.id}>
                         {task.name}
                     </Link>
 
