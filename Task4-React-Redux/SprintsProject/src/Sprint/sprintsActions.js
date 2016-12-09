@@ -1,4 +1,6 @@
-import { DELETE_SPRINT, ADD_SPRINT, EDIT_SPRINT } from 'redux/constants';
+export const ADD_SPRINT = 'ADD_SPRINT';
+export const DELETE_SPRINT = 'DELETE_SPRINT';
+export const EDIT_SPRINT = 'EDIT_SPRINT';
 
 export function addSprint(sprintInfo) {
     return {

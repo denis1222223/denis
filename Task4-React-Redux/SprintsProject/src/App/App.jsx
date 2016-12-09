@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import SprintModal from 'components/Modals/SprintModal';
-import TaskModal from 'components/Modals/TaskModal';
-import SideBar from 'components/SideBar';
+import SprintModal from '../Modals/SprintModal';
+import TaskModal from '../Modals/TaskModal';
+import SideBar from '../SideBar';
 
 import Grid  from 'react-bootstrap/lib/Grid';
 import Row  from 'react-bootstrap/lib/Row';

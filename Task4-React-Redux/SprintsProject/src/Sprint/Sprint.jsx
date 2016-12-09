@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
-import { showAddTaskModal } from '../../redux/actions/modalsActions';
-import TaskShortcut from 'components/TaskShortcut';
+import { showAddTaskModal } from '../Modals/modalsActions';
+import TaskShortcut from '../TaskShortcut';
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Table  from 'react-bootstrap/lib/Table';

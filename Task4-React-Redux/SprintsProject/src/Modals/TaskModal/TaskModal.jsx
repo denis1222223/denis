@@ -2,7 +2,7 @@ import React, { PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
-import { hideTaskModal } from '../../../redux/actions/modalsActions';
+import { hideTaskModal } from '../modalsActions';
 
 import Modal  from 'react-bootstrap/lib/Modal';
 import Button  from 'react-bootstrap/lib/Button';

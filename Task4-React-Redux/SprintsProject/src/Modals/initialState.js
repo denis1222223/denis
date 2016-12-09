@@ -1,5 +1,5 @@
-import { addSprint } from '../../actions/sprintsActions';
-import { addTask } from '../../actions/tasksActions';
+import { addSprint } from '../Sprint/sprintsActions';
+import { addTask } from '../Task/tasksActions';
 
 const initialState = {
     sprintModal: {

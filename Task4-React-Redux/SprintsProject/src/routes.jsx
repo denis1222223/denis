@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, IndexRedirect }  from 'react-router';
-import App from 'components/App';
-import Sprint from 'components/Sprint';
-import Task from 'components/Task';
+import App from './App';
+import Sprint from './Sprint';
+import Task from './Task';
 
 function getLastSprintId() {
     // requesting sprints from the server will be added later,

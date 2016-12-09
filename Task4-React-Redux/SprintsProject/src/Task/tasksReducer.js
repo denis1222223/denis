@@ -1,4 +1,4 @@
-import { DELETE_TASK, ADD_TASK, EDIT_TASK, DELETE_SUBTASK, ADD_SUBTASK } from 'redux/constants';
+import { DELETE_TASK, ADD_TASK, EDIT_TASK, DELETE_SUBTASK, ADD_SUBTASK } from './tasksActions';
 import initialState from './initialState';
 
 export default function(state = initialState, action) {

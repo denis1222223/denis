@@ -2,7 +2,7 @@ import React, { PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
-import { hideSprintModal } from '../../../redux/actions/modalsActions';
+import { hideSprintModal } from '../modalsActions';
 
 import DatePicker from 'react-bootstrap-date-picker';
 import Modal  from 'react-bootstrap/lib/Modal';

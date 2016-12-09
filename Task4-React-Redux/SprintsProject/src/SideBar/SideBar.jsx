@@ -2,8 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import { Link, browserHistory  } from 'react-router';
 import { connect } from 'react-redux';
 
-import { showAddSprintModal, showEditSprintModal } from '../../redux/actions/modalsActions';
-import { deleteSprint } from '../../redux/actions/sprintsActions';
+import { showAddSprintModal, showEditSprintModal } from '../Modals/modalsActions';
+import { deleteSprint } from '../Sprint/sprintsActions';
 
 import Button  from 'react-bootstrap/lib/Button';
 import Glyphicon  from 'react-bootstrap/lib/Glyphicon';

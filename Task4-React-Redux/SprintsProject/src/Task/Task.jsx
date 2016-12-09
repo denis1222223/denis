@@ -1,11 +1,11 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
-import { Link, browserHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
-import Subtask from 'components/Subtask';
-import { deleteTask, addSubtask } from '../../redux/actions/tasksActions';
-import { showEditTaskModal } from '../../redux/actions/modalsActions';
+import Subtask from '../Subtask';
+import { deleteTask, addSubtask } from '../Task/tasksActions';
+import { showEditTaskModal } from '../Modals/modalsActions';
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';

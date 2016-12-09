@@ -1,8 +1,8 @@
 import { SHOW_ADD_SPRINT_MODAL, SHOW_EDIT_SPRINT_MODAL, HIDE_SPRINT_MODAL, 
-    SHOW_ADD_TASK_MODAL, HIDE_TASK_MODAL, SHOW_EDIT_TASK_MODAL } from 'redux/constants';
+    SHOW_ADD_TASK_MODAL, HIDE_TASK_MODAL, SHOW_EDIT_TASK_MODAL } from './modalsActions';
 import initialState from './initialState';
-import { addSprint, editSprint } from '../../actions/sprintsActions';
-import { addTask, editTask } from '../../actions/tasksActions';
+import { addSprint, editSprint } from '../Sprint/sprintsActions';
+import { addTask, editTask } from '../Task/tasksActions';
 
 export default function(state = initialState, action) {
     switch (action.type) {

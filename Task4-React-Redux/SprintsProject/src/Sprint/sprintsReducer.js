@@ -1,4 +1,4 @@
-import { DELETE_SPRINT, ADD_SPRINT, EDIT_SPRINT } from 'redux/constants';
+import { DELETE_SPRINT, ADD_SPRINT, EDIT_SPRINT } from './sprintsActions';
 import initialState from './initialState';
 
 export default function(state = initialState, action) {

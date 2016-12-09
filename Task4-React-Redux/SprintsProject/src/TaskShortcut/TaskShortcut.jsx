@@ -2,8 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import { deleteTask } from '../../redux/actions/tasksActions';
-import { showEditTaskModal } from '../../redux/actions/modalsActions';
+import { deleteTask } from '../Task/tasksActions';
+import { showEditTaskModal } from '../Modals/modalsActions';
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';

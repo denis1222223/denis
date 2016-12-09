@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import {connect} from 'react-redux';
 
-import { deleteSubtask } from '../../redux/actions/tasksActions';
+import { deleteSubtask } from '../Task/tasksActions';
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';
