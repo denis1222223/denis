@@ -15,7 +15,12 @@ class Sprint extends Component {
         super(props);
     }
 
-    componentDidMount() {
+    generateTaskList(tasks) {
+        return tasks.map((item) => {
+            return (
+                <TaskShortcut key={item.id} task={item}/>
+            );
+        });
     }
 
     render() {
@@ -35,17 +40,9 @@ class Sprint extends Component {
         var progressTasks = filterByStatus("in-progress");
         var closedTasks = filterByStatus("closed");
 
-        var generateTaskList = function(tasks) {
-            return tasks.map((item) => {
-                return (
-                    <TaskShortcut key={item.id} task={item}/>
-                );
-            });
-        };
-
-        var openTasksList = generateTaskList(openTasks);
-        var progressTasksList = generateTaskList(progressTasks);
-        var closedTasksList = generateTaskList(closedTasks);
+        var openTasksList = this.generateTaskList(openTasks);
+        var progressTasksList = this.generateTaskList(progressTasks);
+        var closedTasksList = this.generateTaskList(closedTasks);
         
         var sprints = this.props.sprints;
         var sprintInfo = sprints.find((item)=>{

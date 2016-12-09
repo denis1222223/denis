@@ -44,7 +44,7 @@ class Task extends Component {
         });
         
         var header = (
-            <div className="task__header">
+            <div>
                 {task.name} | Category: {task.category} | Sprint: {sprint.name}
 
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"

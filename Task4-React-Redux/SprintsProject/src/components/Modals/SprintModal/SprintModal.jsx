@@ -26,10 +26,7 @@ class SprintModal extends Component {
 
     validation() {
         var form = this.collectForm();
-        if ((form.name == "") || (form.beginningDate == "") || (form.expirationDate == "")) {
-            return false;
-        }
-        return true;
+        return ((form.name != "") && (form.beginningDate != "") && (form.expirationDate != ""));
     }
 
     acceptModal(action) {
@@ -41,22 +38,18 @@ class SprintModal extends Component {
         }
     }
 
-    getDate(dateString) {
-        if (!dateString) {
-            return new Date().toISOString();
-        }
-        var dateAttrs = dateString.split("/");
-        var date = new Date();
-        date.setMonth(Number(dateAttrs[0]-1));
-        date.setDate(Number(dateAttrs[1]));
-        date.setYear(Number(dateAttrs[2]));
-        return date.toISOString();
-    }
-
     render() {
         var hideModal = this.props.hideSprintModal;
-        var beginningDate = this.getDate(this.props.modal.beginningDate);
-        var expirationDate = this.getDate(this.props.modal.expirationDate);
+
+        var beginningDateISO = new Date().toISOString(), expirationDateISO = beginningDateISO;
+        if ((this.props.modal.beginningDate) && ((this.props.modal.expirationDate))) {
+            var beginningDate = new Date(this.props.modal.beginningDate);
+            var expirationDate = new Date(this.props.modal.expirationDate);
+            var timeZoneOffset = beginningDate.getTimezoneOffset() * 60000;
+            beginningDateISO = (new Date(beginningDate - timeZoneOffset)).toISOString().slice(0,-1);
+            expirationDateISO = (new Date(expirationDate - timeZoneOffset)).toISOString().slice(0,-1);
+        }
+
         return(
             <Modal show={this.props.modal.show} onHide={hideModal} bsSize="small">
                 <Modal.Header closeButton>
@@ -67,9 +60,9 @@ class SprintModal extends Component {
                         <ControlLabel>Sprint name</ControlLabel>
                         <FormControl type="text" placeholder="Sprint name" ref="sprintName" defaultValue={this.props.modal.name} />
                         <ControlLabel>Date of beginning</ControlLabel>
-                        <DatePicker id="addSprintBeginningDate" weekStartsOnMonday placeholder="Beginning date" defaultValue={beginningDate}/>
+                        <DatePicker id="addSprintBeginningDate" weekStartsOnMonday placeholder="Beginning date" defaultValue={beginningDateISO}/>
                         <ControlLabel>Expiration date</ControlLabel>
-                        <DatePicker id="addSprintExpirationDate" weekStartsOnMonday placeholder="Expiration date" defaultValue={expirationDate}/>
+                        <DatePicker id="addSprintExpirationDate" weekStartsOnMonday placeholder="Expiration date" defaultValue={expirationDateISO}/>
                     </FormGroup>
                 </Modal.Body>
                 <Modal.Footer>
