@@ -2,8 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import { Link, browserHistory  } from 'react-router';
 import { connect } from 'react-redux';
 
-import { showAddSprintModal, showEditSprintModal } from '../Modals/modalsActions';
-import { deleteSprint } from '../Sprint/sprintsActions';
+import { showModal } from '../Modal/modalActions';
+import { fillForm } from '../Forms/formActions';
+import { deleteSprint, editSprint, addSprint } from '../Sprint/sprintsActions';
 
 import Button  from 'react-bootstrap/lib/Button';
 import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
@@ -28,20 +29,23 @@ class SideBar extends Component {
     render() {
         var sprints = this.props.sprints;
         var deleteRedirect = this.getDeleteRedirectId.bind(this, sprints);
-        var sprintsList = sprints.map((item) => {
+        var sprintsList = sprints.map((sprint) => {
             return (
-                <li key={item.id}>
-                    <Link to={"/sprint?id=" + item.id} activeClassName='active'>
-                        {item.name}
+                <li key={sprint.id}>
+                    <Link to={"/sprint?id=" + sprint.id} activeClassName='active'>
+                        {sprint.name}
                     </Link>
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
-                        onClick={() => {this.props.showEditSprintModal(item);}}>
+                        onClick={() => {
+                            this.props.fillForm(editSprint, sprint);
+                            this.props.showModal("Edit sprint", "SprintForm");
+                        }}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
                     <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                         onClick={() => {
-                            this.props.deleteSprint(item.id);
-                            browserHistory.push("/sprint?id=" + deleteRedirect(item.id));
+                            this.props.deleteSprint(sprint.id);
+                            browserHistory.push("/sprint?id=" + deleteRedirect(sprint.id));
                         }}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>
@@ -54,7 +58,10 @@ class SideBar extends Component {
                 <ul>
                     {sprintsList}
                 </ul>
-                <Button bsStyle="success" onClick={this.props.showAddSprintModal}> + </Button>
+                <Button bsStyle="success" onClick={() => {
+                        this.props.fillForm(addSprint);
+                        this.props.showModal("Add sprint", "SprintForm");
+                    }}> + </Button>
             </div>
         );
     }
@@ -62,14 +69,14 @@ class SideBar extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        showAddSprintModal: function() {
-            dispatch(showAddSprintModal());
-        },
         deleteSprint: function(sprintId) {
             dispatch(deleteSprint(sprintId))
         },
-        showEditSprintModal: function(sprint) {
-            dispatch(showEditSprintModal(sprint))
+        fillForm: function(action, item) {
+            dispatch(fillForm(action, item))
+        },
+        showModal: function(title, body) {
+            dispatch(showModal(title, body))
         }
     }
 };
@@ -79,7 +86,5 @@ function mapStateToProps (state) {
         sprints: state.sprints
     }
 }
-
-SideBar.propTypes = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

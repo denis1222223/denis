@@ -2,8 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import { deleteTask } from '../Task/tasksActions';
-import { showEditTaskModal } from '../Modals/modalsActions';
+import { deleteTask, editTask } from '../Task/tasksActions';
+import { showModal } from '../Modal/modalActions';
+import { fillForm } from "../Forms/formActions";
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';
@@ -16,13 +17,6 @@ class TaskShortcut extends Component {
         super(props);
     }
 
-    onEditTaskClick(id) {
-        var task = this.props.tasks.find((item)=>{
-            return item.id == id;
-        });
-        this.props.showEditTaskModal(task);
-    }
-    
     render() {
         var task = this.props.task;
         return (
@@ -34,11 +28,14 @@ class TaskShortcut extends Component {
                     </Link>
 
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
-                            onClick={this.onEditTaskClick.bind(this, task.id)}>
+                            onClick={() => {
+                                this.props.fillForm(editTask, task);
+                                this.props.showModal("Edit task", "TaskForm");
+                            }}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
                     <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                            onClick={this.props.deleteTask.bind(this, task.id)}>
+                            onClick={() => {this.props.deleteTask(task.id);}}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>
                 </Panel>
@@ -48,24 +45,18 @@ class TaskShortcut extends Component {
     }
 }
 
-TaskShortcut.propTypes = {};
-TaskShortcut.defaultProps = {};
-
-function mapStateToProps(state) {
-    return {
-        tasks: state.tasks
-    }
-}
-
 const mapDispatchToProps = (dispatch) => {
     return {
+        fillForm: function(action, item) {
+            dispatch(fillForm(action, item))
+        },
         deleteTask: function(id) {
             dispatch(deleteTask(id));
         },
-        showEditTaskModal: function(task) {
-            dispatch(showEditTaskModal(task))
+        showModal: function(title, body) {
+            dispatch(showModal(title, body))
         }
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskShortcut)
+export default connect(null, mapDispatchToProps)(TaskShortcut)

@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import SprintModal from '../Modals/SprintModal';
-import TaskModal from '../Modals/TaskModal';
 import SideBar from '../SideBar';
+import Modal from '../Modal';
 
 import Grid  from 'react-bootstrap/lib/Grid';
 import Row  from 'react-bootstrap/lib/Row';
@@ -31,8 +30,7 @@ class App extends Component {
                         </Col>
                     </Row>
                 </Grid>
-                <SprintModal />
-                <TaskModal />
+                <Modal />
             </div>
         );
     }

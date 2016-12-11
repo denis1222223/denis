@@ -3,12 +3,14 @@ import thunk from 'redux-thunk';
 import { combineReducers } from 'redux';
 import tasksReducer from './Task/tasksReducer';
 import sprintsReducer from './Sprint/sprintsReducer';
-import modalsReducer from './Modals/modalsReducer';
+import modalReducer from './Modal/modalReducer';
+import formReducer from './Forms/formReducer';
 
 var rootReducer = combineReducers({
     tasks: tasksReducer,
     sprints: sprintsReducer,
-    modals: modalsReducer
+    modal: modalReducer,
+    form: formReducer
 });
 
 export default function (initialState = {}) {

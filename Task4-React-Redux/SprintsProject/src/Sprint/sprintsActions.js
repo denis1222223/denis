@@ -16,9 +16,9 @@ export function deleteSprint(sprintId) {
     };
 }
 
-export function editSprint(sprintId) {
+export function editSprint(sprintInfo) {
     return {
         type: EDIT_SPRINT,
-        payload: sprintId
+        payload: sprintInfo
     };
 }

@@ -1,7 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
-import { showAddTaskModal } from '../Modals/modalsActions';
+import {addTask} from "../Task/tasksActions";
+import {showModal} from "../Modal/modalActions";
+import {fillForm} from "../Forms/formActions";
 import TaskShortcut from '../TaskShortcut';
 
 import Panel  from 'react-bootstrap/lib/Panel';
@@ -75,20 +77,23 @@ class Sprint extends Component {
                         </tr>
                         </tbody>
                     </Table>
-                    <Button bsStyle="success" onClick={this.props.showAddTaskModal.bind(this, sprintId)}> + </Button>
+                    <Button bsStyle="success" onClick={() => {
+                        this.props.fillForm(addTask, {sprintId});
+                        this.props.showModal("Add task", "TaskForm");
+                    }}> + </Button>
                 </Panel>
             </div>
         );
     }
 }
 
-Sprint.propTypes = {};
-Sprint.defaultProps = {};
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        showAddTaskModal: function(sprintId) {
-            dispatch(showAddTaskModal(sprintId));
+        fillForm: function(action, item) {
+            dispatch(fillForm(action, item))
+        },
+        showModal: function(title, body) {
+            dispatch(showModal(title, body))
         }
     }
 };
