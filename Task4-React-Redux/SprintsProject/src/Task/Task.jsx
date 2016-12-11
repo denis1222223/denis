@@ -4,8 +4,10 @@ import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
 import Subtask from '../Subtask';
-import { deleteTask, addSubtask } from '../Task/tasksActions';
-import { showEditTaskModal } from '../Modals/modalsActions';
+import { deleteTask, editTask } from '../Task/tasksActions';
+import { addSubtask } from '../Subtask/subtasksActions';
+import { showModal } from '../Modal/modalActions';
+import { fillForm } from "../Forms/formActions";
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';
@@ -21,26 +23,29 @@ class Task extends Component {
     }
 
     onSubtaskAddClick(taskId) {
-        var newSubtask = ReactDOM.findDOMNode(this.refs.newSubtask).value;
-        this.props.addSubtask(newSubtask, taskId);
+        this.props.addSubtask({
+            name: ReactDOM.findDOMNode(this.refs.newSubtask).value, 
+            taskId
+        });
         ReactDOM.findDOMNode(this.refs.newSubtask).value = "";
     }
 
     render() {
         var taskId = this.props.location.query.id;
-        var tasks = this.props.tasks;
-        var task = tasks.find((item)=>{
-            return item.id == taskId;
+        var task = this.props.tasks.find((task)=>{
+            return task.id == taskId;
         });
 
-        var subtasksList = task.subtasks.map((item)=>{
+        var subtasksList = this.props.subtasks.filter((subtask) => {
+            return subtask.taskId == taskId;
+        }).map((subtask)=>{
            return (
-               <Subtask key={item.id} taskId={task.id} subtask={item} />
+               <Subtask key={subtask.id} subtask={subtask} />
            );
         });
 
-        var sprint = this.props.sprints.find((item)=>{
-            return item.id == task.sprintId;
+        var sprint = this.props.sprints.find((sprint) => {
+            return sprint.id == task.sprintId;
         });
         
         var header = (
@@ -48,7 +53,10 @@ class Task extends Component {
                 {task.name} | Category: {task.category} | Sprint: {sprint.name}
 
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
-                        onClick={() => {this.props.showEditTaskModal(task)}}>
+                        onClick={() => {
+                            this.props.fillForm(editTask, task);
+                            this.props.showModal("Edit task", "TaskForm");
+                        }}>
                     <Glyphicon glyph="glyphicon glyphicon-edit" />
                 </Button>
                 <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
@@ -68,7 +76,7 @@ class Task extends Component {
 
                     <InputGroup>
                         <InputGroup.Button>
-                            <Button bsStyle="success" onClick={this.onSubtaskAddClick.bind(this, taskId)}> + </Button>
+                            <Button bsStyle="success" onClick={() => {this.onSubtaskAddClick(taskId)}}> + </Button>
                         </InputGroup.Button>
                         <FormControl type="text" placeholder="New subtask" ref="newSubtask"  />
                     </InputGroup>
@@ -79,19 +87,19 @@ class Task extends Component {
     }
 }
 
-Task.propTypes = {};
-Task.defaultProps = {};
-
 const mapDispatchToProps = (dispatch) => {
     return {
+        addSubtask: function(subtask) {
+            dispatch(addSubtask(subtask));
+        },
+        fillForm: function(action, item) {
+            dispatch(fillForm(action, item))
+        },
         deleteTask: function(id) {
             dispatch(deleteTask(id));
         },
-        addSubtask: function(newSubtask, taskId) {
-            dispatch(addSubtask(newSubtask, taskId));
-        },
-        showEditTaskModal: function(task) {
-            dispatch(showEditTaskModal(task))
+        showModal: function(title, body) {
+            dispatch(showModal(title, body))
         }
     }
 };
@@ -99,7 +107,8 @@ const mapDispatchToProps = (dispatch) => {
 function mapStateToProps (state) {
     return {
         tasks: state.tasks,
-        sprints: state.sprints
+        sprints: state.sprints,
+        subtasks: state.subtasks
     }
 }
 

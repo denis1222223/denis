@@ -34,7 +34,7 @@ class SprintForm extends Component {
         if (this.validation()) {
             this.props.accept({
                 ...this.collectForm(),
-                id: this.props.form.item ? this.props.form.item.id : ""
+                id: this.props.item ? this.props.item.id : ""
             }, action);
         } else {
             alert("Fill all fields, please.");
@@ -43,7 +43,8 @@ class SprintForm extends Component {
 
     getDateISO(dateString) {
         if (dateString) {
-            var date = new Date(dateString);
+            var attrs = dateString.split('/');
+            var date = new Date(attrs[2], attrs[1] - 1, attrs[0]);
             var timeZoneOffset = date.getTimezoneOffset() * 60000;
             return (new Date(date - timeZoneOffset)).toISOString().slice(0,-1);
         }
@@ -51,7 +52,7 @@ class SprintForm extends Component {
     }
 
     render() {
-        var item = this.props.form.item;
+        var item = this.props.item;
         var beginningDateISO = this.getDateISO(item ? item.beginningDate : "");
         var expirationDateISO = this.getDateISO(item ? item.expirationDate : "");
 
@@ -63,7 +64,7 @@ class SprintForm extends Component {
                 <DatePicker id="addSprintBeginningDate" weekStartsOnMonday placeholder="Beginning date" defaultValue={beginningDateISO}/>
                 <ControlLabel>Expiration date</ControlLabel>
                 <DatePicker id="addSprintExpirationDate" weekStartsOnMonday placeholder="Expiration date" defaultValue={expirationDateISO}/>
-                <Button bsStyle="success" onClick={() => {this.acceptForm(this.props.form.action)}}> OK </Button>
+                <Button bsStyle="success" onClick={() => {this.acceptForm(this.props.action)}}> OK </Button>
             </FormGroup>
         );
     }
@@ -71,7 +72,8 @@ class SprintForm extends Component {
 
 function mapStateToProps (state) {
     return {
-       form: state.form,
+       item: state.form.item,
+       action: state.form.action,
        sprints: state.sprints
     }
 }

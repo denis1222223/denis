@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import {connect} from 'react-redux';
 
-import { deleteSubtask } from '../Task/tasksActions';
+import { deleteSubtask } from '../Subtask/subtasksActions';
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';
@@ -20,7 +20,7 @@ class Subtask extends Component {
                 <Panel>
                     {this.props.subtask.name}
                     <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                            onClick={this.props.deleteSubtask.bind(this, this.props.taskId, this.props.subtask.id)}>
+                            onClick={() => {this.props.deleteSubtask(this.props.subtask.id)}}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>
                 </Panel>
@@ -29,16 +29,12 @@ class Subtask extends Component {
     }
 }
 
-
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteSubtask: function(taskId, id) {
-            dispatch(deleteSubtask(taskId, id));
+        deleteSubtask: function(id) {
+            dispatch(deleteSubtask(id));
         }
     }
 };
-
-Subtask.propTypes = {};
-Subtask.defaultProps = {};
 
 export default connect(null, mapDispatchToProps)(Subtask)

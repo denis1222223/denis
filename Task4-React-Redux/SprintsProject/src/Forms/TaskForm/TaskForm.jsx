@@ -37,8 +37,7 @@ class TaskForm extends Component {
         if (this.validation()) {
             this.props.accept({
                 ...this.collectForm(),
-                id: this.props.form.item.id ? this.props.form.item.id : "",
-                subtasks: this.props.form.item.subtasks ? this.props.form.item.subtasks : []
+                id: this.props.item.id ? this.props.item.id : ""
             }, action);
         } else {
             alert("Fill all fields, please.");
@@ -46,7 +45,7 @@ class TaskForm extends Component {
     }
 
     render() {
-        var item = this.props.form.item;
+        var item = this.props.item;
         return(
             <FormGroup>
                 <ControlLabel>Task name</ControlLabel>
@@ -68,7 +67,7 @@ class TaskForm extends Component {
                         return <option key={sprint.id} value={sprint.id}>{sprint.name}</option>
                     })}
                 </FormControl>
-                <Button bsStyle="success" onClick={() => {this.acceptForm(this.props.form.action)}}> OK </Button>
+                <Button bsStyle="success" onClick={() => {this.acceptForm(this.props.action)}}> OK </Button>
             </FormGroup>
         );
     }
@@ -76,7 +75,8 @@ class TaskForm extends Component {
 
 function mapStateToProps (state) {
     return {
-        form: state.form,
+        item: state.form.item,
+        action: state.form.action,
         sprints: state.sprints
     }
 }
