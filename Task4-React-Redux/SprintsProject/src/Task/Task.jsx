@@ -32,25 +32,25 @@ class Task extends Component {
 
     render() {
         var taskId = this.props.location.query.id;
-        var task = this.props.tasks.find((task)=>{
-            return task.id == taskId;
+        var task = this.props.tasks.find((task) => {
+            return task.get('id') == taskId;
         });
 
         var subtasksList = this.props.subtasks.filter((subtask) => {
-            return subtask.taskId == taskId;
+            return subtask.get('taskId') == taskId;
         }).map((subtask)=>{
            return (
-               <Subtask key={subtask.id} subtask={subtask} />
+               <Subtask key={subtask.get('id')} subtask={subtask} />
            );
         });
 
         var sprint = this.props.sprints.find((sprint) => {
-            return sprint.id == task.sprintId;
+            return sprint.get('id') == task.get('sprintId');
         });
         
         var header = (
             <div>
-                {task.name} | Category: {task.category} | Sprint: {sprint.name}
+                {task.get('name')} | Category: {task.get('category')} | Sprint: {sprint.get('name')}
 
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
@@ -61,8 +61,8 @@ class Task extends Component {
                 </Button>
                 <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                         onClick={() => {
-                            this.props.deleteTask(task.id);
-                            browserHistory.push("/sprint?id=" + task.sprintId);
+                            this.props.deleteTask(task.get('id'));
+                            browserHistory.push("/sprint?id=" + task.get('sprintId'));
                         }}>
                     <Glyphicon glyph="glyphicon glyphicon-trash" />
                 </Button>
@@ -71,7 +71,7 @@ class Task extends Component {
 
         return (
             <div className='task'>
-                <Panel header={header} className={task.status}>
+                <Panel header={header} className={task.get('status')}>
                     {subtasksList}
 
                     <InputGroup>

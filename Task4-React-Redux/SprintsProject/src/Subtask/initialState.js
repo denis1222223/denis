@@ -1,4 +1,6 @@
-const initialState = [
+import Immutable from 'immutable';
+
+const initialState = Immutable.fromJS([
     {
         id: 0,
         name: "Subtask №0",
@@ -39,6 +41,6 @@ const initialState = [
         name: "Subtask №7",
         taskId: 0
     }
-];
+]);
 
 export default initialState;

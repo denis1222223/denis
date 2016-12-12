@@ -18,9 +18,9 @@ class Subtask extends Component {
         return (
             <div className='subtask'>
                 <Panel>
-                    {this.props.subtask.name}
+                    {this.props.subtask.get('name')}
                     <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                            onClick={() => {this.props.deleteSubtask(this.props.subtask.id)}}>
+                            onClick={() => {this.props.deleteSubtask(this.props.subtask.get('id'))}}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>
                 </Panel>

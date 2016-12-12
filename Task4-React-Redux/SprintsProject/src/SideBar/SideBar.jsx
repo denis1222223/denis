@@ -19,8 +19,8 @@ class SideBar extends Component {
     getDeleteRedirectId(sprints, sprintId) {
         var deleteRedirect = "none";
         sprints.forEach((sprint) => {
-            if (sprint.id != sprintId) {
-                deleteRedirect = sprint.id;
+            if (sprint.get('id') != sprintId) {
+                deleteRedirect = sprint.get('id');
             }
         });
         return deleteRedirect;
@@ -31,9 +31,9 @@ class SideBar extends Component {
         var deleteRedirect = this.getDeleteRedirectId.bind(this, sprints);
         var sprintsList = sprints.map((sprint) => {
             return (
-                <li key={sprint.id}>
-                    <Link to={"/sprint?id=" + sprint.id} activeClassName='active'>
-                        {sprint.name}
+                <li key={sprint.get('id')}>
+                    <Link to={"/sprint?id=".concat(sprint.get('id'))} activeClassName='active'>
+                        {sprint.get('name')}
                     </Link>
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
@@ -44,8 +44,8 @@ class SideBar extends Component {
                     </Button>
                     <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                         onClick={() => {
-                            this.props.deleteSprint(sprint.id);
-                            browserHistory.push("/sprint?id=" + deleteRedirect(sprint.id));
+                            this.props.deleteSprint(sprint.get('id'));
+                            browserHistory.push("/sprint?id=" + deleteRedirect(sprint.get('id')));
                         }}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>

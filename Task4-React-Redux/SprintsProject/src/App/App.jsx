@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
 
 import SideBar from '../SideBar';
 import Modal from '../Modal';
@@ -40,10 +39,4 @@ App.propTypes = {
     children: PropTypes.node
 };
 
-function mapStateToProps (state) {
-    return {
-        sprints: state.sprints
-    }
-}
-
-export default connect(mapStateToProps)(App)
+export default App;

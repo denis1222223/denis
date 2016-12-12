@@ -23,8 +23,8 @@ class TaskShortcut extends Component {
             <div className='task-shortcut'>
 
                 <Panel>
-                    <Link to={"/task?id=" + task.id}>
-                        {task.name}
+                    <Link to={"/task?id=".concat(task.get('id'))}>
+                        {task.get('name')}
                     </Link>
 
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
@@ -35,7 +35,7 @@ class TaskShortcut extends Component {
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
                     <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                            onClick={() => {this.props.deleteTask(task.id);}}>
+                            onClick={() => {this.props.deleteTask(task.get('id'));}}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>
                 </Panel>

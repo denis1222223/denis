@@ -34,7 +34,7 @@ class SprintForm extends Component {
         if (this.validation()) {
             this.props.accept({
                 ...this.collectForm(),
-                id: this.props.item ? this.props.item.id : ""
+                id: this.props.item ? this.props.item.get('id') : ""
             }, action);
         } else {
             alert("Fill all fields, please.");
@@ -53,13 +53,13 @@ class SprintForm extends Component {
 
     render() {
         var item = this.props.item;
-        var beginningDateISO = this.getDateISO(item ? item.beginningDate : "");
-        var expirationDateISO = this.getDateISO(item ? item.expirationDate : "");
+        var beginningDateISO = this.getDateISO(item ? item.get('beginningDate') : "");
+        var expirationDateISO = this.getDateISO(item ? item.get('expirationDate') : "");
 
         return (
             <FormGroup>
                 <ControlLabel>Sprint name</ControlLabel>
-                <FormControl type="text" placeholder="Sprint name" ref="sprintName" defaultValue={item ? item.name : ""} />
+                <FormControl type="text" placeholder="Sprint name" ref="sprintName" defaultValue={item ? item.get('name') : ""} />
                 <ControlLabel>Date of beginning</ControlLabel>
                 <DatePicker id="addSprintBeginningDate" weekStartsOnMonday placeholder="Beginning date" defaultValue={beginningDateISO}/>
                 <ControlLabel>Expiration date</ControlLabel>
@@ -72,9 +72,8 @@ class SprintForm extends Component {
 
 function mapStateToProps (state) {
     return {
-       item: state.form.item,
-       action: state.form.action,
-       sprints: state.sprints
+       item: state.form.get('item'),
+       action: state.form.get('action')
     }
 }
 

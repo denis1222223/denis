@@ -1,4 +1,6 @@
-const initialState = [
+import Immutable from 'immutable';
+
+const initialState = Immutable.fromJS([
     {
         id: 0,
         name: "Task №0",
@@ -55,6 +57,6 @@ const initialState = [
         status: "open",
         category: "category №1"
     }
-];
+]);
 
 export default initialState;

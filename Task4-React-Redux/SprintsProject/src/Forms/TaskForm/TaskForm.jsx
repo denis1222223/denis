@@ -37,7 +37,7 @@ class TaskForm extends Component {
         if (this.validation()) {
             this.props.accept({
                 ...this.collectForm(),
-                id: this.props.item.id ? this.props.item.id : ""
+                id: this.props.item.has('id') ? this.props.item.get('id') : ""
             }, action);
         } else {
             alert("Fill all fields, please.");
@@ -49,22 +49,22 @@ class TaskForm extends Component {
         return(
             <FormGroup>
                 <ControlLabel>Task name</ControlLabel>
-                <FormControl type="text" placeholder="Task name" ref="taskName" defaultValue={item.name ? item.name : ""} />
+                <FormControl type="text" placeholder="Task name" ref="taskName" defaultValue={item.has('name') ? item.get('name') : ""} />
 
                 <ControlLabel>Task category</ControlLabel>
-                <FormControl type="text" placeholder="Task category" ref="taskCategory" defaultValue={item.category ? item.category : ""} />
+                <FormControl type="text" placeholder="Task category" ref="taskCategory" defaultValue={item.has('category') ? item.get('category') : ""} />
 
                 <ControlLabel>Task status</ControlLabel>
-                <FormControl componentClass="select" ref="taskStatus" defaultValue={item.status ? item.status : ""}>
+                <FormControl componentClass="select" ref="taskStatus" defaultValue={item.has('status') ? item.get('status') : ""}>
                     <option value="open">Open</option>
                     <option value="in-progress">In progress</option>
                     <option value="closed">Closed</option>
                 </FormControl>
 
                 <ControlLabel>Sprint name</ControlLabel>
-                <FormControl componentClass="select" ref="tasks_sprintName" defaultValue={item.sprintId ? item.sprintId : ""}>
+                <FormControl componentClass="select" ref="tasks_sprintName" defaultValue={item.has('sprintId') ? item.get('sprintId') : ""}>
                     {this.props.sprints.map((sprint) => {
-                        return <option key={sprint.id} value={sprint.id}>{sprint.name}</option>
+                        return <option key={sprint.get('id')} value={sprint.get('id')}>{sprint.get('name')}</option>
                     })}
                 </FormControl>
                 <Button bsStyle="success" onClick={() => {this.acceptForm(this.props.action)}}> OK </Button>
@@ -75,8 +75,8 @@ class TaskForm extends Component {
 
 function mapStateToProps (state) {
     return {
-        item: state.form.item,
-        action: state.form.action,
+        item: state.form.get('item'),
+        action: state.form.get('action'),
         sprints: state.sprints
     }
 }

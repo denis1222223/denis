@@ -1,4 +1,6 @@
-const initialState = [
+import Immutable from 'immutable';
+
+const initialState = Immutable.fromJS([
     {
         id: 0,
         name: "Sprint №0",
@@ -29,6 +31,6 @@ const initialState = [
         beginningDate: "12/12/2012",
         expirationDate: "15/02/2013"
     }
-];
+]);
 
 export default initialState;

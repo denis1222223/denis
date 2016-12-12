@@ -5,6 +5,7 @@ import {addTask} from "../Task/tasksActions";
 import {showModal} from "../Modal/modalActions";
 import {fillForm} from "../Forms/formActions";
 import TaskShortcut from '../TaskShortcut';
+import {Map} from 'immutable';
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Table  from 'react-bootstrap/lib/Table';
@@ -18,9 +19,10 @@ class Sprint extends Component {
     }
 
     generateTaskList(tasks) {
-        return tasks.map((item) => {
+
+        return tasks.map((task) => {
             return (
-                <TaskShortcut key={item.id} task={item}/>
+                <TaskShortcut key={task.get('id')} task={task}/>
             );
         });
     }
@@ -33,8 +35,8 @@ class Sprint extends Component {
         var tasks = this.props.tasks;
 
         var filterByStatus = function(status) {
-            return tasks.filter((item)=>{
-                return (item.status == status) && (item.sprintId == sprintId);
+            return tasks.filter((task) => {
+                return (task.get('status') == status) && (task.get('sprintId') == sprintId);
             });
         };
 
@@ -47,14 +49,14 @@ class Sprint extends Component {
         var closedTasksList = this.generateTaskList(closedTasks);
         
         var sprints = this.props.sprints;
-        var sprintInfo = sprints.find((item)=>{
-            return item.id == sprintId;
+        var sprintInfo = sprints.find((sprint) => {
+            return sprint.get('id') == sprintId;
         });
         var sprintTitle = (
             <div>
-                {sprintInfo.name}
+                {sprintInfo.get('name')}
                 <br/>
-                {sprintInfo.beginningDate} - {sprintInfo.expirationDate}
+                {sprintInfo.get('beginningDate')} - {sprintInfo.get('expirationDate')}
             </div>
         );
 
@@ -78,7 +80,7 @@ class Sprint extends Component {
                         </tbody>
                     </Table>
                     <Button bsStyle="success" onClick={() => {
-                        this.props.fillForm(addTask, {sprintId});
+                        this.props.fillForm(addTask, new Map({sprintId}));
                         this.props.showModal("Add task", "TaskForm");
                     }}> + </Button>
                 </Panel>
