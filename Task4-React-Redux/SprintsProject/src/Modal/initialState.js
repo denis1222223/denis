@@ -1,8 +1,7 @@
-import { addSprint } from '../Sprint/sprintsActions';
-import { addTask } from '../Task/tasksActions';
+import {Map} from 'immutable';
 
-const initialState = {
+const initialState = Map({
     show: false
-};
+});
 
 export default initialState;

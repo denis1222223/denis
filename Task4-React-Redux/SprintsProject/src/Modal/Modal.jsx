@@ -20,15 +20,16 @@ class Modal extends Component {
     }
 
     render() {
-        var Body = this.getComponent(this.props.modal.body);
+        var modal = this.props.modal;
+        var body = this.getComponent(modal.get('body'));
 
         return(
-            <ModalBox show={this.props.modal.show} onHide={this.props.hide} bsSize="small">
+            <ModalBox show={modal.get('show')} onHide={this.props.hide} bsSize="small">
                 <ModalBox.Header closeButton>
-                    <ModalBox.Title>{this.props.modal.title}</ModalBox.Title>
+                    <ModalBox.Title>{modal.get('title')}</ModalBox.Title>
                 </ModalBox.Header>
                 <ModalBox.Body>
-                    {Body}
+                    {body}
                 </ModalBox.Body>
 
             </ModalBox>
