@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using SprintsProjectAPI.Models;
@@ -15,7 +16,7 @@ namespace SprintsProjectAPI.Controllers
 {
     public class SprintsController : ApiController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private SprintsProjectAPIContext db = new SprintsProjectAPIContext();
 
         // GET: api/Sprints
         public IQueryable<Sprint> GetSprints()
@@ -25,9 +26,9 @@ namespace SprintsProjectAPI.Controllers
 
         // GET: api/Sprints/5
         [ResponseType(typeof(Sprint))]
-        public IHttpActionResult GetSprint(int id)
+        public async Task<IHttpActionResult> GetSprint(int id)
         {
-            Sprint sprint = db.Sprints.Find(id);
+            Sprint sprint = await db.Sprints.FindAsync(id);
             if (sprint == null)
             {
                 return NotFound();
@@ -38,7 +39,7 @@ namespace SprintsProjectAPI.Controllers
 
         // PUT: api/Sprints/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutSprint(int id, Sprint sprint)
+        public async Task<IHttpActionResult> PutSprint(int id, Sprint sprint)
         {
             if (!ModelState.IsValid)
             {
@@ -54,7 +55,7 @@ namespace SprintsProjectAPI.Controllers
 
             try
             {
-                db.SaveChanges();
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -73,7 +74,7 @@ namespace SprintsProjectAPI.Controllers
 
         // POST: api/Sprints
         [ResponseType(typeof(Sprint))]
-        public IHttpActionResult PostSprint(Sprint sprint)
+        public async Task<IHttpActionResult> PostSprint(Sprint sprint)
         {
             if (!ModelState.IsValid)
             {
@@ -81,23 +82,23 @@ namespace SprintsProjectAPI.Controllers
             }
 
             db.Sprints.Add(sprint);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = sprint.Id }, sprint);
         }
 
         // DELETE: api/Sprints/5
         [ResponseType(typeof(Sprint))]
-        public IHttpActionResult DeleteSprint(int id)
+        public async Task<IHttpActionResult> DeleteSprint(int id)
         {
-            Sprint sprint = db.Sprints.Find(id);
+            Sprint sprint = await db.Sprints.FindAsync(id);
             if (sprint == null)
             {
                 return NotFound();
             }
 
             db.Sprints.Remove(sprint);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
 
             return Ok(sprint);
         }

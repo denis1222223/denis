@@ -12,6 +12,5 @@ namespace SprintsProjectAPI.Models.Entities
         public string Status { get; set; }
         public string Category { get; set; }
         public int SprintId { get; set; }
-        public Subtask[] Subtasks { get; set; }
     }
 }
