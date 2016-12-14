@@ -2,9 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 import {addTask} from "../Task/tasksActions";
-import {showModal} from "../Modal/modalActions";
-import {fillForm} from "../Forms/formActions";
-import TaskShortcut from '../TaskShortcut';
+import {showModal} from "../Common/Modal/modalActions";
+import TaskShortcut from '../Task/TaskShortcut';
+import TaskForm from '../Task/TaskForm'
 import {Map} from 'immutable';
 
 import Panel  from 'react-bootstrap/lib/Panel';
@@ -79,8 +79,7 @@ class Sprint extends Component {
                         </tbody>
                     </Table>
                     <Button bsStyle="success" onClick={() => {
-                        this.props.fillForm(addTask, new Map({sprintId}));
-                        this.props.showModal("Add task", <TaskForm />);
+                        this.props.showModal("Add task", <TaskForm item={new Map({sprintId})} action={addTask} />);
                     }}> + </Button>
                 </Panel>
             </div>
@@ -90,9 +89,6 @@ class Sprint extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fillForm: function(action, item) {
-            dispatch(fillForm(action, item))
-        },
         showModal: function(title, body) {
             dispatch(showModal(title, body))
         }

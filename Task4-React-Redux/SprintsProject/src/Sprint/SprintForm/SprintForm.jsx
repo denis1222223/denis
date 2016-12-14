@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import { hideModal } from '../../Modal/modalActions';
+import { hideModal } from '../../Common/Modal/modalActions';
 
 import DatePicker from 'react-bootstrap-date-picker';
 import Button  from 'react-bootstrap/lib/Button';
@@ -11,7 +11,7 @@ import FormControl  from 'react-bootstrap/lib/FormControl';
 import ControlLabel  from 'react-bootstrap/lib/ControlLabel';
 import FormGroup  from 'react-bootstrap/lib/FormGroup';
 
-import '../forms.less';
+import '../../Common/forms.less';
 
 class SprintForm extends Component {
     constructor(props) {
@@ -44,8 +44,8 @@ class SprintForm extends Component {
 
     render() {
         var item = this.props.item;
-        var beginningDateISO = moment(item ? item.get('beginningDate') : "").format();
-        var expirationDateISO = moment(item ? item.get('expirationDate') : "").format();
+        var beginningDateISO = item ? moment(item.get('beginningDate')).format() : moment().format();
+        var expirationDateISO = item ? moment(item.get('expirationDate')).format() : moment().format();
 
         return (
             <FormGroup>
@@ -77,4 +77,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SprintForm)
+export default connect(null, mapDispatchToProps)(SprintForm)

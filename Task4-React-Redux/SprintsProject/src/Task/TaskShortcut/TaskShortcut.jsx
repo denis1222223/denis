@@ -2,10 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import TaskForm from '../Forms/TaskForm';
-import { deleteTask, editTask } from '../Task/tasksActions';
-import { showModal } from '../Modal/modalActions';
-import { fillForm } from "../Forms/formActions";
+import TaskForm from '../TaskForm';
+import { deleteTask, editTask } from '../tasksActions';
+import { showModal } from '../../Common/Modal/modalActions';
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';
@@ -30,8 +29,7 @@ class TaskShortcut extends Component {
 
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                             onClick={() => {
-                                this.props.fillForm(editTask, task);
-                                this.props.showModal("Edit task", <TaskForm />);
+                                this.props.showModal("Edit task", <TaskForm item={task} action={editTask} />);
                             }}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
@@ -48,9 +46,6 @@ class TaskShortcut extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fillForm: function(action, item) {
-            dispatch(fillForm(action, item))
-        },
         deleteTask: function(id) {
             dispatch(deleteTask(id));
         },

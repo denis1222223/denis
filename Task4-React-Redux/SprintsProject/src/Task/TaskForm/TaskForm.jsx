@@ -2,14 +2,14 @@ import React, { PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 
-import { hideModal } from '../../Modal/modalActions';
+import { hideModal } from '../../Common/Modal/modalActions';
 
 import Button  from 'react-bootstrap/lib/Button';
 import FormControl  from 'react-bootstrap/lib/FormControl';
 import ControlLabel  from 'react-bootstrap/lib/ControlLabel';
 import FormGroup  from 'react-bootstrap/lib/FormGroup';
 
-import '../forms.less';
+import '../../Common/forms.less';
 
 class TaskForm extends Component {
     constructor(props) {
@@ -75,8 +75,6 @@ class TaskForm extends Component {
 
 function mapStateToProps (state) {
     return {
-        item: state.form.get('item'),
-        action: state.form.get('action'),
         sprints: state.sprints
     }
 }
