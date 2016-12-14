@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import TaskForm from '../Forms/TaskForm';
 import { deleteTask, editTask } from '../Task/tasksActions';
 import { showModal } from '../Modal/modalActions';
 import { fillForm } from "../Forms/formActions";
@@ -30,7 +31,7 @@ class TaskShortcut extends Component {
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                             onClick={() => {
                                 this.props.fillForm(editTask, task);
-                                this.props.showModal("Edit task", "TaskForm");
+                                this.props.showModal("Edit task", <TaskForm />);
                             }}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>

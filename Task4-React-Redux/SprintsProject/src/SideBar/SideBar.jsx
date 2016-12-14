@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { showModal } from '../Modal/modalActions';
 import { fillForm } from '../Forms/formActions';
 import { deleteSprint, editSprint, addSprint } from '../Sprint/sprintsActions';
+import SprintForm from '../Forms/SprintForm'
 
 import Button  from 'react-bootstrap/lib/Button';
 import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
@@ -38,7 +39,7 @@ class SideBar extends Component {
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
                             this.props.fillForm(editSprint, sprint);
-                            this.props.showModal("Edit sprint", "SprintForm");
+                            this.props.showModal("Edit sprint", <SprintForm />);
                         }}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
@@ -60,7 +61,7 @@ class SideBar extends Component {
                 </ul>
                 <Button bsStyle="success" onClick={() => {
                         this.props.fillForm(addSprint);
-                        this.props.showModal("Add sprint", "SprintForm");
+                        this.props.showModal("Add sprint", <SprintForm />);
                     }}> + </Button>
             </div>
         );

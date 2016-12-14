@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
 import Subtask from '../Subtask';
+import TaskForm from '../Forms/TaskForm';
 import { deleteTask, editTask } from '../Task/tasksActions';
 import { addSubtask } from '../Subtask/subtasksActions';
 import { showModal } from '../Modal/modalActions';
@@ -55,7 +56,7 @@ class Task extends Component {
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
                             this.props.fillForm(editTask, task);
-                            this.props.showModal("Edit task", "TaskForm");
+                            this.props.showModal("Edit task", <TaskForm />);
                         }}>
                     <Glyphicon glyph="glyphicon glyphicon-edit" />
                 </Button>

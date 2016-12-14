@@ -19,7 +19,6 @@ class Sprint extends Component {
     }
 
     generateTaskList(tasks) {
-
         return tasks.map((task) => {
             return (
                 <TaskShortcut key={task.get('id')} task={task}/>
@@ -81,7 +80,7 @@ class Sprint extends Component {
                     </Table>
                     <Button bsStyle="success" onClick={() => {
                         this.props.fillForm(addTask, new Map({sprintId}));
-                        this.props.showModal("Add task", "TaskForm");
+                        this.props.showModal("Add task", <TaskForm />);
                     }}> + </Button>
                 </Panel>
             </div>
