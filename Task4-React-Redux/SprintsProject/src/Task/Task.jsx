@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
-import Subtask from '../Subtask';
-import TaskForm from '../Forms/TaskForm';
+import Subtask from '../Task/Subtask';
+import TaskForm from '../Task/TaskForm';
 import { deleteTask, editTask } from '../Task/tasksActions';
-import { addSubtask } from '../Subtask/subtasksActions';
-import { showModal } from '../Modal/modalActions';
-import { fillForm } from "../Forms/formActions";
+import { addSubtask } from './Subtask/subtasksActions';
+import { showModal } from '../Common/Modal/modalActions';
 
 import Panel  from 'react-bootstrap/lib/Panel';
 import Button  from 'react-bootstrap/lib/Button';
@@ -55,8 +54,7 @@ class Task extends Component {
 
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
-                            this.props.fillForm(editTask, task);
-                            this.props.showModal("Edit task", <TaskForm />);
+                            this.props.showModal("Edit task", <TaskForm item={task} action={editTask} />);
                         }}>
                     <Glyphicon glyph="glyphicon glyphicon-edit" />
                 </Button>
@@ -92,9 +90,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         addSubtask: function(subtask) {
             dispatch(addSubtask(subtask));
-        },
-        fillForm: function(action, item) {
-            dispatch(fillForm(action, item))
         },
         deleteTask: function(id) {
             dispatch(deleteTask(id));

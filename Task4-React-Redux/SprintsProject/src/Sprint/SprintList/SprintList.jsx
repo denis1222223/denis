@@ -2,17 +2,16 @@ import React, { PropTypes, Component } from 'react';
 import { Link, browserHistory  } from 'react-router';
 import { connect } from 'react-redux';
 
-import { showModal } from '../Modal/modalActions';
-import { fillForm } from '../Forms/formActions';
-import { deleteSprint, editSprint, addSprint } from '../Sprint/sprintsActions';
-import SprintForm from '../Forms/SprintForm'
+import { showModal } from '../../Common/Modal/modalActions';
+import { deleteSprint, editSprint, addSprint } from '../sprintsActions';
+import SprintForm from '../SprintForm'
 
 import Button  from 'react-bootstrap/lib/Button';
 import Glyphicon  from 'react-bootstrap/lib/Glyphicon';
 
-import './sidebar.less';
+import './sprint-list.less';
 
-class SideBar extends Component {
+class SprintList extends Component {
     constructor(props) {
         super(props);
     }
@@ -38,8 +37,7 @@ class SideBar extends Component {
                     </Link>
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
-                            this.props.fillForm(editSprint, sprint);
-                            this.props.showModal("Edit sprint", <SprintForm />);
+                            this.props.showModal("Edit sprint", <SprintForm item={sprint} action={editSprint} />);
                         }}>
                         <Glyphicon glyph="glyphicon glyphicon-edit" />
                     </Button>
@@ -55,13 +53,12 @@ class SideBar extends Component {
         });
 
         return (
-            <div className='sidebar'>
+            <div className='sprint-list'>
                 <ul>
                     {sprintsList}
                 </ul>
                 <Button bsStyle="success" onClick={() => {
-                        this.props.fillForm(addSprint);
-                        this.props.showModal("Add sprint", <SprintForm />);
+                        this.props.showModal("Add sprint", <SprintForm action={addSprint} />);
                     }}> + </Button>
             </div>
         );
@@ -88,4 +85,4 @@ function mapStateToProps (state) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideBar);
+export default connect(mapStateToProps, mapDispatchToProps)(SprintList);
