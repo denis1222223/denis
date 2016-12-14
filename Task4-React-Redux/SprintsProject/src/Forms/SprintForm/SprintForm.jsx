@@ -1,6 +1,7 @@
 import React, { PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import { hideModal } from '../../Modal/modalActions';
 
@@ -41,20 +42,10 @@ class SprintForm extends Component {
         }
     }
 
-    getDateISO(dateString) {
-        if (dateString) {
-            var attrs = dateString.split('/');
-            var date = new Date(attrs[2], attrs[1] - 1, attrs[0]);
-            var timeZoneOffset = date.getTimezoneOffset() * 60000;
-            return (new Date(date - timeZoneOffset)).toISOString().slice(0,-1);
-        }
-        return new Date().toISOString();
-    }
-
     render() {
         var item = this.props.item;
-        var beginningDateISO = this.getDateISO(item ? item.get('beginningDate') : "");
-        var expirationDateISO = this.getDateISO(item ? item.get('expirationDate') : "");
+        var beginningDateISO = moment(item ? item.get('beginningDate') : "").format();
+        var expirationDateISO = moment(item ? item.get('expirationDate') : "").format();
 
         return (
             <FormGroup>
