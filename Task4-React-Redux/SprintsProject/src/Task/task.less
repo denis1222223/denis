@@ -1,0 +1,30 @@
+@import "../App/app";
+
+.task {
+  .open{
+    .panel-heading {
+      background-color: @color-th-open;
+    }
+  }
+  .in-progress{
+    .panel-heading {
+      background-color: @color-th-progress;
+    }
+  }
+  .closed{
+    .panel-heading {
+      background-color: @color-th-closed;
+    }
+  }
+  .panel-heading {
+    .small-button {
+      display: block;
+    }
+  }
+  .delete-button {
+    right: 25px;
+  }
+  .edit-button {
+    right: 55px;
+  }
+}

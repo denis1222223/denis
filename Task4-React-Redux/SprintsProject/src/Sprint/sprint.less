@@ -1,0 +1,35 @@
+@import "../App/app";
+
+.sprint {
+  table {
+    td {
+      width: 33%;
+    }
+    th.open {
+      background-color: @color-th-open;
+    }
+    th.progress {
+      background-color: @color-th-progress;
+    }
+    th.closed {
+      background-color: @color-th-closed;
+    }
+    td.open {
+      background-color: @color-td-open;
+    }
+    td.progress {
+      background-color: @color-td-progress;
+    }
+    td.closed {
+      background-color: @color-td-closed;
+    }
+  }
+
+  .panel-primary {
+    border-color: @color-active;
+    .panel-heading {
+      background-color: @color-active;
+      border-color: @color-active;
+    }
+  }
+}

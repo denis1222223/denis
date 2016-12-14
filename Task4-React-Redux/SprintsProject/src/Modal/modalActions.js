@@ -1,0 +1,15 @@
+export const SHOW_MODAL = 'SHOW_MODAL';
+export const HIDE_MODAL = 'HIDE_MODAL';
+
+export function showModal(title, body) {
+    return {
+        type: SHOW_MODAL,
+        payload: {title, body}
+    };
+}
+
+export function hideModal() {
+    return {
+        type: HIDE_MODAL
+    };
+}
