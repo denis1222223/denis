@@ -12,7 +12,8 @@ export default function(state = initialState, action) {
 
         case ADD_SUBTASK:
             var id = state.size ? state.last().get('id') + 1 : 0;
-            return state.push(new Map({ id, ...action.payload }));
+            var subtask = { id, ...action.payload };
+            return state.push(new Map(subtask));
 
         default:
             return state;

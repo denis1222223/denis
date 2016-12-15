@@ -11,9 +11,11 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using SprintsProjectAPI.Models;
 using SprintsProjectAPI.Models.Entities;
+using System.Web.Http.Cors;
 
 namespace SprintsProjectAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
     public class SprintsController : ApiController
     {
         private SprintsProjectAPIContext db = new SprintsProjectAPIContext();
