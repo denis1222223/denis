@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SprintsProjectAPI.Models.Entities
 {
     public class Sprint
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
-        public string beginningDate { get; set; }
-        public string expirationDate { get; set; }
+        public string BeginningDate { get; set; }
+        public string ExpirationDate { get; set; }
     }
 }
