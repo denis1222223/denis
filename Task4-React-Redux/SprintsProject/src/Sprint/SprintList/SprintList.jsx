@@ -70,9 +70,6 @@ const mapDispatchToProps = (dispatch) => {
         deleteSprint: function(sprintId) {
             dispatch(deleteSprint(sprintId))
         },
-        fillForm: function(action, item) {
-            dispatch(fillForm(action, item))
-        },
         showModal: function(title, body) {
             dispatch(showModal(title, body))
         }
