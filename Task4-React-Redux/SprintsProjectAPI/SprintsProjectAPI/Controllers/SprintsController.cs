@@ -18,19 +18,24 @@ namespace SprintsProjectAPI.Controllers
     [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
     public class SprintsController : ApiController
     {
-        private SprintsProjectAPIContext db = new SprintsProjectAPIContext();
+        private IRepository<Sprint> db;
+
+        public SprintsController()
+        {
+            db = new SprintRepository();
+        }
 
         // GET: api/Sprints
         public IQueryable<Sprint> GetSprints()
         {
-            return db.Sprints;
+            return db.GetAll();
         }
 
         // GET: api/Sprints/5
         [ResponseType(typeof(Sprint))]
         public async Task<IHttpActionResult> GetSprint(int id)
         {
-            Sprint sprint = await db.Sprints.FindAsync(id);
+            Sprint sprint = await db.Get(id);
             if (sprint == null)
             {
                 return NotFound();
@@ -53,11 +58,9 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest();
             }
 
-            db.Entry(sprint).State = EntityState.Modified;
-
             try
             {
-                await db.SaveChangesAsync();
+                await db.Update(id, sprint);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -83,8 +86,7 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Sprints.Add(sprint);
-            await db.SaveChangesAsync();
+            await db.Create(sprint);
 
             return CreatedAtRoute("DefaultApi", new { id = sprint.Id }, sprint);
         }
@@ -93,14 +95,13 @@ namespace SprintsProjectAPI.Controllers
         [ResponseType(typeof(Sprint))]
         public async Task<IHttpActionResult> DeleteSprint(int id)
         {
-            Sprint sprint = await db.Sprints.FindAsync(id);
+            Sprint sprint = await db.FindAsync(id);
             if (sprint == null)
             {
                 return NotFound();
             }
 
-            db.Sprints.Remove(sprint);
-            await db.SaveChangesAsync();
+            await db.Delete(sprint);
 
             return Ok(sprint);
         }
@@ -116,7 +117,7 @@ namespace SprintsProjectAPI.Controllers
 
         private bool SprintExists(int id)
         {
-            return db.Sprints.Count(e => e.Id == id) > 0;
+            return db.Exists(id);
         }
     }
 }

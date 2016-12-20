@@ -18,19 +18,24 @@ namespace SprintsProjectAPI.Controllers
     [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
     public class TasksController : ApiController
     {
-        private SprintsProjectAPIContext db = new SprintsProjectAPIContext();
+        private IRepository<Models.Entities.Task> db;
+
+        public TasksController()
+        {
+            db = new TaskRepository();
+        }
 
         // GET: api/Tasks
         public IQueryable<Models.Entities.Task> GetTasks()
         {
-            return db.Tasks;
+            return db.GetAll();
         }
 
         // GET: api/Tasks/5
         [ResponseType(typeof(Models.Entities.Task))]
         public async Task<IHttpActionResult> GetTask(int id)
         {
-            Models.Entities.Task task = await db.Tasks.FindAsync(id);
+            Models.Entities.Task task = await db.Get(id);
             if (task == null)
             {
                 return NotFound();
@@ -53,11 +58,9 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest();
             }
 
-            db.Entry(task).State = EntityState.Modified;
-
             try
             {
-                await db.SaveChangesAsync();
+                await db.Update(id, task);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -83,8 +86,7 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Tasks.Add(task);
-            await db.SaveChangesAsync();
+            await db.Create(task);
 
             return CreatedAtRoute("DefaultApi", new { id = task.Id }, task);
         }
@@ -93,14 +95,13 @@ namespace SprintsProjectAPI.Controllers
         [ResponseType(typeof(Models.Entities.Task))]
         public async Task<IHttpActionResult> DeleteTask(int id)
         {
-            Models.Entities.Task task = await db.Tasks.FindAsync(id);
+            Models.Entities.Task task = await db.FindAsync(id);
             if (task == null)
             {
                 return NotFound();
             }
 
-            db.Tasks.Remove(task);
-            await db.SaveChangesAsync();
+            await db.Delete(task);
 
             return Ok(task);
         }
@@ -116,7 +117,7 @@ namespace SprintsProjectAPI.Controllers
 
         private bool TaskExists(int id)
         {
-            return db.Tasks.Count(e => e.Id == id) > 0;
+            return db.Exists(id);
         }
     }
 }

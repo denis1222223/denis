@@ -18,19 +18,24 @@ namespace SprintsProjectAPI.Controllers
     [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
     public class SubtasksController : ApiController
     {
-        private SprintsProjectAPIContext db = new SprintsProjectAPIContext();
+        private IRepository<Subtask> db;
+
+        public SubtasksController()
+        {
+            db = new SubtaskRepository();
+        }
 
         // GET: api/Subtasks
         public IQueryable<Subtask> GetSubtasks()
         {
-            return db.Subtasks;
+            return db.GetAll();
         }
 
         // GET: api/Subtasks/5
         [ResponseType(typeof(Subtask))]
         public async Task<IHttpActionResult> GetSubtask(int id)
         {
-            Subtask subtask = await db.Subtasks.FindAsync(id);
+            Subtask subtask = await db.Get(id);
             if (subtask == null)
             {
                 return NotFound();
@@ -53,11 +58,9 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest();
             }
 
-            db.Entry(subtask).State = EntityState.Modified;
-
             try
             {
-                await db.SaveChangesAsync();
+                await db.Update(id, subtask);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -71,7 +74,7 @@ namespace SprintsProjectAPI.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(subtask);
         }
 
         // POST: api/Subtasks
@@ -83,8 +86,7 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Subtasks.Add(subtask);
-            await db.SaveChangesAsync();
+            await db.Create(subtask);
 
             return CreatedAtRoute("DefaultApi", new { id = subtask.Id }, subtask);
         }
@@ -93,14 +95,13 @@ namespace SprintsProjectAPI.Controllers
         [ResponseType(typeof(Subtask))]
         public async Task<IHttpActionResult> DeleteSubtask(int id)
         {
-            Subtask subtask = await db.Subtasks.FindAsync(id);
+            Subtask subtask = await db.FindAsync(id);
             if (subtask == null)
             {
                 return NotFound();
             }
 
-            db.Subtasks.Remove(subtask);
-            await db.SaveChangesAsync();
+            await db.Delete(subtask);
 
             return Ok(subtask);
         }
@@ -116,7 +117,7 @@ namespace SprintsProjectAPI.Controllers
 
         private bool SubtaskExists(int id)
         {
-            return db.Subtasks.Count(e => e.Id == id) > 0;
+            return db.Exists(id);
         }
     }
 }

@@ -130,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Models\IRepository.cs" />
     <Compile Include="Controllers\SprintsController.cs" />
     <Compile Include="Controllers\SubtasksController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
@@ -139,6 +140,9 @@
     <Compile Include="Models\Entities\Sprint.cs" />
     <Compile Include="Models\Entities\Subtask.cs" />
     <Compile Include="Models\Entities\Task.cs" />
+    <Compile Include="Models\SubtaskRepository.cs" />
+    <Compile Include="Models\TaskRepository.cs" />
+    <Compile Include="Models\SprintRepository.cs" />
     <Compile Include="Models\SprintsProjectAPIContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
