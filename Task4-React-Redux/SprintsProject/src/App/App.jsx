@@ -22,7 +22,7 @@ class App extends Component {
     componentDidMount() {
         this.props.getAllSprints();
         this.props.getAllTasks();
-        //this.props.getAllSubtasks();
+        this.props.getAllSubtasks();
     }
 
     render() {
@@ -51,6 +51,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         getAllTasks: function() {
             dispatch(getAllTasks())
+        },
+        getAllSubtasks: function() {
+            dispatch(getAllSubtasks())
         }
     }
 };

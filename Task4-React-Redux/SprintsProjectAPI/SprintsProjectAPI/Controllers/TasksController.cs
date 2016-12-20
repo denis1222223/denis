@@ -71,7 +71,7 @@ namespace SprintsProjectAPI.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok(task);
         }
 
         // POST: api/Tasks

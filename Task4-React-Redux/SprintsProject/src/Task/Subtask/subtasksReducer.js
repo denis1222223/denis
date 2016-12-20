@@ -1,19 +1,21 @@
-import { DELETE_SUBTASK, ADD_SUBTASK } from './subtasksActions';
+import { DELETE_SUBTASK, ADD_SUBTASK, GET_ALL_SUBTASKS } from './subtasksActions';
 import initialState from './initialState';
 import {Map} from 'immutable';
+import Immutable from 'immutable';
 
 export default function(state = initialState, action) {
     switch (action.type) {
 
+        case GET_ALL_SUBTASKS:
+            return Immutable.fromJS(action.subtasks);
+
         case DELETE_SUBTASK:
             return state.filter((subtask) => {
-               return subtask.get('id') != action.payload;
+               return subtask.get('id') != action.subtaskId;
             });
 
         case ADD_SUBTASK:
-            var id = state.size ? state.last().get('id') + 1 : 0;
-            var subtask = { id, ...action.payload };
-            return state.push(new Map(subtask));
+            return state.push(new Map(action.subtask));
 
         default:
             return state;

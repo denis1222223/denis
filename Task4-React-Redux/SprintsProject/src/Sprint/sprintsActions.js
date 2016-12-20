@@ -12,7 +12,7 @@ function addSprintToState(sprint) {
     };
 }
 
-export function addSprint(sprintInfo) {
+export function addSprint(sprint) {
     return dispatch => {
         return fetch(domen + "Sprints", {
             headers: new Headers({
@@ -20,7 +20,7 @@ export function addSprint(sprintInfo) {
                 'Content-Type': 'application/json'
             }),
             method: "POST",
-            body: JSON.stringify({ ...sprintInfo })
+            body: JSON.stringify(sprint)
         }).then(response => {
             return response.json();
         }).then(sprint => {
@@ -48,7 +48,7 @@ export function deleteSprint(sprintId) {
     }
 }
 
-export function editSprintInState(sprint) {
+function editSprintInState(sprint) {
     return {
         type: EDIT_SPRINT,
         sprint

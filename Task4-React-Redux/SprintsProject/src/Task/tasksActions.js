@@ -5,7 +5,7 @@ export const ADD_TASK = 'ADD_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
 export const GET_ALL_TASKS = 'GET_ALL_TASKS';
 
-export function deleteTaskFromState(taskId) {
+function deleteTaskFromState(taskId) {
     return {
         type: DELETE_TASK,
         taskId
@@ -24,7 +24,7 @@ export function deleteTask(taskId) {
     }
 }
 
-export function addTaskToState(task) {
+function addTaskToState(task) {
     return {
         type: ADD_TASK,
         task
@@ -39,7 +39,7 @@ export function addTask(task) {
                 'Content-Type': 'application/json'
             }),
             method: "POST",
-            body: JSON.stringify({ ...task })
+            body: JSON.stringify(task)
         }).then(response => {
             return response.json();
         }).then(task => {
@@ -48,7 +48,7 @@ export function addTask(task) {
     }
 }
 
-export function editTaskInState(task) {
+function editTaskInState(task) {
     return {
         type: EDIT_TASK,
         task
@@ -63,15 +63,14 @@ export function editTask(task) {
                 'Content-Type': 'application/json'
             }),
             method: "PUT",
-            body: JSON.stringify({ ...task })
+            body: JSON.stringify({...task})
         }).then(response => {
             return response.json();
-        }).then(sprint => {
+        }).then(task => {
             dispatch(editTaskInState(task));
         });
     }
 }
-
 
 function loadAllTasksToState(tasks) {
     return {
