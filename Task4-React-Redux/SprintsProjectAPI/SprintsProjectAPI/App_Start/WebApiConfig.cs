@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Serialization;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace SprintsProjectAPI
 
             var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            IKernel AppKernel = new StandardKernel(new SprintsNinjectModule());
         }
     }
 }

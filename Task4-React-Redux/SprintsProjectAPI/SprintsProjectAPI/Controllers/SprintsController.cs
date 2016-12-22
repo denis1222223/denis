@@ -12,30 +12,32 @@ using System.Web.Http.Description;
 using SprintsProjectAPI.Models;
 using SprintsProjectAPI.Models.Entities;
 using System.Web.Http.Cors;
+using SprintsProjectAPI.Repositories;
+using SprintsProjectAPI.Services;
 
 namespace SprintsProjectAPI.Controllers
 {
     [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
     public class SprintsController : ApiController
     {
-        private IRepository<Sprint> db;
+        private IService<Sprint> service;
 
         public SprintsController()
         {
-            db = new SprintRepository();
+            service = new SprintService();
         }
 
         // GET: api/Sprints
         public IQueryable<Sprint> GetSprints()
         {
-            return db.GetAll();
+            return service.GetAll();
         }
 
         // GET: api/Sprints/5
         [ResponseType(typeof(Sprint))]
         public async Task<IHttpActionResult> GetSprint(int id)
         {
-            Sprint sprint = await db.Get(id);
+            Sprint sprint = await service.Get(id);
             if (sprint == null)
             {
                 return NotFound();
@@ -60,11 +62,11 @@ namespace SprintsProjectAPI.Controllers
 
             try
             {
-                await db.Update(id, sprint);
+                await service.Update(id, sprint);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SprintExists(id))
+                if (!service.Exists(id))
                 {
                     return NotFound();
                 }
@@ -86,7 +88,7 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await db.Create(sprint);
+            await service.Create(sprint);
 
             return CreatedAtRoute("DefaultApi", new { id = sprint.Id }, sprint);
         }
@@ -95,13 +97,13 @@ namespace SprintsProjectAPI.Controllers
         [ResponseType(typeof(Sprint))]
         public async Task<IHttpActionResult> DeleteSprint(int id)
         {
-            Sprint sprint = await db.FindAsync(id);
+            Sprint sprint = await service.FindAsync(id);
             if (sprint == null)
             {
                 return NotFound();
             }
 
-            await db.Delete(sprint);
+            await service.Delete(sprint);
 
             return Ok(sprint);
         }
@@ -110,14 +112,9 @@ namespace SprintsProjectAPI.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                service.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private bool SprintExists(int id)
-        {
-            return db.Exists(id);
         }
     }
 }

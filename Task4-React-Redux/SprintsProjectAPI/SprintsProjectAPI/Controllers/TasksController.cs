@@ -12,30 +12,32 @@ using System.Web.Http.Description;
 using SprintsProjectAPI.Models;
 using SprintsProjectAPI.Models.Entities;
 using System.Web.Http.Cors;
+using SprintsProjectAPI.Repositories;
+using SprintsProjectAPI.Services;
 
 namespace SprintsProjectAPI.Controllers
 {
     [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
     public class TasksController : ApiController
     {
-        private IRepository<Models.Entities.Task> db;
+        private IService<Models.Entities.Task> service;
 
         public TasksController()
         {
-            db = new TaskRepository();
+            service = new TaskService();
         }
 
         // GET: api/Tasks
         public IQueryable<Models.Entities.Task> GetTasks()
         {
-            return db.GetAll();
+            return service.GetAll();
         }
 
         // GET: api/Tasks/5
         [ResponseType(typeof(Models.Entities.Task))]
         public async Task<IHttpActionResult> GetTask(int id)
         {
-            Models.Entities.Task task = await db.Get(id);
+            Models.Entities.Task task = await service.Get(id);
             if (task == null)
             {
                 return NotFound();
@@ -60,11 +62,11 @@ namespace SprintsProjectAPI.Controllers
 
             try
             {
-                await db.Update(id, task);
+                await service.Update(id, task);
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TaskExists(id))
+                if (!service.Exists(id))
                 {
                     return NotFound();
                 }
@@ -86,7 +88,7 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            await db.Create(task);
+            await service.Create(task);
 
             return CreatedAtRoute("DefaultApi", new { id = task.Id }, task);
         }
@@ -95,13 +97,13 @@ namespace SprintsProjectAPI.Controllers
         [ResponseType(typeof(Models.Entities.Task))]
         public async Task<IHttpActionResult> DeleteTask(int id)
         {
-            Models.Entities.Task task = await db.FindAsync(id);
+            Models.Entities.Task task = await service.FindAsync(id);
             if (task == null)
             {
                 return NotFound();
             }
 
-            await db.Delete(task);
+            await service.Delete(task);
 
             return Ok(task);
         }
@@ -110,14 +112,9 @@ namespace SprintsProjectAPI.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                service.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private bool TaskExists(int id)
-        {
-            return db.Exists(id);
         }
     }
 }
