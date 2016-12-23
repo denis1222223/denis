@@ -5,17 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
-using SprintsProjectAPI.Repositories;
+using SprintsProjectAPI.UnitsOfWork;
 
 namespace SprintsProjectAPI.Services
 {
     public class SprintService : IService<Sprint>
     {
-        private UnitOfWork unitOfWork;
+        private IUnitOfWork unitOfWork;
 
-        public SprintService()
+        public SprintService(IUnitOfWork unitOfWork)
         {
-            unitOfWork = new UnitOfWork();
+            this.unitOfWork = unitOfWork;
         }
 
         public Task<int> Create(Sprint item)

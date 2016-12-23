@@ -6,16 +6,17 @@ using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using SprintsProjectAPI.Repositories;
+using SprintsProjectAPI.UnitsOfWork;
 
 namespace SprintsProjectAPI.Services
 {
     public class TaskService : IService<Models.Entities.Task>
     {
-        private UnitOfWork unitOfWork;
+        private IUnitOfWork unitOfWork;
 
-        public TaskService()
+        public TaskService(IUnitOfWork unitOfWork)
         {
-            unitOfWork = new UnitOfWork();
+            this.unitOfWork = unitOfWork;
         }
 
         public Task<int> Create(Models.Entities.Task item)

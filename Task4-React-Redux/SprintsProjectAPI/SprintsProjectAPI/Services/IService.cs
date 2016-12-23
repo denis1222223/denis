@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SprintsProjectAPI.Services
 {
-    interface IService<T> : IDisposable
+    public interface IService<T> : IDisposable
         where T : class
     {
         IQueryable<T> GetAll();

@@ -22,9 +22,9 @@ namespace SprintsProjectAPI.Controllers
     {
         private IService<Subtask> service;
 
-        public SubtasksController()
+        public SubtasksController(IService<Subtask> service)
         {
-            service = new SubtaskService();
+            this.service = service;
         }
 
         // GET: api/Subtasks

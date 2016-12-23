@@ -22,9 +22,9 @@ namespace SprintsProjectAPI.Controllers
     {
         private IService<Models.Entities.Task> service;
 
-        public TasksController()
+        public TasksController(IService<Models.Entities.Task> service)
         {
-            service = new TaskService();
+            this.service = service;
         }
 
         // GET: api/Tasks

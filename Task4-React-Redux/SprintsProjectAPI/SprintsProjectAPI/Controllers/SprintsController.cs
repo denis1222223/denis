@@ -22,9 +22,9 @@ namespace SprintsProjectAPI.Controllers
     {
         private IService<Sprint> service;
 
-        public SprintsController()
+        public SprintsController(IService<Sprint> service)
         {
-            service = new SprintService();
+            this.service = service;
         }
 
         // GET: api/Sprints
