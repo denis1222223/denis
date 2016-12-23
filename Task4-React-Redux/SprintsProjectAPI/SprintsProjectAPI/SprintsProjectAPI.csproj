@@ -133,7 +133,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\SprintsNinjectModule.cs" />
+    <Compile Include="AppKernel\AppKernel.cs" />
+    <Compile Include="AppKernel\SprintsNinjectModule.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Controllers\SprintsController.cs" />

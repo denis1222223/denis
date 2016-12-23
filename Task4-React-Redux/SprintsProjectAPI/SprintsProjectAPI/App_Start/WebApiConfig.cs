@@ -26,8 +26,6 @@ namespace SprintsProjectAPI
 
             var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
-            IKernel AppKernel = new StandardKernel(new SprintsNinjectModule());
         }
     }
 }
