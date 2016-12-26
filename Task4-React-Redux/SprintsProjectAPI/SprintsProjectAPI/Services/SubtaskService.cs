@@ -10,7 +10,7 @@ using SprintsProjectAPI.UnitsOfWork;
 
 namespace SprintsProjectAPI.Services
 {
-    public class SubtaskService : IService<Subtask>
+    public class SubtaskService : IService<Subtask>, IDisposable
     {
         private IUnitOfWork unitOfWork;
 

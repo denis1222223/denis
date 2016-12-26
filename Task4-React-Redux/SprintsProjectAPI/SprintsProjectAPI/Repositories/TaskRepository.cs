@@ -11,7 +11,7 @@ using SprintsProjectAPI.Models.Entities;
 
 namespace SprintsProjectAPI.Repositories
 {
-    public class TaskRepository : IRepository<Models.Entities.Task>
+    public class TaskRepository : IRepository<Models.Entities.Task>, IDisposable
     {
         private SprintsProjectAPIContext db;
 

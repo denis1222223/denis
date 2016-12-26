@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SprintsProjectAPI.Services
 {
-    public interface IService<T> : IDisposable
+    public interface IService<T>
         where T : class
     {
         IQueryable<T> GetAll();
@@ -16,5 +16,6 @@ namespace SprintsProjectAPI.Services
         Task<int> Delete(T item);
         bool Exists(int id);
         Task<T> FindAsync(int id);
+        void Dispose();
     }
 }

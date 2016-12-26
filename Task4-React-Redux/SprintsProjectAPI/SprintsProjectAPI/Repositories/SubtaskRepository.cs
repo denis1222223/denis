@@ -11,7 +11,7 @@ using SprintsProjectAPI.Models;
 
 namespace SprintsProjectAPI.Repositories
 {
-    public class SubtaskRepository : IRepository<Subtask>
+    public class SubtaskRepository : IRepository<Subtask>, IDisposable
     {
         private SprintsProjectAPIContext db;
 

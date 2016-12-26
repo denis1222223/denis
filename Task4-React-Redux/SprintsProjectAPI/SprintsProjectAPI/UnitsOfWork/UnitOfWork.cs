@@ -6,10 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace SprintsProjectAPI.UnitsOfWork
 {
-    public class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private IRepository<Sprint> sprintRepository;
         private IRepository<Models.Entities.Task> taskRepository;
@@ -62,6 +63,11 @@ namespace SprintsProjectAPI.UnitsOfWork
             {
                 subtaskRepository.Dispose();
             }
+        }
+
+        public Task<int> SaveChanges()
+        {
+            return new Task<int>(()=> { return 1; });
         }
     }
 }

@@ -10,7 +10,7 @@ using SprintsProjectAPI.UnitsOfWork;
 
 namespace SprintsProjectAPI.Services
 {
-    public class TaskService : IService<Models.Entities.Task>
+    public class TaskService : IService<Models.Entities.Task>, IDisposable
     {
         private IUnitOfWork unitOfWork;
 

@@ -23,6 +23,22 @@ namespace SprintsProjectAPI.Services
             return unitOfWork.Sprints.Create(item);
         }
 
+        public bool Validate(Sprint item)
+        {
+            bool valid = true;
+            ValidateDates(ref valid, item.BeginningDate, item.ExpirationDate);
+
+            return valid;
+        }
+
+        private void ValidateDates(ref bool valid, string beginningDateString, string expirationDateString)
+        {
+            var beginningDate = DateTime.Parse(beginningDateString);
+            var expirationDate = DateTime.Parse(expirationDateString);
+            var compare = DateTime.Compare(expirationDate, beginningDate);
+            valid = (compare < 0) ? false : true;
+        }
+
         public Task<int> Delete(Sprint item)
         {
             return unitOfWork.Sprints.Delete(item);

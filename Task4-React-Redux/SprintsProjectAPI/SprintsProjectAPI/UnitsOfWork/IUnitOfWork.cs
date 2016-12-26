@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace SprintsProjectAPI.UnitsOfWork
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork
     {
         IRepository<Sprint> Sprints { get; }
         IRepository<Models.Entities.Task> Tasks { get; }
         IRepository<Subtask> Subtasks { get; }
+        void Dispose();
+        Task<int> SaveChanges();
     }
 }
