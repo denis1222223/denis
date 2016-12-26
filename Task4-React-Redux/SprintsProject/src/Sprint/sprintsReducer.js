@@ -4,7 +4,7 @@ import {Map} from 'immutable';
 import Immutable from 'immutable';
 
 
-export default function(state = initialState, action) {
+export default function(state = Immutable.fromJS([]), action) {
     switch (action.type) {
 
         case GET_ALL_SPRINTS:

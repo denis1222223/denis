@@ -38,17 +38,16 @@ class Task extends Component {
 
         var subtasksList = this.props.subtasks.filter((subtask) => {
             return subtask.get('taskId') == taskId;
-        }).map((subtask)=>{
+        }).map((subtask) => {
            return (
                <Subtask key={subtask.get('id')} subtask={subtask} />
            );
         });
 
-        var sprint = this.props.sprints.find((sprint) => {
+        var sprint = task ? this.props.sprints.find((sprint) => {
             return sprint.get('id') == task.get('sprintId');
-        });
-        
-        var header = (
+        }) : null;
+        var header = task ? (
             <div>
                 {task.get('name')} | Category: {task.get('category')} | Sprint: {sprint.get('name')}
 
@@ -66,20 +65,22 @@ class Task extends Component {
                     <Glyphicon glyph="glyphicon glyphicon-trash" />
                 </Button>
             </div>
-        );
+        ) : "Nonexistent task!";
+
+        var inputs = task ? (
+            <InputGroup>
+                <InputGroup.Button>
+                    <Button bsStyle="success" onClick={() => {this.onSubtaskAddClick(taskId)}}> + </Button>
+                </InputGroup.Button>
+                <FormControl type="text" placeholder="New subtask" ref="newSubtask" />
+            </InputGroup>
+        ) : "";
 
         return (
             <div className='task'>
-                <Panel header={header} className={task.get('status')}>
+                <Panel header={header} className={task ? task.get('status') : ""}>
                     {subtasksList}
-
-                    <InputGroup>
-                        <InputGroup.Button>
-                            <Button bsStyle="success" onClick={() => {this.onSubtaskAddClick(taskId)}}> + </Button>
-                        </InputGroup.Button>
-                        <FormControl type="text" placeholder="New subtask" ref="newSubtask"  />
-                    </InputGroup>
-
+                    {inputs}
                 </Panel>
             </div>
         );

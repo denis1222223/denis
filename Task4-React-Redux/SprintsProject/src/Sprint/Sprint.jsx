@@ -48,39 +48,45 @@ class Sprint extends Component {
         var closedTasksList = this.generateTaskList(closedTasks);
         
         var sprints = this.props.sprints;
-        var sprintInfo = sprints.find((sprint) => {
+        var sprint = sprints.find((sprint) => {
             return sprint.get('id') == sprintId;
         });
-        var sprintTitle = (
+        var sprintTitle = sprint ? (
             <div>
-                {sprintInfo.get('name')}
+                {sprint.get('name')}
                 <br/>
-                {sprintInfo.get('beginningDate')} - {sprintInfo.get('expirationDate')}
+                {sprint.get('beginningDate')} - {sprint.get('expirationDate')}
             </div>
-        );
+        ) : "Nonexistent sprint!";
+        var tasksTable = sprint ? (
+            <Table striped bordered condensed hover>
+                <thead>
+                <tr>
+                    <th className="open">Open</th>
+                    <th className="progress">In progress</th>
+                    <th className="closed">Closed</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td className="open">{openTasksList}</td>
+                    <td className="progress">{progressTasksList}</td>
+                    <td className="closed">{closedTasksList}</td>
+                </tr>
+                </tbody>
+            </Table>
+        ) : "";
+        var addButton = sprint ? (
+            <Button bsStyle="success" onClick={() => {
+                this.props.showModal("Add task", <TaskForm item={new Map({sprintId})} action={addTask} />);
+            }}> + </Button>
+        ) : "";
 
         return (
             <div className='sprint'>
                 <Panel header={sprintTitle} bsStyle="primary">
-                    <Table striped bordered condensed hover>
-                        <thead>
-                        <tr>
-                            <th className="open">Open</th>
-                            <th className="progress">In progress</th>
-                            <th className="closed">Closed</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td className="open">{openTasksList}</td>
-                            <td className="progress">{progressTasksList}</td>
-                            <td className="closed">{closedTasksList}</td>
-                        </tr>
-                        </tbody>
-                    </Table>
-                    <Button bsStyle="success" onClick={() => {
-                        this.props.showModal("Add task", <TaskForm item={new Map({sprintId})} action={addTask} />);
-                    }}> + </Button>
+                    {tasksTable}
+                    {addButton}
                 </Panel>
             </div>
         );
