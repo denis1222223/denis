@@ -11,11 +11,10 @@ namespace SprintsProjectAPI.Services
     {
         IQueryable<T> GetAll();
         Task<T> Get(int id);
-        Task<int> Create(T item);
-        Task<int> Update(int id, T item);
-        Task<int> Delete(T item);
+        Task<bool> Create(T item);
+        Task<bool> Update(T item);
+        Task<bool> Delete(T item);
         bool Exists(int id);
-        Task<T> FindAsync(int id);
         void Dispose();
     }
 }

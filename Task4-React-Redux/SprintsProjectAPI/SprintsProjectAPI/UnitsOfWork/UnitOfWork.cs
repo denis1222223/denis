@@ -10,17 +10,25 @@ using System.Threading.Tasks;
 
 namespace SprintsProjectAPI.UnitsOfWork
 {
-    public class UnitOfWork : IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork
     {
+        private SprintsProjectAPIContext db;
         private IRepository<Sprint> sprintRepository;
-        private IRepository<Models.Entities.Task> taskRepository;
-        private IRepository<Subtask> subtaskRepository;
+        //private IRepository<Models.Entities.Task> taskRepository;
+        //private IRepository<Subtask> subtaskRepository;
 
-        public UnitOfWork(IRepository<Sprint> sprintRepository, IRepository<Models.Entities.Task> taskRepository, IRepository<Subtask> subtaskRepository)
+        public UnitOfWork(SprintsProjectAPIContext db,
+             IRepository<Sprint> sprintRepository
+            //, IRepository<Models.Entities.Task> taskRepository
+            //, IRepository<Subtask> subtaskRepository
+            )
         {
+            this.db = db;
+            sprintRepository.DBContext = db;
             this.sprintRepository = sprintRepository;
-            this.taskRepository = taskRepository;
-            this.subtaskRepository = subtaskRepository;
+
+            //this.taskRepository = taskRepository;
+            //this.subtaskRepository = subtaskRepository;
         }
 
         public IRepository<Sprint> Sprints
@@ -31,43 +39,38 @@ namespace SprintsProjectAPI.UnitsOfWork
             }
         }
 
-        public IRepository<Models.Entities.Task> Tasks
-        {
-            get
-            {
-                return taskRepository;
-            }
-        }
+        //public IRepository<Models.Entities.Task> Tasks
+        //{
+        //    get
+        //    {
+        //        return taskRepository;
+        //    }
+        //}
 
-        public IRepository<Subtask> Subtasks
-        {
-            get
-            {
-                return subtaskRepository;
-            }
-        }
+        //public IRepository<Subtask> Subtasks
+        //{
+        //    get
+        //    {
+        //        return subtaskRepository;
+        //    }
+        //}
 
         public void Dispose()
         {
-            if (sprintRepository != null)
-            {
-                sprintRepository.Dispose();
-            }
-
-            if (taskRepository != null)
-            {
-                taskRepository.Dispose();
-            }
-
-            if (subtaskRepository != null)
-            {
-                subtaskRepository.Dispose();
-            }
+            db.Dispose();
         }
 
-        public Task<int> SaveChanges()
+        public async Task<bool> SaveChanges()
         {
-            return new Task<int>(()=> { return 1; });
+            try
+            {
+                await db.SaveChangesAsync();
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

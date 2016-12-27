@@ -9,11 +9,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using SprintsProjectAPI.Models;
-using SprintsProjectAPI.Models.Entities;
 using System.Web.Http.Cors;
-using SprintsProjectAPI.Repositories;
 using SprintsProjectAPI.Services;
+using SprintsProjectAPI.Models.Entities;
+using AutoMapper;
 
 namespace SprintsProjectAPI.Controllers
 {
@@ -48,64 +47,67 @@ namespace SprintsProjectAPI.Controllers
 
         // PUT: api/Sprints/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutSprint(int id, Sprint sprint)
+        public async Task<IHttpActionResult> PutSprint(Sprint sprint)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != sprint.Id)
+            var success = await service.Update(sprint);
+            if (success)
             {
-                return BadRequest();
+                return Ok(sprint);
             }
-
-            try
+            else
             {
-                await service.Update(id, sprint);
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!service.Exists(id))
+                if (!service.Exists(sprint.Id))
                 {
                     return NotFound();
                 }
-                else
-                {
-                    throw;
-                }
             }
 
-            return Ok(sprint);
+            return InternalServerError();
         }
 
         // POST: api/Sprints
         [ResponseType(typeof(Sprint))]
-        public async Task<IHttpActionResult> PostSprint(Sprint sprint)
+        public async Task<IHttpActionResult> PostSprint(SprintDTO sprintDTO)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            await service.Create(sprint);
+            var sprint = Mapper.Map<SprintDTO, Sprint>(sprintDTO);
 
-            return CreatedAtRoute("DefaultApi", new { id = sprint.Id }, sprint);
+            var success = await service.Create(sprint);
+            if (success)
+            {
+                return Ok(sprint);
+                //return CreatedAtRoute("DefaultApi", new { id = sprint.Id }, sprint);
+            }
+
+            return InternalServerError();      
         }
 
         // DELETE: api/Sprints/5
         [ResponseType(typeof(Sprint))]
         public async Task<IHttpActionResult> DeleteSprint(int id)
         {
-            Sprint sprint = await service.FindAsync(id);
+            Sprint sprint = await service.Get(id);
             if (sprint == null)
             {
                 return NotFound();
             }
 
-            await service.Delete(sprint);
+            var success = await service.Delete(sprint);
+            if (success)
+            {
+                return Ok(sprint);
+            }
 
-            return Ok(sprint);
+            return InternalServerError();
         }
 
         protected override void Dispose(bool disposing)

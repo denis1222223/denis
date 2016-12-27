@@ -1,19 +1,21 @@
-﻿using System;
+﻿using SprintsProjectAPI.Models;
+using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace SprintsProjectAPI.Repositories
 {
-    public interface IRepository<T> : IDisposable
+    public interface IRepository<T>
         where T : class
     {
         IQueryable<T> GetAll();
         Task<T> Get(int id);
-        Task<int> Create(T item);
-        Task<int> Update(int id, T item);
-        Task<int> Delete(T item);
+        T Create(T item);
+        T Delete(T item);
+        void Update(T item);
         bool Exists(int id);
-        Task<T> FindAsync(int id);
+        SprintsProjectAPIContext DBContext { set; }
     }
 }

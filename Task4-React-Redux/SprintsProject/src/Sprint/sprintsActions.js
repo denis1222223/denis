@@ -63,7 +63,7 @@ export function editSprint(sprint) {
                 'Content-Type': 'application/json'
             }),
             method: "PUT",
-            body: JSON.stringify({ ...sprint })
+            body: JSON.stringify(sprint)
         }).then(response => {
             return response.json();
         }).then(sprint => {

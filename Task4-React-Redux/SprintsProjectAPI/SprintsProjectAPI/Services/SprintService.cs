@@ -1,11 +1,11 @@
-﻿using SprintsProjectAPI.Models.Entities;
-using SprintsProjectAPI.Services;
+﻿using SprintsProjectAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using SprintsProjectAPI.UnitsOfWork;
+using SprintsProjectAPI.Models.Entities;
 
 namespace SprintsProjectAPI.Services
 {
@@ -18,9 +18,10 @@ namespace SprintsProjectAPI.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public Task<int> Create(Sprint item)
+        public async Task<bool> Create(Sprint item)
         {
-            return unitOfWork.Sprints.Create(item);
+            unitOfWork.Sprints.Create(item);
+            return await unitOfWork.SaveChanges();
         }
 
         public bool Validate(Sprint item)
@@ -39,9 +40,10 @@ namespace SprintsProjectAPI.Services
             valid = (compare < 0) ? false : true;
         }
 
-        public Task<int> Delete(Sprint item)
+        public async Task<bool> Delete(Sprint item)
         {
-            return unitOfWork.Sprints.Delete(item);
+            unitOfWork.Sprints.Delete(item);
+            return await unitOfWork.SaveChanges();
         }
 
         public void Dispose()
@@ -54,14 +56,9 @@ namespace SprintsProjectAPI.Services
             return unitOfWork.Sprints.Exists(id);
         }
 
-        public Task<Sprint> FindAsync(int id)
+        public async Task<Sprint> Get(int id)
         {
-            return unitOfWork.Sprints.FindAsync(id);
-        }
-
-        public Task<Sprint> Get(int id)
-        {
-            return unitOfWork.Sprints.Get(id);
+            return await unitOfWork.Sprints.Get(id);
         }
 
         public IQueryable<Sprint> GetAll()
@@ -69,9 +66,10 @@ namespace SprintsProjectAPI.Services
             return unitOfWork.Sprints.GetAll();
         }
 
-        public Task<int> Update(int id, Sprint item)
+        public async Task<bool> Update(Sprint item)
         {
-            return unitOfWork.Sprints.Update(id, item);
+            unitOfWork.Sprints.Update(item);
+            return await unitOfWork.SaveChanges();
         }
     }
 }

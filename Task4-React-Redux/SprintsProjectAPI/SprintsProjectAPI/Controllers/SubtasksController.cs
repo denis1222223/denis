@@ -17,104 +17,104 @@ using SprintsProjectAPI.Services;
 
 namespace SprintsProjectAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
-    public class SubtasksController : ApiController
-    {
-        private IService<Subtask> service;
+    //[EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
+    //public class SubtasksController : ApiController
+    //{
+    //    private IService<Subtask> service;
 
-        public SubtasksController(IService<Subtask> service)
-        {
-            this.service = service;
-        }
+    //    public SubtasksController(IService<Subtask> service)
+    //    {
+    //        this.service = service;
+    //    }
 
-        // GET: api/Subtasks
-        public IQueryable<Subtask> GetSubtasks()
-        {
-            return service.GetAll();
-        }
+    //    // GET: api/Subtasks
+    //    public IQueryable<Subtask> GetSubtasks()
+    //    {
+    //        return service.GetAll();
+    //    }
 
-        // GET: api/Subtasks/5
-        [ResponseType(typeof(Subtask))]
-        public async Task<IHttpActionResult> GetSubtask(int id)
-        {
-            Subtask subtask = await service.Get(id);
-            if (subtask == null)
-            {
-                return NotFound();
-            }
+    //    // GET: api/Subtasks/5
+    //    [ResponseType(typeof(Subtask))]
+    //    public async Task<IHttpActionResult> GetSubtask(int id)
+    //    {
+    //        Subtask subtask = await service.Get(id);
+    //        if (subtask == null)
+    //        {
+    //            return NotFound();
+    //        }
 
-            return Ok(subtask);
-        }
+    //        return Ok(subtask);
+    //    }
 
-        // PUT: api/Subtasks/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutSubtask(int id, Subtask subtask)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+    //    // PUT: api/Subtasks/5
+    //    [ResponseType(typeof(void))]
+    //    public async Task<IHttpActionResult> PutSubtask(int id, Subtask subtask)
+    //    {
+    //        if (!ModelState.IsValid)
+    //        {
+    //            return BadRequest(ModelState);
+    //        }
 
-            if (id != subtask.Id)
-            {
-                return BadRequest();
-            }
+    //        if (id != subtask.Id)
+    //        {
+    //            return BadRequest();
+    //        }
 
-            try
-            {
-                await service.Update(id, subtask);
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!service.Exists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+    //        try
+    //        {
+    //            await service.Update(id, subtask);
+    //        }
+    //        catch (DbUpdateConcurrencyException)
+    //        {
+    //            if (!service.Exists(id))
+    //            {
+    //                return NotFound();
+    //            }
+    //            else
+    //            {
+    //                throw;
+    //            }
+    //        }
 
-            return Ok(subtask);
-        }
+    //        return Ok(subtask);
+    //    }
 
-        // POST: api/Subtasks
-        [ResponseType(typeof(Subtask))]
-        public async Task<IHttpActionResult> PostSubtask(Subtask subtask)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+    //    // POST: api/Subtasks
+    //    [ResponseType(typeof(Subtask))]
+    //    public async Task<IHttpActionResult> PostSubtask(Subtask subtask)
+    //    {
+    //        if (!ModelState.IsValid)
+    //        {
+    //            return BadRequest(ModelState);
+    //        }
 
-            await service.Create(subtask);
+    //        await service.Create(subtask);
 
-            return CreatedAtRoute("DefaultApi", new { id = subtask.Id }, subtask);
-        }
+    //        return CreatedAtRoute("DefaultApi", new { id = subtask.Id }, subtask);
+    //    }
 
-        // DELETE: api/Subtasks/5
-        [ResponseType(typeof(Subtask))]
-        public async Task<IHttpActionResult> DeleteSubtask(int id)
-        {
-            Subtask subtask = await service.FindAsync(id);
-            if (subtask == null)
-            {
-                return NotFound();
-            }
+    //    // DELETE: api/Subtasks/5
+    //    [ResponseType(typeof(Subtask))]
+    //    public async Task<IHttpActionResult> DeleteSubtask(int id)
+    //    {
+    //        Subtask subtask = await service.FindAsync(id);
+    //        if (subtask == null)
+    //        {
+    //            return NotFound();
+    //        }
 
-            await service.Delete(subtask);
+    //        await service.Delete(subtask);
 
-            return Ok(subtask);
-        }
+    //        return Ok(subtask);
+    //    }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                service.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-    }
+    //    protected override void Dispose(bool disposing)
+    //    {
+    //        if (disposing)
+    //        {
+    //            service.Dispose();
+    //        }
+    //        base.Dispose(disposing);
+    //    }
+    //}
 }
