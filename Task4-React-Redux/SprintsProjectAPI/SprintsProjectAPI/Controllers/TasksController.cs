@@ -18,7 +18,6 @@ using AutoMapper;
 
 namespace SprintsProjectAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
     public class TasksController : ApiController
     {
         private IService<Models.Entities.Task> service;
@@ -28,14 +27,11 @@ namespace SprintsProjectAPI.Controllers
             this.service = service;
         }
 
-        // GET: api/Tasks
         public IQueryable<Models.Entities.Task> GetTasks()
         {
             return service.GetAll();
         }
 
-        // GET: api/Tasks/5
-        [ResponseType(typeof(Models.Entities.Task))]
         public async Task<IHttpActionResult> GetTask(int id)
         {
             Models.Entities.Task task = await service.Get(id);
@@ -47,13 +43,16 @@ namespace SprintsProjectAPI.Controllers
             return Ok(task);
         }
 
-        // PUT: api/Tasks/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutTask(Models.Entities.Task task)
+        public async Task<IHttpActionResult> PutTask(int id, Models.Entities.Task task)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            if (id != task.Id)
+            {
+                return BadRequest();
             }
 
             var success = await service.Update(task);
@@ -72,8 +71,6 @@ namespace SprintsProjectAPI.Controllers
             return InternalServerError();
         }
 
-        // POST: api/Tasks
-        [ResponseType(typeof(Models.Entities.Task))]
         public async Task<IHttpActionResult> PostTask(TaskDTO taskDTO)
         {
             if (!ModelState.IsValid)
@@ -93,8 +90,6 @@ namespace SprintsProjectAPI.Controllers
             return InternalServerError();
         }
 
-        // DELETE: api/Tasks/5
-        [ResponseType(typeof(Models.Entities.Task))]
         public async Task<IHttpActionResult> DeleteTask(int id)
         {
             Models.Entities.Task task = await service.Get(id);

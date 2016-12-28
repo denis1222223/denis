@@ -16,7 +16,6 @@ using AutoMapper;
 
 namespace SprintsProjectAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
     public class SprintsController : ApiController
     {
         private IService<Sprint> service;
@@ -26,14 +25,11 @@ namespace SprintsProjectAPI.Controllers
             this.service = service;
         }
 
-        // GET: api/Sprints
         public IQueryable<Sprint> GetSprints()
         {
             return service.GetAll();
         }
 
-        // GET: api/Sprints/5
-        [ResponseType(typeof(Sprint))]
         public async Task<IHttpActionResult> GetSprint(int id)
         {
             Sprint sprint = await service.Get(id);
@@ -45,13 +41,16 @@ namespace SprintsProjectAPI.Controllers
             return Ok(sprint);
         }
 
-        // PUT: api/Sprints/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutSprint(Sprint sprint)
+        public async Task<IHttpActionResult> PutSprint(int id, Sprint sprint)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            if (id != sprint.Id)
+            {
+                return BadRequest();
             }
 
             var success = await service.Update(sprint);
@@ -70,10 +69,11 @@ namespace SprintsProjectAPI.Controllers
             return InternalServerError();
         }
 
-        // POST: api/Sprints
-        [ResponseType(typeof(Sprint))]
         public async Task<IHttpActionResult> PostSprint(SprintDTO sprintDTO)
         {
+            //var m = new HttpResponseMessage(HttpStatusCode.Gone);
+            //throw new HttpResponseException(m);
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -87,12 +87,10 @@ namespace SprintsProjectAPI.Controllers
                 return Ok(sprint);
                 //return CreatedAtRoute("DefaultApi", new { id = sprint.Id }, sprint);
             }
-
+         
             return InternalServerError();      
         }
 
-        // DELETE: api/Sprints/5
-        [ResponseType(typeof(Sprint))]
         public async Task<IHttpActionResult> DeleteSprint(int id)
         {
             Sprint sprint = await service.Get(id);
@@ -100,7 +98,7 @@ namespace SprintsProjectAPI.Controllers
             {
                 return NotFound();
             }
-
+ 
             var success = await service.Delete(sprint);
             if (success)
             {

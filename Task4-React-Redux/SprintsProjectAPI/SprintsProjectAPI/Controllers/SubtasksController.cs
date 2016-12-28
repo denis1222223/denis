@@ -18,7 +18,6 @@ using AutoMapper;
 
 namespace SprintsProjectAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
     public class SubtasksController : ApiController
     {
         private IService<Subtask> service;
@@ -28,14 +27,11 @@ namespace SprintsProjectAPI.Controllers
             this.service = service;
         }
 
-        // GET: api/Subtasks
         public IQueryable<Subtask> GetSubtasks()
         {
             return service.GetAll();
         }
 
-        // GET: api/Subtasks/5
-        [ResponseType(typeof(Subtask))]
         public async Task<IHttpActionResult> GetSubtask(int id)
         {
             Subtask subtask = await service.Get(id);
@@ -46,14 +42,17 @@ namespace SprintsProjectAPI.Controllers
 
             return Ok(subtask);
         }
-
-        // PUT: api/Subtasks/5
-        [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutSubtask(Subtask subtask)
+        
+        public async Task<IHttpActionResult> PutSubtask(int id, Subtask subtask)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            if (id != subtask.Id)
+            {
+                return BadRequest();
             }
 
             var success = await service.Update(subtask);
@@ -71,9 +70,7 @@ namespace SprintsProjectAPI.Controllers
 
             return InternalServerError();
         }
-
-        // POST: api/Subtasks
-        [ResponseType(typeof(Subtask))]
+        
         public async Task<IHttpActionResult> PostSubtask(SubtaskDTO subtaskDTO)
         {
             if (!ModelState.IsValid)
@@ -91,9 +88,7 @@ namespace SprintsProjectAPI.Controllers
             }
             return InternalServerError();
         }
-
-        // DELETE: api/Subtasks/5
-        [ResponseType(typeof(Subtask))]
+        
         public async Task<IHttpActionResult> DeleteSubtask(int id)
         {
             Subtask subtask = await service.Get(id);
