@@ -69,14 +69,14 @@ namespace SprintsProjectAPI.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IService<Sprint>>().To<SprintService>();
-            //kernel.Bind<IService<Models.Entities.Task>>().To<TaskService>();
-            //kernel.Bind<IService<Subtask>>().To<SubtaskService>();
+            kernel.Bind<IService<Models.Entities.Task>>().To<TaskService>();
+            kernel.Bind<IService<Subtask>>().To<SubtaskService>();
 
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
 
             kernel.Bind<IRepository<Sprint>>().To<SprintRepository>();
-            //kernel.Bind<IRepository<Models.Entities.Task>>().To<TaskRepository>();
-            //kernel.Bind<IRepository<Subtask>>().To<SubtaskRepository>();
+            kernel.Bind<IRepository<Models.Entities.Task>>().To<TaskRepository>();
+            kernel.Bind<IRepository<Subtask>>().To<SubtaskRepository>();
         }
     }
 }

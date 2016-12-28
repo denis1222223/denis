@@ -14,107 +14,111 @@ using SprintsProjectAPI.Models.Entities;
 using System.Web.Http.Cors;
 using SprintsProjectAPI.Repositories;
 using SprintsProjectAPI.Services;
+using AutoMapper;
 
 namespace SprintsProjectAPI.Controllers
 {
-    //[EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
-    //public class TasksController : ApiController
-    //{
-    //    private IService<Models.Entities.Task> service;
+    [EnableCors(origins: "http://localhost:3001", headers: "*", methods: "*")]
+    public class TasksController : ApiController
+    {
+        private IService<Models.Entities.Task> service;
 
-    //    public TasksController(IService<Models.Entities.Task> service)
-    //    {
-    //        this.service = service;
-    //    }
+        public TasksController(IService<Models.Entities.Task> service)
+        {
+            this.service = service;
+        }
 
-    //    // GET: api/Tasks
-    //    public IQueryable<Models.Entities.Task> GetTasks()
-    //    {
-    //        return service.GetAll();
-    //    }
+        // GET: api/Tasks
+        public IQueryable<Models.Entities.Task> GetTasks()
+        {
+            return service.GetAll();
+        }
 
-    //    // GET: api/Tasks/5
-    //    [ResponseType(typeof(Models.Entities.Task))]
-    //    public async Task<IHttpActionResult> GetTask(int id)
-    //    {
-    //        Models.Entities.Task task = await service.Get(id);
-    //        if (task == null)
-    //        {
-    //            return NotFound();
-    //        }
+        // GET: api/Tasks/5
+        [ResponseType(typeof(Models.Entities.Task))]
+        public async Task<IHttpActionResult> GetTask(int id)
+        {
+            Models.Entities.Task task = await service.Get(id);
+            if (task == null)
+            {
+                return NotFound();
+            }
 
-    //        return Ok(task);
-    //    }
+            return Ok(task);
+        }
 
-    //    // PUT: api/Tasks/5
-    //    [ResponseType(typeof(void))]
-    //    public async Task<IHttpActionResult> PutTask(int id, Models.Entities.Task task)
-    //    {
-    //        if (!ModelState.IsValid)
-    //        {
-    //            return BadRequest(ModelState);
-    //        }
+        // PUT: api/Tasks/5
+        [ResponseType(typeof(void))]
+        public async Task<IHttpActionResult> PutTask(Models.Entities.Task task)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-    //        if (id != task.Id)
-    //        {
-    //            return BadRequest();
-    //        }
+            var success = await service.Update(task);
+            if (success)
+            {
+                return Ok(task);
+            }
+            else
+            {
+                if (!service.Exists(task.Id))
+                {
+                    return NotFound();
+                }
+            }
 
-    //        try
-    //        {
-    //            await service.Update(id, task);
-    //        }
-    //        catch (DbUpdateConcurrencyException)
-    //        {
-    //            if (!service.Exists(id))
-    //            {
-    //                return NotFound();
-    //            }
-    //            else
-    //            {
-    //                throw;
-    //            }
-    //        }
+            return InternalServerError();
+        }
 
-    //        return Ok(task);
-    //    }
+        // POST: api/Tasks
+        [ResponseType(typeof(Models.Entities.Task))]
+        public async Task<IHttpActionResult> PostTask(TaskDTO taskDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-    //    // POST: api/Tasks
-    //    [ResponseType(typeof(Models.Entities.Task))]
-    //    public async Task<IHttpActionResult> PostTask(Models.Entities.Task task)
-    //    {
-    //        if (!ModelState.IsValid)
-    //        {
-    //            return BadRequest(ModelState);
-    //        }
+            var task = Mapper.Map<TaskDTO, Models.Entities.Task>(taskDTO);
 
-    //        await service.Create(task);
+            var success = await service.Create(task);
+            if (success)
+            {
+                return Ok(task);
+                //return CreatedAtRoute("DefaultApi", new { id = task.Id }, task);
+            }
 
-    //        return CreatedAtRoute("DefaultApi", new { id = task.Id }, task);
-    //    }
+            return InternalServerError();
+        }
 
-    //    // DELETE: api/Tasks/5
-    //    [ResponseType(typeof(Models.Entities.Task))]
-    //    public async Task<IHttpActionResult> DeleteTask(int id)
-    //    {
-    //        Models.Entities.Task task = await service.FindAsync(id);
-    //        if (task == null)
-    //        {
-    //            return NotFound();
-    //        }
+        // DELETE: api/Tasks/5
+        [ResponseType(typeof(Models.Entities.Task))]
+        public async Task<IHttpActionResult> DeleteTask(int id)
+        {
+            Models.Entities.Task task = await service.Get(id);
+            if (task == null)
+            {
+                return NotFound();
+            }
 
-    //        await service.Delete(task);
+            var success = await service.Delete(task);
+            if (success)
+            {
+                return Ok(task);
+            }
 
-    //        return Ok(task);
-    //    }
+            return InternalServerError();
+        }
 
-    //    protected override void Dispose(bool disposing)
-    //    {
-    //        if (disposing)
-    //        {
-    //            service.Dispose();
-    //        }
-    //        base.Dispose(disposing);
-    //    }
-    //}
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                service.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
 }

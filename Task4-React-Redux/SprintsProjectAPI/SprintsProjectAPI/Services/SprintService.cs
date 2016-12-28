@@ -20,6 +20,10 @@ namespace SprintsProjectAPI.Services
 
         public async Task<bool> Create(Sprint item)
         {
+            if (!Validate(item))
+            {
+                return false;
+            }
             unitOfWork.Sprints.Create(item);
             return await unitOfWork.SaveChanges();
         }
@@ -68,6 +72,10 @@ namespace SprintsProjectAPI.Services
 
         public async Task<bool> Update(Sprint item)
         {
+            if (!Validate(item))
+            {
+                return false;
+            }
             unitOfWork.Sprints.Update(item);
             return await unitOfWork.SaveChanges();
         }

@@ -14,21 +14,25 @@ namespace SprintsProjectAPI.UnitsOfWork
     {
         private SprintsProjectAPIContext db;
         private IRepository<Sprint> sprintRepository;
-        //private IRepository<Models.Entities.Task> taskRepository;
-        //private IRepository<Subtask> subtaskRepository;
+        private IRepository<Models.Entities.Task> taskRepository;
+        private IRepository<Subtask> subtaskRepository;
 
-        public UnitOfWork(SprintsProjectAPIContext db,
-             IRepository<Sprint> sprintRepository
-            //, IRepository<Models.Entities.Task> taskRepository
-            //, IRepository<Subtask> subtaskRepository
+        public UnitOfWork(SprintsProjectAPIContext db, 
+            IRepository<Sprint> sprintRepository, 
+            IRepository<Models.Entities.Task> taskRepository,
+            IRepository<Subtask> subtaskRepository
             )
         {
             this.db = db;
+
             sprintRepository.DBContext = db;
             this.sprintRepository = sprintRepository;
 
-            //this.taskRepository = taskRepository;
-            //this.subtaskRepository = subtaskRepository;
+            taskRepository.DBContext = db;
+            this.taskRepository = taskRepository;
+
+            subtaskRepository.DBContext = db;
+            this.subtaskRepository = subtaskRepository;
         }
 
         public IRepository<Sprint> Sprints
@@ -39,21 +43,21 @@ namespace SprintsProjectAPI.UnitsOfWork
             }
         }
 
-        //public IRepository<Models.Entities.Task> Tasks
-        //{
-        //    get
-        //    {
-        //        return taskRepository;
-        //    }
-        //}
+        public IRepository<Models.Entities.Task> Tasks
+        {
+            get
+            {
+                return taskRepository;
+            }
+        }
 
-        //public IRepository<Subtask> Subtasks
-        //{
-        //    get
-        //    {
-        //        return subtaskRepository;
-        //    }
-        //}
+        public IRepository<Subtask> Subtasks
+        {
+            get
+            {
+                return subtaskRepository;
+            }
+        }
 
         public void Dispose()
         {

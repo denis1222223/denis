@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using AutoMapper;
+using Newtonsoft.Json.Serialization;
+using SprintsProjectAPI.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +27,12 @@ namespace SprintsProjectAPI
 
             var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            Mapper.Initialize(cfg => {
+                cfg.CreateMap<SprintDTO, Sprint>();
+                cfg.CreateMap<TaskDTO, Task>();
+                cfg.CreateMap<SubtaskDTO, Subtask>();
+            });
         }
     }
 }

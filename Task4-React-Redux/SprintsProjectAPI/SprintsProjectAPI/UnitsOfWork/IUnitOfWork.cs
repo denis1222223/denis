@@ -11,8 +11,8 @@ namespace SprintsProjectAPI.UnitsOfWork
     public interface IUnitOfWork
     {
         IRepository<Sprint> Sprints { get; }
-        //IRepository<Models.Entities.Task> Tasks { get; }
-        //IRepository<Subtask> Subtasks { get; }
+        IRepository<Models.Entities.Task> Tasks { get; }
+        IRepository<Subtask> Subtasks { get; }
         Task<bool> SaveChanges();
         void Dispose();
     }
