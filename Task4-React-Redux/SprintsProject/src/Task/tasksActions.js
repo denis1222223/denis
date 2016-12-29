@@ -1,4 +1,4 @@
-import { domen } from '../Common/apiUrls'
+import { fetchCall } from '../Common/fetchConfig';
 
 export const EDIT_TASK = 'EDIT_TASK';
 export const ADD_TASK = 'ADD_TASK';
@@ -14,9 +14,7 @@ function deleteTaskFromState(taskId) {
 
 export function deleteTask(taskId) {
     return dispatch => {
-        return fetch(domen + "Tasks/" + taskId, {
-            method: "DELETE"
-        }).then(response => {
+        return fetchCall("Tasks/" + taskId, "DELETE").then(response => {
             return response.json();
         }).then(task => {
             dispatch(deleteTaskFromState(task.id));
@@ -33,14 +31,7 @@ function addTaskToState(task) {
 
 export function addTask(task) {
     return dispatch => {
-        return fetch(domen + "Tasks", {
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }),
-            method: "POST",
-            body: JSON.stringify(task)
-        }).then(response => {
+        return fetchCall("Tasks", "POST", task).then(response => {
             return response.json();
         }).then(task => {
             dispatch(addTaskToState(task));
@@ -57,14 +48,7 @@ function editTaskInState(task) {
 
 export function editTask(task) {
     return dispatch => {
-        return fetch(domen + "Tasks/" + task.id, {
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }),
-            method: "PUT",
-            body: JSON.stringify({...task})
-        }).then(response => {
+        return fetchCall("Tasks/" + task.id, "PUT", task).then(response => {
             return response.json();
         }).then(task => {
             dispatch(editTaskInState(task));
@@ -81,7 +65,7 @@ function loadAllTasksToState(tasks) {
 
 export function getAllTasks() {
     return dispatch => {
-        return fetch(domen + "Tasks").then(response => {
+        return fetchCall("Tasks", "GET").then(response => {
             return response.json();
         }).then(tasks => {
             dispatch(loadAllTasksToState(tasks))

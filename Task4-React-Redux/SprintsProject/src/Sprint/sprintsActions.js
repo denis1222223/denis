@@ -1,4 +1,4 @@
-import { domen } from '../Common/apiUrls'
+import { fetchCall } from '../Common/fetchConfig';
 
 export const ADD_SPRINT = 'ADD_SPRINT';
 export const DELETE_SPRINT = 'DELETE_SPRINT';
@@ -14,14 +14,7 @@ function addSprintToState(sprint) {
 
 export function addSprint(sprint) {
     return dispatch => {
-        return fetch(domen + "Sprints", {
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }),
-            method: "POST",
-            body: JSON.stringify(sprint)
-        }).then(response => {
+        return fetchCall("Sprints", "POST", sprint).then(response => {
             return response.json();
         }).then(sprint => {
             dispatch(addSprintToState(sprint));
@@ -38,9 +31,7 @@ function deleteSprintFromState(sprintId) {
 
 export function deleteSprint(sprintId) {
     return dispatch => {
-        return fetch(domen + "Sprints/" + sprintId, {
-            method: "DELETE"
-        }).then(response => {
+        return fetchCall("Sprints/" + sprintId, "DELETE").then(response => {
             return response.json();
         }).then(sprint => {
             dispatch(deleteSprintFromState(sprint.id));
@@ -57,14 +48,7 @@ function editSprintInState(sprint) {
 
 export function editSprint(sprint) {
     return dispatch => {
-        return fetch(domen + "Sprints/" + sprint.id, {
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }),
-            method: "PUT",
-            body: JSON.stringify(sprint)
-        }).then(response => {
+        return fetch("Sprints/" + sprint.id, "PUT", sprint).then(response => {
             return response.json();
         }).then(sprint => {
             dispatch(editSprintInState(sprint));
@@ -81,7 +65,7 @@ function loadAllSprintsToState(sprints) {
 
 export function getAllSprints() {
     return dispatch => {
-        return fetch(domen + "Sprints").then(response => {
+        return fetchCall("Sprints", "GET").then(response => {
             return response.json();
         }).then(sprints => {
             dispatch(loadAllSprintsToState(sprints))

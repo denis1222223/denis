@@ -1,1 +1,0 @@
-export const domen = "http://localhost:10702/api/";
