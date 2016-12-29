@@ -19,16 +19,17 @@ namespace SprintsProjectAPI.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> Create(Models.Entities.Task item)
+        public async Task<Models.Entities.Task> Create(Models.Entities.Task item)
         {
-            unitOfWork.Tasks.Create(item);
-            return await unitOfWork.SaveChanges();
+            item = unitOfWork.Tasks.Create(item);
+            await unitOfWork.SaveChanges();
+            return item;
         }
 
-        public async Task<bool> Delete(Models.Entities.Task item)
+        public async System.Threading.Tasks.Task Delete(Models.Entities.Task item)
         {
             unitOfWork.Tasks.Delete(item);
-            return await unitOfWork.SaveChanges();
+            await unitOfWork.SaveChanges();
         }
 
         public void Dispose()
@@ -51,10 +52,10 @@ namespace SprintsProjectAPI.Services
             return unitOfWork.Tasks.GetAll();
         }
 
-        public async Task<bool> Update(Models.Entities.Task item)
+        public async System.Threading.Tasks.Task Update(Models.Entities.Task item)
         {
             unitOfWork.Tasks.Update(item);
-            return await unitOfWork.SaveChanges();
+            await unitOfWork.SaveChanges();
         }
     }
 }

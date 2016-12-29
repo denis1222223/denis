@@ -64,17 +64,16 @@ namespace SprintsProjectAPI.UnitsOfWork
             db.Dispose();
         }
 
-        public async Task<bool> SaveChanges()
-        {
+        public async System.Threading.Tasks.Task SaveChanges()
+        {         
             try
             {
                 await db.SaveChangesAsync();
             }
-            catch
+            catch (Exception e)
             {
-                return false;
+                throw e;
             }
-            return true;
         }
     }
 }

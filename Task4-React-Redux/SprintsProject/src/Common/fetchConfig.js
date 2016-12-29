@@ -12,5 +12,10 @@ export function fetchCall(url, method, body) {
         headers,
         method,
         body: JSON.stringify(body)
+    }).then(response => {
+        if (response.status !== 200) {
+            return;
+        }
+        return response.json();
     });
 }

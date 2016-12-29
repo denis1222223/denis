@@ -13,22 +13,15 @@ namespace SprintsProjectAPI.Filters
     {
         public override void OnException(HttpActionExecutedContext context)
         {
-            //if (context.Exception is BusinessException)
-            //{
-            //    throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
-            //    {
-            //        Content = new StringContent(context.Exception.Message),
-            //        ReasonPhrase = "Exception"
-            //    });
+            var message = context.Exception.Message;
 
-            //}
-            // context.Response = context.Request.CreateResponse(HttpStatusCode.BadGateway);
+            if (context.Exception is ValidationException)
+            {
+                context.Response = new HttpResponseMessage(HttpStatusCode.BadRequest) { ReasonPhrase = message };
+                return;
+            }
 
-            //throw new HttpResponseException(new HttpResponseMessage(HttpStatusCode.InternalServerError)
-            //{
-            //    Content = new StringContent("An error occurred, please try again or contact the administrator."),
-            //    ReasonPhrase = "Critical Exception"
-            //});
+            context.Response = new HttpResponseMessage(HttpStatusCode.InternalServerError) { ReasonPhrase = message };
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Web;
 using System.Threading.Tasks;
 using SprintsProjectAPI.UnitsOfWork;
 using SprintsProjectAPI.Models.Entities;
+using SprintsProjectAPI.Filters;
 
 namespace SprintsProjectAPI.Services
 {
@@ -18,36 +19,32 @@ namespace SprintsProjectAPI.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<bool> Create(Sprint item)
+        public async Task<Sprint> Create(Sprint item)
         {
-            if (!Validate(item))
-            {
-                return false;
-            }
+            Validate(item);
             unitOfWork.Sprints.Create(item);
-            return await unitOfWork.SaveChanges();
+            await unitOfWork.SaveChanges();
+            return item;
         }
 
-        public bool Validate(Sprint item)
+        public void Validate(Sprint item)
         {
-            bool valid = true;
-            ValidateDates(ref valid, item.BeginningDate, item.ExpirationDate);
-
-            return valid;
+            ValidateDates(item.BeginningDate, item.ExpirationDate);
         }
 
-        private void ValidateDates(ref bool valid, string beginningDateString, string expirationDateString)
+        private void ValidateDates(string beginningDateString, string expirationDateString)
         {
             var beginningDate = DateTime.Parse(beginningDateString);
             var expirationDate = DateTime.Parse(expirationDateString);
             var compare = DateTime.Compare(expirationDate, beginningDate);
-            valid = (compare < 0) ? false : true;
+            if (compare < 0)
+                throw new ValidationException("Not valid date");
         }
 
-        public async Task<bool> Delete(Sprint item)
+        public async System.Threading.Tasks.Task Delete(Sprint item)
         {
             unitOfWork.Sprints.Delete(item);
-            return await unitOfWork.SaveChanges();
+            await unitOfWork.SaveChanges();
         }
 
         public void Dispose()
@@ -70,14 +67,11 @@ namespace SprintsProjectAPI.Services
             return unitOfWork.Sprints.GetAll();
         }
 
-        public async Task<bool> Update(Sprint item)
+        public async System.Threading.Tasks.Task Update(Sprint item)
         {
-            if (!Validate(item))
-            {
-                return false;
-            }
+            Validate(item);
             unitOfWork.Sprints.Update(item);
-            return await unitOfWork.SaveChanges();
+            await unitOfWork.SaveChanges();
         }
     }
 }

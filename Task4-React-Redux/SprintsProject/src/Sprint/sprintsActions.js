@@ -14,10 +14,10 @@ function addSprintToState(sprint) {
 
 export function addSprint(sprint) {
     return dispatch => {
-        return fetchCall("Sprints", "POST", sprint).then(response => {
-            return response.json();
-        }).then(sprint => {
-            dispatch(addSprintToState(sprint));
+        return fetchCall("Sprints", "POST", sprint).then(sprint => {
+            if (sprint) {
+                dispatch(addSprintToState(sprint));
+            }
         });
     }
 }
@@ -31,10 +31,10 @@ function deleteSprintFromState(sprintId) {
 
 export function deleteSprint(sprintId) {
     return dispatch => {
-        return fetchCall("Sprints/" + sprintId, "DELETE").then(response => {
-            return response.json();
-        }).then(sprint => {
-            dispatch(deleteSprintFromState(sprint.id));
+        return fetchCall("Sprints/" + sprintId, "DELETE").then(sprint => {
+            if (sprint) {
+                dispatch(deleteSprintFromState(sprint.id));
+            }
         });
     }
 }
@@ -48,10 +48,10 @@ function editSprintInState(sprint) {
 
 export function editSprint(sprint) {
     return dispatch => {
-        return fetch("Sprints/" + sprint.id, "PUT", sprint).then(response => {
-            return response.json();
-        }).then(sprint => {
-            dispatch(editSprintInState(sprint));
+        return fetchCall("Sprints/" + sprint.id, "PUT", sprint).then(sprint => {
+            if (sprint) {
+                dispatch(editSprintInState(sprint));
+            }
         });
     }
 }
@@ -65,10 +65,10 @@ function loadAllSprintsToState(sprints) {
 
 export function getAllSprints() {
     return dispatch => {
-        return fetchCall("Sprints", "GET").then(response => {
-            return response.json();
-        }).then(sprints => {
-            dispatch(loadAllSprintsToState(sprints))
+        return fetchCall("Sprints", "GET").then(sprints => {
+            if (sprints) {
+                dispatch(loadAllSprintsToState(sprints))
+            }
         });
     }
 }

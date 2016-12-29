@@ -13,7 +13,7 @@ namespace SprintsProjectAPI.UnitsOfWork
         IRepository<Sprint> Sprints { get; }
         IRepository<Models.Entities.Task> Tasks { get; }
         IRepository<Subtask> Subtasks { get; }
-        Task<bool> SaveChanges();
+        System.Threading.Tasks.Task SaveChanges();
         void Dispose();
     }
 }

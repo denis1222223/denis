@@ -11,9 +11,9 @@ namespace SprintsProjectAPI.Services
     {
         IQueryable<T> GetAll();
         Task<T> Get(int id);
-        Task<bool> Create(T item);
-        Task<bool> Update(T item);
-        Task<bool> Delete(T item);
+        Task<T> Create(T item);
+        Task Update(T item);
+        Task Delete(T item);
         bool Exists(int id);
         void Dispose();
     }

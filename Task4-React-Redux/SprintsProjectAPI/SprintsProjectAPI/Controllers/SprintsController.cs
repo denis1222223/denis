@@ -53,42 +53,21 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest();
             }
 
-            var success = await service.Update(sprint);
-            if (success)
-            {
-                return Ok(sprint);
-            }
-            else
-            {
-                if (!service.Exists(sprint.Id))
-                {
-                    return NotFound();
-                }
-            }
+            await service.Update(sprint);
 
-            return InternalServerError();
+            return Ok(sprint);
         }
 
         public async Task<IHttpActionResult> PostSprint(SprintDTO sprintDTO)
         {
-            //var m = new HttpResponseMessage(HttpStatusCode.Gone);
-            //throw new HttpResponseException(m);
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
             var sprint = Mapper.Map<SprintDTO, Sprint>(sprintDTO);
-
-            var success = await service.Create(sprint);
-            if (success)
-            {
-                return Ok(sprint);
-                //return CreatedAtRoute("DefaultApi", new { id = sprint.Id }, sprint);
-            }
-         
-            return InternalServerError();      
+            await service.Create(sprint);
+            return Ok(sprint);     
         }
 
         public async Task<IHttpActionResult> DeleteSprint(int id)
@@ -99,13 +78,9 @@ namespace SprintsProjectAPI.Controllers
                 return NotFound();
             }
  
-            var success = await service.Delete(sprint);
-            if (success)
-            {
-                return Ok(sprint);
-            }
+            await service.Delete(sprint);
 
-            return InternalServerError();
+            return Ok(sprint);
         }
 
         protected override void Dispose(bool disposing)

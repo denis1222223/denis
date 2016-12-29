@@ -14,10 +14,10 @@ function deleteTaskFromState(taskId) {
 
 export function deleteTask(taskId) {
     return dispatch => {
-        return fetchCall("Tasks/" + taskId, "DELETE").then(response => {
-            return response.json();
-        }).then(task => {
-            dispatch(deleteTaskFromState(task.id));
+        return fetchCall("Tasks/" + taskId, "DELETE").then(task => {
+            if (task) {
+                dispatch(deleteTaskFromState(task.id));
+            }
         });
     }
 }
@@ -31,10 +31,10 @@ function addTaskToState(task) {
 
 export function addTask(task) {
     return dispatch => {
-        return fetchCall("Tasks", "POST", task).then(response => {
-            return response.json();
-        }).then(task => {
-            dispatch(addTaskToState(task));
+        return fetchCall("Tasks", "POST", task).then(task => {
+            if (task) {
+                dispatch(addTaskToState(task));
+            }
         });
     }
 }
@@ -48,10 +48,10 @@ function editTaskInState(task) {
 
 export function editTask(task) {
     return dispatch => {
-        return fetchCall("Tasks/" + task.id, "PUT", task).then(response => {
-            return response.json();
-        }).then(task => {
-            dispatch(editTaskInState(task));
+        return fetchCall("Tasks/" + task.id, "PUT", task).then(task => {
+            if (task) {
+                dispatch(editTaskInState(task));
+            }
         });
     }
 }
@@ -65,10 +65,10 @@ function loadAllTasksToState(tasks) {
 
 export function getAllTasks() {
     return dispatch => {
-        return fetchCall("Tasks", "GET").then(response => {
-            return response.json();
-        }).then(tasks => {
-            dispatch(loadAllTasksToState(tasks))
+        return fetchCall("Tasks", "GET").then(tasks => {
+            if (tasks) {
+                dispatch(loadAllTasksToState(tasks))
+            }
         });
     }
 }

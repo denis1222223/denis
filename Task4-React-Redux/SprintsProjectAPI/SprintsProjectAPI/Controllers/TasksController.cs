@@ -55,20 +55,9 @@ namespace SprintsProjectAPI.Controllers
                 return BadRequest();
             }
 
-            var success = await service.Update(task);
-            if (success)
-            {
-                return Ok(task);
-            }
-            else
-            {
-                if (!service.Exists(task.Id))
-                {
-                    return NotFound();
-                }
-            }
+            await service.Update(task);
 
-            return InternalServerError();
+            return Ok(task);
         }
 
         public async Task<IHttpActionResult> PostTask(TaskDTO taskDTO)
@@ -79,15 +68,8 @@ namespace SprintsProjectAPI.Controllers
             }
 
             var task = Mapper.Map<TaskDTO, Models.Entities.Task>(taskDTO);
-
-            var success = await service.Create(task);
-            if (success)
-            {
-                return Ok(task);
-                //return CreatedAtRoute("DefaultApi", new { id = task.Id }, task);
-            }
-
-            return InternalServerError();
+            await service.Create(task);
+            return Ok(task);
         }
 
         public async Task<IHttpActionResult> DeleteTask(int id)
@@ -98,13 +80,9 @@ namespace SprintsProjectAPI.Controllers
                 return NotFound();
             }
 
-            var success = await service.Delete(task);
-            if (success)
-            {
-                return Ok(task);
-            }
+            await service.Delete(task);
 
-            return InternalServerError();
+            return Ok(task);    
         }
 
         protected override void Dispose(bool disposing)

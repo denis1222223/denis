@@ -162,6 +162,7 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Filters\ExceptionHandler.cs" />
+    <Compile Include="Filters\ValidationException.cs" />
     <Compile Include="Models\Entities\Sprint\SprintDTO.cs" />
     <Compile Include="Models\Entities\Subtask\SubtaskDTO.cs" />
     <Compile Include="Models\Entities\Task\TaskDTO.cs" />
