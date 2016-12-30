@@ -161,11 +161,13 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Filters\ExceptionHandler.cs" />
+    <Compile Include="Filters\DatesOrderAttribute.cs" />
+    <Compile Include="Filters\ExceptionHandlerAttribute.cs" />
+    <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Filters\ValidationException.cs" />
-    <Compile Include="Models\Entities\Sprint\SprintDTO.cs" />
-    <Compile Include="Models\Entities\Subtask\SubtaskDTO.cs" />
-    <Compile Include="Models\Entities\Task\TaskDTO.cs" />
+    <Compile Include="Models\DTO\SprintDTO.cs" />
+    <Compile Include="Models\DTO\SubtaskDTO.cs" />
+    <Compile Include="Models\DTO\TaskDTO.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Controllers\SprintsController.cs" />
     <Compile Include="Controllers\SubtasksController.cs" />
@@ -173,9 +175,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\Sprint\Sprint.cs" />
-    <Compile Include="Models\Entities\Subtask\Subtask.cs" />
-    <Compile Include="Models\Entities\Task\Task.cs" />
+    <Compile Include="Models\Entities\Sprint.cs" />
+    <Compile Include="Models\Entities\Subtask.cs" />
+    <Compile Include="Models\Entities\Task.cs" />
     <Compile Include="Repositories\SubtaskRepository.cs" />
     <Compile Include="Repositories\TaskRepository.cs" />
     <Compile Include="Repositories\SprintRepository.cs" />

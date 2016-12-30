@@ -39,9 +39,9 @@ class Sprint extends Component {
             });
         };
 
-        var openTasks = filterByStatus("open");
-        var progressTasks = filterByStatus("in-progress");
-        var closedTasks = filterByStatus("closed");
+        var openTasks = filterByStatus(0);
+        var progressTasks = filterByStatus(1);
+        var closedTasks = filterByStatus(2);
 
         var openTasksList = this.generateTaskList(openTasks);
         var progressTasksList = this.generateTaskList(progressTasks);

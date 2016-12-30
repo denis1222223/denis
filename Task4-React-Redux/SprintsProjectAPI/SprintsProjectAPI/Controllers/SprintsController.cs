@@ -13,6 +13,7 @@ using System.Web.Http.Cors;
 using SprintsProjectAPI.Services;
 using SprintsProjectAPI.Models.Entities;
 using AutoMapper;
+using SprintsProjectAPI.Models.DTO;
 
 namespace SprintsProjectAPI.Controllers
 {
@@ -41,12 +42,9 @@ namespace SprintsProjectAPI.Controllers
             return Ok(sprint);
         }
 
-        public async Task<IHttpActionResult> PutSprint(int id, Sprint sprint)
+        public async Task<IHttpActionResult> PutSprint(int id, SprintDTO sprintDTO)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            var sprint = Mapper.Map<SprintDTO, Sprint>(sprintDTO);
 
             if (id != sprint.Id)
             {
@@ -60,11 +58,6 @@ namespace SprintsProjectAPI.Controllers
 
         public async Task<IHttpActionResult> PostSprint(SprintDTO sprintDTO)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             var sprint = Mapper.Map<SprintDTO, Sprint>(sprintDTO);
             await service.Create(sprint);
             return Ok(sprint);     

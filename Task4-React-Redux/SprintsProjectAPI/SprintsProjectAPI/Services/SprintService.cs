@@ -21,24 +21,9 @@ namespace SprintsProjectAPI.Services
 
         public async Task<Sprint> Create(Sprint item)
         {
-            Validate(item);
             unitOfWork.Sprints.Create(item);
             await unitOfWork.SaveChanges();
             return item;
-        }
-
-        public void Validate(Sprint item)
-        {
-            ValidateDates(item.BeginningDate, item.ExpirationDate);
-        }
-
-        private void ValidateDates(string beginningDateString, string expirationDateString)
-        {
-            var beginningDate = DateTime.Parse(beginningDateString);
-            var expirationDate = DateTime.Parse(expirationDateString);
-            var compare = DateTime.Compare(expirationDate, beginningDate);
-            if (compare < 0)
-                throw new ValidationException("Not valid date");
         }
 
         public async System.Threading.Tasks.Task Delete(Sprint item)
@@ -69,7 +54,6 @@ namespace SprintsProjectAPI.Services
 
         public async System.Threading.Tasks.Task Update(Sprint item)
         {
-            Validate(item);
             unitOfWork.Sprints.Update(item);
             await unitOfWork.SaveChanges();
         }

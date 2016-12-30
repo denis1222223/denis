@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Newtonsoft.Json.Serialization;
 using SprintsProjectAPI.Filters;
+using SprintsProjectAPI.Models.DTO;
 using SprintsProjectAPI.Models.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,11 @@ namespace SprintsProjectAPI
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Filters.Add(new ExceptionHandler());
+            config.Filters.Add(new ExceptionHandlerAttribute());
+            config.Filters.Add(new ValidateModelAttribute());
 
             // Web API configuration and services
-            var corsAttr = new EnableCorsAttribute("*", "*", "*");
+            var corsAttr = new EnableCorsAttribute("http://localhost:3001", "*", "*");
             config.EnableCors(corsAttr);
 
             // Web API routes
