@@ -56,9 +56,9 @@ class TaskForm extends Component {
 
                 <ControlLabel>Task status</ControlLabel>
                 <FormControl componentClass="select" ref="taskStatus" defaultValue={item.has('status') ? item.get('status') : ""}>
-                    <option value="0">Open</option>
-                    <option value="1">In progress</option>
-                    <option value="2">Closed</option>
+                    <option value="open">Open</option>
+                    <option value="in-progress">In progress</option>
+                    <option value="closed">Closed</option>
                 </FormControl>
 
                 <ControlLabel>Sprint name</ControlLabel>

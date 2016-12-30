@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using SprintsProjectAPI.Converters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,10 +21,12 @@ namespace SprintsProjectAPI.Models.Entities
         public int SprintId { get; set; }
     }
 
+    [JsonConverter(typeof(StatusConverter))]
     public enum Status
     {
         Open,
         InProgress,
         Closed
     }
+
 }

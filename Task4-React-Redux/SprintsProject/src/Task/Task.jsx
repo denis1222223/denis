@@ -76,26 +76,9 @@ class Task extends Component {
             </InputGroup>
         ) : "";
 
-        var className = "";
-        if (task) {
-            switch (task.get('status')) {
-                case 0:
-                    className = "opened";
-                    break;
-                case 1:
-                    className = "in-progress";
-                    break;
-                case 2:
-                    className = "closed";
-                    break;
-            }
-        }
-
         return (
             <div className='task'>
-                <Panel
-                    header={header}
-                    className={className}>
+                <Panel header={header} className={task ? task.get('status') : ""}>
                     {subtasksList}
                     {inputs}
                 </Panel>

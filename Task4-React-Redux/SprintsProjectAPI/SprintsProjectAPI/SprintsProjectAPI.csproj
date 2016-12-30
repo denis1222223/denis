@@ -161,6 +161,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Converters\StatusConverter.cs" />
     <Compile Include="Filters\DatesOrderAttribute.cs" />
     <Compile Include="Filters\ExceptionHandlerAttribute.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
