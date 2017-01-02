@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace SprintsProjectAPI.Filters
+namespace SprintsManager.Filters
 {
     public class ValidateModelAttribute : ActionFilterAttribute
     {

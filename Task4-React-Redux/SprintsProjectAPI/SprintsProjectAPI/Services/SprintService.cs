@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using SprintsProjectAPI.UnitsOfWork;
-using SprintsProjectAPI.Models.Entities;
+using SprintsManager.UnitsOfWork;
+using SprintsManager.Models.Entities;
 using Task = System.Threading.Tasks.Task;
 
-namespace SprintsProjectAPI.Services
+namespace SprintsManager.Services
 {
     public class SprintService : IService<Sprint>
     {

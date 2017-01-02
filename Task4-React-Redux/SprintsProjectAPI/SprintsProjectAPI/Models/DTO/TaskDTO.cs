@@ -1,7 +1,7 @@
-﻿using SprintsProjectAPI.Models.Entities;
+﻿using SprintsManager.Models.Entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace SprintsProjectAPI.Models.DTO
+namespace SprintsManager.Models.DTO
 {
     public class TaskDTO
     {

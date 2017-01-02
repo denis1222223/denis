@@ -1,9 +1,9 @@
-﻿using SprintsProjectAPI.Filters;
+﻿using SprintsManager.Filters;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
-namespace SprintsProjectAPI.Models.DTO
+namespace SprintsManager.Models.DTO
 {
     public class SprintDTO
     {

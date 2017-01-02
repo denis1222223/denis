@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using SprintsProjectAPI.Services;
-using SprintsProjectAPI.Models.Entities;
+using SprintsManager.Services;
+using SprintsManager.Models.Entities;
 using AutoMapper;
-using SprintsProjectAPI.Models.DTO;
+using SprintsManager.Models.DTO;
 
-namespace SprintsProjectAPI.Controllers
+namespace SprintsManager.Controllers
 {
     public class SprintsController : ApiController
     {

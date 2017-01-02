@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SprintsProjectAPI.Models.Entities
+namespace SprintsManager.Models.Entities
 {
     public class Sprint
     {

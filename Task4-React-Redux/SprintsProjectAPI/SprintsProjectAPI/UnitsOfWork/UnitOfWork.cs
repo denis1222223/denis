@@ -1,19 +1,19 @@
-﻿using SprintsProjectAPI.Models;
-using SprintsProjectAPI.Models.Entities;
+﻿using SprintsManager.Models;
+using SprintsManager.Models.Entities;
 using Threading = System.Threading.Tasks;
-using SprintsProjectAPI.Repositories;
+using SprintsManager.Repositories;
 using System;
 
-namespace SprintsProjectAPI.UnitsOfWork
+namespace SprintsManager.UnitsOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private SprintsProjectAPIContext db;
+        private SprintsManagerContext db;
         private ISprintsManagerRepository<Sprint> sprintRepository;
         private ISprintsManagerRepository<Task> taskRepository;
         private ISprintsManagerRepository<Subtask> subtaskRepository;
 
-        public UnitOfWork(SprintsProjectAPIContext db,
+        public UnitOfWork(SprintsManagerContext db,
             ISprintsManagerRepository<Sprint> sprintRepository,
             ISprintsManagerRepository<Task> taskRepository,
             ISprintsManagerRepository<Subtask> subtaskRepository

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 
-namespace SprintsProjectAPI.Services
+namespace SprintsManager.Services
 {
     public interface IService<T>
         where T : class

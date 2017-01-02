@@ -1,10 +1,10 @@
-﻿using Task = SprintsProjectAPI.Models.Entities.Task;
+﻿using Task = SprintsManager.Models.Entities.Task;
 using Threading = System.Threading.Tasks;
 using System.Linq;
 using System.Threading.Tasks;
-using SprintsProjectAPI.UnitsOfWork;
+using SprintsManager.UnitsOfWork;
 
-namespace SprintsProjectAPI.Services
+namespace SprintsManager.Services
 {
     public class TaskService : IService<Task>
     {

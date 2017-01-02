@@ -1,11 +1,11 @@
-﻿using SprintsProjectAPI.Models.Entities;
+﻿using SprintsManager.Models.Entities;
 using System.Data.Entity;
 
-namespace SprintsProjectAPI.Models
+namespace SprintsManager.Models
 {
-    public class SprintsProjectAPIContext : DbContext
+    public class SprintsManagerContext : DbContext
     {
-        public SprintsProjectAPIContext() : base("name=SprintsProjectAPIContext")
+        public SprintsManagerContext() : base("name=SprintsManagerContext")
         {
         }
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SprintsProjectAPI.Filters
+namespace SprintsManager.Filters
 {
     public class ValidationException : Exception
     {

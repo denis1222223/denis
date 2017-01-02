@@ -1,17 +1,17 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using SprintsProjectAPI.Models;
-using SprintsProjectAPI.Models.Entities;
-using SprintsProjectAPI.Repositories;
+using SprintsManager.Models;
+using SprintsManager.Models.Entities;
+using SprintsManager.Repositories;
 
-namespace SprintsProjectAPI.Repositories
+namespace SprintsManager.Repositories
 {
     public class SprintsManagerRepository<T> : ISprintsManagerRepository<T> where T : class
     {
-        private SprintsProjectAPIContext db;
+        private SprintsManagerContext db;
 
-        public SprintsManagerRepository(SprintsProjectAPIContext db)
+        public SprintsManagerRepository(SprintsManagerContext db)
         {
             this.db = db;
         }

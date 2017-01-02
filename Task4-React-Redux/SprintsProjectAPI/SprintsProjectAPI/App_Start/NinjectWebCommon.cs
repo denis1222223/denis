@@ -5,17 +5,17 @@ using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;
 using Ninject.Web.Common;
 using Ninject.Web.WebApi;
-using SprintsProjectAPI.App_Start;
-using SprintsProjectAPI.Services;
-using SprintsProjectAPI.Models.Entities;
-using SprintsProjectAPI.UnitsOfWork;
-using SprintsProjectAPI.Repositories;
-using SprintsProjectAPI.Models;
+using SprintsManager.App_Start;
+using SprintsManager.Services;
+using SprintsManager.Models.Entities;
+using SprintsManager.UnitsOfWork;
+using SprintsManager.Repositories;
+using SprintsManager.Models;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
-namespace SprintsProjectAPI.App_Start
+namespace SprintsManager.App_Start
 {
     public static class NinjectWebCommon
     {
@@ -79,8 +79,8 @@ namespace SprintsProjectAPI.App_Start
             kernel.Bind<ISprintsManagerRepository<Task>>().To<SprintsManagerRepository<Task>>();
             kernel.Bind<ISprintsManagerRepository<Subtask>>().To<SprintsManagerRepository<Subtask>>();
 
-            // kernel.Bind<SprintsProjectAPIContext>().ToSelf().InSingletonScope();
-            //  kernel.Bind<SprintsProjectAPIContext>().ToSelf().InSingletonScope();
+            // kernel.Bind<SprintsManagerContext>().ToSelf().InSingletonScope();
+            //  kernel.Bind<SprintsManagerContext>().ToSelf().InSingletonScope();
         }
     }
 }

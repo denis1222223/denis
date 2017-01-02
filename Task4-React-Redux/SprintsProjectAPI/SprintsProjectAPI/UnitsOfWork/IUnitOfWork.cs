@@ -1,8 +1,8 @@
-﻿using SprintsProjectAPI.Models.Entities;
-using SprintsProjectAPI.Repositories;
+﻿using SprintsManager.Models.Entities;
+using SprintsManager.Repositories;
 using Threading = System.Threading.Tasks;
 
-namespace SprintsProjectAPI.UnitsOfWork
+namespace SprintsManager.UnitsOfWork
 {
     public interface IUnitOfWork
     {

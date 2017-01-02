@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SprintsProjectAPI.Filters
+namespace SprintsManager.Filters
 {
     public class DatesOrderAttribute : ValidationAttribute
     {

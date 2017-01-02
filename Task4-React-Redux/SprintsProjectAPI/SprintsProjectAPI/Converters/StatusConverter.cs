@@ -1,10 +1,10 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using SprintsProjectAPI.Models.Entities;
+using SprintsManager.Models.Entities;
 using System;
 using System.Linq;
 
-namespace SprintsProjectAPI.Converters
+namespace SprintsManager.Converters
 {
     public class StatusConverter : JsonConverter
     {

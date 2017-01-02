@@ -1,9 +1,9 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using SprintsProjectAPI.Converters;
+using SprintsManager.Converters;
 using System.ComponentModel.DataAnnotations;
 
-namespace SprintsProjectAPI.Models.Entities
+namespace SprintsManager.Models.Entities
 {
     public class Task
     {

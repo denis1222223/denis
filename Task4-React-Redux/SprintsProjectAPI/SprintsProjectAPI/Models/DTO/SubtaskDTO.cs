@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SprintsProjectAPI.Models.DTO
+namespace SprintsManager.Models.DTO
 {
     public class SubtaskDTO
     {

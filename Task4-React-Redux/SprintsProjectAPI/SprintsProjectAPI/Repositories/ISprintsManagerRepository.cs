@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SprintsProjectAPI.Repositories
+namespace SprintsManager.Repositories
 {
     public interface ISprintsManagerRepository<T> where T : class
     {

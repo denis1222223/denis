@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
 using Newtonsoft.Json.Serialization;
-using SprintsProjectAPI.Filters;
-using SprintsProjectAPI.Models.DTO;
-using SprintsProjectAPI.Models.Entities;
+using SprintsManager.Filters;
+using SprintsManager.Models.DTO;
+using SprintsManager.Models.Entities;
 using System.Web.Http;
 
-namespace SprintsProjectAPI
+namespace SprintsManager
 {
     public static class WebApiConfig
     {
