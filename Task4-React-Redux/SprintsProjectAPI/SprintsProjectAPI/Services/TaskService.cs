@@ -1,16 +1,12 @@
-﻿using SprintsProjectAPI.Models.Entities;
-using SprintsProjectAPI.Services;
-using System;
-using System.Collections.Generic;
+﻿using Task = SprintsProjectAPI.Models.Entities.Task;
+using Threading = System.Threading.Tasks;
 using System.Linq;
-using System.Web;
 using System.Threading.Tasks;
-using SprintsProjectAPI.Repositories;
 using SprintsProjectAPI.UnitsOfWork;
 
 namespace SprintsProjectAPI.Services
 {
-    public class TaskService : IService<Models.Entities.Task>
+    public class TaskService : IService<Task>
     {
         private IUnitOfWork unitOfWork;
 
@@ -19,14 +15,14 @@ namespace SprintsProjectAPI.Services
             this.unitOfWork = unitOfWork;
         }
 
-        public async Task<Models.Entities.Task> Create(Models.Entities.Task item)
+        public async Task<Task> Create(Task item)
         {
             item = unitOfWork.Tasks.Create(item);
             await unitOfWork.SaveChanges();
             return item;
         }
 
-        public async System.Threading.Tasks.Task Delete(Models.Entities.Task item)
+        public async Threading.Task Delete(Task item)
         {
             unitOfWork.Tasks.Delete(item);
             await unitOfWork.SaveChanges();
@@ -42,17 +38,17 @@ namespace SprintsProjectAPI.Services
             return unitOfWork.Tasks.Exists(id);
         }
 
-        public async Task<Models.Entities.Task> Get(int id)
+        public async Task<Task> Get(int id)
         {
             return await unitOfWork.Tasks.Get(id);
         }
 
-        public IQueryable<Models.Entities.Task> GetAll()
+        public IQueryable<Task> GetAll()
         {
             return unitOfWork.Tasks.GetAll();
         }
 
-        public async System.Threading.Tasks.Task Update(Models.Entities.Task item)
+        public async Threading.Task Update(Task item)
         {
             unitOfWork.Tasks.Update(item);
             await unitOfWork.SaveChanges();

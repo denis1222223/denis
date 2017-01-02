@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using System.Web.Http.Description;
-using SprintsProjectAPI.Models;
-using SprintsProjectAPI.Models.Entities;
-using System.Web.Http.Cors;
-using SprintsProjectAPI.Repositories;
+using Task = SprintsProjectAPI.Models.Entities.Task;
 using SprintsProjectAPI.Services;
 using AutoMapper;
 using SprintsProjectAPI.Models.DTO;
@@ -21,21 +10,21 @@ namespace SprintsProjectAPI.Controllers
 {
     public class TasksController : ApiController
     {
-        private IService<Models.Entities.Task> service;
+        private IService<Task> service;
 
-        public TasksController(IService<Models.Entities.Task> service)
+        public TasksController(IService<Task> service)
         {
             this.service = service;
         }
 
-        public IQueryable<Models.Entities.Task> GetTasks()
+        public IQueryable<Task> GetTasks()
         {
             return service.GetAll();
         }
 
         public async Task<IHttpActionResult> GetTask(int id)
         {
-            Models.Entities.Task task = await service.Get(id);
+            Task task = await service.Get(id);
             if (task == null)
             {
                 return NotFound();
@@ -44,7 +33,7 @@ namespace SprintsProjectAPI.Controllers
             return Ok(task);
         }
 
-        public async Task<IHttpActionResult> PutTask(int id, Models.Entities.Task task)
+        public async Task<IHttpActionResult> PutTask(int id, Task task)
         {
             if (id != task.Id)
             {
@@ -58,14 +47,14 @@ namespace SprintsProjectAPI.Controllers
 
         public async Task<IHttpActionResult> PostTask(TaskDTO taskDTO)
         {
-            var task = Mapper.Map<TaskDTO, Models.Entities.Task>(taskDTO);
+            var task = Mapper.Map<TaskDTO, Task>(taskDTO);
             await service.Create(task);
             return Ok(task);
         }
 
         public async Task<IHttpActionResult> DeleteTask(int id)
         {
-            Models.Entities.Task task = await service.Get(id);
+            Task task = await service.Get(id);
             if (task == null)
             {
                 return NotFound();

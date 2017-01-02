@@ -1,12 +1,7 @@
 ﻿using SprintsProjectAPI.Models.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Threading.Tasks;
-using System.Web.Http;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using SprintsProjectAPI.Models;
 
 namespace SprintsProjectAPI.Repositories

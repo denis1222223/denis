@@ -1,12 +1,8 @@
-﻿using Ninject;
-using SprintsProjectAPI.Models;
+﻿using SprintsProjectAPI.Models;
 using SprintsProjectAPI.Models.Entities;
+using Threading = System.Threading.Tasks;
 using SprintsProjectAPI.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Threading.Tasks;
 
 namespace SprintsProjectAPI.UnitsOfWork
 {
@@ -14,12 +10,12 @@ namespace SprintsProjectAPI.UnitsOfWork
     {
         private SprintsProjectAPIContext db;
         private IRepository<Sprint> sprintRepository;
-        private IRepository<Models.Entities.Task> taskRepository;
+        private IRepository<Task> taskRepository;
         private IRepository<Subtask> subtaskRepository;
 
         public UnitOfWork(SprintsProjectAPIContext db, 
             IRepository<Sprint> sprintRepository, 
-            IRepository<Models.Entities.Task> taskRepository,
+            IRepository<Task> taskRepository,
             IRepository<Subtask> subtaskRepository
             )
         {
@@ -43,7 +39,7 @@ namespace SprintsProjectAPI.UnitsOfWork
             }
         }
 
-        public IRepository<Models.Entities.Task> Tasks
+        public IRepository<Task> Tasks
         {
             get
             {
@@ -64,7 +60,7 @@ namespace SprintsProjectAPI.UnitsOfWork
             db.Dispose();
         }
 
-        public async System.Threading.Tasks.Task SaveChanges()
+        public async Threading.Task SaveChanges()
         {         
             try
             {

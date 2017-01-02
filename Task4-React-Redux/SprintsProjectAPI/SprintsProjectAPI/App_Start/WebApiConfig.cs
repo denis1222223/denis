@@ -3,11 +3,7 @@ using Newtonsoft.Json.Serialization;
 using SprintsProjectAPI.Filters;
 using SprintsProjectAPI.Models.DTO;
 using SprintsProjectAPI.Models.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
-using System.Web.Http.Cors;
 
 namespace SprintsProjectAPI
 {

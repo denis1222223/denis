@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Http;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using SprintsProjectAPI.Models;
-using SprintsProjectAPI.Models.Entities;
+using Task = SprintsProjectAPI.Models.Entities.Task;
 
 namespace SprintsProjectAPI.Repositories
 {
-    public class TaskRepository : IRepository<Models.Entities.Task>
+    public class TaskRepository : IRepository<Task>
     {
         private SprintsProjectAPIContext db;
 
@@ -20,12 +15,12 @@ namespace SprintsProjectAPI.Repositories
             set { db = value; }
         }
 
-        public Models.Entities.Task Create(Models.Entities.Task item)
+        public Task Create(Task item)
         {
             return db.Tasks.Add(item);
         }
 
-        public Models.Entities.Task Delete(Models.Entities.Task item)
+        public Task Delete(Task item)
         {
             return db.Tasks.Remove(item);
         }
@@ -35,17 +30,17 @@ namespace SprintsProjectAPI.Repositories
             return db.Tasks.Count(e => e.Id == id) > 0;
         }
 
-        public Task<Models.Entities.Task> Get(int id)
+        public Task<Task> Get(int id)
         {
             return db.Tasks.FindAsync(id);
         }
 
-        public IQueryable<Models.Entities.Task> GetAll()
+        public IQueryable<Task> GetAll()
         {
             return db.Tasks;
         }
 
-        public void Update(Models.Entities.Task item)
+        public void Update(Task item)
         {
             db.Entry(item).State = EntityState.Modified;
         }
