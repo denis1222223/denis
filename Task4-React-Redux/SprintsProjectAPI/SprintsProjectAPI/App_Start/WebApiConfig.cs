@@ -18,10 +18,6 @@ namespace SprintsProjectAPI
             config.Filters.Add(new ExceptionHandlerAttribute());
             config.Filters.Add(new ValidateModelAttribute());
 
-            // Web API configuration and services
-            var corsAttr = new EnableCorsAttribute("http://localhost:3001", "*", "*");
-            config.EnableCors(corsAttr);
-
             // Web API routes
             config.MapHttpAttributeRoutes();
 

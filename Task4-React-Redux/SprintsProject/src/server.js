@@ -5,8 +5,11 @@ import { match, RouterContext } from 'react-router';
 import routes from './routes';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
+import proxy from 'http-proxy-middleware';
 
 const app = express();
+
+app.use('/api', proxy({target: 'http://localhost:10702', changeOrigin: true}));
 
 app.use((req, res) => {
     const store = configureStore();

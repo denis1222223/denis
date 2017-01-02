@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Link, browserHistory  } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 import { showModal } from '../../Common/Modal/modalActions';

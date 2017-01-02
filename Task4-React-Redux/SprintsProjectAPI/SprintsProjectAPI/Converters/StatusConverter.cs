@@ -23,11 +23,16 @@ namespace SprintsProjectAPI.Converters
         {
             switch ((Status)value)
             {
-                case Status.Open: writer.WriteValue("open"); break;
-                case Status.InProgress: writer.WriteValue("in-progress"); break;
-                case Status.Closed: writer.WriteValue("closed"); break;
+                case Status.Open:
+                    writer.WriteValue("open");
+                    break;
+                case Status.InProgress:
+                    writer.WriteValue("in-progress");
+                    break;
+                case Status.Closed:
+                    writer.WriteValue("closed");
+                    break;
             }
-
         }
     }
 }
