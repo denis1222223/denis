@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using SprintsProjectAPI.Converters;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,7 +10,7 @@ namespace SprintsProjectAPI.Models.Entities
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
+        [Required]      
         public Status Status { get; set; }
         [Required]
         public string Category { get; set; }

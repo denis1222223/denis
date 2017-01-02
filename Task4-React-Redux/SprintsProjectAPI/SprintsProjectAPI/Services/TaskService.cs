@@ -33,11 +33,6 @@ namespace SprintsProjectAPI.Services
             unitOfWork.Dispose();
         }
 
-        public bool Exists(int id)
-        {
-            return unitOfWork.Tasks.Exists(id);
-        }
-
         public async Task<Task> Get(int id)
         {
             return await unitOfWork.Tasks.Get(id);

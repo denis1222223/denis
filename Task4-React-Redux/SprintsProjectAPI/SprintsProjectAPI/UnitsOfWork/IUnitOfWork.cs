@@ -6,9 +6,9 @@ namespace SprintsProjectAPI.UnitsOfWork
 {
     public interface IUnitOfWork
     {
-        IRepository<Sprint> Sprints { get; }
-        IRepository<Task> Tasks { get; }
-        IRepository<Subtask> Subtasks { get; }
+        ISprintsManagerRepository<Sprint> Sprints { get; }
+        ISprintsManagerRepository<Task> Tasks { get; }
+        ISprintsManagerRepository<Subtask> Subtasks { get; }
         Threading.Task SaveChanges();
         void Dispose();
     }

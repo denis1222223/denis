@@ -9,29 +9,23 @@ namespace SprintsProjectAPI.UnitsOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private SprintsProjectAPIContext db;
-        private IRepository<Sprint> sprintRepository;
-        private IRepository<Task> taskRepository;
-        private IRepository<Subtask> subtaskRepository;
+        private ISprintsManagerRepository<Sprint> sprintRepository;
+        private ISprintsManagerRepository<Task> taskRepository;
+        private ISprintsManagerRepository<Subtask> subtaskRepository;
 
-        public UnitOfWork(SprintsProjectAPIContext db, 
-            IRepository<Sprint> sprintRepository, 
-            IRepository<Task> taskRepository,
-            IRepository<Subtask> subtaskRepository
+        public UnitOfWork(SprintsProjectAPIContext db,
+            ISprintsManagerRepository<Sprint> sprintRepository,
+            ISprintsManagerRepository<Task> taskRepository,
+            ISprintsManagerRepository<Subtask> subtaskRepository
             )
         {
             this.db = db;
-
-            sprintRepository.DBContext = db;
             this.sprintRepository = sprintRepository;
-
-            taskRepository.DBContext = db;
             this.taskRepository = taskRepository;
-
-            subtaskRepository.DBContext = db;
             this.subtaskRepository = subtaskRepository;
         }
 
-        public IRepository<Sprint> Sprints
+        public ISprintsManagerRepository<Sprint> Sprints
         {
             get
             {
@@ -39,7 +33,7 @@ namespace SprintsProjectAPI.UnitsOfWork
             }
         }
 
-        public IRepository<Task> Tasks
+        public ISprintsManagerRepository<Task> Tasks
         {
             get
             {
@@ -47,7 +41,7 @@ namespace SprintsProjectAPI.UnitsOfWork
             }
         }
 
-        public IRepository<Subtask> Subtasks
+        public ISprintsManagerRepository<Subtask> Subtasks
         {
             get
             {

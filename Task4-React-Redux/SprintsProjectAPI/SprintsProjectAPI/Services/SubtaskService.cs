@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using SprintsProjectAPI.UnitsOfWork;
+using Task = System.Threading.Tasks.Task;
 
 namespace SprintsProjectAPI.Services
 {
@@ -21,7 +22,7 @@ namespace SprintsProjectAPI.Services
             return item;
         }
 
-        public async System.Threading.Tasks.Task Delete(Subtask item)
+        public async Task Delete(Subtask item)
         {
             item = unitOfWork.Subtasks.Delete(item);
             await unitOfWork.SaveChanges();
@@ -31,12 +32,6 @@ namespace SprintsProjectAPI.Services
         {
             unitOfWork.Dispose();
         }
-
-        public bool Exists(int id)
-        {
-            return unitOfWork.Subtasks.Exists(id);
-        }
-
         public async Task<Subtask> Get(int id)
         {
             return await unitOfWork.Subtasks.Get(id);
@@ -47,7 +42,7 @@ namespace SprintsProjectAPI.Services
             return unitOfWork.Subtasks.GetAll();
         }
 
-        public async System.Threading.Tasks.Task Update(Subtask item)
+        public async Task Update(Subtask item)
         {
             unitOfWork.Subtasks.Update(item);
             await unitOfWork.SaveChanges();

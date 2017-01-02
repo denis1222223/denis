@@ -10,6 +10,7 @@ using SprintsProjectAPI.Services;
 using SprintsProjectAPI.Models.Entities;
 using SprintsProjectAPI.UnitsOfWork;
 using SprintsProjectAPI.Repositories;
+using SprintsProjectAPI.Models;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
@@ -69,14 +70,17 @@ namespace SprintsProjectAPI.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IService<Sprint>>().To<SprintService>();
-            kernel.Bind<IService<Models.Entities.Task>>().To<TaskService>();
+            kernel.Bind<IService<Task>>().To<TaskService>();
             kernel.Bind<IService<Subtask>>().To<SubtaskService>();
 
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
 
-            kernel.Bind<IRepository<Sprint>>().To<SprintRepository>();
-            kernel.Bind<IRepository<Models.Entities.Task>>().To<TaskRepository>();
-            kernel.Bind<IRepository<Subtask>>().To<SubtaskRepository>();
+            kernel.Bind<ISprintsManagerRepository<Sprint>>().To<SprintsManagerRepository<Sprint>>();
+            kernel.Bind<ISprintsManagerRepository<Task>>().To<SprintsManagerRepository<Task>>();
+            kernel.Bind<ISprintsManagerRepository<Subtask>>().To<SprintsManagerRepository<Subtask>>();
+
+            // kernel.Bind<SprintsProjectAPIContext>().ToSelf().InSingletonScope();
+            //  kernel.Bind<SprintsProjectAPIContext>().ToSelf().InSingletonScope();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using SprintsProjectAPI.Models.Entities;
 using System;
+using System.Linq;
 
 namespace SprintsProjectAPI.Converters
 {
@@ -13,6 +15,19 @@ namespace SprintsProjectAPI.Converters
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
+            var token = JToken.Load(reader);
+            var subReader = token.CreateReader();
+            subReader.Read();
+            var status = subReader.Value.ToString();
+            switch (status)
+            {
+                case "open":
+                    return Status.Open;
+                case "in-progress":
+                    return Status.InProgress;
+                case "closed":
+                    return Status.Closed;
+            }
             return existingValue;
         }
 

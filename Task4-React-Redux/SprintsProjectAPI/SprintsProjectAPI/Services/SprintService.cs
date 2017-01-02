@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using SprintsProjectAPI.UnitsOfWork;
 using SprintsProjectAPI.Models.Entities;
+using Task = System.Threading.Tasks.Task;
 
 namespace SprintsProjectAPI.Services
 {
@@ -21,7 +22,7 @@ namespace SprintsProjectAPI.Services
             return item;
         }
 
-        public async System.Threading.Tasks.Task Delete(Sprint item)
+        public async Task Delete(Sprint item)
         {
             unitOfWork.Sprints.Delete(item);
             await unitOfWork.SaveChanges();
@@ -30,11 +31,6 @@ namespace SprintsProjectAPI.Services
         public void Dispose()
         {
             unitOfWork.Dispose();
-        }
-
-        public bool Exists(int id)
-        {
-            return unitOfWork.Sprints.Exists(id);
         }
 
         public async Task<Sprint> Get(int id)
@@ -47,7 +43,7 @@ namespace SprintsProjectAPI.Services
             return unitOfWork.Sprints.GetAll();
         }
 
-        public async System.Threading.Tasks.Task Update(Sprint item)
+        public async Task Update(Sprint item)
         {
             unitOfWork.Sprints.Update(item);
             await unitOfWork.SaveChanges();

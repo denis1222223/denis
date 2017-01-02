@@ -11,7 +11,6 @@ namespace SprintsProjectAPI.Services
         Task<T> Create(T item);
         Task Update(T item);
         Task Delete(T item);
-        bool Exists(int id);
         void Dispose();
     }
 }
