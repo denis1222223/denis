@@ -10,30 +10,31 @@ namespace SprintsManager.Repositories
     public class SprintsManagerRepository<T> : ISprintsManagerRepository<T> where T : class
     {
         private SprintsManagerContext db;
-
+        private DbSet<T> dbSet;
         public SprintsManagerRepository(SprintsManagerContext db)
         {
             this.db = db;
+            dbSet = db.Set<T>();
         }
 
         public T Create(T item)
         {
-            return db.Set<T>().Add(item);
+            return dbSet.Add(item);
         }
 
         public T Delete(T item)
         {
-            return db.Set<T>().Remove(item);
+            return dbSet.Remove(item);
         }
 
         public Task<T> Get(int id)
         {
-            return db.Set<T>().FindAsync(id);
+            return dbSet.FindAsync(id);
         }
 
         public IQueryable<T> GetAll()
         {
-            return db.Set<T>();
+            return dbSet;
         }
 
         public void Update(T item)

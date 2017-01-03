@@ -79,8 +79,7 @@ namespace SprintsManager.App_Start
             kernel.Bind<ISprintsManagerRepository<Task>>().To<SprintsManagerRepository<Task>>();
             kernel.Bind<ISprintsManagerRepository<Subtask>>().To<SprintsManagerRepository<Subtask>>();
 
-            // kernel.Bind<SprintsManagerContext>().ToSelf().InSingletonScope();
-            //  kernel.Bind<SprintsManagerContext>().ToSelf().InSingletonScope();
+            kernel.Bind<SprintsManagerContext>().ToSelf().InRequestScope();
         }
     }
 }

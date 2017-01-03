@@ -180,7 +180,7 @@
     <Compile Include="Models\Entities\Task.cs" />
     <Compile Include="Repositories\ISprintsManagerRepository.cs" />
     <Compile Include="Repositories\SprintsManagerRepository.cs" />
-    <Compile Include="Models\SprintsProjectAPIContext.cs" />
+    <Compile Include="Models\SprintsManagerContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitsOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitsOfWork\UnitOfWork.cs" />
