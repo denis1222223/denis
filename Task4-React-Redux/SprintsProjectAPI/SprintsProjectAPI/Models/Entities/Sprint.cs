@@ -8,8 +8,8 @@ namespace SprintsManager.Models.Entities
         [Required]
         public string Name { get; set; }
         [Required]
-        public string BeginningDate { get; set; }
+        public string StartDate { get; set; }
         [Required]
-        public string ExpirationDate { get; set; }
+        public string EndDate { get; set; }
     }
 }

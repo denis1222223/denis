@@ -5,29 +5,29 @@ namespace SprintsManager.Filters
 {
     public class DatesOrderAttribute : ValidationAttribute
     {
-        private bool ValidateDates(string beginningDateString, string expirationDateString)
+        protected override ValidationResult IsValid(object endDate, ValidationContext validationContext)
         {
-            var beginningDate = DateTime.Parse(beginningDateString);
-            var expirationDate = DateTime.Parse(expirationDateString);
-            var compare = DateTime.Compare(expirationDate, beginningDate);
+            var startDateInfo = validationContext.ObjectType.GetProperty("StartDate");
+            var startDate = startDateInfo.GetValue(validationContext.ObjectInstance);
+
+            bool valid = ValidateDates((string)startDate, (string)endDate);
+            if (!valid)
+            {
+                return new ValidationResult("Start date should be less than end date");
+            }
+            return null;
+        }
+
+        private bool ValidateDates(string startDateString, string endDateString)
+        {
+            var startDate = DateTime.Parse(startDateString);
+            var endDate = DateTime.Parse(endDateString);
+            var compare = DateTime.Compare(endDate, startDate);
             if (compare < 0)
             {
                 return false;
             }
             return true;
-        }
-
-        protected override ValidationResult IsValid(object expirationDate, ValidationContext validationContext)
-        {
-            var beginningDateInfo = validationContext.ObjectType.GetProperty("BeginningDate");
-            var beginningDate = beginningDateInfo.GetValue(validationContext.ObjectInstance);
-
-            bool valid = ValidateDates((string)beginningDate, (string)expirationDate);
-            if (!valid)
-            {
-                return new ValidationResult("Not valid dates order");
-            }
-            return null;
         }
     }
 }

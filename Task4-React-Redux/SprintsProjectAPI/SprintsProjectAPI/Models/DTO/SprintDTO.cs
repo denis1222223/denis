@@ -12,10 +12,10 @@ namespace SprintsManager.Models.DTO
         public string Name { get; set; }
         [Required]
         [StringLength(10)]
-        public string BeginningDate { get; set; }
+        public string StartDate { get; set; }
         [Required]
         [StringLength(10)]
         [DatesOrder]
-        public string ExpirationDate { get; set; }
+        public string EndDate { get; set; }
     }
 }

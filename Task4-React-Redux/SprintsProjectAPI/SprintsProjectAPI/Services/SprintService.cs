@@ -28,11 +28,6 @@ namespace SprintsManager.Services
             await unitOfWork.SaveChanges();
         }
 
-        public void Dispose()
-        {
-            unitOfWork.Dispose();
-        }
-
         public async Task<Sprint> Get(int id)
         {
             return await unitOfWork.Sprints.Get(id);
@@ -47,6 +42,11 @@ namespace SprintsManager.Services
         {
             unitOfWork.Sprints.Update(item);
             await unitOfWork.SaveChanges();
+        }
+
+        public void Dispose()
+        {
+            unitOfWork.Dispose();
         }
     }
 }

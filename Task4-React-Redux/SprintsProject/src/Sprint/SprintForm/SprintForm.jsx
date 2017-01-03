@@ -21,14 +21,14 @@ class SprintForm extends Component {
     collectForm() {
         return {
             name: ReactDOM.findDOMNode(this.refs.sprintName).value,
-            beginningDate: document.getElementById("addSprintBeginningDate").getAttribute('data-formattedvalue'),
-            expirationDate: document.getElementById("addSprintExpirationDate").getAttribute('data-formattedvalue')
+            startDate: document.getElementById("addSprintStartDate").getAttribute('data-formattedvalue'),
+            endDate: document.getElementById("addSprintEndDate").getAttribute('data-formattedvalue')
         }
     }
 
     validation() {
         var form = this.collectForm();
-        return ((form.name != "") && (form.beginningDate != "") && (form.expirationDate != ""));
+        return ((form.name != "") && (form.startDate != "") && (form.endDate != ""));
     }
 
     acceptForm(action) {
@@ -44,17 +44,17 @@ class SprintForm extends Component {
 
     render() {
         var item = this.props.item;
-        var beginningDateISO = item ? moment(item.get('beginningDate')).format() : moment().format();
-        var expirationDateISO = item ? moment(item.get('expirationDate')).format() : moment().format();
+        var startDateISO = item ? moment(item.get('startDate')).format() : moment().format();
+        var endDateISO = item ? moment(item.get('endDate')).format() : moment().format();
 
         return (
             <FormGroup>
                 <ControlLabel>Sprint name</ControlLabel>
                 <FormControl type="text" placeholder="Sprint name" ref="sprintName" defaultValue={item ? item.get('name') : ""} />
                 <ControlLabel>Date of beginning</ControlLabel>
-                <DatePicker id="addSprintBeginningDate" weekStartsOnMonday placeholder="Beginning date" defaultValue={beginningDateISO}/>
+                <DatePicker id="addSprintStartDate" weekStartsOnMonday placeholder="Start date" defaultValue={startDateISO}/>
                 <ControlLabel>Expiration date</ControlLabel>
-                <DatePicker id="addSprintExpirationDate" weekStartsOnMonday placeholder="Expiration date" defaultValue={expirationDateISO}/>
+                <DatePicker id="addSprintEndDate" weekStartsOnMonday placeholder="End date" defaultValue={endDateISO}/>
                 <Button bsStyle="success" onClick={() => {this.acceptForm(this.props.action)}}> OK </Button>
             </FormGroup>
         );

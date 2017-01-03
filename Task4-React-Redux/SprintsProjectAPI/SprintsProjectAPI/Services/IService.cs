@@ -3,8 +3,7 @@ using System.Threading.Tasks;
 
 namespace SprintsManager.Services
 {
-    public interface IService<T>
-        where T : class
+    public interface IService<T> where T : class
     {
         IQueryable<T> GetAll();
         Task<T> Get(int id);

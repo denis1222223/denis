@@ -2,8 +2,6 @@
 using System.Threading.Tasks;
 using System.Data.Entity;
 using SprintsManager.Models;
-using SprintsManager.Models.Entities;
-using SprintsManager.Repositories;
 
 namespace SprintsManager.Repositories
 {
@@ -11,6 +9,7 @@ namespace SprintsManager.Repositories
     {
         private SprintsManagerContext db;
         private DbSet<T> dbSet;
+
         public SprintsManagerRepository(SprintsManagerContext db)
         {
             this.db = db;

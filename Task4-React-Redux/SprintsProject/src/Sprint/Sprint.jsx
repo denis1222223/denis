@@ -55,7 +55,7 @@ class Sprint extends Component {
             <div>
                 {sprint.get('name')}
                 <br/>
-                {sprint.get('beginningDate')} - {sprint.get('expirationDate')}
+                {sprint.get('startDate')} - {sprint.get('endDate')}
             </div>
         ) : "Nonexistent sprint!";
         var tasksTable = sprint ? (

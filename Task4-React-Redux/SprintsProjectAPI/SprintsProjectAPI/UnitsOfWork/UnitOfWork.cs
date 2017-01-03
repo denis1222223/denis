@@ -16,8 +16,7 @@ namespace SprintsManager.UnitsOfWork
         public UnitOfWork(SprintsManagerContext db,
             ISprintsManagerRepository<Sprint> sprintRepository,
             ISprintsManagerRepository<Task> taskRepository,
-            ISprintsManagerRepository<Subtask> subtaskRepository
-            )
+            ISprintsManagerRepository<Subtask> subtaskRepository)
         {
             this.db = db;
             this.sprintRepository = sprintRepository;
@@ -49,21 +48,14 @@ namespace SprintsManager.UnitsOfWork
             }
         }
 
+        public async Threading.Task SaveChanges()
+        {         
+            await db.SaveChangesAsync();
+        }
+
         public void Dispose()
         {
             db.Dispose();
-        }
-
-        public async Threading.Task SaveChanges()
-        {         
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
         }
     }
 }
