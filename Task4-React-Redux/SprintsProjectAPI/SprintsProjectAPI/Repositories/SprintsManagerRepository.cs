@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Data.Entity;
 using SprintsManager.Models;
+using SprintsManager.Filters;
 
 namespace SprintsManager.Repositories
 {
@@ -21,9 +22,14 @@ namespace SprintsManager.Repositories
             return dbSet.Add(item);
         }
 
-        public T Delete(T item)
+        public void Delete(int id)
         {
-            return dbSet.Remove(item);
+            T item = dbSet.Find(id);
+            if (item == null)
+            {
+                throw new NoContentException();
+            }
+            db.Entry(item).State = EntityState.Deleted;
         }
 
         public Task<T> Get(int id)

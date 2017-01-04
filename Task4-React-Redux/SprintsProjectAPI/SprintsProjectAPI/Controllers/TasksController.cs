@@ -54,15 +54,8 @@ namespace SprintsManager.Controllers
 
         public async Task<IHttpActionResult> DeleteTask(int id)
         {
-            Task task = await service.Get(id);
-            if (task == null)
-            {
-                return NotFound();
-            }
-
-            await service.Delete(task);
-
-            return Ok(task);    
+            await service.Delete(id);
+            return Ok(id);    
         }
 
         protected override void Dispose(bool disposing)

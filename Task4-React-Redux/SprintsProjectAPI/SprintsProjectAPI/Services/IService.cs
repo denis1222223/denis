@@ -9,7 +9,7 @@ namespace SprintsManager.Services
         Task<T> Get(int id);
         Task<T> Create(T item);
         Task Update(T item);
-        Task Delete(T item);
+        Task Delete(int id);
         void Dispose();
     }
 }

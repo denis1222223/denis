@@ -14,9 +14,9 @@ function deleteTaskFromState(taskId) {
 
 export function deleteTask(taskId) {
     return dispatch => {
-        return fetchCall("Tasks/" + taskId, "DELETE").then(task => {
-            if (task) {
-                dispatch(deleteTaskFromState(task.id));
+        return fetchCall("Tasks/" + taskId, "DELETE").then(id => {
+            if (id) {
+                dispatch(deleteTaskFromState(id));
             }
         });
     }

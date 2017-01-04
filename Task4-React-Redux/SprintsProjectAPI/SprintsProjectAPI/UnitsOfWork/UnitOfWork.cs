@@ -49,7 +49,7 @@ namespace SprintsManager.UnitsOfWork
         }
 
         public async Threading.Task SaveChanges()
-        {         
+        {
             await db.SaveChangesAsync();
         }
 

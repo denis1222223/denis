@@ -9,7 +9,7 @@ namespace SprintsManager.Repositories
     public interface ISprintsManagerRepository<T> where T : class
     {
         T Create(T item);
-        T Delete(T item);
+        void Delete(int id);
         Task<T> Get(int id);
         IQueryable<T> GetAll();
         void Update(T item);

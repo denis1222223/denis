@@ -16,6 +16,12 @@ namespace SprintsManager.Filters
                 return;
             }
 
+            if (context.Exception is NoContentException)
+            {
+                context.Response = new HttpResponseMessage(HttpStatusCode.NoContent) { ReasonPhrase = message };
+                return;
+            }
+
             context.Response = new HttpResponseMessage(HttpStatusCode.InternalServerError) { ReasonPhrase = message };
         }
     }

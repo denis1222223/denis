@@ -49,7 +49,7 @@ class Task extends Component {
         }) : null;
         var header = task ? (
             <div>
-                {task.get('name')} | Category: {task.get('category')} | Sprint: {sprint.get('name')}
+                {task.get('name')} | Category: {task.get('category')} | Sprint: {sprint ? sprint.get('name') : ""}
 
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {

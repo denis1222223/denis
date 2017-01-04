@@ -31,9 +31,9 @@ function deleteSprintFromState(sprintId) {
 
 export function deleteSprint(sprintId) {
     return dispatch => {
-        return fetchCall("Sprints/" + sprintId, "DELETE").then(sprint => {
-            if (sprint) {
-                dispatch(deleteSprintFromState(sprint.id));
+        return fetchCall("Sprints/" + sprintId, "DELETE").then(id => {
+            if (id) {
+                dispatch(deleteSprintFromState(id));
             }
         });
     }

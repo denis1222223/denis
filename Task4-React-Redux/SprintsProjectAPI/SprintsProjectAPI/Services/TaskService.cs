@@ -22,9 +22,9 @@ namespace SprintsManager.Services
             return item;
         }
 
-        public async Threading.Task Delete(Task item)
+        public async Threading.Task Delete(int id)
         {
-            unitOfWork.Tasks.Delete(item);
+            unitOfWork.Tasks.Delete(id);
             await unitOfWork.SaveChanges();
         }
 

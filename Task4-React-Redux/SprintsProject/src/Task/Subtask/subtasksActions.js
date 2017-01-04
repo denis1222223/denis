@@ -13,9 +13,9 @@ export function deleteSubtaskFromState(subtaskId) {
 
 export function deleteSubtask(subtaskId) {
     return dispatch => {
-        return fetchCall("Subtasks/" + subtaskId, "DELETE").then(subtask => {
-            if (subtask) {
-                dispatch(deleteSubtaskFromState(subtask.id));
+        return fetchCall("Subtasks/" + subtaskId, "DELETE").then(id => {
+            if (id) {
+                dispatch(deleteSubtaskFromState(id));
             }
         });
     }
