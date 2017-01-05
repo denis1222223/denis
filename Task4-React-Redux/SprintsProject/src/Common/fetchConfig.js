@@ -12,8 +12,10 @@ export function fetchCall(url, method, body) {
         body: JSON.stringify(body)
     }).then(response => {
         if (response.status !== 200) {
-            return;
+            return Promise.reject(response.status + " " + response.statusText)
         }
         return response.json();
+    }).catch((err) => {
+        return Promise.reject(err)
     });
 }

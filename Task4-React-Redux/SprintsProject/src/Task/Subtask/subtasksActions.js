@@ -14,9 +14,7 @@ export function deleteSubtaskFromState(subtaskId) {
 export function deleteSubtask(subtaskId) {
     return dispatch => {
         return fetchCall("Subtasks/" + subtaskId, "DELETE").then(id => {
-            if (id) {
-                dispatch(deleteSubtaskFromState(id));
-            }
+            dispatch(deleteSubtaskFromState(id));
         });
     }
 }
@@ -31,9 +29,7 @@ export function addSubtaskToState(subtask) {
 export function addSubtask(subtask) {
     return dispatch => {
         return fetchCall("Subtasks", "POST", subtask).then(subtask => {
-            if (subtask) {
-                dispatch(addSubtaskToState(subtask));
-            }
+            dispatch(addSubtaskToState(subtask));
         });
     }
 }
@@ -48,9 +44,7 @@ function loadAllSubtasksToState(subtasks) {
 export function getAllSubtasks() {
     return dispatch => {
         return fetchCall("Subtasks", "GET").then(subtasks => {
-            if (subtasks) {
-                dispatch(loadAllSubtasksToState(subtasks))
-            }
+            dispatch(loadAllSubtasksToState(subtasks))
         });
     }
 }
