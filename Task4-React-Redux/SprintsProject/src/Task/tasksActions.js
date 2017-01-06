@@ -64,3 +64,12 @@ export function getAllTasks() {
         });
     }
 }
+
+export function getTasksBySprintId(sprintId) {
+    return dispatch => {
+        return fetchCall("Tasks/BySprintId/" + sprintId, "GET").then(tasks => {
+            console.log(tasks);
+            dispatch(loadAllTasksToState(tasks))
+        });
+    }
+}

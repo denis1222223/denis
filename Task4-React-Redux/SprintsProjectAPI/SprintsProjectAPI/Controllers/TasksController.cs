@@ -58,6 +58,12 @@ namespace SprintsManager.Controllers
             return Ok(id);    
         }
 
+        [Route("api/tasks/bySprintId/{id}")]
+        public IQueryable<Task> GetTasksBySprintId(int id)
+        {
+            return service.GetAll().Where(task => task.SprintId == id);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

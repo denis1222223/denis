@@ -48,3 +48,12 @@ export function getAllSubtasks() {
         });
     }
 }
+
+export function getSubtasksByTaskId(taskId) {
+    return dispatch => {
+        return fetchCall("Subtasks/ByTaskId/" + taskId, "GET").then(subtasks => {
+            console.log(subtasks);
+            dispatch(loadAllSubtasksToState(subtasks))
+        });
+    }
+}

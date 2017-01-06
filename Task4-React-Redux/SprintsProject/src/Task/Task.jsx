@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router';
 import Subtask from '../Task/Subtask';
 import TaskForm from '../Task/TaskForm';
 import { deleteTask, editTask } from '../Task/tasksActions';
-import { addSubtask } from './Subtask/subtasksActions';
+import { addSubtask, getSubtasksByTaskId } from './Subtask/subtasksActions';
 import { showModal } from '../Common/Modal/modalActions';
 
 import Panel  from 'react-bootstrap/lib/Panel';
@@ -30,6 +30,10 @@ class Task extends Component {
         ReactDOM.findDOMNode(this.refs.newSubtask).value = "";
     }
 
+    componentWillMount() {
+        this.props.getSubtasksByTaskId(this.props.location.query.id);
+    }
+    
     render() {
         var taskId = this.props.location.query.id;
         var task = this.props.tasks.find((task) => {
@@ -97,6 +101,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         showModal: function(title, body) {
             dispatch(showModal(title, body))
+        },
+        getSubtasksByTaskId: function(taskId) {
+            dispatch(getSubtasksByTaskId(taskId))
         }
     }
 };
