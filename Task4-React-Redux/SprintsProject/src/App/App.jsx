@@ -21,8 +21,6 @@ class App extends Component {
 
     componentDidMount() {
         this.props.getAllSprints();
-     //   this.props.getAllTasks();
-     //   this.props.getAllSubtasks();
     }
 
     render() {
@@ -39,6 +37,7 @@ class App extends Component {
                     </Row>
                 </Grid>
                 <Modal />
+                <Spinner />
             </div>
         );
     }
@@ -48,12 +47,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getAllSprints: function() {
             dispatch(getAllSprints())
-        },
-        getAllTasks: function() {
-            dispatch(getAllTasks())
-        },
-        getAllSubtasks: function() {
-            dispatch(getAllSubtasks())
         }
     }
 };
