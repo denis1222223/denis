@@ -1,5 +1,4 @@
 import { DELETE_TASK, ADD_TASK, EDIT_TASK, GET_ALL_TASKS } from './tasksActions';
-import initialState from './initialState';
 import {Map} from 'immutable';
 import Immutable from 'immutable';
 

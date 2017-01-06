@@ -27,7 +27,7 @@ namespace SprintsManager.Repositories
             T item = dbSet.Find(id);
             if (item == null)
             {
-                throw new NoContentException();
+                throw new NoContentException(id);
             }
             db.Entry(item).State = EntityState.Deleted;
         }

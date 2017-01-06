@@ -21,8 +21,8 @@ class App extends Component {
 
     componentDidMount() {
         this.props.getAllSprints();
-        this.props.getAllTasks();
-        this.props.getAllSubtasks();
+     //   this.props.getAllTasks();
+     //   this.props.getAllSubtasks();
     }
 
     render() {

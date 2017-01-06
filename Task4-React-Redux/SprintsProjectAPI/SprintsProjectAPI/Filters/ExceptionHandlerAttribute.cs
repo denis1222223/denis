@@ -18,7 +18,8 @@ namespace SprintsManager.Filters
 
             if (context.Exception is NoContentException)
             {
-                context.Response = new HttpResponseMessage(HttpStatusCode.NoContent) { ReasonPhrase = message };
+                var payload = context.Exception.Data["id"];
+                context.Response = context.Request.CreateResponse(HttpStatusCode.NoContent, (int)payload);
                 return;
             }
 
