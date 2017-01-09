@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 
 import SprintList from '../Sprint/SprintList';
 import Modal from '../Common/Modal';
+import Spinner from '../Common/Spinner';
 import {getAllSprints} from "../Sprint/sprintsActions";
-import {getAllTasks} from "../Task/tasksActions";
-import {getAllSubtasks} from "../Task/Subtask/subtasksActions";
 
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';

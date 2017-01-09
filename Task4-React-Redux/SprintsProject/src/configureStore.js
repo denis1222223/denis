@@ -5,12 +5,14 @@ import tasksReducer from './Task/tasksReducer';
 import subtasksReducer from 'Task/Subtask/subtasksReducer';
 import sprintsReducer from './Sprint/sprintsReducer';
 import modalReducer from 'Common/Modal/modalReducer';
+import spinnerReducer from 'Common/Spinner/spinnerReducer';
 
 var rootReducer = combineReducers({
     tasks: tasksReducer,
     subtasks: subtasksReducer,
     sprints: sprintsReducer,
-    modal: modalReducer
+    modal: modalReducer,
+    spinner: spinnerReducer
 });
 
 export default function (initialState = {}) {

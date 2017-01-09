@@ -1,4 +1,5 @@
-import { fetchCall } from '../Common/fetchConfig';
+import { fetchCall, receive } from '../Common/fetchCall';
+import { showSpinner } from "../Common/Spinner/spinnerActions";
 
 export const EDIT_TASK = 'EDIT_TASK';
 export const ADD_TASK = 'ADD_TASK';
@@ -14,8 +15,9 @@ function deleteTaskFromState(taskId) {
 
 export function deleteTask(taskId) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Tasks/" + taskId, "DELETE").then(id => {
-            dispatch(deleteTaskFromState(id));
+            dispatch(receive(deleteTaskFromState(id)));
         });
     }
 }
@@ -29,8 +31,9 @@ function addTaskToState(task) {
 
 export function addTask(task) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Tasks", "POST", task).then(task => {
-            dispatch(addTaskToState(task));
+            dispatch(receive(addTaskToState(task)));
         });
     }
 }
@@ -44,8 +47,9 @@ function editTaskInState(task) {
 
 export function editTask(task) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Tasks/" + task.id, "PUT", task).then(task => {
-            dispatch(editTaskInState(task));
+            dispatch(receive(editTaskInState(task)));
         });
     }
 }
@@ -59,17 +63,18 @@ function loadAllTasksToState(tasks) {
 
 export function getAllTasks() {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Tasks", "GET").then(tasks => {
-            dispatch(loadAllTasksToState(tasks))
+            dispatch(receive(loadAllTasksToState(tasks)));
         });
     }
 }
 
 export function getTasksBySprintId(sprintId) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Tasks/BySprintId/" + sprintId, "GET").then(tasks => {
-            console.log(tasks);
-            dispatch(loadAllTasksToState(tasks))
+            dispatch(receive(loadAllTasksToState(tasks)));
         });
     }
 }

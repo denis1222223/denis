@@ -1,4 +1,5 @@
-import { fetchCall } from '../Common/fetchConfig';
+import { fetchCall, receive } from '../Common/fetchCall';
+import {showSpinner} from "../Common/Spinner/spinnerActions";
 
 export const ADD_SPRINT = 'ADD_SPRINT';
 export const DELETE_SPRINT = 'DELETE_SPRINT';
@@ -14,8 +15,9 @@ function addSprintToState(sprint) {
 
 export function addSprint(sprint) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Sprints", "POST", sprint).then(sprint => {
-            dispatch(addSprintToState(sprint));
+            dispatch(receive(addSprintToState(sprint)));
         });
     }
 }
@@ -29,8 +31,9 @@ function deleteSprintFromState(sprintId) {
 
 export function deleteSprint(sprintId) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Sprints/" + sprintId, "DELETE").then(id => {
-            dispatch(deleteSprintFromState(id));
+            dispatch(receive(deleteSprintFromState(id)));
         });
     }
 }
@@ -44,8 +47,9 @@ function editSprintInState(sprint) {
 
 export function editSprint(sprint) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Sprints/" + sprint.id, "PUT", sprint).then(sprint => {
-            dispatch(editSprintInState(sprint));
+            dispatch(receive(editSprintInState(sprint)));
         });
     }
 }
@@ -59,8 +63,9 @@ function loadAllSprintsToState(sprints) {
 
 export function getAllSprints() {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Sprints", "GET").then(sprints => {
-            dispatch(loadAllSprintsToState(sprints))
+            dispatch(receive(loadAllSprintsToState(sprints)));
         });
     }
 }

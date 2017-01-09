@@ -1,7 +1,8 @@
 import React, { PropTypes, Component} from 'react';
 import { connect } from 'react-redux';
+import src from './spinner.gif';
 
-//import { hideModal } from './modalActions';
+import './spinner.less';
 
 class Spinner extends Component {
     constructor(props) {
@@ -9,27 +10,19 @@ class Spinner extends Component {
     }
 
     render() {
-    
-        return(
-            <Spinner className>
-                modal.get('show')
-            </Spinner>
+        var visible = this.props.show ? "show" : "hide";
+        return (
+            <div className={'spinner '.concat(visible)} >
+                <img src={src}/>
+            </div>
         );
     }
 }
 
 function mapStateToProps (state) {
     return {
-        spinner: state.spinner
+        show: state.spinner.get('show')
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        hide: function() {
-         //  dispatch(hideModal());
-        }
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Spinner)
+export default connect(mapStateToProps)(Spinner)

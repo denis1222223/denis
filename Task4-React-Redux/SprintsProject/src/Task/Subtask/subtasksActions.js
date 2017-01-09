@@ -1,4 +1,5 @@
-import { fetchCall } from '../../Common/fetchConfig';
+import { fetchCall, receive } from '../../Common/fetchCall';
+import {showSpinner} from "../../Common/Spinner/spinnerActions";
 
 export const DELETE_SUBTASK = 'DELETE_SUBTASK';
 export const ADD_SUBTASK = 'ADD_SUBTASK';
@@ -13,8 +14,9 @@ export function deleteSubtaskFromState(subtaskId) {
 
 export function deleteSubtask(subtaskId) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Subtasks/" + subtaskId, "DELETE").then(id => {
-            dispatch(deleteSubtaskFromState(id));
+            dispatch(receive(deleteSubtaskFromState(id)));
         });
     }
 }
@@ -28,8 +30,9 @@ export function addSubtaskToState(subtask) {
 
 export function addSubtask(subtask) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Subtasks", "POST", subtask).then(subtask => {
-            dispatch(addSubtaskToState(subtask));
+            dispatch(receive(addSubtaskToState(subtask)));
         });
     }
 }
@@ -43,17 +46,18 @@ function loadAllSubtasksToState(subtasks) {
 
 export function getAllSubtasks() {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Subtasks", "GET").then(subtasks => {
-            dispatch(loadAllSubtasksToState(subtasks))
+            dispatch(receive(loadAllSubtasksToState(subtasks)));
         });
     }
 }
 
 export function getSubtasksByTaskId(taskId) {
     return dispatch => {
+        dispatch(showSpinner());
         return fetchCall("Subtasks/ByTaskId/" + taskId, "GET").then(subtasks => {
-            console.log(subtasks);
-            dispatch(loadAllSubtasksToState(subtasks))
+            dispatch(receive(loadAllSubtasksToState(subtasks)));
         });
     }
 }
