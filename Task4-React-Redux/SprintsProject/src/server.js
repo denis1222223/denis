@@ -2,7 +2,7 @@ import express  from 'express';
 import React    from 'react';
 import ReactDom from 'react-dom/server';
 import { match, RouterContext } from 'react-router';
-import routes from './routes';
+import getRoutes from './getRoutes';
 import { Provider } from 'react-redux';
 import configureStore from './configureStore';
 import proxy from 'http-proxy-middleware';
@@ -13,7 +13,7 @@ app.use('/api', proxy({target: 'http://localhost:10702', changeOrigin: true}));
 
 app.use((req, res) => {
     const store = configureStore();
-    match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
+    match({ routes: getRoutes(store.dispatch), location: req.url }, (error, redirectLocation, renderProps) => {
         if (redirectLocation) {
             return res.redirect(301, redirectLocation.pathname + redirectLocation.search);
         }

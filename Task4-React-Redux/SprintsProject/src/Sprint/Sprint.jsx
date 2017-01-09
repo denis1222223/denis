@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
-import {addTask, getTasksBySprintId} from "../Task/tasksActions";
+import {addTask} from "../Task/tasksActions";
 import {showModal} from "../Common/Modal/modalActions";
 import TaskShortcut from '../Task/TaskShortcut';
 import TaskForm from '../Task/TaskForm'
@@ -25,13 +25,9 @@ class Sprint extends Component {
             );
         });
     }
-
-    componentWillMount() {
-        this.props.getTasksBySprintId(this.props.location.query.id);
-    }
-
+    
     render() {
-        var sprintId = this.props.location.query.id;
+        var sprintId = this.props.params.id;
         var tasks = this.props.tasks;
 
         var filterByStatus = function(status) {
@@ -98,9 +94,6 @@ const mapDispatchToProps = (dispatch) => {
     return {
         showModal: function(title, body) {
             dispatch(showModal(title, body))
-        },
-        getTasksBySprintId: function(sprintId) {
-            dispatch(getTasksBySprintId(sprintId))
         }
     }
 };

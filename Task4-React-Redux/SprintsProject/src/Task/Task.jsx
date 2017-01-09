@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router';
 import Subtask from '../Task/Subtask';
 import TaskForm from '../Task/TaskForm';
 import { deleteTask, editTask } from '../Task/tasksActions';
-import { addSubtask, getSubtasksByTaskId } from './Subtask/subtasksActions';
+import { addSubtask } from './Subtask/subtasksActions';
 import { showModal } from '../Common/Modal/modalActions';
 
 import Panel  from 'react-bootstrap/lib/Panel';
@@ -29,13 +29,9 @@ class Task extends Component {
         });
         ReactDOM.findDOMNode(this.refs.newSubtask).value = "";
     }
-
-    componentWillMount() {
-        this.props.getSubtasksByTaskId(this.props.location.query.id);
-    }
     
     render() {
-        var taskId = this.props.location.query.id;
+        var taskId = this.props.params.id;
         var task = this.props.tasks.find((task) => {
             return task.get('id') == taskId;
         });
@@ -64,7 +60,7 @@ class Task extends Component {
                 <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                         onClick={() => {
                             this.props.deleteTask(task.get('id'));
-                            browserHistory.push("/sprint?id=" + task.get('sprintId'));
+                            browserHistory.push("/sprint/" + task.get('sprintId'));
                         }}>
                     <Glyphicon glyph="glyphicon glyphicon-trash" />
                 </Button>
@@ -101,9 +97,6 @@ const mapDispatchToProps = (dispatch) => {
         },
         showModal: function(title, body) {
             dispatch(showModal(title, body))
-        },
-        getSubtasksByTaskId: function(taskId) {
-            dispatch(getSubtasksByTaskId(taskId))
         }
     }
 };

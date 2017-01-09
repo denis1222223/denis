@@ -15,8 +15,7 @@ function deleteTaskFromState(taskId) {
 
 export function deleteTask(taskId) {
     return dispatch => {
-        dispatch(showSpinner());
-        return fetchCall("Tasks/" + taskId, "DELETE").then(id => {
+        return fetchCall(dispatch, "Tasks/" + taskId, "DELETE").then(id => {
             dispatch(receive(deleteTaskFromState(id)));
         });
     }
@@ -31,8 +30,7 @@ function addTaskToState(task) {
 
 export function addTask(task) {
     return dispatch => {
-        dispatch(showSpinner());
-        return fetchCall("Tasks", "POST", task).then(task => {
+        return fetchCall(dispatch, "Tasks", "POST", task).then(task => {
             dispatch(receive(addTaskToState(task)));
         });
     }
@@ -47,8 +45,7 @@ function editTaskInState(task) {
 
 export function editTask(task) {
     return dispatch => {
-        dispatch(showSpinner());
-        return fetchCall("Tasks/" + task.id, "PUT", task).then(task => {
+        return fetchCall(dispatch, "Tasks/" + task.id, "PUT", task).then(task => {
             dispatch(receive(editTaskInState(task)));
         });
     }
@@ -63,8 +60,7 @@ function loadAllTasksToState(tasks) {
 
 export function getAllTasks() {
     return dispatch => {
-        dispatch(showSpinner());
-        return fetchCall("Tasks", "GET").then(tasks => {
+        return fetchCall(dispatch, "Tasks", "GET").then(tasks => {
             dispatch(receive(loadAllTasksToState(tasks)));
         });
     }
@@ -72,8 +68,7 @@ export function getAllTasks() {
 
 export function getTasksBySprintId(sprintId) {
     return dispatch => {
-        dispatch(showSpinner());
-        return fetchCall("Tasks/BySprintId/" + sprintId, "GET").then(tasks => {
+        return fetchCall(dispatch, "Tasks/BySprintId/" + sprintId, "GET").then(tasks => {
             dispatch(receive(loadAllTasksToState(tasks)));
         });
     }

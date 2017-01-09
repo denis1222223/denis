@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { showModal } from '../../Common/Modal/modalActions';
 import { deleteSprint, editSprint, addSprint } from '../sprintsActions';
-import { getTasksBySprintId } from '../../Task/tasksActions';
 import SprintForm from '../SprintForm'
 
 import Button  from 'react-bootstrap/lib/Button';
@@ -33,8 +32,7 @@ class SprintList extends Component {
         var sprintsList = sprints.map((sprint) => {
             return (
                 <li key={sprint.get('id')}>
-                    <Link to={"/sprint?id=".concat(sprint.get('id'))} activeClassName='active' 
-                          onClick={() => this.props.getTasksBySprintId(sprint.get('id'))}>
+                    <Link to={"/sprint/".concat(sprint.get('id'))} activeClassName='active'>
                         {sprint.get('name')}
                     </Link>
                     <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
@@ -46,7 +44,7 @@ class SprintList extends Component {
                     <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                         onClick={() => {
                             this.props.deleteSprint(sprint.get('id'));
-                            browserHistory.push("/sprint?id=" + deleteRedirect(sprint.get('id')));
+                            browserHistory.push("/sprint/" + deleteRedirect(sprint.get('id')));
                         }}>
                         <Glyphicon glyph="glyphicon glyphicon-trash" />
                     </Button>
@@ -74,9 +72,6 @@ const mapDispatchToProps = (dispatch) => {
         },
         showModal: function(title, body) {
             dispatch(showModal(title, body))
-        },
-        getTasksBySprintId: function(sprintId) {
-            dispatch(getTasksBySprintId(sprintId))
         }
     }
 };

@@ -1,13 +1,15 @@
-import {hideSpinner} from "./Spinner/spinnerActions";
+import {showSpinner, hideSpinner} from "./Spinner/spinnerActions";
 
-export function fetchCall(url, method, data) {
+export function fetchCall(dispatch, url, method, data) {
+    dispatch(showSpinner());
     return $.ajax({
         method,
-        url: "api/" + url,
+        url: "/api/" + url,
         data
     })
     .catch((err) => {
         console.log(err);
+        dispatch(hideSpinner());
     })
 }
 

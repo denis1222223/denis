@@ -15,8 +15,7 @@ function addSprintToState(sprint) {
 
 export function addSprint(sprint) {
     return dispatch => {
-        dispatch(showSpinner());
-        return fetchCall("Sprints", "POST", sprint).then(sprint => {
+        return fetchCall(dispatch, "Sprints", "POST", sprint).then(sprint => {
             dispatch(receive(addSprintToState(sprint)));
         });
     }
@@ -31,8 +30,7 @@ function deleteSprintFromState(sprintId) {
 
 export function deleteSprint(sprintId) {
     return dispatch => {
-        dispatch(showSpinner());
-        return fetchCall("Sprints/" + sprintId, "DELETE").then(id => {
+        return fetchCall(dispatch, "Sprints/" + sprintId, "DELETE").then(id => {
             dispatch(receive(deleteSprintFromState(id)));
         });
     }
@@ -47,8 +45,7 @@ function editSprintInState(sprint) {
 
 export function editSprint(sprint) {
     return dispatch => {
-        dispatch(showSpinner());
-        return fetchCall("Sprints/" + sprint.id, "PUT", sprint).then(sprint => {
+        return fetchCall(dispatch, "Sprints/" + sprint.id, "PUT", sprint).then(sprint => {
             dispatch(receive(editSprintInState(sprint)));
         });
     }
@@ -63,8 +60,7 @@ function loadAllSprintsToState(sprints) {
 
 export function getAllSprints() {
     return dispatch => {
-        dispatch(showSpinner());
-        return fetchCall("Sprints", "GET").then(sprints => {
+        return fetchCall(dispatch, "Sprints", "GET").then(sprints => {
             dispatch(receive(loadAllSprintsToState(sprints)));
         });
     }

@@ -23,7 +23,7 @@ class TaskShortcut extends Component {
             <div className='task-shortcut'>
 
                 <Panel>
-                    <Link to={"/task?id=".concat(task.get('id'))}>
+                    <Link to={"/task/".concat(task.get('id'))}>
                         {task.get('name')}
                     </Link>
 
