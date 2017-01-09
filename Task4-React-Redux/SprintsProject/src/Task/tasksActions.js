@@ -66,6 +66,14 @@ export function getAllTasks() {
     }
 }
 
+export function getTask(id) {
+    return dispatch => {
+        return fetchCall(dispatch, "Tasks/" + id, "GET").then(task => {
+            dispatch(receive(addTaskToState(task)));
+        });
+    }
+}
+
 export function getTasksBySprintId(sprintId) {
     return dispatch => {
         return fetchCall(dispatch, "Tasks/BySprintId/" + sprintId, "GET").then(tasks => {
