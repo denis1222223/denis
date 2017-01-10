@@ -167,6 +167,11 @@
     <Compile Include="Filters\ValidateModelAttribute.cs" />
     <Compile Include="Filters\NoContentException.cs" />
     <Compile Include="Filters\ValidationException.cs" />
+    <Compile Include="Migrations\201701101014113_Initial.cs" />
+    <Compile Include="Migrations\201701101014113_Initial.Designer.cs">
+      <DependentUpon>201701101014113_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DTO\SprintDTO.cs" />
     <Compile Include="Models\DTO\SubtaskDTO.cs" />
     <Compile Include="Models\DTO\TaskDTO.cs" />
@@ -204,6 +209,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701101014113_Initial.resx">
+      <DependentUpon>201701101014113_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

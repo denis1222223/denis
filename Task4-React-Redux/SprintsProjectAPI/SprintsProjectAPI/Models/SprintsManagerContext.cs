@@ -5,7 +5,7 @@ namespace SprintsManager.Models
 {
     public class SprintsManagerContext : DbContext
     {
-        public SprintsManagerContext() : base("name=SprintsManagerContext")
+        public SprintsManagerContext()
         {
         }
 
