@@ -1,0 +1,11 @@
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\bin\Debug\SprintsManager.Business.dll
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\bin\Debug\SprintsManager.Business.pdb
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\bin\Debug\SprintsManager.Data.dll
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\bin\Debug\EntityFramework.dll
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\bin\Debug\Newtonsoft.Json.dll
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\bin\Debug\SprintsManager.Data.pdb
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\bin\Debug\EntityFramework.xml
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\bin\Debug\Newtonsoft.Json.xml
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\obj\Debug\SprintsManager.Business.csprojResolveAssemblyReference.cache
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\obj\Debug\SprintsManager.Business.dll
+D:\denis.al-khelali\denis\Task4-React-Redux\SprintsProjectAPI\SprintsManager.Business\obj\Debug\SprintsManager.Business.pdb

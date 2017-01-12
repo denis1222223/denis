@@ -2,8 +2,8 @@
 using Newtonsoft.Json.Serialization;
 using SprintsManager.Filters;
 using SprintsManager.Models.DTO;
-using SprintsManager.Models.Entities;
 using System.Web.Http;
+using SprintsManager.Data.Models.Entities;
 
 namespace SprintsManager
 {

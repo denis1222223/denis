@@ -92,6 +92,10 @@
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -139,9 +143,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -161,7 +162,9 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Converters\StatusConverter.cs" />
+    <Compile Include="DTO\SprintDTO.cs" />
+    <Compile Include="DTO\SubtaskDTO.cs" />
+    <Compile Include="DTO\TaskDTO.cs" />
     <Compile Include="Filters\DatesOrderAttribute.cs" />
     <Compile Include="Filters\ExceptionHandlerAttribute.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
@@ -172,28 +175,13 @@
       <DependentUpon>201701101014113_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\DTO\SprintDTO.cs" />
-    <Compile Include="Models\DTO\SubtaskDTO.cs" />
-    <Compile Include="Models\DTO\TaskDTO.cs" />
     <Compile Include="Controllers\SprintsController.cs" />
     <Compile Include="Controllers\SubtasksController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entities\Sprint.cs" />
-    <Compile Include="Models\Entities\Subtask.cs" />
-    <Compile Include="Models\Entities\Task.cs" />
-    <Compile Include="Models\SprintsManagerContext.cs" />
-    <Compile Include="Repositories\ISprintsManagerRepository.cs" />
-    <Compile Include="Repositories\SprintsManagerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitsOfWork\IUnitOfWork.cs" />
-    <Compile Include="UnitsOfWork\UnitOfWork.cs" />
-    <Compile Include="Services\IService.cs" />
-    <Compile Include="Services\SubtaskService.cs" />
-    <Compile Include="Services\TaskService.cs" />
-    <Compile Include="Services\SprintService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -214,6 +202,16 @@
     <EmbeddedResource Include="Migrations\201701101014113_Initial.resx">
       <DependentUpon>201701101014113_Initial.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SprintsManager.Business\SprintsManager.Business.csproj">
+      <Project>{5E317AAE-BD4C-4126-93E8-658FB278F23A}</Project>
+      <Name>SprintsManager.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SprintsManager.Data\SprintsManager.Data.csproj">
+      <Project>{D0B941A6-63E9-441C-9B60-B9AD87CAA519}</Project>
+      <Name>SprintsManager.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

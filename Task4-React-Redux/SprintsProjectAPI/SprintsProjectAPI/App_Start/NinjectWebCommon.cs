@@ -6,11 +6,12 @@ using Ninject;
 using Ninject.Web.Common;
 using Ninject.Web.WebApi;
 using SprintsManager.App_Start;
-using SprintsManager.Services;
-using SprintsManager.Models.Entities;
-using SprintsManager.UnitsOfWork;
-using SprintsManager.Repositories;
-using SprintsManager.Models;
+
+using SprintsManager.Data.Models.Entities;
+using SprintsManager.Data.UnitsOfWork;
+using SprintsManager.Data.Repositories;
+using SprintsManager.Data.Models;
+using SprintsManager.Business.Services;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]

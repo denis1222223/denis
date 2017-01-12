@@ -1,10 +1,11 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using SprintsManager.Services;
-using SprintsManager.Models.Entities;
 using AutoMapper;
 using SprintsManager.Models.DTO;
+
+using SprintsManager.Data.Models.Entities;
+using SprintsManager.Business.Services;
 
 namespace SprintsManager.Controllers
 {

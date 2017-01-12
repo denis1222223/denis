@@ -1,19 +1,20 @@
 namespace SprintsProjectAPI.Migrations
 {
-    using SprintsManager.Models.Entities;
+    using SprintsManager.Data.Models;
+    using SprintsManager.Data.Models.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SprintsManager.Models.SprintsManagerContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SprintsManagerContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SprintsManager.Models.SprintsManagerContext context)
+        protected override void Seed(SprintsManagerContext context)
         {
             context.Sprints.AddOrUpdate(
                new Sprint { Id = 1, Name = "sprint 1", StartDate = "01/09/2017", EndDate = "01/09/2017" },
