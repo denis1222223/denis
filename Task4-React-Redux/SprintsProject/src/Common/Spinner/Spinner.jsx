@@ -1,6 +1,5 @@
 import React, { PropTypes, Component} from 'react';
 import { connect } from 'react-redux';
-import src from './spinner.gif';
 
 import './spinner.less';
 
@@ -12,8 +11,12 @@ class Spinner extends Component {
     render() {
         var visible = this.props.show ? "show" : "hide";
         return (
-            <div className={'spinner '.concat(visible)} >
-                <img src={src}/>
+            <div className={"spinner ".concat(visible)}>
+                <div className="rect1"></div>
+                <div className="rect2"></div>
+                <div className="rect3"></div>
+                <div className="rect4"></div>
+                <div className="rect5"></div>
             </div>
         );
     }
