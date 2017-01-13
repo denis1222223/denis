@@ -69,7 +69,7 @@ export function getAllTasks() {
 export function getTask(id) {
     return dispatch => {
         return fetchCall(dispatch, "Tasks/" + id, "GET").then(task => {
-            dispatch(receive(addTaskToState(task)));
+            dispatch(receive(loadAllTasksToState([task])));
         });
     }
 }
