@@ -5,5 +5,9 @@ npm-debug.log
 **/SprintsProjectAPI/bin/
 **/SprintsProjectAPI/obj/
 **/SprintsProjectAPI/.vs/
+**/SprintsManager.Data/bin/
+**/SprintsManager.Data/obj/
+**/SprintsManager.Business/bin/
+**/SprintsManager.Business/obj/
 *.mdf
 *.ldf

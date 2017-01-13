@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Data.Entity;
-//using SprintsManager.Filters;
 using SprintsManager.Data.Models;
+using SprintsManager.Data.Exceptions;
 
 namespace SprintsManager.Data.Repositories
 {
@@ -27,7 +27,7 @@ namespace SprintsManager.Data.Repositories
             T item = dbSet.Find(id);
             if (item == null)
             {
- //               throw new NoContentException(id);
+               throw new NoContentException(id);
             }
             db.Entry(item).State = EntityState.Deleted;
         }

@@ -168,13 +168,6 @@
     <Compile Include="Filters\DatesOrderAttribute.cs" />
     <Compile Include="Filters\ExceptionHandlerAttribute.cs" />
     <Compile Include="Filters\ValidateModelAttribute.cs" />
-    <Compile Include="Filters\NoContentException.cs" />
-    <Compile Include="Filters\ValidationException.cs" />
-    <Compile Include="Migrations\201701101014113_Initial.cs" />
-    <Compile Include="Migrations\201701101014113_Initial.Designer.cs">
-      <DependentUpon>201701101014113_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Controllers\SprintsController.cs" />
     <Compile Include="Controllers\SubtasksController.cs" />
     <Compile Include="Controllers\TasksController.cs" />
@@ -197,11 +190,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201701101014113_Initial.resx">
-      <DependentUpon>201701101014113_Initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SprintsManager.Business\SprintsManager.Business.csproj">

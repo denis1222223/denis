@@ -54,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Converters\StatusConverter.cs" />
+    <Compile Include="Exceptions\NoContentException.cs" />
+    <Compile Include="Migrations\201701121547280_InitialCreate.cs" />
+    <Compile Include="Migrations\201701121547280_InitialCreate.Designer.cs">
+      <DependentUpon>201701121547280_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entities\Sprint.cs" />
     <Compile Include="Models\Entities\Subtask.cs" />
     <Compile Include="Models\Entities\Task.cs" />
@@ -67,6 +73,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701121547280_InitialCreate.resx">
+      <DependentUpon>201701121547280_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
