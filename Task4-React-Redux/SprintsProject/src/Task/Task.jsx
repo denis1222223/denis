@@ -23,10 +23,13 @@ class Task extends Component {
     }
 
     onSubtaskAddClick(taskId) {
-        this.props.addSubtask({
-            name: ReactDOM.findDOMNode(this.refs.newSubtask).value, 
-            taskId
-        });
+        var subtaskName = ReactDOM.findDOMNode(this.refs.newSubtask).value;
+        if (subtaskName.trim() != "") {
+            this.props.addSubtask({
+                name: subtaskName,
+                taskId
+            });
+        }
         ReactDOM.findDOMNode(this.refs.newSubtask).value = "";
     }
     
