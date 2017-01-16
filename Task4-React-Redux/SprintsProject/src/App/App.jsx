@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory }  from 'react-router';
 
 import SprintList from '../Sprint/SprintList';
 import Modal from '../Common/Modal';
@@ -45,7 +46,12 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         getAllSprints: function() {
-            dispatch(getAllSprints())
+            dispatch(getAllSprints()).then((sprints) => {
+                var id = sprints[sprints.length - 1].id;
+                if (id) {
+                    browserHistory.push('/sprint/' + id);
+                }
+            });
         }
     }
 };

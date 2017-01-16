@@ -62,6 +62,7 @@ export function getAllSprints() {
     return dispatch => {
         return fetchCall(dispatch, "Sprints", "GET").then(sprints => {
             dispatch(receive(loadAllSprintsToState(sprints)));
+            return sprints;
         });
     }
 }
