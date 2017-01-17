@@ -1,20 +1,28 @@
-import React, { PropTypes as T, Component} from 'react'
-import { Button } from 'react-bootstrap'
-import AuthService from 'utils/AuthService'
+import React, { Component } from 'react'
+import NavItem from 'react-bootstrap/lib/NavItem';
+import Nav from 'react-bootstrap/lib/Nav';
 import './login.less';
 
 export class Login extends Component {
-    static propTypes = {
-        location: T.object,
-        auth: T.instanceOf(AuthService)
-    };
-
     render() {
         const { auth } = this.props;
+        var greeting = "";
+        var login = "";
+        if (auth) {
+            if (auth.loggedIn()) {
+                var profile = auth.getProfile();
+                greeting = <NavItem>{profile.name}</NavItem>;
+                login = <NavItem onClick={() => auth.logout()}>Logout</NavItem>;
+            } else {
+                login = <NavItem onClick={() => auth.login()}>Login</NavItem>;
+            }
+        }
+
         return (
-            <div className="login">
-                <Button bsStyle="primary" onClick={() => auth.login()}>Login</Button>
-            </div>
+            <Nav pullRight>
+                {login}
+                {greeting}
+            </Nav>
         )
     }
 }

@@ -1,9 +1,7 @@
 import React, { PropTypes, Component} from 'react';
+import Login from '../../Login'
 import { Link } from 'react-router';
-
 import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import Nav from 'react-bootstrap/lib/Nav';
 
 class Header extends Component {
     constructor(props) {
@@ -19,9 +17,7 @@ class Header extends Component {
                         <Link to="/">Sprints Manager</Link>
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Nav>
-                    <NavItem eventKey={1} onClick={() => auth.login()}>Login</NavItem>
-                </Nav>
+                <Login auth={auth}/>
             </Navbar>
         );
     }

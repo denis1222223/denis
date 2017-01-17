@@ -9,7 +9,7 @@ import proxy from 'http-proxy-middleware';
 
 const app = express();
 
-app.use('/api', proxy({target: 'http://localhost:10702', changeOrigin: true}));
+app.use('/api', proxy({target: 'http://localhost:58105', changeOrigin: true}));
 
 app.use((req, res) => {
     const store = configureStore();

@@ -10,7 +10,6 @@ import Sprint from './Sprint';
 import Task from './Task';
 
 const auth = new AuthService('iCHR0tEHu2NBYrM6K3dFFsC8h1EK3GCa', 'denis1222223.eu.auth0.com');
-console.log(auth);
 
 function onSprintEnter(dispatch) {
     return (nextState) => {
