@@ -34,6 +34,7 @@ namespace SprintsManager.Controllers
             return Ok(sprint);
         }
 
+        [Authorize]
         public async Task<IHttpActionResult> PutSprint(int id, SprintDTO sprintDTO)
         {
             var sprint = Mapper.Map<SprintDTO, Sprint>(sprintDTO);
@@ -48,6 +49,7 @@ namespace SprintsManager.Controllers
             return Ok(sprint);
         }
 
+        [Authorize]
         public async Task<IHttpActionResult> PostSprint(SprintDTO sprintDTO)
         {
             var sprint = Mapper.Map<SprintDTO, Sprint>(sprintDTO);
@@ -55,6 +57,7 @@ namespace SprintsManager.Controllers
             return Ok(sprint);     
         }
 
+        [Authorize]
         public async Task<IHttpActionResult> DeleteSprint(int id)
         {
             await service.Delete(id);

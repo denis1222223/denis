@@ -4,6 +4,7 @@ import 'isomorphic-fetch';
 var headers = new Headers({
     'Accept': 'application/json',
     'Content-Type': 'application/json'
+   // ,'authorization': 'Bearer ' + localStorage.getItem('id_token')
 });
 
 export function fetchCall(dispatch, url, method, body) {

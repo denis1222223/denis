@@ -4,33 +4,36 @@ using SprintsManager.Filters;
 using SprintsManager.Models.DTO;
 using System.Web.Http;
 using SprintsManager.Data.Models.Entities;
+using Owin;
+using Ninject.Web.Common.OwinHost;
+using Ninject.Web.WebApi.OwinHost;
+using SprintsManager.JwtValidation;
 
 namespace SprintsManager
 {
     public static class WebApiConfig
     {
-        public static void Register(HttpConfiguration config)
+        public static void Configure(IAppBuilder app)
         {
-            config.Filters.Add(new ExceptionHandlerAttribute());
-            config.Filters.Add(new ValidateModelAttribute());
+            HttpConfiguration config = new HttpConfiguration();
 
-            // Web API routes
-            config.MapHttpAttributeRoutes();
+            FiltersConfig.Register(config);
+            RoutesConfig.Register(config);
+            JwtValidationConfig.Register(config);
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = 
+                new CamelCasePropertyNamesContractResolver();
 
-            var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
-            Mapper.Initialize(cfg => {
+            Mapper.Initialize(cfg =>
+            {
                 cfg.CreateMap<SprintDTO, Sprint>();
                 cfg.CreateMap<TaskDTO, Task>();
                 cfg.CreateMap<SubtaskDTO, Subtask>();
             });
+
+            app.UseNinjectMiddleware(NinjectConfig.CreateKernel).UseNinjectWebApi(config);
+
+            app.UseWebApi(config);
         }
     }
 }

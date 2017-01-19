@@ -33,7 +33,8 @@ namespace SprintsManager.Controllers
 
             return Ok(subtask);
         }
-        
+
+        [Authorize]
         public async Task<IHttpActionResult> PutSubtask(int id, Subtask subtask)
         {
             if (id != subtask.Id)
@@ -45,14 +46,16 @@ namespace SprintsManager.Controllers
 
             return Ok(subtask);
         }
-        
+
+        [Authorize]
         public async Task<IHttpActionResult> PostSubtask(SubtaskDTO subtaskDTO)
         {
             var subtask = Mapper.Map<SubtaskDTO, Subtask>(subtaskDTO);
             await service.Create(subtask);
             return Ok(subtask);
         }
-        
+
+        [Authorize]
         public async Task<IHttpActionResult> DeleteSubtask(int id)
         {
             await service.Delete(id);

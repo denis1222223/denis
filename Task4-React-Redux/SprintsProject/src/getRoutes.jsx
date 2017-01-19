@@ -23,9 +23,9 @@ function onTaskEnter(dispatch) {
     };
 }
 
-export default (dispatch) => {
+export default (dispatch, auth) => {
     return (
-        <Route component={App} path='/'>
+        <Route component={App} path='/' auth={auth}>
             <Route component={Sprint} path='sprint/:id' onEnter={onSprintEnter(dispatch)} />
             <Route component={Task} path='task/:id' onEnter={onTaskEnter(dispatch)} />
         </Route>
