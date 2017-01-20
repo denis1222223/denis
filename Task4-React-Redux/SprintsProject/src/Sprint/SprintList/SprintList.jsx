@@ -37,20 +37,20 @@ class SprintList extends Component {
             buttonsEditDelete = <div>
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
-                            this.props.showModal("Edit sprint", <SprintForm item={sprint} action={editSprint} />);
+                            this.props.showModal("Edit sprint", <SprintForm item={sprint} action={editSprint} auth={auth} />);
                         }}>
                     <Glyphicon glyph="glyphicon glyphicon-edit" />
                 </Button>
                 <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                         onClick={() => {
-                            this.props.deleteSprint(sprint.get('id'));
+                            this.props.deleteSprint(auth, sprint.get('id'));
                             browserHistory.push("/sprint/" + deleteRedirect(sprint.get('id')));
                         }}>
                     <Glyphicon glyph="glyphicon glyphicon-trash" />
                 </Button>
             </div>;
             buttonAdd = <Button bsStyle="success" onClick={() => {
-                        this.props.showModal("Add sprint", <SprintForm action={addSprint} />);
+                        this.props.showModal("Add sprint", <SprintForm action={addSprint} auth={auth} />);
                     }}> + </Button>;
         }
 
@@ -78,8 +78,8 @@ class SprintList extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteSprint: function(sprintId) {
-            dispatch(deleteSprint(sprintId))
+        deleteSprint: function(auth, sprintId) {
+            dispatch(deleteSprint(auth, sprintId))
         },
         showModal: function(title, body) {
             dispatch(showModal(title, body))
@@ -90,7 +90,6 @@ const mapDispatchToProps = (dispatch) => {
 function mapStateToProps (state) {
     return {
         sprints: state.sprints
-        //,auth: state.auth
     }
 }
 

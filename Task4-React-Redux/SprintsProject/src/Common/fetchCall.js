@@ -4,14 +4,22 @@ import 'isomorphic-fetch';
 var headers = new Headers({
     'Accept': 'application/json',
     'Content-Type': 'application/json'
-   // ,'authorization': 'Bearer ' + localStorage.getItem('id_token')
 });
 
-export function fetchCall(dispatch, url, method, body) {
+export function fetchCall(dispatch, auth, options) {
+    if (auth && auth.loggedIn()) {
+        headers = new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + auth.getToken()
+        });
+    }
+
     dispatch(showSpinner());
-    return fetch("/api/" + url, {
+    return fetch("/api/" + options.url, {
         headers,
-        method, body: JSON.stringify(body)
+        method: options.method, 
+        body: JSON.stringify(options.body)
     }).then(response => {
         return response.json();
     }).catch((err) => {

@@ -31,9 +31,9 @@ class SprintForm extends Component {
         return ((form.name != "") && (form.startDate != "") && (form.endDate != ""));
     }
 
-    acceptForm(action) {
+    acceptForm(auth, action) {
         if (this.validation()) {
-            this.props.accept({
+            this.props.accept(auth, {
                 ...this.collectForm(),
                 id: this.props.item ? this.props.item.get('id') : ""
             }, action);
@@ -47,6 +47,8 @@ class SprintForm extends Component {
         var startDateISO = item ? moment(item.get('startDate')).format() : moment().format();
         var endDateISO = item ? moment(item.get('endDate')).format() : moment().format();
 
+        var auth = this.props.auth;
+        
         return (
             <FormGroup>
                 <ControlLabel>Sprint name</ControlLabel>
@@ -55,7 +57,7 @@ class SprintForm extends Component {
                 <DatePicker id="addSprintStartDate" weekStartsOnMonday placeholder="Start date" defaultValue={startDateISO}/>
                 <ControlLabel>Expiration date</ControlLabel>
                 <DatePicker id="addSprintEndDate" weekStartsOnMonday placeholder="End date" defaultValue={endDateISO}/>
-                <Button bsStyle="success" onClick={() => {this.acceptForm(this.props.action)}}> OK </Button>
+                <Button bsStyle="success" onClick={() => {this.acceptForm(auth, this.props.action)}}> OK </Button>
             </FormGroup>
         );
     }
@@ -70,8 +72,8 @@ function mapStateToProps (state) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-       accept: function(sprintInfo, action) {
-           dispatch(action(sprintInfo));
+       accept: function(auth, sprintInfo, action) {
+           dispatch(action(auth, sprintInfo));
            dispatch(hideModal());
        }
     }

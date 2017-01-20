@@ -33,9 +33,9 @@ class TaskForm extends Component {
         return true;
     }
 
-    acceptForm(action) {
+    acceptForm(auth, action) {
         if (this.validation()) {
-            this.props.accept({
+            this.props.accept(auth, {
                 ...this.collectForm(),
                 id: this.props.item.has('id') ? this.props.item.get('id') : ""
             }, action);
@@ -46,6 +46,7 @@ class TaskForm extends Component {
 
     render() {
         var item = this.props.item;
+        var auth = this.props.auth;
         return(
             <FormGroup>
                 <ControlLabel>Task name</ControlLabel>
@@ -67,7 +68,7 @@ class TaskForm extends Component {
                         return <option key={sprint.get('id')} value={sprint.get('id')}>{sprint.get('name')}</option>
                     })}
                 </FormControl>
-                <Button bsStyle="success" onClick={() => {this.acceptForm(this.props.action)}}> OK </Button>
+                <Button bsStyle="success" onClick={() => {this.acceptForm(auth, this.props.action)}}> OK </Button>
             </FormGroup>
         );
     }
@@ -81,8 +82,8 @@ function mapStateToProps (state) {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        accept: function(taskInfo, action) {
-            dispatch(action(taskInfo));
+        accept: function(auth, taskInfo, action) {
+            dispatch(action(auth, taskInfo));
             dispatch(hideModal());
         }
     }

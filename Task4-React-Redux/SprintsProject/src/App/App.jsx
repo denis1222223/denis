@@ -20,7 +20,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.props.getAllSprints();
+        this.props.getAllSprints(this.props.route.auth);
     }
 
     render() {
@@ -52,11 +52,13 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getAllSprints: function() {
-            dispatch(getAllSprints()).then((sprints) => {
+        getAllSprints: function(auth) {
+            dispatch(getAllSprints(auth)).then((sprints) => {
                 var id = sprints[sprints.length - 1].id;
                 if (id) {
-                    browserHistory.push('/sprint/' + id);
+                    if (browserHistory.getCurrentLocation().pathname === '/') {
+                        browserHistory.push('/sprint/' + id);
+                    }
                 }
             });
         }

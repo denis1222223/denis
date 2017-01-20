@@ -19,7 +19,7 @@ class Subtask extends Component {
         var deleteButton = "";
         if (auth && auth.isAdmin()) {
             deleteButton = <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                                   onClick={() => {this.props.deleteSubtask(this.props.subtask.get('id'))}}>
+                                   onClick={() => {this.props.deleteSubtask(auth, this.props.subtask.get('id'))}}>
                 <Glyphicon glyph="glyphicon glyphicon-trash" />
             </Button>;
         }
@@ -37,8 +37,8 @@ class Subtask extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteSubtask: function(id) {
-            dispatch(deleteSubtask(id));
+        deleteSubtask: function(auth, id) {
+            dispatch(deleteSubtask(auth, id));
         }
     }
 };

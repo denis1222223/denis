@@ -1,5 +1,4 @@
 import { fetchCall, receive } from '../../Common/fetchCall';
-import {showSpinner} from "../../Common/Spinner/spinnerActions";
 
 export const DELETE_SUBTASK = 'DELETE_SUBTASK';
 export const ADD_SUBTASK = 'ADD_SUBTASK';
@@ -12,9 +11,9 @@ export function deleteSubtaskFromState(subtaskId) {
     };
 }
 
-export function deleteSubtask(subtaskId) {
+export function deleteSubtask(auth, subtaskId) {
     return dispatch => {
-        return fetchCall(dispatch, "Subtasks/" + subtaskId, "DELETE").then(id => {
+        return fetchCall(dispatch, auth, {url: "subtasks/" + subtaskId, method: "DELETE"}).then(id => {
             dispatch(receive(deleteSubtaskFromState(id)));
         });
     }
@@ -27,9 +26,9 @@ export function addSubtaskToState(subtask) {
     };
 }
 
-export function addSubtask(subtask) {
+export function addSubtask(auth, subtask) {
     return dispatch => {
-        return fetchCall(dispatch, "Subtasks", "POST", subtask).then(subtask => {
+        return fetchCall(dispatch, auth, {url: 'subtasks', method: 'POST', body: subtask}).then(subtask => {
             dispatch(receive(addSubtaskToState(subtask)));
         });
     }
@@ -42,17 +41,17 @@ function loadAllSubtasksToState(subtasks) {
     }
 }
 
-export function getAllSubtasks() {
+export function getAllSubtasks(auth) {
     return dispatch => {
-        return fetchCall(dispatch, "Subtasks", "GET").then(subtasks => {
+        return fetchCall(dispatch, auth, {url: "subtasks", method: "GET"}).then(subtasks => {
             dispatch(receive(loadAllSubtasksToState(subtasks)));
         });
     }
 }
 
-export function getSubtasksByTaskId(taskId) {
+export function getSubtasksByTaskId(auth, taskId) {
     return dispatch => {
-        return fetchCall(dispatch, "Subtasks/ByTaskId/" + taskId, "GET").then(subtasks => {
+        return fetchCall(dispatch, auth, {url: "subtasks/byTaskId/" + taskId, method: "GET"}).then(subtasks => {
             dispatch(receive(loadAllSubtasksToState(subtasks)));
         });
     }

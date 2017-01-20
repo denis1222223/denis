@@ -62,6 +62,7 @@ namespace SprintsManager.Controllers
             return Ok(id);
         }
 
+
         [Route("api/subtasks/byTaskId/{id}")]
         public IQueryable<Subtask> GetSubtasksByTaskId(int id)
         {

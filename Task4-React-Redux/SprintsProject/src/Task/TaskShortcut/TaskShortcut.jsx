@@ -26,12 +26,12 @@ class TaskShortcut extends Component {
             buttonsEditDelete = <div>
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
-                                this.props.showModal("Edit task", <TaskForm item={task} action={editTask} />);
+                                this.props.showModal("Edit task", <TaskForm item={task} action={editTask} auth={auth}/>);
                             }}>
                     <Glyphicon glyph="glyphicon glyphicon-edit" />
                 </Button>
                 <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                        onClick={() => {this.props.deleteTask(task.get('id'));}}>
+                        onClick={() => {this.props.deleteTask(auth, task.get('id'));}}>
                     <Glyphicon glyph="glyphicon glyphicon-trash" />
                 </Button>
             </div>;
@@ -54,8 +54,8 @@ class TaskShortcut extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteTask: function(id) {
-            dispatch(deleteTask(id));
+        deleteTask: function(auth, id) {
+            dispatch(deleteTask(auth, id));
         },
         showModal: function(title, body) {
             dispatch(showModal(title, body))

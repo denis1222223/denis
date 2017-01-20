@@ -13,9 +13,9 @@ function addSprintToState(sprint) {
     };
 }
 
-export function addSprint(sprint) {
+export function addSprint(auth, sprint) {
     return dispatch => {
-        return fetchCall(dispatch, "Sprints", "POST", sprint).then(sprint => {
+        return fetchCall(dispatch, auth, {url: "sprints", method: "POST", body: sprint}).then(sprint => {
             dispatch(receive(addSprintToState(sprint)));
         });
     }
@@ -28,9 +28,9 @@ function deleteSprintFromState(sprintId) {
     };
 }
 
-export function deleteSprint(sprintId) {
+export function deleteSprint(auth, sprintId) {
     return dispatch => {
-        return fetchCall(dispatch, "Sprints/" + sprintId, "DELETE").then(id => {
+        return fetchCall(dispatch, auth, {url: "sprints/" + sprintId, method: "DELETE"}).then(id => {
             dispatch(receive(deleteSprintFromState(id)));
         });
     }
@@ -43,9 +43,9 @@ function editSprintInState(sprint) {
     };
 }
 
-export function editSprint(sprint) {
+export function editSprint(auth, sprint) {
     return dispatch => {
-        return fetchCall(dispatch, "Sprints/" + sprint.id, "PUT", sprint).then(sprint => {
+        return fetchCall(dispatch, auth, {url: "sprints/" + sprint.id, method: "PUT", body: sprint}).then(sprint => {
             dispatch(receive(editSprintInState(sprint)));
         });
     }
@@ -58,9 +58,9 @@ function loadAllSprintsToState(sprints) {
     }
 }
 
-export function getAllSprints() {
+export function getAllSprints(auth) {
     return dispatch => {
-        return fetchCall(dispatch, "Sprints", "GET").then(sprints => {
+        return fetchCall(dispatch, auth, {url: "sprints", method: "GET"}).then(sprints => {
             dispatch(receive(loadAllSprintsToState(sprints)));
             return sprints;
         });

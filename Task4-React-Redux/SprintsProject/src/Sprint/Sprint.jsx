@@ -81,7 +81,7 @@ class Sprint extends Component {
         if (auth && auth.isAdmin()) {
             addButton = sprint ? (
                 <Button bsStyle="success" onClick={() => {
-                this.props.showModal("Add task", <TaskForm item={new Map({sprintId})} action={addTask} />);
+                this.props.showModal("Add task", <TaskForm item={new Map({sprintId})} action={addTask} auth={auth} />);
             }}> + </Button>
             ) : "";
         }

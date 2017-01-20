@@ -22,10 +22,10 @@ class Task extends Component {
         super(props);
     }
 
-    onSubtaskAddClick(taskId) {
+    onSubtaskAddClick(taskId, auth) {
         var subtaskName = ReactDOM.findDOMNode(this.refs.newSubtask).value;
         if (subtaskName.trim() != "") {
-            this.props.addSubtask({
+            this.props.addSubtask(auth, {
                 name: subtaskName,
                 taskId
             });
@@ -59,13 +59,13 @@ class Task extends Component {
             buttonsEditDelete = <div>
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
-                            this.props.showModal("Edit task", <TaskForm item={task} action={editTask} />);
+                            this.props.showModal("Edit task", <TaskForm item={task} action={editTask} auth={auth} />);
                         }}>
                     <Glyphicon glyph="glyphicon glyphicon-edit" />
                 </Button>
                 <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                         onClick={() => {
-                            this.props.deleteTask(task.get('id'));
+                            this.props.deleteTask(auth, task.get('id'));
                             browserHistory.push("/sprint/" + task.get('sprintId'));
                         }}>
                     <Glyphicon glyph="glyphicon glyphicon-trash" />
@@ -75,7 +75,7 @@ class Task extends Component {
             inputs = task ? (
                 <InputGroup>
                     <InputGroup.Button>
-                        <Button bsStyle="success" onClick={() => {this.onSubtaskAddClick(taskId)}}> + </Button>
+                        <Button bsStyle="success" onClick={() => {this.onSubtaskAddClick(taskId, auth)}}> + </Button>
                     </InputGroup.Button>
                     <FormControl type="text" placeholder="New subtask" ref="newSubtask"/>
                 </InputGroup>
@@ -102,11 +102,11 @@ class Task extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addSubtask: function(subtask) {
-            dispatch(addSubtask(subtask));
+        addSubtask: function(auth, subtask) {
+            dispatch(addSubtask(auth, subtask));
         },
-        deleteTask: function(id) {
-            dispatch(deleteTask(id));
+        deleteTask: function(auth, id) {
+            dispatch(deleteTask(auth, id));
         },
         showModal: function(title, body) {
             dispatch(showModal(title, body))

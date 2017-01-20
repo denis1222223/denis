@@ -61,6 +61,7 @@ namespace SprintsManager.Controllers
             return Ok(id);    
         }
 
+
         [Route("api/tasks/bySprintId/{id}")]
         public IQueryable<Task> GetTasksBySprintId(int id)
         {
