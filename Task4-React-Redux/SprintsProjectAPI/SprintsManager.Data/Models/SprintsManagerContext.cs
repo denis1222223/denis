@@ -7,6 +7,7 @@ namespace SprintsManager.Data.Models
     {
         public SprintsManagerContext()
         {
+            Database.SetInitializer<SprintsManagerContext>(new DBInitializer());
         }
 
         public DbSet<Sprint> Sprints { get; set; }

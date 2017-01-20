@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import NavItem from 'react-bootstrap/lib/NavItem';
 import Nav from 'react-bootstrap/lib/Nav';
-import './login.less';
+import './auth.less';
 
-export class Login extends Component {
+export class Auth extends Component {
     render() {
         const { auth } = this.props;
         var greeting = "";
@@ -27,4 +27,4 @@ export class Login extends Component {
     }
 }
 
-export default Login;
+export default Auth;

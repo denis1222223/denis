@@ -15,14 +15,20 @@ class Subtask extends Component {
     }
 
     render() {
+        var auth = this.props.auth;
+        var deleteButton = "";
+        if (auth && auth.isAdmin()) {
+            deleteButton = <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
+                                   onClick={() => {this.props.deleteSubtask(this.props.subtask.get('id'))}}>
+                <Glyphicon glyph="glyphicon glyphicon-trash" />
+            </Button>;
+        }
+
         return (
             <div className='subtask'>
                 <Panel>
                     {this.props.subtask.get('name')}
-                    <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                            onClick={() => {this.props.deleteSubtask(this.props.subtask.get('id'))}}>
-                        <Glyphicon glyph="glyphicon glyphicon-trash" />
-                    </Button>
+                    {deleteButton}
                 </Panel>
             </div>
         );

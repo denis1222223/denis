@@ -29,7 +29,7 @@ class App extends Component {
         if (this.props.children) {
             children = React.cloneElement(this.props.children, { auth })
         }
-
+        
         return (
             <div>
                 <Header auth={auth}/>

@@ -19,6 +19,24 @@ class TaskShortcut extends Component {
 
     render() {
         var task = this.props.task;
+        var auth = this.props.auth;
+
+        var buttonsEditDelete = "";
+        if (auth && auth.isAdmin()) {
+            buttonsEditDelete = <div>
+                <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
+                        onClick={() => {
+                                this.props.showModal("Edit task", <TaskForm item={task} action={editTask} />);
+                            }}>
+                    <Glyphicon glyph="glyphicon glyphicon-edit" />
+                </Button>
+                <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
+                        onClick={() => {this.props.deleteTask(task.get('id'));}}>
+                    <Glyphicon glyph="glyphicon glyphicon-trash" />
+                </Button>
+            </div>;
+        }
+
         return (
             <div className='task-shortcut'>
 
@@ -26,17 +44,7 @@ class TaskShortcut extends Component {
                     <Link to={"/task/".concat(task.get('id'))}>
                         {task.get('name')}
                     </Link>
-
-                    <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
-                            onClick={() => {
-                                this.props.showModal("Edit task", <TaskForm item={task} action={editTask} />);
-                            }}>
-                        <Glyphicon glyph="glyphicon glyphicon-edit" />
-                    </Button>
-                    <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                            onClick={() => {this.props.deleteTask(task.get('id'));}}>
-                        <Glyphicon glyph="glyphicon glyphicon-trash" />
-                    </Button>
+                    {buttonsEditDelete}
                 </Panel>
 
             </div>

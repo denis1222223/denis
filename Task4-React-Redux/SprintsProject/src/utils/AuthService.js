@@ -1,5 +1,4 @@
 import Auth0Lock from 'auth0-lock'
-import { browserHistory } from 'react-router'
 
 export default class AuthService {
     constructor(clientId, domain) {
@@ -15,14 +14,13 @@ export default class AuthService {
 
     _doAuthentication(authResult) {
         this.setToken(authResult.idToken);
-        browserHistory.replace('/');
 
-        // Async loads the user profile data
         this.lock.getProfile(authResult.idToken, (error, profile) => {
             if (error) {
                 console.log('Error loading the Profile', error)
             } else {
-                this.setProfile(profile)
+                this.setProfile(profile);
+                window.location.href = '/';
             }
         });
     }
@@ -35,6 +33,12 @@ export default class AuthService {
         return !!this.getToken()
     }
 
+    isAdmin() {
+        const profile = this.getProfile();
+        const { roles } = profile.app_metadata || {};
+        return !!roles && roles.indexOf('admin') > -1;
+    }
+
     setToken(idToken) {
         localStorage.setItem('id_token', idToken)
     }
@@ -45,6 +49,8 @@ export default class AuthService {
 
     logout() {
         localStorage.removeItem('id_token');
+        localStorage.removeItem('profile');
+        window.location.href = '/';
     }
 
     setProfile(profile) {

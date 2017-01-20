@@ -1,5 +1,5 @@
 import React, { PropTypes, Component} from 'react';
-import Login from '../../Login'
+import Auth from '../../Auth'
 import { Link } from 'react-router';
 import Navbar from 'react-bootstrap/lib/Navbar';
 
@@ -17,7 +17,7 @@ class Header extends Component {
                         <Link to="/">Sprints Manager</Link>
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Login auth={auth}/>
+                <Auth auth={auth}/>
             </Navbar>
         );
     }

@@ -29,25 +29,38 @@ class SprintList extends Component {
     render() {
         var sprints = this.props.sprints;
         var deleteRedirect = this.getDeleteRedirectId.bind(this, sprints);
+
+        var auth = this.props.auth;
+        var buttonsEditDelete = "";
+        var buttonAdd = "";
+        if (auth && auth.isAdmin()) {
+            buttonsEditDelete = <div>
+                <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
+                        onClick={() => {
+                            this.props.showModal("Edit sprint", <SprintForm item={sprint} action={editSprint} />);
+                        }}>
+                    <Glyphicon glyph="glyphicon glyphicon-edit" />
+                </Button>
+                <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
+                        onClick={() => {
+                            this.props.deleteSprint(sprint.get('id'));
+                            browserHistory.push("/sprint/" + deleteRedirect(sprint.get('id')));
+                        }}>
+                    <Glyphicon glyph="glyphicon glyphicon-trash" />
+                </Button>
+            </div>;
+            buttonAdd = <Button bsStyle="success" onClick={() => {
+                        this.props.showModal("Add sprint", <SprintForm action={addSprint} />);
+                    }}> + </Button>;
+        }
+
         var sprintsList = sprints.map((sprint) => {
             return (
                 <li key={sprint.get('id')}>
                     <Link to={"/sprint/".concat(sprint.get('id'))} activeClassName='active'>
                         {sprint.get('name')}
                     </Link>
-                    <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
-                        onClick={() => {
-                            this.props.showModal("Edit sprint", <SprintForm item={sprint} action={editSprint} />);
-                        }}>
-                        <Glyphicon glyph="glyphicon glyphicon-edit" />
-                    </Button>
-                    <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
-                        onClick={() => {
-                            this.props.deleteSprint(sprint.get('id'));
-                            browserHistory.push("/sprint/" + deleteRedirect(sprint.get('id')));
-                        }}>
-                        <Glyphicon glyph="glyphicon glyphicon-trash" />
-                    </Button>
+                    {buttonsEditDelete}
                 </li>
             );
         });
@@ -57,9 +70,7 @@ class SprintList extends Component {
                 <ul>
                     {sprintsList}
                 </ul>
-                <Button bsStyle="success" onClick={() => {
-                        this.props.showModal("Add sprint", <SprintForm action={addSprint} />);
-                    }}> + </Button>
+                {buttonAdd}
             </div>
         );
     }
@@ -79,6 +90,7 @@ const mapDispatchToProps = (dispatch) => {
 function mapStateToProps (state) {
     return {
         sprints: state.sprints
+        //,auth: state.auth
     }
 }
 

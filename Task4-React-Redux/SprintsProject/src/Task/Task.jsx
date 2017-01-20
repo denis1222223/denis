@@ -34,6 +34,8 @@ class Task extends Component {
     }
     
     render() {
+        var auth = this.props.auth;
+
         var taskId = this.props.params.id;
         var task = this.props.tasks.find((task) => {
             return task.get('id') == taskId;
@@ -43,17 +45,18 @@ class Task extends Component {
             return subtask.get('taskId') == taskId;
         }).map((subtask) => {
            return (
-               <Subtask key={subtask.get('id')} subtask={subtask} />
+               <Subtask key={subtask.get('id')} subtask={subtask} auth={auth}/>
            );
         });
 
         var sprint = task ? this.props.sprints.find((sprint) => {
             return sprint.get('id') == task.get('sprintId');
         }) : null;
-        var header = task ? (
-            <div>
-                {task.get('name')} | Category: {task.get('category')} | Sprint: {sprint ? sprint.get('name') : ""}
 
+        var buttonsEditDelete = "";
+        var inputs = "";
+        if (auth && auth.isAdmin()) {
+            buttonsEditDelete = <div>
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
                             this.props.showModal("Edit task", <TaskForm item={task} action={editTask} />);
@@ -67,17 +70,24 @@ class Task extends Component {
                         }}>
                     <Glyphicon glyph="glyphicon glyphicon-trash" />
                 </Button>
+            </div>;
+
+            inputs = task ? (
+                <InputGroup>
+                    <InputGroup.Button>
+                        <Button bsStyle="success" onClick={() => {this.onSubtaskAddClick(taskId)}}> + </Button>
+                    </InputGroup.Button>
+                    <FormControl type="text" placeholder="New subtask" ref="newSubtask"/>
+                </InputGroup>
+            ) : "";
+        }
+
+        var header = task ? (
+            <div>
+                {task.get('name')} | Category: {task.get('category')} | Sprint: {sprint ? sprint.get('name') : ""}
+                {buttonsEditDelete}
             </div>
         ) : "Nonexistent task!";
-
-        var inputs = task ? (
-            <InputGroup>
-                <InputGroup.Button>
-                    <Button bsStyle="success" onClick={() => {this.onSubtaskAddClick(taskId)}}> + </Button>
-                </InputGroup.Button>
-                <FormControl type="text" placeholder="New subtask" ref="newSubtask" />
-            </InputGroup>
-        ) : "";
 
         return (
             <div className='task'>

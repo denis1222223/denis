@@ -60,6 +60,7 @@
       <DependentUpon>201701121547280_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DBInitializer.cs" />
     <Compile Include="Models\Entities\Sprint.cs" />
     <Compile Include="Models\Entities\Subtask.cs" />
     <Compile Include="Models\Entities\Task.cs" />

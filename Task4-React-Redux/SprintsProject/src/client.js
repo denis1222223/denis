@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import configureStore from './configureStore';
 import AuthService from "./utils/AuthService";
 
-const auth = new AuthService('C5HnaCD34kIMqPjdfA6EhUwpcMfp9tVY', 'denis1222223.eu.auth0.com');
 const store = configureStore();
+const auth = new AuthService('C5HnaCD34kIMqPjdfA6EhUwpcMfp9tVY', 'denis1222223.eu.auth0.com', store.dispatch);
 
 const component = (
     <Provider store={store}>

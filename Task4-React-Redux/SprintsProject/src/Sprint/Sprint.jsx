@@ -18,15 +18,18 @@ class Sprint extends Component {
         super(props);
     }
 
-    generateTaskList(tasks) {
+    _generateTaskList(auth, tasks) {
         return tasks.map((task) => {
             return (
-                <TaskShortcut key={task.get('id')} task={task}/>
+                <TaskShortcut key={task.get('id')} task={task} auth={auth}/>
             );
         });
     }
     
     render() {
+        var auth = this.props.auth;
+        var generateTaskList = this._generateTaskList.bind(null, auth);
+
         var sprintId = this.props.params.id;
         var tasks = this.props.tasks;
 
@@ -40,9 +43,9 @@ class Sprint extends Component {
         var progressTasks = filterByStatus("in-progress");
         var closedTasks = filterByStatus("closed");
 
-        var openTasksList = this.generateTaskList(openTasks);
-        var progressTasksList = this.generateTaskList(progressTasks);
-        var closedTasksList = this.generateTaskList(closedTasks);
+        var openTasksList = generateTaskList(openTasks);
+        var progressTasksList = generateTaskList(progressTasks);
+        var closedTasksList = generateTaskList(closedTasks);
         
         var sprints = this.props.sprints;
         var sprint = sprints.find((sprint) => {
@@ -73,11 +76,15 @@ class Sprint extends Component {
                 </tbody>
             </Table>
         ) : "";
-        var addButton = sprint ? (
-            <Button bsStyle="success" onClick={() => {
+
+        var addButton = "";
+        if (auth && auth.isAdmin()) {
+            addButton = sprint ? (
+                <Button bsStyle="success" onClick={() => {
                 this.props.showModal("Add task", <TaskForm item={new Map({sprintId})} action={addTask} />);
             }}> + </Button>
-        ) : "";
+            ) : "";
+        }
 
         return (
             <div className='sprint'>
