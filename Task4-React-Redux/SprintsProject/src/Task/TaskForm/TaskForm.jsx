@@ -9,6 +9,8 @@ import FormControl  from 'react-bootstrap/lib/FormControl';
 import ControlLabel  from 'react-bootstrap/lib/ControlLabel';
 import FormGroup  from 'react-bootstrap/lib/FormGroup';
 
+import Spinner from '../../Common/Spinner';
+
 import '../../Common/forms.less';
 
 class TaskForm extends Component {
@@ -69,6 +71,7 @@ class TaskForm extends Component {
                     })}
                 </FormControl>
                 <Button bsStyle="success" onClick={() => {this.acceptForm(auth, this.props.action)}}> OK </Button>
+                <Spinner />
             </FormGroup>
         );
     }
@@ -83,8 +86,9 @@ function mapStateToProps (state) {
 const mapDispatchToProps = (dispatch) => {
     return {
         accept: function(auth, taskInfo, action) {
-            dispatch(action(auth, taskInfo));
-            dispatch(hideModal());
+            dispatch(action(auth, taskInfo)).then(() => {
+                dispatch(hideModal());
+            });
         }
     }
 };

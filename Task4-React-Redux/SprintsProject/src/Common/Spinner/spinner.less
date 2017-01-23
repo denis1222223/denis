@@ -1,9 +1,13 @@
 .spinner {
-  margin: 100px auto;
-  width: 50px;
+  @width: 50px;
+  width: @width;
   height: 40px;
   text-align: center;
   font-size: 10px;
+  position: absolute;
+  @half: (@width / 2);
+  left: calc(~'50% - @{half}');
+  top: 50%;
 
   div {
     margin: 0 1px;

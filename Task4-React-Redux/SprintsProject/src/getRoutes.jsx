@@ -8,7 +8,7 @@ import App from './App';
 import Sprint from './Sprint';
 import Task from './Task';
 
-function onSprintEnter(dispatch, auth) {
+function onSprintEnter(dispatch, auth, Sprint) {
     return (nextState) => {
         var id = nextState.params.id;
         dispatch(getTasksBySprintId(auth, id));

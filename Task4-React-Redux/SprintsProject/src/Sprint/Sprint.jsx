@@ -13,6 +13,8 @@ import Button  from 'react-bootstrap/lib/Button';
 
 import './sprint.less';
 
+import Spinner from '../Common/Spinner'
+
 class Sprint extends Component {
     constructor(props) {
         super(props);
@@ -92,6 +94,7 @@ class Sprint extends Component {
                     {tasksTable}
                     {addButton}
                 </Panel>
+                <Spinner />
             </div>
         );
     }

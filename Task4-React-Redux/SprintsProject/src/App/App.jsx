@@ -18,10 +18,11 @@ import './app.less';
 class App extends Component {
     constructor(props) {
         super(props);
+        this.state = {showSpinner: false};
     }
 
     componentDidMount() {
-        this.props.getAllSprints(this.props.route.auth);
+        this.props.getAllSprints.apply(this, this.props.route.auth);
     }
 
     render() {
@@ -30,7 +31,12 @@ class App extends Component {
         if (this.props.children) {
             children = React.cloneElement(this.props.children, { auth })
         }
-        
+
+        var spinner = "";
+        if (this.state.showSpinner) {
+            spinner = <Spinner />;
+        }
+
         return (
             <div>
                 <Header auth={auth}/>
@@ -45,7 +51,7 @@ class App extends Component {
                     </Row>
                 </Grid>
                 <Modal />
-                <Spinner />
+                {spinner}
             </div>
         );
     }
@@ -54,6 +60,7 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         getAllSprints: function(auth) {
+            this.setState({showSpinner: true});
             dispatch(getAllSprints(auth)).then((sprints) => {
                 var id = sprints[sprints.length - 1].id;
                 if (id) {
@@ -62,6 +69,7 @@ const mapDispatchToProps = (dispatch) => {
                         auth.saveRedirect('/sprint/' + id);
                     }
                 }
+                this.setState({showSpinner: false});
             });
         }
     }

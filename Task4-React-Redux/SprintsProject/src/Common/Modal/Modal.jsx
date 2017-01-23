@@ -2,7 +2,7 @@ import React, { PropTypes, Component} from 'react';
 import { connect } from 'react-redux';
 
 import { hideModal } from './modalActions';
-
+import Spinner from '../Spinner'
 import ModalBox  from 'react-bootstrap/lib/Modal';
 
 class Modal extends Component {

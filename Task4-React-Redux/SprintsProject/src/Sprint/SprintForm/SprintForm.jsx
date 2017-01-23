@@ -13,6 +13,8 @@ import FormGroup  from 'react-bootstrap/lib/FormGroup';
 
 import '../../Common/forms.less';
 
+import Spinner from '../../Common/Spinner';
+
 class SprintForm extends Component {
     constructor(props) {
         super(props);
@@ -48,7 +50,7 @@ class SprintForm extends Component {
         var endDateISO = item ? moment(item.get('endDate')).format() : moment().format();
 
         var auth = this.props.auth;
-        
+
         return (
             <FormGroup>
                 <ControlLabel>Sprint name</ControlLabel>
@@ -58,6 +60,7 @@ class SprintForm extends Component {
                 <ControlLabel>Expiration date</ControlLabel>
                 <DatePicker id="addSprintEndDate" weekStartsOnMonday placeholder="End date" defaultValue={endDateISO}/>
                 <Button bsStyle="success" onClick={() => {this.acceptForm(auth, this.props.action)}}> OK </Button>
+                <Spinner />
             </FormGroup>
         );
     }
@@ -73,8 +76,9 @@ function mapStateToProps (state) {
 const mapDispatchToProps = (dispatch) => {
     return {
        accept: function(auth, sprintInfo, action) {
-           dispatch(action(auth, sprintInfo));
-           dispatch(hideModal());
+           dispatch(action(auth, sprintInfo)).then(() => {
+               dispatch(hideModal());
+           });
        }
     }
 };
