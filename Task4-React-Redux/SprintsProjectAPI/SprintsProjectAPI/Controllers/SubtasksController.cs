@@ -18,11 +18,13 @@ namespace SprintsManager.Controllers
             this.service = service;
         }
 
+        [Authorize]
         public IQueryable<Subtask> GetSubtasks()
         {
             return service.GetAll();
         }
 
+        [Authorize]
         public async Task<IHttpActionResult> GetSubtask(int id)
         {
             Subtask subtask = await service.Get(id);
@@ -34,7 +36,7 @@ namespace SprintsManager.Controllers
             return Ok(subtask);
         }
 
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public async Task<IHttpActionResult> PutSubtask(int id, Subtask subtask)
         {
             if (id != subtask.Id)
@@ -47,7 +49,7 @@ namespace SprintsManager.Controllers
             return Ok(subtask);
         }
 
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public async Task<IHttpActionResult> PostSubtask(SubtaskDTO subtaskDTO)
         {
             var subtask = Mapper.Map<SubtaskDTO, Subtask>(subtaskDTO);
@@ -55,14 +57,14 @@ namespace SprintsManager.Controllers
             return Ok(subtask);
         }
 
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public async Task<IHttpActionResult> DeleteSubtask(int id)
         {
             await service.Delete(id);
             return Ok(id);
         }
 
-
+        [Authorize]
         [Route("api/subtasks/byTaskId/{id}")]
         public IQueryable<Subtask> GetSubtasksByTaskId(int id)
         {

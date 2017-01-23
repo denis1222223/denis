@@ -14,6 +14,7 @@ import Col from 'react-bootstrap/lib/Col';
 
 import 'bootstrap-less/bootstrap/index.less';
 import './app.less';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -58,6 +59,7 @@ const mapDispatchToProps = (dispatch) => {
                 if (id) {
                     if (browserHistory.getCurrentLocation().pathname === '/') {
                         browserHistory.push('/sprint/' + id);
+                        auth.saveRedirect('/sprint/' + id);
                     }
                 }
             });

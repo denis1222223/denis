@@ -26,32 +26,43 @@ class SprintList extends Component {
         return deleteRedirect;
     }
 
-    render() {
-        var sprints = this.props.sprints;
-        var deleteRedirect = this.getDeleteRedirectId.bind(this, sprints);
-
+    getButtonsEditDelete(sprint) {
         var auth = this.props.auth;
         var buttonsEditDelete = "";
-        var buttonAdd = "";
         if (auth && auth.isAdmin()) {
             buttonsEditDelete = <div>
                 <Button className="small-button edit-button" bsSize="xsmall" bsStyle="warning"
                         onClick={() => {
                             this.props.showModal("Edit sprint", <SprintForm item={sprint} action={editSprint} auth={auth} />);
                         }}>
-                    <Glyphicon glyph="glyphicon glyphicon-edit" />
+                    <Glyphicon glyph="glyphicon glyphicon-edit"/>
                 </Button>
                 <Button className="small-button delete-button" bsSize="xsmall" bsStyle="danger"
                         onClick={() => {
                             this.props.deleteSprint(auth, sprint.get('id'));
                             browserHistory.push("/sprint/" + deleteRedirect(sprint.get('id')));
                         }}>
-                    <Glyphicon glyph="glyphicon glyphicon-trash" />
+                    <Glyphicon glyph="glyphicon glyphicon-trash"/>
                 </Button>
             </div>;
+        }
+        return buttonsEditDelete;
+    }
+
+    render() {
+        var sprints = this.props.sprints;
+        var deleteRedirect = this.getDeleteRedirectId.bind(this, sprints);
+
+        var auth = this.props.auth;
+        var buttonAdd = "";
+        if (auth && auth.isAdmin()) {
             buttonAdd = <Button bsStyle="success" onClick={() => {
                         this.props.showModal("Add sprint", <SprintForm action={addSprint} auth={auth} />);
                     }}> + </Button>;
+        }
+
+        if (auth) {
+            auth.on('authentication_done', () => this.forceUpdate());
         }
 
         var sprintsList = sprints.map((sprint) => {
@@ -60,7 +71,7 @@ class SprintList extends Component {
                     <Link to={"/sprint/".concat(sprint.get('id'))} activeClassName='active'>
                         {sprint.get('name')}
                     </Link>
-                    {buttonsEditDelete}
+                    {this.getButtonsEditDelete(sprint)}
                 </li>
             );
         });

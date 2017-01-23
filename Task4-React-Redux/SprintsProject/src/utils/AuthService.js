@@ -1,15 +1,22 @@
 import Auth0Lock from 'auth0-lock'
+import { EventEmitter } from 'events';
+import {browserHistory} from 'react-router';
 
-export default class AuthService {
+export default class AuthService extends EventEmitter {
     constructor(clientId, domain) {
+        super(clientId, domain);
         this.lock = new Auth0Lock(clientId, domain, {
             auth: {
-                redirectUrl: 'http://localhost:3001/',
-                responseType: 'token'
-            }
+                redirectUrl: `${window.location.origin}/login`,
+                responseType: 'token',
+                params: {
+                    scope: 'openid roles'
+                }
+            },
+            closable: false
         });
         this.lock.on('authenticated', this._doAuthentication.bind(this));
-        this.login = this.login.bind(this)
+        this.login = this.login.bind(this);
     }
 
     _doAuthentication(authResult) {
@@ -20,13 +27,22 @@ export default class AuthService {
                 console.log('Error loading the Profile', error)
             } else {
                 this.setProfile(profile);
-                window.location.href = '/';
+                browserHistory.replace(this.getRedirect());
+                this.emit('authentication_done', profile);
             }
         });
     }
 
+    saveRedirect(url) {
+        localStorage.setItem('redirect_url', url)
+    }
+
+    getRedirect() {
+        return localStorage.getItem('redirect_url')
+    }
+
     login() {
-        this.lock.show()
+        this.lock.show();
     }
 
     loggedIn() {
@@ -50,13 +66,12 @@ export default class AuthService {
     logout() {
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
+        localStorage.removeItem('redirect_url');
         window.location.href = '/';
     }
 
     setProfile(profile) {
         localStorage.setItem('profile', JSON.stringify(profile));
-    // Triggers profile_updated event to update the UI
-      //  this.emit('profile_updated', profile)
     }
 
     getProfile() {

@@ -7,7 +7,7 @@ import configureStore from './configureStore';
 import AuthService from "./utils/AuthService";
 
 const store = configureStore();
-const auth = new AuthService('C5HnaCD34kIMqPjdfA6EhUwpcMfp9tVY', 'denis1222223.eu.auth0.com', store.dispatch);
+const auth = new AuthService('C5HnaCD34kIMqPjdfA6EhUwpcMfp9tVY', 'denis1222223.eu.auth0.com');
 
 const component = (
     <Provider store={store}>

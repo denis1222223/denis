@@ -1,7 +1,8 @@
 import React, { PropTypes, Component} from 'react';
-import Auth from '../../Auth'
 import { Link } from 'react-router';
 import Navbar from 'react-bootstrap/lib/Navbar';
+import Nav from 'react-bootstrap/lib/Nav';
+import NavItem from 'react-bootstrap/lib/NavItem';
 
 class Header extends Component {
     constructor(props) {
@@ -10,6 +11,16 @@ class Header extends Component {
 
     render() {
         const { auth } = this.props;
+        var name = "";
+        var logout = "";
+        if (auth) {
+            if (auth.loggedIn()) {
+                var profile = auth.getProfile();
+                name = <NavItem>{profile.name}</NavItem>;
+                logout = <NavItem onClick={() => auth.logout()}>Logout</NavItem>;
+            }
+        }
+
         return (
             <Navbar>
                 <Navbar.Header>
@@ -17,7 +28,10 @@ class Header extends Component {
                         <Link to="/">Sprints Manager</Link>
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Auth auth={auth}/>
+                <Nav pullRight>
+                    {logout}
+                    {name}
+                </Nav>
             </Navbar>
         );
     }
