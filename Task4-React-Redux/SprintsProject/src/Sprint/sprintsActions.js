@@ -17,6 +17,7 @@ export function addSprint(auth, sprint) {
     return dispatch => {
         return fetchCall(dispatch, auth, {url: "sprints", method: "POST", body: sprint}).then(sprint => {
             dispatch(receive(addSprintToState(sprint)));
+            return sprint;
         });
     }
 }
@@ -47,6 +48,7 @@ export function editSprint(auth, sprint) {
     return dispatch => {
         return fetchCall(dispatch, auth, {url: "sprints/" + sprint.id, method: "PUT", body: sprint}).then(sprint => {
             dispatch(receive(editSprintInState(sprint)));
+            return sprint;
         });
     }
 }

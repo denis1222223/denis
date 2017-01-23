@@ -30,10 +30,7 @@ export function fetchCall(dispatch, auth, options) {
 
 export function receive(action) {
     return dispatch => {
-        setTimeout(() => {
-            console.log("отобрази и отключи спиннер");
-            dispatch(action);
-            dispatch(hideSpinner());
-        }, 1000);
+        dispatch(action);
+        dispatch(hideSpinner());
     }
 }

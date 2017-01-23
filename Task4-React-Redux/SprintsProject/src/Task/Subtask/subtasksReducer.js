@@ -7,7 +7,7 @@ export default function(state = Immutable.fromJS([]), action) {
     switch (action.type) {
 
         case GET_ALL_SUBTASKS:
-            return Immutable.fromJS(action.subtasks);
+            return action.subtasks ? Immutable.fromJS(action.subtasks) : state;
 
         case DELETE_SUBTASK:
             return state.filter((subtask) => {

@@ -65,8 +65,11 @@ const mapDispatchToProps = (dispatch) => {
                 var id = sprints[sprints.length - 1].id;
                 if (id) {
                     if (browserHistory.getCurrentLocation().pathname === '/') {
+                        if (auth) {
+                            auth.saveRedirect('/sprint/' + id);
+                        }
+                        localStorage.setItem('redirect_url', '/sprint/' + id)
                         browserHistory.push('/sprint/' + id);
-                        auth.saveRedirect('/sprint/' + id);
                     }
                 }
                 this.setState({showSpinner: false});

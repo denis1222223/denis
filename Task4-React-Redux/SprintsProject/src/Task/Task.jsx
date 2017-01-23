@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router';
 
 import Subtask from '../Task/Subtask';
 import TaskForm from '../Task/TaskForm';
+import Spinner from '../Common/Spinner'
 import { deleteTask, editTask } from '../Task/tasksActions';
 import { addSubtask } from './Subtask/subtasksActions';
 import { showModal } from '../Common/Modal/modalActions';
@@ -95,6 +96,7 @@ class Task extends Component {
                     {subtasksList}
                     {inputs}
                 </Panel>
+                <Spinner />
             </div>
         );
     }

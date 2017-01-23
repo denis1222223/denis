@@ -6,7 +6,7 @@ export default function(state = Immutable.fromJS([]), action) {
     switch (action.type) {
 
         case GET_ALL_TASKS:
-            return Immutable.fromJS(action.tasks);
+            return action.tasks ? Immutable.fromJS(action.tasks) : state;
 
         case ADD_TASK:
             return state.push(new Map(action.task));

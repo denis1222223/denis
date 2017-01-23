@@ -26,7 +26,7 @@ class SprintList extends Component {
         return deleteRedirect;
     }
 
-    getButtonsEditDelete(sprint) {
+    getButtonsEditDelete(sprint, deleteRedirect) {
         var auth = this.props.auth;
         var buttonsEditDelete = "";
         if (auth && auth.isAdmin()) {
@@ -71,7 +71,7 @@ class SprintList extends Component {
                     <Link to={"/sprint/".concat(sprint.get('id'))} activeClassName='active'>
                         {sprint.get('name')}
                     </Link>
-                    {this.getButtonsEditDelete(sprint)}
+                    {this.getButtonsEditDelete(sprint, deleteRedirect)}
                 </li>
             );
         });

@@ -1,6 +1,7 @@
 import React, { PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import moment from 'moment';
 
 import { hideModal } from '../../Common/Modal/modalActions';
@@ -76,8 +77,9 @@ function mapStateToProps (state) {
 const mapDispatchToProps = (dispatch) => {
     return {
        accept: function(auth, sprintInfo, action) {
-           dispatch(action(auth, sprintInfo)).then(() => {
+           dispatch(action(auth, sprintInfo)).then((sprint) => {
                dispatch(hideModal());
+               browserHistory.replace('sprint/' + sprint.id);
            });
        }
     }
