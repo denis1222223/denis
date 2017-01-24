@@ -8,7 +8,7 @@ export default function(state = Immutable.fromJS([]), action) {
     switch (action.type) {
 
         case GET_ALL_SPRINTS:
-            return Immutable.fromJS(action.sprints);
+            return action.sprints ? Immutable.fromJS(action.sprints) : state;
 
         case ADD_SPRINT:
             return state.push(new Map(action.sprint));

@@ -61,10 +61,6 @@ class SprintList extends Component {
                     }}> + </Button>;
         }
 
-        if (auth) {
-            auth.on('authentication_done', () => this.forceUpdate());
-        }
-
         var sprintsList = sprints.map((sprint) => {
             return (
                 <li key={sprint.get('id')}>

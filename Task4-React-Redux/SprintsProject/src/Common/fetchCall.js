@@ -21,9 +21,12 @@ export function fetchCall(dispatch, auth, options) {
         method: options.method, 
         body: JSON.stringify(options.body)
     }).then(response => {
-        return response.json();
+        if (response.ok) {
+            return response.json();
+        }
+        throw new Error();
     }).catch((err) => {
-        console.log(err);
+        console.log(err.message);
         dispatch(hideSpinner());
     });
 }

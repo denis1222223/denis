@@ -18,6 +18,7 @@ namespace SprintsManager.Controllers
             this.service = service;
         }
 
+        [Authorize]
         public IQueryable<Sprint> GetSprints()
         {
             return service.GetAll();

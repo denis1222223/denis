@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route }  from 'react-router';
+import { Route, IndexRedirect }  from 'react-router';
 
 import {getSubtasksByTaskId} from "./Task/Subtask/subtasksActions";
 import {getTasksBySprintId, getTask} from "./Task/tasksActions";
@@ -33,10 +33,11 @@ function requireAuth(auth) {
 
 export default (dispatch, auth) => {
     return (
-        <Route component={App} path='/' auth={auth} >
-            <Route onEnter={requireAuth(auth)} >
-                <Route component={Sprint} path='sprint/:id' onEnter={onSprintEnter(dispatch, auth)} />
-                <Route component={Task} path='task/:id' onEnter={onTaskEnter(dispatch, auth)} />
+        <Route path='/'>
+            <IndexRedirect to='home' />
+            <Route component={App} path='home' auth={auth} onEnter={requireAuth(auth)}>
+                <Route component={Sprint} path='/sprint/:id' onEnter={onSprintEnter(dispatch, auth)} />
+                <Route component={Task} path='/task/:id' onEnter={onTaskEnter(dispatch, auth)} />
             </Route>
             <Route path='login' />
         </Route>

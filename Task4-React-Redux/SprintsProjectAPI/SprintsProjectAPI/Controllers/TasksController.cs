@@ -62,7 +62,8 @@ namespace SprintsManager.Controllers
             await service.Delete(id);
             return Ok(id);    
         }
-        
+
+        [Authorize]
         [Route("api/tasks/bySprintId/{id}")]
         public IQueryable<Task> GetTasksBySprintId(int id)
         {

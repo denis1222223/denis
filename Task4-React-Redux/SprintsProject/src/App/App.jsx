@@ -22,7 +22,16 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this.props.getAllSprints.apply(this, this.props.route.auth);
+        let auth = this.props.route.auth;
+        if (auth) {
+            if (auth.loggedIn()) {
+                this.props.getAllSprints.call(this, auth);
+            }
+            auth.on('logout', (url) => {
+                auth.login();
+                auth.saveRedirect(url);
+            });
+        }
     }
 
     render() {
@@ -64,11 +73,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(getAllSprints(auth)).then((sprints) => {
                 var id = sprints[sprints.length - 1].id;
                 if (id) {
-                    if (browserHistory.getCurrentLocation().pathname === '/') {
-                        if (auth) {
-                            auth.saveRedirect('/sprint/' + id);
-                        }
-                        localStorage.setItem('redirect_url', '/sprint/' + id)
+                    if (browserHistory.getCurrentLocation().pathname === '/home') {
                         browserHistory.push('/sprint/' + id);
                     }
                 }

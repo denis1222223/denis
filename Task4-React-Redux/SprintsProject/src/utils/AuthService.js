@@ -28,7 +28,6 @@ export default class AuthService extends EventEmitter {
             } else {
                 this.setProfile(profile);
                 browserHistory.replace(this.getRedirect());
-                this.emit('authentication_done', profile);
             }
         });
     }
@@ -42,6 +41,7 @@ export default class AuthService extends EventEmitter {
     }
 
     login() {
+        this.saveRedirect(window.location.pathname);
         this.lock.show();
     }
 
@@ -67,7 +67,7 @@ export default class AuthService extends EventEmitter {
         localStorage.removeItem('id_token');
         localStorage.removeItem('profile');
         localStorage.removeItem('redirect_url');
-        window.location.href = '/';
+        this.emit('logout', window.location.pathname);
     }
 
     setProfile(profile) {
