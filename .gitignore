@@ -2,5 +2,12 @@ node_modules/
 .idea/
 npm-debug.log
 **/SprintsProjectAPI/packages/
-**/SprintsProjectAPI/bin
-**/SprintsProjectAPI/obj
+**/SprintsProjectAPI/bin/
+**/SprintsProjectAPI/obj/
+**/SprintsProjectAPI/.vs/
+**/SprintsManager.Data/bin/
+**/SprintsManager.Data/obj/
+**/SprintsManager.Business/bin/
+**/SprintsManager.Business/obj/
+*.mdf
+*.ldf
