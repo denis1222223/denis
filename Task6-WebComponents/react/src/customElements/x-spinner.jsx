@@ -4,19 +4,52 @@ import { render } from 'react-dom';
 class Spinner extends HTMLElement {
     constructor() {
         super();
+        this.shadowRoot = this.createShadowRoot();
+    }
+    
+    attributeChangedCallback(name, oldVal, newVal) {
+        if (name === 'show') {
+            this.render(newVal);
+        }
+        var root = 10;
+      //  this.shadowRoot = root;
+    }
+
+    render(show) {
+        if (show) {
+            console.log("attach");
+         //   this.shadowRoot = this.createShadowRoot();
+            // var shadowRoot = this.createShadowRoot();
+            // render(
+            //     <div className="spinner-wrapper">
+            //         <div className="spinner"></div>
+            //     </div>,
+            //     shadowRoot
+            // );
+            // this.setStyle(shadowRoot);
+        } else {
+            console.log("detach");
+        }
     }
 
     createdCallback() {
-        var shadowRoot = this.createShadowRoot();
 
-        render(
-            <div className="spinner-wrapper">
-                <div className="spinner"></div>
-            </div>,
-            shadowRoot
-        );
+        console.log("created");
+        this.render();
+    }
 
-        shadowRoot.innerHTML += `
+    switch() {
+        var show = this.getAttribute("show");
+        console.log(show);
+        console.log(this.shadowRoot);
+    }
+
+    // attachedCallback() {
+    //     console.log("attach " + this.getAttribute("show"));
+    // }
+
+    setStyle(element) {
+        element.innerHTML += `
             <style>
                 .spinner-wrapper {
                     position: absolute;
