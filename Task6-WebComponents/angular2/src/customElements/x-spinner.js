@@ -4,7 +4,7 @@ class Spinner extends HTMLElement {
     }
 
     createdCallback() {
-        this._count = 0;
+        this._count = 1;
         this.render();
     }
 
@@ -26,7 +26,9 @@ class Spinner extends HTMLElement {
     }
 
     hide() {
-        this._count--;
+        if (this._count > 0) {
+            this._count--;
+        }
         if (this._count === 0) {
             this.setAttribute("hidden", true);
         }

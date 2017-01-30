@@ -5,24 +5,7 @@ import './app.less';
 
 @Component({
     selector: 'my-app',
-    template: `
-        <div>
-            <button (click)="show()">show</button>
-            <button (click)="hide()">hide</button>
-
-            <div class="block block1">
-                <x-spinner></x-spinner>
-            </div>
-
-            <div class="block block2">
-                <x-spinner></x-spinner>
-            </div>
-
-            <div class="block block3">
-                <x-spinner></x-spinner>
-            </div>
-        </div>
-    `
+    templateUrl: "src/app/app.html"
 })
 export default class App {
 
