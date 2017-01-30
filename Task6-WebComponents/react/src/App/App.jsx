@@ -6,18 +6,21 @@ import './app.less';
 
 class App extends React.Component {
 
-    switch() {
+    show() {
         var spinners = document.querySelectorAll('x-spinner');
-        [].forEach.call(spinners, function (spinner) {
-            spinner.switch();
-        });
+        [].forEach.call(spinners, spinner => spinner.show());
+    }
+
+    hide() {
+        var spinners = document.querySelectorAll('x-spinner');
+        [].forEach.call(spinners, spinner => spinner.hide());
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.switch}>Switch</button>
-                <button onClick={this.switch}>Switch</button>
+                <button onClick={this.show}>show</button>
+                <button onClick={this.hide}>hide</button>
 
                 <div className="block block1">
                     <Hello name="World" />
@@ -25,18 +28,17 @@ class App extends React.Component {
                     <Hello name="World" />
                     <Hello name="World" />
                     <Hello name="World" />
-
-                    <x-spinner show="true"></x-spinner>
+                    <x-spinner></x-spinner>
                 </div>
 
                 <div className="block block2">
                     <Hello name="friend" />
-
-                    <x-spinner show="false"></x-spinner>
+                    <x-spinner></x-spinner>
                 </div>
 
                 <div className="block block3">
                     <Hello name="Denis" />
+                    <x-spinner></x-spinner>
                 </div>
             </div>
         );

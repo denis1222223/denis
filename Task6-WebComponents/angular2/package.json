@@ -1,0 +1,39 @@
+{
+  "name": "Angular2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "server": "webpack-dev-server --inline --hot --port 8002"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "css-loader": "^0.26.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "postcss-load-config": "1.0.0",
+    "postcss-loader": "1.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "@angular/common": "^2.1.0",
+    "@angular/core": "^2.1.0",
+    "@angular/compiler": "^2.1.0",
+    "@angular/http": "^2.1.0",
+    "@angular/platform-browser": "^2.1.0",
+    "@angular/platform-browser-dynamic": "^2.1.0",
+    "zone.js": "^0.6.26",
+    "reflect-metadata": "0.1.8",
+    "rxjs": "5.0.0-beta.2"
+  }
+}

@@ -1,6 +1,3 @@
-import React from 'react';
-import { render } from 'react-dom';
-
 class Spinner extends HTMLElement {
     constructor() {
         super();
@@ -12,15 +9,14 @@ class Spinner extends HTMLElement {
 
     render() {
         var shadowRoot = this.createShadowRoot();
-        render(
-            <div className="spinner-wrapper">
-                <div className="spinner"></div>
-            </div>,
-            shadowRoot
-        );
+        shadowRoot.innerHTML += `
+            <div class="spinner-wrapper">
+                <div class="spinner"></div>
+            </div>
+        `;
         this.setStyle(shadowRoot);
     }
-    
+
     show() {
         this.removeAttribute("hidden");
     }
