@@ -22,6 +22,11 @@ class App extends React.Component {
                 <button onClick={this.show}>show</button>
                 <button onClick={this.hide}>hide</button>
 
+                <div className="spinner" style={{border: "solid 1px"}}>
+                    This block has className="spinner" like my custom element x-spinner. 
+                    As you see, it is't spin, cause x-spinner not influence on anything.
+                </div>
+
                 <div className="block block1">
                     <Hello name="World" />
                     <Hello name="World" />
