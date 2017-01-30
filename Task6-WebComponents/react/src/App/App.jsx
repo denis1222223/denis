@@ -34,6 +34,7 @@ class App extends React.Component {
                 <div className="block block2">
                     <Hello name="friend" />
                     <x-spinner></x-spinner>
+                    <div className="spinner" style={{width: "50px", height:"50px"}}>spinner</div>
                 </div>
 
                 <div className="block block3">
