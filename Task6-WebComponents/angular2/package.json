@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "server": "webpack-dev-server --inline --hot --port 8002"
+    "server": "start http://localhost:8002 & webpack-dev-server --inline --hot --port 8002"
   },
   "author": "",
   "license": "ISC",
