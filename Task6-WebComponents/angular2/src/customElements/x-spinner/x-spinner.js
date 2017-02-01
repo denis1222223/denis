@@ -1,47 +1,31 @@
-class Spinner extends HTMLElement {
-    constructor() {
-        super();
-    }
+(function(window, document) {
+    var ownerDocument =  (document._currentScript || document.currentScript).ownerDocument;
+    var template = ownerDocument.querySelector('#template').content;
 
-    createdCallback() {
+    var elementPrototype = Object.create(HTMLElement.prototype);
+
+    elementPrototype.createdCallback = function() {
         this._count = 1;
-        this.render();
-    }
-
-    render() {
         var shadowRoot = this.createShadowRoot();
-        this.setMarkup(shadowRoot);
-        this.setStyle(shadowRoot);
-    }
+        var clone = document.importNode(template, true);
+        shadowRoot.appendChild(clone);
+    };
 
-    show() {
+    elementPrototype.show = function() {
         if (this._count === 0) {
             this.removeAttribute("hidden");
         }
         this._count++;
-    }
+    };
 
-    hide() {
+    elementPrototype.hide = function() {
         if (this._count > 0) {
             this._count--;
         }
         if (this._count === 0) {
             this.setAttribute("hidden", true);
         }
-    }
+    };
 
-    setMarkup(shadowRoot) {
-        var link = document.querySelector('#spinner-markup');
-        var content = link.import.querySelector('.spinner-wrapper');
-        var clone = document.importNode(content, true);
-        shadowRoot.appendChild(clone);
-    }
-    
-    setStyle(element) {
-        element.innerHTML += `
-            <link rel="stylesheet" type="text/css" href="/src/customElements/x-spinner/x-spinner.css" />
-        `;
-    }
-}
-
-export default Spinner;
+    document.registerElement('x-spinner', {prototype: elementPrototype });
+})(window, document);

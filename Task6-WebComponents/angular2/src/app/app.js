@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-
-import '../customElements/x-spinner';
 import './app.less';
 
 @Component({
