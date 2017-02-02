@@ -7,7 +7,6 @@ using SprintsManager.Data.Models.Entities;
 using Owin;
 using Ninject.Web.Common.OwinHost;
 using Ninject.Web.WebApi.OwinHost;
-using SprintsManager.JwtValidation;
 
 namespace SprintsManager
 {
@@ -19,7 +18,7 @@ namespace SprintsManager
 
             FiltersConfig.Register(config);
             RoutesConfig.Register(config);
-            JwtValidationConfig.Register(config);
+            AuthConfig.Register(app);
 
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = 
                 new CamelCasePropertyNamesContractResolver();
